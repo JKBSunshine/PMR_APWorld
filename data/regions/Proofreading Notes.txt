@@ -1,0 +1,35 @@
+Proofreading notes
+
+I took some notes while reviewing my draft of each of the regions.
+Some of this is just so that there's some documentation of how these are set up, and some of this is to note where logic in PMR currently may be different than what I have set up in the regions right now.
+I make note of those differences not necessarily with the idea of them being changed in PMR, since there may be good reason for them to be that way - rather, so that if there is a reason for them being that way, I can change it to match that in AP.
+There may be some that I missed, a game mechanic that I missed or forgot about in the moment, a spot elsewhere in the randomizer code where this is already dealt with, or I may just have made a mistake while going through all of this (I expect all of these things to have happened at some point).
+Please say something if you see something that is off, have questions about how something was done, etc.
+
+General Notes
+	- Added definition for can_hit_grounded_switches, which requires boots, hammer, Parakarry, Bombette, or Kooper. Just an ease of use thing, really.
+	- Added definition for can_reenter_vertical_pipes, which requires boots, Kooper, or Parakarry. Any vertical pipe logically requires this to be satisfied, though there are a couple of cases where you can drop onto pipes. Mostly added this in case of an entrance randomizer that involves pipes, as many of them are forced one-ways without one of these items. In practice, there is only one vertical pipe (that I found/remember) that you can actually land on, that being in the Sewers Scales room. And even that I don't consider possible in logic, since otherwise you're forced to warp out if you don't have Boots or Parakarry and don't land on the pipe.
+	- Region names don't have to match map names, and map names as well as map and area ids are included with each region (multiple regions can exist in one map, but all of those regions can have the same map name). I make mention of this because I renamed a few things to avoid duplicate names (which were mostly cases of the name being too vague in the first place.)
+	- Region names generally default to the map name, with descriptions appended when maps have more than one region. Lower, Upper, cardinal directions, floor numbers, or exits are the main ones you'll see. Example: Goomba King Castle West and Goomba King Castle East.
+	- If one region encapsulates most of the map, with any other regions being just exits, the main region will keep the original map name while the others have descriptions appended. Example: Goomba Village, Goomba Village Pipe, and Goomba Village East Exit.
+	- Pseudoitems in AP terms are events. For those unaware, pseudoitems in PMR are generally flags to denote one of three things. A) You have interacted with someone or something to change the game's state according to vanilla, B) You have interacted with something to change the game's state according to the base mod, C) You have access to a non-item (or an item that is not randomized, e.g. via Tayce T.) that affects your access to other things, including item locations, exits, and other pseudoitems.
+	- I did not fix any typos found in map area names. Not sure if they are left on purpose or have gone unnoticed, but I've left them alone (as much as PyCharm wants me not to.)
+	- I did make an effort to account for future entrance rando, as I mentioned earlier, as well as for Softlock Prevention (including for jumpless, which maybe we should let them softlock and Homeward Shroom to their hearts' content). However, accounting for the former means trying to be as accurate as possible for each map individually; accounting for the latter means taking into account maps beyond the current map to ensure you can't softlock down the line. Aside from basic clerical errors, this is probably the main thing to keep an eye out for if you're trying to proofread this at all.
+
+Prologue
+	- Logically, you can enter behind the village and go west, but if you cannot climb steps, you cannot logically get back without HS. However, logically, you're never going to get here currently without a way to climb steps unless your HS warp is Goomba Village, so it's a non-issue really, at least right now? Left as is.
+	- Mario's House: There's only one check which is Luigi's Autograph, but to get it you have to step off the pipe. To get back on the pipe, you need boots. It's possible to enter the pipe from Toad Town with Parakarry only, or via HS and Kooper, though I wouldn't really consider the latter in logic ever. Left as is.
+
+Toad Town
+	- The item in Odd House (or Blue House, if you prefer) is set to logically require can_climb_steps if entering the house from Southern District, but you could get it without being able to climb steps so long as the door is unlocked. Changed in AP, could be reverted.
+	- MF_Ch4_CanThrowInTrain is logically requires can climb steps, however you can do this without being able to climb steps. Not particularly important since you cannot actually ride the train, regardless of where Toybox is, without can_climb_steps. Changed in AP, could be reverted.
+
+Chapter 1 (Koopa Region, Fortress)
+	- Pleasant Path Bridge when entered from the right without the bridge being built can result in a softlock if jumpless and going for the Kooper Island or Behind Fence items. Left as is.
+	- Battlement Block Behind Rock is a softlock without Boots to get back out of that corner. Left as is.
+
+Chapter 2 (Mt Rugged, Dry Dry Outpost/Desert/Ruins)
+	- Mt Rugged Train Station requires Boots to traverse between exits, but does not require boots to get the items in the bushes. Leaving either exit for the bushes could then result in a softlock. This is actually a pretty common occurrence across Mt Rugged in that checks that don't require climbing steps to get to require climbing steps to return from getting (e.g. Whacka's bump and the item block near Whacka). This is largely a non-issue currently since you cannot reach Mt Rugged from the west without boots, nor from the east without boots or Parakarry. As such I'm going to skip over checking/mentioning any more of those.
+	- On the note of the east exit of Mt Rugged, there are currently no requirements to go from the east to the west on the Entrance map that is between Dry Dry Desert and Suspension Bridge when it should be can_climb_steps. Changed in AP, could be reverted.
+
+I don't remember there being much of anything past this, but chances are there are a few more. I'm sure someone will point them out or perhaps I'll notice while going through them again in the future.
