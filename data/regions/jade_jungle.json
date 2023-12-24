@@ -1,0 +1,518 @@
+[
+  {
+    "region_name": "Whale Cove",
+    "area_id": "17",
+    "map_id": "0",
+    "map_name": "Whale Cove",
+    "locations": {
+      "Whale Cove Over Flower 1": "can_climb_steps",
+      "Whale Cove Over Flower 2": "can_climb_steps",
+      "Whale Cove Behind Bush": "True",
+      "Whale Cove In Palm Tree": "can_shake_trees"
+    },
+    "exits": {
+      "Riding the Whale": "True",
+      "Beach": "True",
+      "Whale Cove NE Exit": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Whale Cove NE Exit",
+    "area_id": "17",
+    "map_id": "0",
+    "map_name": "Whale Cove",
+    "exits": {
+      "SW Jungle (Super Block)": "True",
+      "Whale Cove": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Beach",
+    "area_id": "17",
+    "map_id": "1",
+    "map_name": "Beach",
+    "locations": {
+      "Beach On The Rocks": "can_climb_steps",
+      "Beach Over Flower 1": "can_climb_steps",
+      "Beach Over Flower 2": "can_climb_steps",
+      "Beach Hidden Block Left": "can_see_hidden_blocks and can_hit_floating_blocks",
+      "Beach Hidden Block Right": "can_see_hidden_blocks and can_hit_floating_blocks",
+      "Beach In Palm Tree 1": "can_shake_trees",
+      "Beach In Palm Tree 2": "can_shake_trees",
+      "Beach In Palm Tree 3": "can_shake_trees",
+      "Beach In Palm Tree 4": "can_shake_trees",
+      "Beach In Palm Tree 5": "can_shake_trees",
+      "Beach In Palm Tree 6": "can_shake_trees",
+      "Beach In Palm Tree 6 2": "can_shake_trees"
+    },
+    "exits": {
+      "Whale Cove": "True",
+      "Village Cove": "True"
+    }
+  },
+  {
+    "region_name": "Village Cove",
+    "area_id": "17",
+    "map_id": "2",
+    "map_name": "Village Cove",
+    "events": {
+      "RF_YoshiKidsMissing": "True",
+      "StarPiece_JAN_1": "True",
+      "StarPiece_JAN_8": "True"
+    },
+    "locations": {
+      "Village Cove Hidden Panel": "can_flip_panels",
+      "Village Cove Village Leader Reward": "saved_all_yoshikids",
+      "Village Cove In Palm Tree Left": "can_shake_trees",
+      "Village Cove In Palm Tree Right": "can_shake_trees"
+    },
+    "exits": {
+      "Beach": "True",
+      "Village Buildings": "True"
+    }
+  },
+  {
+    "region_name": "Village Buildings",
+    "area_id": "17",
+    "map_id": "3",
+    "map_name": "Village Buildings",
+    "events": {
+      "RF_YoshiKidsMissing": "True",
+      "StarPiece_JAN_1": "True",
+      "StarPiece_JAN_8": "True"
+    },
+    "locations": {
+      "Village Buildings Kolorado Volcano Vase Reward": "saved_all_yoshikids and Volcano_Vase and 'MF_Ch5_RescuedStarSpirit'",
+      "Village Buildings Yellow Yoshi Food Reward": "saved_all_yoshikids and 'RF_CanVisitTayceT' and 'RF_CanCook' and 'MF_Ch5_RescuedStarSpirit'",
+      "Village Buildings Red Yoshi Kid Letter Reward": "'RF_SavedYoshiKid_3' and Parakarry and Letter21",
+      "Village Buildings In Palm Tree": "can_shake_trees",
+      "Village Buildings Shop Item 1": "can_climb_steps",
+      "Village Buildings Shop Item 2": "can_climb_steps",
+      "Village Buildings Shop Item 3": "can_climb_steps",
+      "Village Buildings Shop Item 4": "can_climb_steps",
+      "Village Buildings Shop Item 5": "can_climb_steps",
+      "Village Buildings Shop Item 6": "can_climb_steps"
+    },
+    "exits": {
+      "Village Cove": "True",
+      "SE Jungle (Quake Hammer) East": "True",
+      "Path to the Volcano": "True",
+      "Village Buildings Pipe": "'GF_TIK08_WarpPipe' and Boots"
+    }
+  },
+  {
+    "region_name": "Village Buildings Pipe",
+    "area_id": "17",
+    "map_id": "3",
+    "map_name": "Village Buildings",
+    "exits": {
+      "Second Level Entry (B2) Blue Pipe": "can_reenter_vertical_pipes",
+      "Village Buildings": "True"
+    }
+  },
+  {
+    "region_name": "Sushi Tree",
+    "area_id": "17",
+    "map_id": "4",
+    "map_name": "Sushi Tree",
+    "locations": {
+      "Sushi Tree In Volcano Chest": "'MF_Ch5_RescuedStarSpirit'",
+      "Sushi Tree On Island": "Sushie",
+      "Sushi Tree In Island Tree": "can_shake_trees and Sushie",
+      "Sushi Tree Sushie Partner": "can_shake_trees"
+    },
+    "exits": {
+      "SE Jungle (Quake Hammer) East": "True"
+    }
+  },
+  {
+    "region_name": "SE Jungle (Quake Hammer) East",
+    "area_id": "17",
+    "map_id": "5",
+    "map_name": "SE Jungle (Quake Hammer)",
+    "locations": {
+      "SE Jungle (Quake Hammer) Red Block": "Sushie and can_hit_floating_blocks",
+      "SE Jungle (Quake Hammer) Bush (Bottom Right)": "True",
+      "SE Jungle (Quake Hammer) In Tree (Right)": "can_shake_trees"
+    },
+    "exits": {
+      "Village Buildings": "True",
+      "Sushi Tree": "True",
+      "SW Jungle (Super Block) SW": "Sushie",
+      "SE Jungle (Quake Hammer) West": "'GF_JAN05_CreateLogBridge'"
+    }
+  },
+  {
+    "region_name": "SE Jungle (Quake Hammer) West",
+    "area_id": "17",
+    "map_id": "5",
+    "map_name": "SE Jungle (Quake Hammer)",
+    "events": {
+      "GF_JAN05_CreateLogBridge": "Hammer",
+      "RF_SavedYoshiKid_1": "'RF_YoshiKidsMissing' and Hammer"
+    },
+    "locations": {
+      "SE Jungle (Quake Hammer) Bush (Bottom Left)": "True"
+    },
+    "exits": {
+      "NE Jungle (Raven Statue) South": "True",
+      "SE Jungle (Quake Hammer) East": "'GF_JAN05_CreateLogBridge''"
+    }
+  },
+  {
+    "region_name": "NE Jungle (Raven Statue) South",
+    "area_id": "17",
+    "map_id": "6",
+    "map_name": "NE Jungle (Raven Statue)",
+    "exits": {
+      "SE Jungle (Quake Hammer) West": "True",
+      "NE Jungle (Raven Statue) East": "Sushie",
+      "NE Jungle (Raven Statue) North": "Sushie"
+    }
+  },
+  {
+    "region_name": "NE Jungle (Raven Statue) East",
+    "area_id": "17",
+    "map_id": "6",
+    "map_name": "NE Jungle (Raven Statue)",
+    "exits": {
+      "Small Jungle Ledge": "True",
+      "NE Jungle (Raven Statue) South": "Sushie",
+      "NE Jungle (Raven Statue) North": "Sushie",
+      "NE Jungle (Raven Statue) West": "'GF_JAN06_CreateLogBridge'"
+    }
+  },
+  {
+    "region_name": "NE Jungle (Raven Statue) North",
+    "area_id": "17",
+    "map_id": "6",
+    "map_name": "NE Jungle (Raven Statue)",
+    "locations": {
+      "NE Jungle (Raven Statue) In Tree (Top Left)": "can_shake_trees",
+      "NE Jungle (Raven Statue) Underwater": "Sushie"
+    },
+    "exits": {
+      "Deep Jungle 1": "Jade_Raven",
+      "NE Jungle (Raven Statue) East": "Sushie",
+      "NE Jungle (Raven Statue) South": "Sushie"
+    }
+  },
+  {
+    "region_name": "NE Jungle (Raven Statue) West",
+    "area_id": "17",
+    "map_id": "6",
+    "map_name": "NE Jungle (Raven Statue)",
+    "events": {
+      "GF_JAN06_CreateLogBridge": "Hammer"
+    },
+    "exits": {
+      "NW Jungle (Large Ledge) SE": "True",
+      "NE Jungle (Raven Statue) East": "'GF_JAN06_CreateLogBridge'"
+    }
+  },
+  {
+    "region_name": "Small Jungle Ledge",
+    "area_id": "17",
+    "map_id": "7",
+    "map_name": "Small Jungle Ledge",
+    "events": {
+      "RF_SavedYoshiKid_2": "'RF_YoshiKidsMissing'"
+    },
+    "locations": {
+      "Small Jungle Ledge In Tree": "can_shake_trees"
+    },
+    "exits": {
+      "NE Jungle (Raven Statue) East": "True"
+    }
+  },
+  {
+    "region_name": "SW Jungle (Super Block) SW",
+    "area_id": "17",
+    "map_id": "8",
+    "map_name": "SW Jungle (Super Block)",
+    "events": {
+      "RF_SavedYoshiKid_3": "'RF_YoshiKidsMissing'"
+    },
+    "locations": {
+      "SW Jungle (Super Block) Bush (Bottom Left)": "True"
+    },
+    "exits": {
+      "Whale Cove NE Exit": "True",
+      "SW Jungle (Super Block) NE": "Sushie"
+    }
+  },
+  {
+    "region_name": "SW Jungle (Super Block) NE",
+    "area_id": "17",
+    "map_id": "8",
+    "map_name": "SW Jungle (Super Block)",
+    "locations": {
+      "SW Jungle (Super Block) Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks",
+      "SW Jungle (Super Block) Bush (Top Right)": "True",
+      "SW Jungle (Super Block) In Tree (Top)": "can_shake_trees",
+      "SW Jungle (Super Block) In Tree (Right)": "can_shake_trees",
+      "SW Jungle (Super Block) Underwater 1": "Sushie",
+      "SW Jungle (Super Block) Underwater 2": "Sushie",
+      "SW Jungle (Super Block) Underwater 3": "Sushie"
+    },
+    "exits": {
+      "NW Jungle (Large Ledge) SE": "True",
+      "SW Jungle (Super Block) SW": "Sushie"
+    }
+  },
+  {
+    "region_name": "NW Jungle (Large Ledge) SE",
+    "area_id": "17",
+    "map_id": "9",
+    "map_name": "NW Jungle (Large Ledge)",
+    "locations": {
+      "NW Jungle (Large Ledge) Bush 1": "True",
+      "NW Jungle (Large Ledge) Bush 2": "True",
+      "NW Jungle (Large Ledge) In Tree Right": "can_shake_trees"
+    },
+    "exits": {
+      "SW Jungle (Super Block) NE": "True",
+      "NE Jungle (Raven Statue) West": "True",
+      "NW Jungle (Large Ledge) NW": "Sushie",
+      "Western Dead End": "Sushie"
+    }
+  },
+  {
+    "region_name": "NW Jungle (Large Ledge) NW",
+    "area_id": "17",
+    "map_id": "9",
+    "map_name": "NW Jungle (Large Ledge)",
+    "exits": {
+      "Western Dead End": "Sushie",
+      "NW Jungle (Large Ledge) SE": "Sushie",
+      "NW Jungle (Large Ledge) Ledge": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "NW Jungle (Large Ledge) Ledge",
+    "area_id": "17",
+    "map_id": "9",
+    "map_name": "NW Jungle (Large Ledge)",
+    "locations": {
+      "NW Jungle (Large Ledge) In Tree On Ledge": "can_shake_trees"
+    },
+    "exits": {
+      "NW Jungle (Large Ledge) Pipe": "Boots",
+      "NW Jungle (Large Ledge) NW": "True"
+    }
+  },
+  {
+    "region_name": "NW Jungle (Large Ledge) Pipe",
+    "area_id": "17",
+    "map_id": "9",
+    "map_name": "NW Jungle (Large Ledge)",
+    "exits": {
+      "Root Cavern": "can_reenter_vertical_pipes",
+      "NW Jungle (Large Ledge) Ledge": "True"
+    }
+  },
+  {
+    "region_name": "Western Dead End",
+    "area_id": "17",
+    "map_id": "10",
+    "map_name": "Western Dead End",
+    "events": {
+      "RF_SavedYoshiKid_4": "'RF_YoshiKidsMissing' and Sushie and Hammer"
+    },
+    "locations": {
+      "Western Dead End Underwater": "Sushie"
+    },
+    "exits": {
+      "NW Jungle (Large Ledge)": "True"
+    }
+  },
+  {
+    "region_name": "Root Cavern",
+    "area_id": "17",
+    "map_id": "11",
+    "map_name": "Root Cavern",
+    "events": {
+      "RF_SavedYoshiKid_5": "'RF_YoshiKidsMissing' and Watt and Boots"
+    },
+    "exits": {
+      "NW Jungle (Large Ledge)": "True"
+    }
+  },
+  {
+    "region_name": "Deep Jungle 1",
+    "area_id": "17",
+    "map_id": "12",
+    "map_name": "Deep Jungle 1",
+    "locations": {
+      "Deep Jungle 1 In Tree (Vine)": "Boots",
+      "Deep Jungle 1 In Tree (Hit)": "can_climb_steps and can_shake_trees",
+      "Deep Jungle 1 Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks and can_climb_steps"
+    },
+    "exits": {
+      "NE Jungle (Raven Statue) North": "True",
+      "Deep Jungle 2 (Block Puzzle)": "True"
+    }
+  },
+  {
+    "region_name": "Deep Jungle 2 (Block Puzzle)",
+    "area_id": "17",
+    "map_id": "13",
+    "map_name": "Deep Jungle 2 (Block Puzzle)",
+    "locations": {
+      "Deep Jungle 2 (Block Puzzle) Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks and can_climb_steps",
+      "Deep Jungle 2 (Block Puzzle) In Tree (Left)": "can_shake_trees"
+    },
+    "exits": {
+      "Deep Jungle 1": "True",
+      "Deep Jungle 3": "True"
+    }
+  },
+  {
+    "region_name": "Deep Jungle 3",
+    "area_id": "17",
+    "map_id": "14",
+    "map_name": "Deep Jungle 3",
+    "locations": {
+      "Deep Jungle 3 Tree Vine Second Left": "Boots",
+      "Deep Jungle 3 Tree Vine Far Right": "Boots"
+    },
+    "exits": {
+      "Deep Jungle 2 (Block Puzzle)": "True",
+      "Deep Jungle 4 (Ambush)": "Boots"
+    }
+  },
+  {
+    "region_name": "Deep Jungle 4 (Ambush)",
+    "area_id": "17",
+    "map_id": "15",
+    "map_name": "Deep Jungle 4 (Ambush)",
+    "locations": {
+      "Deep Jungle 4 (Ambush) In Tree (Right)": "can_shake_trees",
+      "Deep Jungle 4 (Ambush) Hidden Panel": "can_flip_panels"
+    },
+    "exits": {
+      "Deep Jungle 3": "True",
+      "Base of Great Tree West": "True"
+    }
+  },
+  {
+    "region_name": "Base of Great Tree West",
+    "area_id": "17",
+    "map_id": "16",
+    "map_name": "Base of Great Tree",
+    "events": {
+      "MF_Ch5_RafaelMovedRoot": "'MF_Ch5_TalkedToRafael'"
+    },
+    "exits": {
+      "Deep Jungle 4 (Ambush)": "True",
+      "Lower Great Tree Interior Bottom Door": "True",
+      "Base of Great Tree East": "'MF_Ch5_TalkedToRafael'"
+    }
+  },
+  {
+    "region_name": "Base of Great Tree East",
+    "area_id": "17",
+    "map_id": "16",
+    "map_name": "Base of Great Tree",
+    "exits": {
+      "Path to the Volcano": "True",
+      "Base of Great Tree West": "True"
+    }
+  },
+  {
+    "region_name": "Lower Great Tree Interior Bottom Door",
+    "area_id": "17",
+    "map_id": "17",
+    "map_name": "Lower Great Tree Interior",
+    "exits": {
+      "Base of Great Tree West": "True",
+      "Lower Great Tree Interior Upper Door": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Lower Great Tree Interior Upper Door",
+    "area_id": "17",
+    "map_id": "17",
+    "map_name": "Lower Great Tree Interior",
+    "exits": {
+      "Great Tree Vine Ascent": "True",
+      "Lower Great Tree Interior Bottom Door": "True"
+    }
+  },
+  {
+    "region_name": "Great Tree Vine Ascent",
+    "area_id": "17",
+    "map_id": "18",
+    "map_name": "Great Tree Vine Ascent",
+    "locations": {
+      "Great Tree Vine Ascent End Of Vine": "True"
+    },
+    "exits": {
+      "Lower Great Tree Interior": "True",
+      "Upper Great Tree Interior": "True"
+    }
+  },
+  {
+    "region_name": "Upper Great Tree Interior Lower Door",
+    "area_id": "17",
+    "map_id": "19",
+    "map_name": "Upper Great Tree Interior",
+    "exits": {
+      "Great Tree Vine Ascent": "True",
+      "Upper Great Tree Interior Upper Door": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Upper Great Tree Interior Upper Door",
+    "area_id": "17",
+    "map_id": "19",
+    "map_name": "Upper Great Tree Interior",
+    "exits": {
+      "Great Treetop Roost": "True",
+      "Upper Great Tree Interior Lower Door": "True"
+    }
+  },
+  {
+    "region_name": "Path to the Volcano",
+    "area_id": "17",
+    "map_id": "20",
+    "map_name": "Path to the Volcano",
+    "events": {
+      "MF_Ch5_ZiplineBuilt": "'MF_Ch5_RafaelMovedRoot'",
+      "STARSPIRIT_5": "'MF_Ch5_FoundEscapeRoute'",
+      "MF_Ch5_RescuedStarSpirit": "'MF_Ch5_FoundEscapeRoute'"
+    },
+    "locations": {
+      "Path to the Volcano Raphael Gift": "'MF_Ch5_RafaelMovedRoot'",
+      "Path to the Volcano Behind Tree": "True"
+    },
+    "exits": {
+      "Village Buildings": "True",
+      "Base of Great Tree": "'MF_Ch5_RafaelMovedRoot",
+      "Path to the Volcano Entrance": "'MF_Ch5_ZiplineBuilt' and can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Path to the Volcano Entrance",
+    "area_id": "17",
+    "map_id": "20",
+    "map_name": "Path to the Volcano",
+    "exits": {
+      "Volcano Entrance": "True",
+      "Path to the Volcano": "'MF_Ch5_ZiplineBuilt'"
+    }
+  },
+  {
+    "region_name": "Great Treetop Roost",
+    "area_id": "17",
+    "map_id": "21",
+    "map_name": "Great Treetop Roost",
+    "events": {
+      "MF_Ch5_TalkedToRafael": "True"
+    },
+    "exits": {
+      "Upper Great Tree Interior Upper Door": "True",
+      "Base of Great Tree West": "True"
+    }
+  }
+]

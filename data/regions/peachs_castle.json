@@ -1,0 +1,184 @@
+[
+  {
+    "region_name": "Entry Hall (1F)",
+    "area_id": "4",
+    "map_id": "4",
+    "map_name": "Entry Hall (1F)",
+    "exits": {
+      "Hijacked Castle Entrance": "True",
+      "Upper Hall (2F)": "True",
+      "Inactive Quiz-Off (1F)": "True",
+      "Kitchen (1F)": "True",
+      "Guest Room (1F)": "True"
+    }
+  },
+  {
+    "region_name": "Upper Hall (2F)",
+    "area_id": "4",
+    "map_id": "5",
+    "map_name": "Upper Hall (2F)",
+    "exits": {
+      "Entry Hall (1F)": "True",
+      "Stairs Hallway (3F)": "True",
+      "Library (2F)": "True",
+      "Passage Outlet (2F)": "True",
+      "Peach's Room (2F)": "True",
+      "Storeroom (2F)": "True",
+      "Dining Room (2F)": "True"
+    }
+  },
+  {
+    "region_name": "Stairs Hallway (3F)",
+    "area_id": "4",
+    "map_id": "6",
+    "map_name": "Stairs Hallway (3F)",
+    "exits": {
+      "Upper Hall (2F)": "True",
+      "Window Hallway (4F)": "True"
+    }
+  },
+  {
+    "region_name": "Window Hallway (4F)",
+    "area_id": "4",
+    "map_id": "7",
+    "map_name": "Window Hallway (4F)",
+    "exits": {
+      "Stairs Hallway (3F)": "True",
+      "Double Staircase (4F)": "True"
+    }
+  },
+  {
+    "region_name": "Peach's Room (2F)",
+    "area_id": "4",
+    "map_id": "8",
+    "map_name": "Peach's Room (2F)",
+    "exits": {
+      "Upper Hall (2F)": "True",
+      "Balcony (2F)": "True"
+    }
+  },
+  {
+    "region_name": "Passage Outlet (2F)",
+    "area_id": "4",
+    "map_id": "9",
+    "map_name": "Passage Outlet (2F)",
+    "exits": {
+      "Upper Hall (2F)": "True"
+    }
+  },
+  {
+    "region_name": "Library (2F)",
+    "area_id": "4",
+    "map_id": "10",
+    "map_name": "Library (2F)",
+    "locations": {
+      "Library (2F) Upper Level": "can_climb_steps",
+      "Library (2F) Between Bookshelves": "True"
+    },
+    "exits": {
+      "Upper Hall (2F)": "True"
+    }
+  },
+  {
+    "region_name": "Storeroom (2F)",
+    "area_id": "4",
+    "map_id": "11",
+    "map_name": "Storeroom (2F)",
+    "locations": {
+      "Storeroom (2F) On The Ground": "True"
+    },
+    "exits": {
+      "Upper Hall (2F)": "True"
+    }
+  },
+  {
+    "region_name": "Dining Room (2F)",
+    "area_id": "4",
+    "map_id": "12",
+    "map_name": "Dining Room (2F)",
+    "exits": {
+      "Upper Hall (2F)": "True"
+    }
+  },
+  {
+    "region_name": "Kitchen (1F)",
+    "area_id": "4",
+    "map_id": "13",
+    "map_name": "Kitchen (1F)",
+    "exits": {
+      "Entry Hall (1F)": "True"
+    }
+  },
+  {
+    "region_name": "Guest Room (1F)",
+    "area_id": "4",
+    "map_id": "14",
+    "map_name": "Guest Room (1F)",
+    "locations": {
+      "Guest Room (1F) In Chest": "True"
+    },
+    "exits": {
+      "Entry Hall (1F)": "True"
+    }
+  },
+  {
+    "region_name": "Inactive Quiz-Off (1F)",
+    "area_id": "4",
+    "map_id": "15",
+    "map_name": "Inactive Quiz-Off (1F)",
+    "exits": {
+      "Entry Hall (1F)": "True"
+    }
+  },
+  {
+    "region_name": "Double Staircase (4F)",
+    "area_id": "4",
+    "map_id": "16",
+    "map_name": "Double Staircase (4F)",
+    "exits": {
+      "Window Hallway (4F)": "True",
+      "Rooftop (5F)": "True"
+    }
+  },
+  {
+    "region_name": "Rooftop (5F)",
+    "area_id": "4",
+    "map_id": "17",
+    "map_name": "Rooftop (5F)",
+    "exits": {
+      "Double Staircase (4F)": "True",
+      "Tower Staircase (5F)": "True"
+    }
+  },
+  {
+    "region_name": "Tower Staircase (5F)",
+    "area_id": "4",
+    "map_id": "18",
+    "map_name": "Tower Staircase (5F)",
+    "exits": {
+      "Rooftop (5F)": "True",
+      "Final Boss Arena (6F)": "True"
+    }
+  },
+  {
+    "region_name": "Final Boss Arena (6F)",
+    "area_id": "4",
+    "map_id": "19",
+    "map_name": "Final Boss Arena (6F)",
+    "events": {
+      "YOUWIN": "'RF_HasStarbeam'"
+    },
+    "exits": {
+      "Tower Staircase (5F)": "True"
+    }
+  },
+  {
+    "region_name": "Balcony (2F)",
+    "area_id": "4",
+    "map_id": "20",
+    "map_name": "Balcony (2F)",
+    "exits": {
+      "Peach's Room (2F)": "True"
+    }
+  }
+]

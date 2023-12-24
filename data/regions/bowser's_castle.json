@@ -1,0 +1,820 @@
+[
+  {
+    "region_name": "Dark Cave 1 Lower",
+    "area_id": "22",
+    "map_id": "0",
+    "map_name": "Dark Cave 1",
+    "exits": {
+      "Lava Channel 3": "True",
+      "Dark Cave 1 Upper": "Parakarry"
+    }
+  },
+  {
+    "region_name": "Dark Cave 1 Upper",
+    "area_id": "22",
+    "map_id": "0",
+    "map_name": "Dark Cave 1",
+    "locations": {
+      "Dark Cave 1 Yellow Block": "can_hit_floating_blocks"
+    },
+    "exits": {
+      "Dark Cave 2 Lower": "True",
+      "Dark Cave 1 Lower": "True"
+    }
+  },
+  {
+    "region_name": "Dark Cave 2 Lower",
+    "area_id": "22",
+    "map_id": "1",
+    "map_name": "Dark Cave 2",
+    "locations": {
+      "Dark Cave 2 Yellow Block": "can_hit_floating_blocks"
+    },
+    "exits": {
+      "Dark Cave 1 Upper": "True",
+      "Dark Cave 2 Upper": "Parakarry"
+    }
+  },
+  {
+    "region_name": "Dark Cave 2 Upper",
+    "area_id": "22",
+    "map_id": "1",
+    "map_name": "Dark Cave 2",
+    "exits": {
+      "Cave Exit": "True",
+      "Dark Cave 2 Lower": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Cave Exit",
+    "area_id": "22",
+    "map_id": "2",
+    "map_name": "Cave Exit",
+    "exits": {
+      "Dark Cave 2 Upper": "True",
+      "Guard Door 1 North Exit": "True"
+    }
+  },
+  {
+    "region_name": "Castle Key Timing Puzzle",
+    "area_id": "22",
+    "map_id": "3",
+    "map_name": "Castle Key Timing Puzzle",
+    "exits": {
+      "Split Level Hall Upper Door": "True",
+      "Castle Key Timing Puzzle 2": "(Kooper or Bombette) and Boots"
+    }
+  },
+  {
+    "region_name": "Castle Key Timing Puzzle East Door",
+    "area_id": "22",
+    "map_id": "3",
+    "map_name": "Castle Key Timing Puzzle",
+    "exits": {
+      "Castle Key Room": "True",
+      "Castle Key Timing Puzzle": "True"
+    }
+  },
+  {
+    "region_name": "Ultra Shroom Timing Puzzle West Door",
+    "area_id": "22",
+    "map_id": "4",
+    "map_name": "Ultra Shroom Timing Puzzle",
+    "exits": {
+      "Ultra Shroom Room": "True",
+      "Ultra Shroom Timing Puzzle": "True"
+    }
+  },
+  {
+    "region_name": "Ultra Shroom Timing Puzzle",
+    "area_id": "22",
+    "map_id": "4",
+    "map_name": "Ultra Shroom Timing Puzzle",
+    "exits": {
+      "Upper Grand Hall Upper": "True",
+      "Ultra Shroom Timing Puzzle West Door": "Bombette and Boots"
+    }
+  },
+  {
+    "region_name": "Outside Lower Jail East",
+    "area_id": "22",
+    "map_id": "5",
+    "map_name": "Outside Lower Jail",
+    "exits": {
+      "Lava Channel 1 West": "True",
+      "Lower Jail": "True"
+    }
+  },
+  {
+    "region_name": "Outside Lower Jail Lava",
+    "area_id": "22",
+    "map_id": "5",
+    "map_name": "Outside Lower Jail",
+    "locations": {
+      "Outside Lower Jail Yellow Block": "(Lakilester or 'GF_KPA16_ShutOffLava') and can_hit_floating_blocks"
+    },
+    "exits": {
+      "Front Door Exterior Lava": "(Lakilester or 'GF_KPA16_ShutOffLava')",
+      "Lava Channel 1 Lava": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+    }
+  },
+  {
+    "region_name": "Outside Lower Jail West",
+    "area_id": "22",
+    "map_id": "6",
+    "map_name": "Outside Lower Jail",
+    "locations": {
+      "Outside Lower Jail Defeat Koopatrol Reward": "True"
+    },
+    "exits": {
+      "Front Door Exterior": "True"
+    }
+  },
+  {
+    "region_name": "Lava Channel 1 West",
+    "area_id": "22",
+    "map_id": "7",
+    "map_name": "Lava Channel 1",
+    "exits": {
+      "Outside Lower Jail East": "True",
+      "Lava Channel 1 East": "Boots",
+      "Lava Channel 1 Lava": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+    }
+  },
+  {
+    "region_name": "Lava Channel 1 East",
+    "area_id": "22",
+    "map_id": "7",
+    "map_name": "Lava Channel 1",
+    "exits": {
+      "Lava Channel 2 West": "True",
+      "Lava Channel 1 West": "(can_climb_steps or 'GF_KPA16_ShutOffLava')"
+    }
+  },
+  {
+    "region_name": "Lava Channel 1 Lava",
+    "area_id": "22",
+    "map_id": "7",
+    "map_name": "Lava Channel 1",
+    "exits": {
+      "Outside Lower Jail Lava": "(Lakilester or 'GF_KPA16_ShutOffLava')",
+      "Lava Channel 1 West": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+    }
+  },
+  {
+    "region_name": "Lava Channel 2 West",
+    "area_id": "22",
+    "map_id": "8",
+    "map_name": "Lava Channel 2",
+    "exits": {
+      "Lava Channel 1 East": "True",
+      "Lava Channel 2 East": "(Parakarry or 'GF_KPA16_ShutOffLava') and (Lakilester or Boots or 'GF_KPA16_ShutOffLava') and can_climb_steps",
+      "Lava Channel 2 Central Exit": "can_climb_steps and (Lakilester or 'GF_KPA16_ShutOffLava')"
+    }
+  },
+  {
+    "region_name": "Lava Channel 2 East",
+    "area_id": "22",
+    "map_id": "8",
+    "map_name": "Lava Channel 2",
+    "exits": {
+      "Lava Channel 3 West": "True",
+      "Lava Channel 2 West": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+    }
+  },
+  {
+    "region_name": "Lava Channel 2 Central Exit",
+    "area_id": "22",
+    "map_id": "8",
+    "map_name": "Lava Channel 2",
+    "exits": {
+      "Lava Key Room": "True",
+      "Lava Channel 2 West": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+    }
+  },
+  {
+    "region_name": "Lava Channel 3 West",
+    "area_id": "22",
+    "map_id": "9",
+    "map_name": "Lava Channel 3",
+    "locations": {
+      "Lava Channel 3 On Island 1": "(Lakilester and can_climb_steps and (Parakarry or Kooper)) or (can_climb_steps and 'GF_KPA16_ShutOffLava')",
+      "Lava Channel 3 On Island 2": "'GF_KPA16_ShutOffLava' and Boots"
+    },
+    "exits": {
+      "Lava Channel 2 East": "True",
+      "Lava Channel 3 East Exit": "'GF_KPA16_ShutOffLava' and can_climb_steps",
+      "Lava Channel 3 Central Exit": "('GF_KPA16_ShutOffLava' or (Lakilester and Bow and Parakarry)) and can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Lava Channel 3 East Exit",
+    "area_id": "22",
+    "map_id": "9",
+    "map_name": "Lava Channel 3",
+    "exits": {
+      "Dark Cave 1 Lower": "(Bowser_Castle_Key, 2)",
+      "Lava Channel 3 West": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+    }
+  },
+  {
+    "region_name": "Lava Channel 3 Central Exit",
+    "area_id": "22",
+    "map_id": "9",
+    "map_name": "Lava Channel 3",
+    "exits": {
+      "Lava Control Room": "True",
+      "Lava Channel 3 West": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+    }
+  },
+  {
+    "region_name": "Lava Key Room",
+    "area_id": "22",
+    "map_id": "10",
+    "map_name": "Lava Key Room",
+    "locations": {
+      "Lava Key Room In Chest": "'GF_KPA16_ShutOffLava' and can_climb_steps"
+    },
+    "exits": {
+      "Lava Channel 2 Central Exit": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+    }
+  },
+  {
+    "region_name": "Lava Control Room",
+    "area_id": "22",
+    "map_id": "11",
+    "map_name": "Lava Control Room",
+    "events": {
+      "GF_KPA16_ShutOffLava": "Lakilester and can_climb_steps"
+    },
+    "exits": {
+      "Lava Channel 3 Central Exit": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+    }
+  },
+  {
+    "region_name": "Lower Jail",
+    "area_id": "22",
+    "map_id": "12",
+    "map_name": "Lower Jail",
+    "locations": {
+      "Lower Jail In Crate 1": "Super_Boots",
+      "Lower Jail In Crate 2": "Super_Boots"
+    },
+    "exits": {
+      "Outside Lower Jail East": "Bombette"
+    }
+  },
+  {
+    "region_name": "Lower Grand Hall Lower",
+    "area_id": "22",
+    "map_id": "13",
+    "map_name": "Lower Grand Hall",
+    "exits": {
+      "Guard Door 1": "True",
+      "Stairs to East Upper Jail": "True",
+      "Lower Grand Hall Upper": "Boots"
+    }
+  },
+  {
+    "region_name": "Lower Grand Hall Upper",
+    "area_id": "22",
+    "map_id": "13",
+    "map_name": "Lower Grand Hall",
+    "exits": {
+      "Hall to Water Puzzle": "True",
+      "Castle Item Shop": "True",
+      "Lower Grand Hall Lower": "True"
+    }
+  },
+  {
+    "region_name": "Upper Grand Hall Lower",
+    "area_id": "22",
+    "map_id": "14",
+    "map_name": "Upper Grand Hall",
+    "exits": {
+      "Stairs to West Upper Jail": "True",
+      "Castle Battlement Upper Door": "True",
+      "Upper Grand Hall Upper": "Boots"
+    }
+  },
+  {
+    "region_name": "Upper Grand Hall Upper",
+    "area_id": "22",
+    "map_id": "14",
+    "map_name": "Upper Grand Hall",
+    "exits": {
+      "Split Level Hall": "True",
+      "Ultra Shroom Timing Puzzle": "True",
+      "Upper Grand Hall Lower": "True"
+    }
+  },
+  {
+    "region_name": "Maze Guide Room Lower",
+    "area_id": "22",
+    "map_id": "15",
+    "map_name": "Maze Guide Room",
+    "exits": {
+      "Split Level Hall": "True",
+      "Maze Guide Room Upper": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Maze Guide Room Upper",
+    "area_id": "22",
+    "map_id": "15",
+    "map_name": "Maze Guide Room",
+    "exits": {
+      "Maze Room Upper": "True",
+      "Maze Guide Room Lower": "True"
+    }
+  },
+  {
+    "region_name": "Maze Room Lower",
+    "area_id": "22",
+    "map_id": "16",
+    "map_name": "Maze Room",
+    "exits": {
+      "Maze Room Upper": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Maze Room Upper",
+    "area_id": "22",
+    "map_id": "16",
+    "map_name": "Maze Room",
+    "exits": {
+      "Maze Guide Room": "True",
+      "Blue Fire Bridge": "True",
+      "Maze Room Lower": "True"
+    }
+  },
+  {
+    "region_name": "Hall to Guard Door 1",
+    "area_id": "22",
+    "map_id": "17",
+    "map_name": "Hall to Guard Door 1",
+    "exits": {
+      "Entry Lava Hall": "True",
+      "Guard Door 1": "True"
+    }
+  },
+  {
+    "region_name": "Hall to Water Puzzle",
+    "area_id": "22",
+    "map_id": "18",
+    "map_name": "Hall to Water Puzzle",
+    "exits": {
+      "Lower Grand Hall Upper": "True",
+      "Left Water Puzzle": "True"
+    }
+  },
+  {
+    "region_name": "Split Level Hall",
+    "area_id": "22",
+    "map_id": "19",
+    "map_name": "Split Level Hall",
+    "exits": {
+      "Upper Grand Hall Upper": "True",
+      "Maze Guide Room Lower": "(Bowser_Castle_Key,5)",
+      "Split Level Hall Upper Door": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Split Level Hall Upper Door",
+    "area_id": "22",
+    "map_id": "19",
+    "map_name": "Split Level Hall",
+    "exits": {
+      "Castle Key Timing Puzzle": "True",
+      "Split Level Hall": "True"
+    }
+  },
+  {
+    "region_name": "Fake Peach Hallway",
+    "area_id": "22",
+    "map_id": "20",
+    "map_name": "Fake Peach Hallway",
+    "exits": {
+      "Blue Fire Bridge": "True",
+      "Guard Door 3": "(Boots or Hammer or Kooper or Bombette)"
+    }
+  },
+  {
+    "region_name": "Ship Enter/Exit Scenes",
+    "area_id": "22",
+    "map_id": "21",
+    "map_name": "Ship Enter/Exit Scenes",
+    "exits": {
+      "Riding Star Ship Scene": "True",
+      "Hangar": "True"
+    }
+  },
+  {
+    "region_name": "Castle Battlement Lower Door",
+    "area_id": "22",
+    "map_id": "22",
+    "map_name": "Battlement",
+    "locations": {
+      "Battlement Yellow Block Left": "can_hit_floating_blocks",
+      "Battlement Yellow Block Center": "can_hit_floating_blocks",
+      "Battlement Yellow Block Right": "can_hit_floating_blocks"
+    },
+    "exits": {
+      "Guard Door 2": "True",
+      "Castle Battlement Upper Door": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Castle Battlement Upper Door",
+    "area_id": "22",
+    "map_id": "22",
+    "map_name": "Battlement",
+    "locations": {
+      "Battlement On Ledge": "True"
+    },
+    "exits": {
+      "Upper Grand Hall Lower": "True",
+      "Castle Battlement Lower Door": "True"
+    }
+  },
+  {
+    "region_name": "Front Door Exterior",
+    "area_id": "22",
+    "map_id": "23",
+    "map_name": "Front Door Exterior",
+    "exits": {
+      "Entry Lava Hall": "(Bowser_Castle_Key, 1)",
+      "Outside Lower Jail West": "True",
+      "Hangar": "True"
+    }
+  },
+  {
+    "region_name": "Front Door Exterior Lava",
+    "area_id": "22",
+    "map_id": "23",
+    "map_name": "Front Door Exterior",
+    "exits": {
+      "Outside Lower Jail Lava": "True"
+    }
+  },
+  {
+    "region_name": "Hangar",
+    "area_id": "22",
+    "map_id": "24",
+    "map_name": "Hangar",
+    "exits": {
+      "Front Door Exterior": "True",
+      "Ship Enter/Exit Scenes": "True"
+    }
+  },
+  {
+    "region_name": "Entry Lava Hall",
+    "area_id": "22",
+    "map_id": "25",
+    "map_name": "Entry Lava Hall",
+    "exits": {
+      "Front Door Exterior": "True",
+      "Hall to Guard Door 1": "True"
+    }
+  },
+  {
+    "region_name": "Guard Door 1",
+    "area_id": "22",
+    "map_id": "26",
+    "map_name": "Guard Door 1",
+    "exits": {
+      "Hall to Guard Door 1": "True",
+      "Lower Jail": "Bombette and Lakilester and Parakarry and Bow",
+      "Lower Grand Hall Lower": "'RF_Ch8_FirstGuardDoor'",
+      "Guard Door 1 North Exit": "'RF_Ch8_FirstGuardDoor'"
+    }
+  },
+  {
+    "region_name": "Guard Door 1 North Exit",
+    "area_id": "22",
+    "map_id": "26",
+    "map_name": "Guard Door 1",
+    "events": {
+      "RF_Ch8_FirstGuardDoor": "True"
+    },
+    "exits": {
+      "Cave Exit": "True",
+      "Guard Door 1": "True"
+    }
+  },
+  {
+    "region_name": "Guard Door 2",
+    "area_id": "22",
+    "map_id": "27",
+    "map_name": "Guard Door 2",
+    "exits": {
+      "Room with Hidden Door 2": "True",
+      "Castle Battlement Lower": "True"
+    }
+  },
+  {
+    "region_name": "Guard Door 3",
+    "area_id": "22",
+    "map_id": "28",
+    "map_name": "Guard Door 3",
+    "exits": {
+      "Fake Peach Hallway": "True",
+      "Exit to Peach's Castle": "True"
+    }
+  },
+  {
+    "region_name": "Stairs to East Upper Jail",
+    "area_id": "22",
+    "map_id": "29",
+    "map_name": "Stairs to East Upper Jail",
+    "exits": {
+      "Lower Grand Hall Lower": "True",
+      "East Upper Jail": "True"
+    }
+  },
+  {
+    "region_name": "East Upper Jail",
+    "area_id": "22",
+    "map_id": "30",
+    "map_name": "East Upper Jail",
+    "locations": {
+      "East Upper Jail Defeat Koopatrol Reward": "True"
+    },
+    "exits": {
+      "Stairs to East Upper Jail": "True"
+    }
+  },
+  {
+    "region_name": "Stairs to West Upper Jail",
+    "area_id": "22",
+    "map_id": "31",
+    "map_name": "Stairs to West Upper Jail",
+    "exits": {
+      "West Upper Jail": "True",
+      "Upper Grand Hall Lower": "True"
+    }
+  },
+  {
+    "region_name": "West Upper Jail",
+    "area_id": "22",
+    "map_id": "32",
+    "map_name": "West Upper Jail",
+    "locations": {
+      "West Upper Jail Defeat Koopatrol Reward": "True"
+    },
+    "exits": {
+      "Stairs to West Upper Jail": "True"
+    }
+  },
+  {
+    "region_name": "Castle Item Shop",
+    "area_id": "22",
+    "map_id": "33",
+    "map_name": "Item Shop",
+    "locations": {
+      "Item Shop Shop Item 1": "True",
+      "Item Shop Shop Item 2": "True",
+      "Item Shop Shop Item 3": "True",
+      "Item Shop Shop Item 4": "True",
+      "Item Shop Shop Item 5": "True",
+      "Item Shop Shop Item 6": "True"
+    },
+    "exits": {
+      "Lower Grand Hall Upper": "True"
+    }
+  },
+  {
+    "region_name": "Castle Key Room",
+    "area_id": "22",
+    "map_id": "34",
+    "map_name": "Castle Key Room",
+    "locations": {
+      "Castle Key Room On The Ground": "True"
+    },
+    "exits": {
+      "Castle Key Timing Puzzle": "True"
+    }
+  },
+  {
+    "region_name": "Ultra Shroom Room",
+    "area_id": "22",
+    "map_id": "35",
+    "map_name": "Ultra Shroom Room",
+    "locations": {
+      "Ultra Shroom Room On The Ground": "can_climb_steps"
+    },
+    "exits": {
+      "Ultra Shroom Timing Puzzle": "True"
+    }
+  },
+  {
+    "region_name": "Blue Fire Bridge",
+    "area_id": "22",
+    "map_id": "36",
+    "map_name": "Blue Fire Bridge",
+    "exits": {
+      "Maze Room Upper": "True",
+      "Fake Peach Hallway": "True"
+    }
+  },
+  {
+    "region_name": "Room with Hidden Door 1",
+    "area_id": "22",
+    "map_id": "37",
+    "map_name": "Room with Hidden Door 1",
+    "locations": {
+      "Room with Hidden Door 1 Yellow Block": "can_hit_floating_blocks",
+      "Room with Hidden Door 1 Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks"
+    },
+    "exits": {
+      "Bill Blaster Hall": "True",
+      "Hidden Passage 1": "True"
+    }
+  },
+  {
+    "region_name": "Hidden Passage 1",
+    "area_id": "22",
+    "map_id": "38",
+    "map_name": "Hidden Passage 1",
+    "exits": {
+      "Room with Hidden Door 1": "True",
+      "Room with Hidden Door 2": "True"
+    }
+  },
+  {
+    "region_name": "Room with Hidden Door 2",
+    "area_id": "22",
+    "map_id": "39",
+    "map_name": "Room with Hidden Door 2",
+    "exits": {
+      "Hidden Passage 1": "True",
+      "Guard Door 2": "(Bowser_Castle_Key, 4)",
+      "Hidden Passage 2": "True"
+    }
+  },
+  {
+    "region_name": "Hidden Passage 2",
+    "area_id": "22",
+    "map_id": "40",
+    "map_name": "Hidden Passage 2",
+    "exits": {
+      "Room with Hidden Door 2": "True",
+      "Room with Hidden Door 3": "True"
+    }
+  },
+  {
+    "region_name": "Room with Hidden Door 3",
+    "area_id": "22",
+    "map_id": "41",
+    "map_name": "Room with Hidden Door 3",
+    "exits": {
+      "Hidden Passage 2": "True",
+      "Dead End Passage": "True",
+      "Hidden Passage 3": "True"
+    }
+  },
+  {
+    "region_name": "Dead End Passage",
+    "area_id": "22",
+    "map_id": "42",
+    "map_name": "Dead End Passage",
+    "exits": {
+      "Room with Hidden Door 3": "True",
+      "Dead End Room": "True"
+    }
+  },
+  {
+    "region_name": "Dead End Room",
+    "area_id": "22",
+    "map_id": "43",
+    "map_name": "Dead End Room",
+    "exits": {
+      "Dead End Passage": "True"
+    }
+  },
+  {
+    "region_name": "Hidden Passage 3",
+    "area_id": "22",
+    "map_id": "44",
+    "map_name": "Hidden Passage 3",
+    "exits": {
+      "Room with Hidden Door 3": "True",
+      "Hidden Key Room": "True"
+    }
+  },
+  {
+    "region_name": "Hidden Key Room",
+    "area_id": "22",
+    "map_id": "45",
+    "map_name": "Hidden Key Room",
+    "locations": {
+      "Hidden Key Room On The Ground": "can_climb_steps"
+    },
+    "exits": {
+      "Hidden Passage 3": "True"
+    }
+  },
+  {
+    "region_name": "Exit to Peach's Castle",
+    "area_id": "22",
+    "map_id": "46",
+    "map_name": "Exit to Peach's Castle",
+    "exits": {
+      "Guard Door 3": "True",
+      "Hijacked Castle Entrance": "True"
+    }
+  },
+  {
+    "region_name": "Bill Blaster Hall Lower",
+    "area_id": "22",
+    "map_id": "47",
+    "map_name": "Bill Blaster Hall",
+    "exits": {
+      "Right Water Puzzle": "True",
+      "Bill Blaster Hall 2": "Boots"
+    }
+  },
+  {
+    "region_name": "Bill Blaster Hall Upper",
+    "area_id": "22",
+    "map_id": "47",
+    "map_name": "Bill Blaster Hall",
+    "exits": {
+      "Room with Hidden Door 1": "True",
+      "Bill Blaster Hall Lower": "True"
+    }
+  },
+  {
+    "region_name": "Left Water Puzzle 1F",
+    "area_id": "22",
+    "map_id": "48",
+    "map_name": "Left Water Puzzle",
+    "exits": {
+      "Hall to Water Puzzle": "True",
+      "Right Water Puzzle": "True"
+    }
+  },
+  {
+    "region_name": "Right Water Puzzle 1F",
+    "area_id": "22",
+    "map_id": "49",
+    "map_name": "Right Water Puzzle",
+    "exits": {
+      "Left Water Puzzle 1F": "True",
+      "Bill Blaster Hall Lower": "(Bowser_Castle_Key, 3)",
+      "Right Water Puzzle 2F": "Sushie and can_climb_steps and can_hit_floating_blocks"
+    }
+  },
+  {
+    "region_name": "Right Water Puzzle 2F",
+    "area_id": "22",
+    "map_id": "49",
+    "map_name": "Right Water Puzzle",
+    "exits": {
+      "Left Water Puzzle 2F": "Sushie",
+      "Right Water Puzzle 1F": "Sushie and can_hit_floating_blocks"
+    }
+  },
+  {
+    "region_name": "Left Water Puzzle 2F",
+    "area_id": "22",
+    "map_id": "48",
+    "map_name": "Left Water Puzzle",
+    "locations": {
+      "Left Water Puzzle Top Left Ledge": "Sushie and 'RF_WaterLevel2'"
+    },
+    "exits": {
+      "Left Water Puzzle 3F": "Sushie and Bombette and can_climb_steps",
+      "Right Water Puzzle 2F": "Sushie"
+    }
+  },
+  {
+    "region_name": "Left Water Puzzle 3F",
+    "area_id": "22",
+    "map_id": "48",
+    "map_name": "Left Water Puzzle",
+    "locations": {
+      "Left Water Puzzle Top Left Ledge": "Sushie and 'RF_WaterLevel2'"
+    },
+    "exits": {
+      "Right Water Puzzle 3F": "True",
+      "Right Water Puzzle": "True"
+    }
+  },
+  {
+    "region_name": "Right Water Puzzle 3F",
+    "area_id": "22",
+    "map_id": "48",
+    "map_name": "Left Water Puzzle",
+    "events": {
+      "RF_WaterLevel2": "can_see_hidden_blocks and Ultra_Boots"
+    },
+    "locations": {
+      "Right Water Puzzle Hidden Block": "can_see_hidden_blocks and Ultra_Boots"
+    },
+    "exits": {
+      "Right Water Puzzle 3F": "Bombette",
+      "Right Water Puzzle 2F": "can_hit_floating_blocks"
+    }
+  }
+]

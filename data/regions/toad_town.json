@@ -1,0 +1,301 @@
+[
+  {
+    "region_name": "Gate District",
+    "area_id": "1",
+    "map_id": "1",
+    "map_name": "Gate District",
+    "events": {
+      "RF_RadioTradeEvt1Done": "'RF_RadioTradeEvt1' and Koopa_Leaf",
+      "RF_CanVisitRussT": "True"
+    },
+    "locations": {
+      "Gate District Hidden Panel": "can_flip_panels",
+      "Gate District Sushie Island": "Sushie",
+      "Gate District Russ T. Dictionary Reward": "Dictionary",
+      "Gate District Russ T. Letter Reward": "Parakarry and Letter04",
+      "Gate District Miss T. Letter Reward": "Parakarry and Letter18",
+      "Gate District Radio Trade Event 1 Reward": "'RF_RadioTradeEvt1' and Koopa_Leaf",
+      "Gate District Shop Item 1": "True",
+      "Gate District Shop Item 2": "True",
+      "Gate District Shop Item 3": "True",
+      "Gate District Shop Item 4": "True",
+      "Gate District Shop Item 5": "True",
+      "Gate District Shop Item 6": "True",
+      "Gate District Dojo: Chan": "(Boots or Goombario or Watt or Sushie)",
+      "Gate District Dojo: Lee": "(starspirits, 1) and (Boots or Goombario or Watt or Sushie)",
+      "Gate District Dojo: Master 1": "(starspirits, 3) and (Boots or Goombario or Watt or Sushie)",
+      "Gate District Dojo: Master 2": "(starspirits, 4) and (Boots or Goombario or Watt or Sushie)",
+      "Gate District Dojo: Master 3": "(starspirits, 5) and (Boots or Goombario or Watt or Sushie)"
+    },
+    "exits": {
+      "Toad Town Entrance East": "True",
+      "Plaza District": "True",
+      "Gate District Island": "Sushie",
+      "Gate District Mario's House Pipe": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Gate District Island Pipe",
+    "area_id": "1",
+    "map_id": "1",
+    "map_name": "Gate District",
+    "exits": {
+      "Under the Toad Town Pond": "can_reenter_vertical_pipes",
+      "Gate District Island": "True"
+    }
+  },
+  {
+    "region_name": "Gate District Island",
+    "area_id": "1",
+    "map_id": "1",
+    "map_name": "Gate District",
+    "exits": {
+      "Gate District Island Pipe": "can_climb_steps",
+      "Gate District": "Sushie"
+    }
+  },
+  {
+    "region_name": "Gate District Mario's House Pipe",
+    "area_id": "1",
+    "map_id": "1",
+    "map_name": "Gate District",
+    "exits": {
+      "Mario's House Pipe": "can_reenter_vertical_pipes",
+      "Gate District": "True"
+    }
+  },
+  {
+    "region_name": "Plaza District",
+    "area_id": "1",
+    "map_id": "2",
+    "map_name": "Plaza District",
+    "events": {
+      "RF_CanReadToadTownNews": "True",
+      "StarPiece_MAC_1": "True",
+      "StarPiece_MAC_5": "(starspirits, 2)",
+      "StarPiece_MAC_9": "(starspirits, 4)",
+      "StarPiece_MAC_13": "(starspirits, 6)"
+    },
+    "locations": {
+      "Plaza District Merlon House Stomping": "Super_Boots",
+      "Plaza District Rowf's Calculator Reward": "Calculator",
+      "Plaza District Postmaster MailBag Reward": "Mailbag",
+      "Plaza District Merlon Letter Reward": "Parakarry and Letter01",
+      "Plaza District Minh T. Letter Reward": "Parakarry and Letter09",
+      "Plaza District In Tree": "can_shake_trees",
+      "Plaza District Rowf's Shop Set 1 - 1": "True",
+      "Plaza District Rowf's Shop Set 1 - 2": "True",
+      "Plaza District Rowf's Shop Set 1 - 3": "True",
+      "Plaza District Rowf's Shop Set 1 - 4": "True",
+      "Plaza District Rowf's Shop Set 2 - 1": "(starspirits, 1)",
+      "Plaza District Rowf's Shop Set 2 - 2": "(starspirits, 1)",
+      "Plaza District Rowf's Shop Set 2 - 3": "(starspirits, 1)",
+      "Plaza District Rowf's Shop Set 3 - 1": "(starspirits, 2)",
+      "Plaza District Rowf's Shop Set 3 - 2": "(starspirits, 2)",
+      "Plaza District Rowf's Shop Set 3 - 3": "(starspirits, 2)",
+      "Plaza District Rowf's Shop Set 4 - 1": "(starspirits, 3)",
+      "Plaza District Rowf's Shop Set 4 - 2": "(starspirits, 3)",
+      "Plaza District Rowf's Shop Set 4 - 3": "(starspirits, 3)",
+      "Plaza District Rowf's Shop Set 5 - 1": "(starspirits, 4)",
+      "Plaza District Rowf's Shop Set 5 - 2": "(starspirits, 4)",
+      "Plaza District Rowf's Shop Set 5 - 3": "(starspirits, 4)"
+    },
+    "exits": {
+      "Gate District": "True",
+      "Pleasant Path Entry": "True",
+      "Ruined Castle Grounds": "True",
+      "Southern District": "True",
+      "Fields Center": "(Magical_Seed1 or 'RF_MagicalSeed1') and (Magical_Seed2 or 'RF_MagicalSeed2') and (Magical_Seed3 or 'RF_MagicalSeed3') and (Magical_Seed4 or 'RF_MagicalSeed4')"
+    }
+  },
+  {
+    "region_name": "Southern District",
+    "area_id": "1",
+    "map_id": "3",
+    "map_name": "Southern District",
+    "events": {
+      "GF_MAC02_UnlockedHouse": "Odd_Key",
+      "RF_CanCook": "Frying_Pan",
+      "RF_CanVisitTayceT": "True",
+      "Koopa_Tea": "'RF_CanCook' and Koopa_Leaf",
+      "Nutty_Cake": "'RF_CanCook' and Goomnut",
+      "Cake": "'RF_CanCook' and Cake_Mix",
+      "Lemon_Candy": "'RF_CanCook' and Cookbook and Cake_Mix and Lemon",
+      "Koopasta": "'RF_CanCook' and Cookbook and Koopa_Leaf and (Dried_Pasta or 'Dried_Pasta')",
+      "Kooky_Cookie": "'RF_CanCook' and Cookbook and Koopa_Leaf and Cake_Mix",
+      "Life_Shroom": "'RF_CanCook' and Cookbook and Super_Shroom and (Koopa_Leaf or Goomnut)",
+      "Sleepy_Sheep": "'RF_CanCook' and Cookbook and Strange_Leaf and (Blue_Berry or Yellow_Berry or Red_Berry)",
+      "Tasty_Tonic": "'RF_CanCook' and (Lemon or Lime or Coconut or (Cookbook and Bubble_Berry))"
+    },
+    "locations": {
+      "Southern District Bub-ulb Gift": "can_climb_steps",
+      "Southern District Tayce T. Frying Pan Reward": "Frying_Pan",
+      "Southern District Fice T. Letter Reward": "Parakarry and Letter07",
+      "Southern District Fice T. Forest Pass": "'RF_ClosedForest'",
+      "Southern District Hidden Panel": "can_flip_panels"
+    },
+    "exits": {
+      "Residental District": "True",
+      "Exit to Toad Town": "True",
+      "Plaza District": "True",
+      "Station District": "True",
+      "Southern District Sewers Pipe": "can_climb_steps",
+      "Southern District Odd House": "'GF_MAC02_UnlockedHouse'"
+    }
+  },
+  {
+    "region_name": "Southern District Sewers Pipe",
+    "area_id": "1",
+    "map_id": "3",
+    "map_name": "Southern District",
+    "exits": {
+      "Sewer Entrance (B1)": "can_reenter_vertical_pipes",
+      "Southern District": "True"
+    }
+  },
+  {
+    "region_name": "Southern District Odd House",
+    "area_id": "1",
+    "map_id": "3",
+    "map_name": "Southern District",
+    "events": {
+      "GF_MAC02_UnlockedHouse": "Odd_Key"
+    },
+    "locations": {
+      "Southern District Inside Blue House": "True"
+    },
+    "exits": {
+      "Southern District": "'GF_MAC02_UnlockedHouse'",
+      "Southern District Odd House Pipe": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Southern District Odd House Pipe",
+    "area_id": "1",
+    "map_id": "3",
+    "map_name": "Southern District",
+    "exits": {
+      "Rip Cheato's Home (B3)": "can_reenter_vertical_pipes",
+      "Southern District Odd House": "True"
+    }
+  },
+  {
+    "region_name": "Station District",
+    "area_id": "1",
+    "map_id": "4",
+    "map_name": "Station District",
+    "events": {
+      "GF_MAC03_BombedRock": "Bombette"
+    },
+    "locations": {
+      "Station District Dane T. Letter Reward 1": "Parakarry and Letter20 and Boots",
+      "Station District Dane T. Letter Reward 2": "Parakarry and Letter22 and Boots",
+      "Station District Hidden Panel": "can_flip_panels"
+    },
+    "exits": {
+      "Southern District": "True",
+      "Station District Train": "'GF_MAC03_BombedRock'",
+      "Station District Pipe": "can_shake_trees and can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Station District Train",
+    "area_id": "1",
+    "map_id": "4",
+    "map_name": "Station District",
+    "events": {
+      "GF_MAC03_BombedRock": "True"
+    },
+    "exits": {
+      "Train Ride Scene": "True",
+      "Station District": "True"
+    }
+  },
+  {
+    "region_name": "Station District Pipe",
+    "area_id": "1",
+    "map_id": "4",
+    "map_name": "Station District",
+    "exits": {
+      "Playroom Lobby": "can_reenter_vertical_pipes",
+      "Station District": "True"
+    }
+  },
+  {
+    "region_name": "Residental District",
+    "area_id": "1",
+    "map_id": "5",
+    "map_name": "Residental District",
+    "events": {
+      "StarPiece_MAC_1": "True",
+      "StarPiece_MAC_5": "(starspirits, 2)",
+      "StarPiece_MAC_9": "(starspirits, 4)",
+      "StarPiece_MAC_13": "(starspirits, 6)"
+    },
+    "locations": {
+      "Residental District Storeroom Item 1": "Storeroom_Key",
+      "Residental District Storeroom Item 2": "Storeroom_Key",
+      "Residental District Storeroom Item 3": "Storeroom_Key",
+      "Residental District Storeroom Item 4": "Storeroom_Key",
+      "Residental District Shop Item 1": "True",
+      "Residental District Shop Item 2": "True",
+      "Residental District Shop Item 3": "True",
+      "Residental District Shop Item 4": "True",
+      "Residental District Shop Item 5": "True",
+      "Residental District Shop Item 6": "True"
+    },
+    "exits": {
+      "Southern District": "True",
+      "Port District": "True",
+      "Residental District Toybox Room": "(Bow or 'RF_ToyboxOpen')"
+    }
+  },
+  {
+    "region_name": "Residental District Toybox Room",
+    "area_id": "1",
+    "map_id": "5",
+    "map_name": "Residental District",
+    "events": {
+      "MF_Ch4_CanThrowInTrain": "True"
+    },
+    "exits": {
+      "BLU Station": "can_climb_steps",
+      "Residental District": "True"
+    }
+  },
+  {
+    "region_name": "Port District",
+    "area_id": "1",
+    "map_id": "6",
+    "map_name": "Port District",
+    "events": {
+      "RF_RadioTradeEvt3Done": "'RF_RadioTradeEvt3' and Coconut",
+      "StarPiece_MAC_1": "True",
+      "StarPiece_MAC_5": "(starspirits, 2)",
+      "StarPiece_MAC_9": "(starspirits, 4)",
+      "StarPiece_MAC_13": "(starspirits, 6)"
+    },
+    "locations": {
+      "Port District Poet Gift": "True",
+      "Port District Poet Melody Reward": "Melody",
+      "Port District Fishmael Letter Reward": "Parakarry and Letter15",
+      "Port District Radio Trade Event 3 Reward": "'RF_RadioTradeEvt3' and Coconut",
+      "Port District Hidden Panel": "can_flip_panels"
+    },
+    "exits": {
+      "Residental District": "True",
+      "Riding the Whale": "'RF_CanRideWhale'",
+      "Whale Mouth": "(Hammer or Super_Boots or Bombette)"
+    }
+  },
+  {
+    "region_name": "Riding the Whale",
+    "area_id": "1",
+    "map_id": "7",
+    "map_name": "Riding the Whale",
+    "exits": {
+      "Port District": "True",
+      "Whale Cove": "True"
+    }
+  }
+]

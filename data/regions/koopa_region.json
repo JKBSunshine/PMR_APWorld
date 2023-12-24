@@ -1,0 +1,339 @@
+[
+  {
+    "region_name": "Koopa Village 1",
+    "area_id": "6",
+    "map_id": "0",
+    "map_name": "Koopa Village 1",
+    "events": {
+      "StarPiece_NOK_1": "True",
+      "StarPiece_NOK_8": "True",
+      "RF_RadioTradeEvt1": "(starspirits, 1) and 'RF_Ch1_Fuzzies_Banished'",
+      "RF_RadioTradeEvt2": "(starspirits, 3) and 'RF_RadioTradeEvt1Done'",
+      "RF_RadioTradeEvt3": "(starspirits, 5) and 'RF_RadioTradeEvt2Done'"
+    },
+    "locations": {
+      "Koopa Village 1 Bush Far Left": "True",
+      "Koopa Village 1 Bush Left Front": "True",
+      "Koopa Village 1 Bush Infront Of Tree": "True",
+      "Koopa Village 1 Bush Second From Right": "True",
+      "Koopa Village 1 Bush Second From Left (Koopa Koot Favor)": "'FAVOR_6_01_active'",
+      "Koopa Village 1 Bush Far Right (Koopa Koot Favor)": "'FAVOR_3_01_active'",
+      "Koopa Village 1 Hidden Panel": "can_flip_panels",
+      "Koopa Village 1 Mort T. Letter Reward": "Parakarry and Letter03",
+      "Koopa Village 1 Koover Letter Reward 1": "'RF_Ch1_Fuzzies_Banished' and Parakarry and Letter14",
+      "Koopa Village 1 Koover Letter Reward 2": "'RF_Ch1_Fuzzies_Banished' and Parakarry and Letter16",
+      "Koopa Village 1 Shop Item 1": "True",
+      "Koopa Village 1 Shop Item 2": "True",
+      "Koopa Village 1 Shop Item 3": "True",
+      "Koopa Village 1 Shop Item 4": "True",
+      "Koopa Village 1 Shop Item 5": "True",
+      "Koopa Village 1 Shop Item 6": "True"
+    },
+    "exits": {
+      "Pleasant Crossroads Lower": "True",
+      "Koopa Village 2": "True"
+    }
+  },
+  {
+    "region_name": "Koopa Village 2",
+    "area_id": "6",
+    "map_id": "1",
+    "map_name": "Koopa Village 2",
+    "events": {
+      "FAVOR_1_01_done": "Koot_Koopa_Legends and 'RF_Ch1_Fuzzies_Banished'",
+      "FAVOR_1_02_done": "'FAVOR_1_01_done' and Sleepy_Sheep or 'Sleepy_Sheep'",
+      "FAVOR_2_01_done": "'FAVOR_1_02_done' and Koot_The_Tape and (starspirits, 1)",
+      "FAVOR_2_02_done": "'FAVOR_2_01_done' and 'Koopa_Tea'",
+      "FAVOR_2_03_done": "'FAVOR_2_02_done' and Koot_Luigi_Autograph",
+      "FAVOR_3_01_done": "'FAVOR_2_03_done' and Koot_Empty_Wallet and (starspirits, 2)",
+      "FAVOR_3_02_done": "'FAVOR_3_01_done' and (Tasty_Tonic or 'Tasty_Tonic'",
+      "FAVOR_3_03_done": "'FAVOR_3_02_done' and Koot_Merluvlee_Autograph",
+      "FAVOR_4_01_done": "'FAVOR_3_03_done' and 'RF_CanReadToadTownNews' and (starspirits, 3)",
+      "FAVOR_4_02_done": "'FAVOR_4_01_done' and (Life_Shroom or 'Life_Shroom')",
+      "FAVOR_4_03_done": "'FAVOR_4_02_done' and 'Nutty_Cake'",
+      "FAVOR_5_01_done": "'FAVOR_4_03_done' and 'MF_Ch1_RescuedStarSpirit' and Bombette and (starspirits, 4)",
+      "FAVOR_5_02_done": "'FAVOR_5_01_done' and Koot_Old_Photo",
+      "FAVOR_5_03_done": "'FAVOR_5_02_done' and 'Koopasta'",
+      "FAVOR_6_01_done": "'FAVOR_5_03_done' and Koot_Glasses and (starspirits, 5)",
+      "FAVOR_6_02_done": "'FAVOR_6_01_done' and Lime",
+      "FAVOR_6_03_done": "'FAVOR_6_02_done' and 'Kooky_Cookie'",
+      "FAVOR_7_01_done": "'FAVOR_6_03_done' and Koot_Package and (starspirits, 6)",
+      "FAVOR_7_02_done": "'FAVOR_7_01_done' and Coconut",
+      "FAVOR_7_03_done": "'FAVOR_7_02_done' and Koot_Red_Jar",
+      "FAVOR_1_01_active": "'RF_Ch1_Fuzzies_Banished'",
+      "FAVOR_2_01_active": "'FAVOR_1_02_done' and (starspirits, 1)",
+      "FAVOR_2_03_active": "'FAVOR_2_02_done'",
+      "FAVOR_3_01_active": "'FAVOR_2_03_done' and (starspirits, 2)",
+      "FAVOR_3_03_active": "'FAVOR_3_02_done'",
+      "FAVOR_5_02_active": "'FAVOR_5_01_done'",
+      "FAVOR_6_01_active": "'FAVOR_5_03_done' and (starspirits, 5)",
+      "FAVOR_7_01_active": "'FAVOR_6_03_done' and (starspirits, 6)",
+      "StarPiece_NOK_1": "'RF_Ch1_Fuzzies_Banished'",
+      "StarPiece_NOK_8": "'RF_Ch1_Fuzzies_Banished'"
+    },
+    "locations": {
+      "Koopa Village 2 Kolorado's Wife (Koopa Koot Favor)": "'RF_Ch1_Fuzzies_Banished'",
+      "Koopa Village 2 Push Block Puzzle": "can_climb_steps and can_hit_floating_blocks and 'RF_Ch1_Fuzzies_Banished'",
+      "Koopa Village 2 Bush Far Left": "True",
+      "Koopa Village 2 Bush Far Right": "True",
+      "Koopa Village 2 Kooper Partner": "Kooper_Shell",
+      "Koopa Village 2 Kolorado Artifact Reward": "Artifact and ('RF_CanVisitDesertCamp' or 'RF_Ch2_SavedStarSpirit') and 'RF_Ch1_Fuzzies_Banished'",
+      "Koopa Village 2 Kolorado Letter Reward": "Parakarry and Letter25 and ('RF_CanVisitDesertCamp' or 'RF_Ch2_SavedStarSpirit') and 'RF_Ch1_Fuzzies_Banished'",
+      "Koopa Village 2 Koopa Koot Reward 1": "'FAVOR_1_01_done'",
+      "Koopa Village 2 Koopa Koot Reward 2": "'FAVOR_1_02_done'",
+      "Koopa Village 2 Koopa Koot Silver Credit": "'FAVOR_1_02_done'",
+      "Koopa Village 2 Koopa Koot Reward 3": "'FAVOR_2_01_done'",
+      "Koopa Village 2 Koopa Koot Reward 4": "'FAVOR_2_02_done'",
+      "Koopa Village 2 Koopa Koot Reward 5": "'FAVOR_2_03_done'",
+      "Koopa Village 2 Koopa Koot Reward 6": "'FAVOR_3_01_done'",
+      "Koopa Village 2 Koopa Koot Reward 7": "'FAVOR_3_02_done' ",
+      "Koopa Village 2 Koopa Koot Reward 8": "'FAVOR_3_03_done'",
+      "Koopa Village 2 Koopa Koot Reward 9": "'FAVOR_4_01_done'",
+      "Koopa Village 2 Koopa Koot Reward 10": "'FAVOR_4_02_done'",
+      "Koopa Village 2 Koopa Koot Gold Credit": "'FAVOR_4_02_done'",
+      "Koopa Village 2 Koopa Koot Reward 11": "'FAVOR_4_03_done'",
+      "Koopa Village 2 Koopa Koot Reward 12": "'FAVOR_5_01_done'",
+      "Koopa Village 2 Koopa Koot Reward 13": "'FAVOR_5_02_done' ",
+      "Koopa Village 2 Koopa Koot Reward 14": "'FAVOR_5_03_done'",
+      "Koopa Village 2 Koopa Koot Reward 15": "'FAVOR_6_01_done'",
+      "Koopa Village 2 Koopa Koot Reward 16": "'FAVOR_6_02_done'",
+      "Koopa Village 2 Koopa Koot Reward 17": "'FAVOR_6_03_done'",
+      "Koopa Village 2 Koopa Koot Reward 18": "'FAVOR_7_01_done'",
+      "Koopa Village 2 Koopa Koot Reward 19": "'FAVOR_7_02_done'",
+      "Koopa Village 2 Koopa Koot Reward 20": "'FAVOR_7_03_done'"
+    },
+    "exits": {
+      "Koopa Village 1": "True",
+      "Behind Koopa Village": "True",
+      "Koopa Village 2 Pipe": "'GF_TIK01_WarpPipes' and Boots"
+    }
+  },
+  {
+    "region_name": "Koopa Village 2 Pipe",
+    "area_id": "6",
+    "map_id": "1",
+    "map_name": "Koopa Village 2",
+    "exits": {
+      "Warp Zone 1 (B1) Koopa Village Pipe": "can_reenter_vertical_pipes",
+      "Koopa Village 2": "True"
+    }
+  },
+  {
+    "region_name": "Behind Koopa Village",
+    "area_id": "6",
+    "map_id": "2",
+    "map_name": "Behind Koopa Village",
+    "locations": {
+      "Behind Koopa Village On Stump": "(Kooper or Parakarry) and can_climb_steps"
+    },
+    "exits": {
+      "Koopa Village 2": "True",
+      "Fuzzy Forest": "True"
+    }
+  },
+  {
+    "region_name": "Fuzzy Forest",
+    "area_id": "6",
+    "map_id": "3",
+    "map_name": "Fuzzy Forest",
+    "events": {
+      "RF_Ch1_Fuzzies_Banished": "Hammer"
+    },
+    "locations": {
+      "Fuzzy Forest Fuzzy Battle Reward": "Hammer"
+    },
+    "exits": {
+      "Behind Koopa Village": "True"
+    }
+  },
+  {
+    "region_name": "Pleasant Path Entry",
+    "area_id": "6",
+    "map_id": "4",
+    "map_name": "Pleasant Path Entry",
+    "locations": {
+      "Pleasant Path Entry Red Block Center": "can_hit_floating_blocks",
+      "Pleasant Path Entry Yellow Block Left": "can_hit_floating_blocks",
+      "Pleasant Path Entry Yellow Block Right": "can_hit_floating_blocks"
+    },
+    "exits": {
+      "Plaza District": "True",
+      "Pleasant Path Bridge West": "True"
+    }
+  },
+  {
+    "region_name": "Pleasant Path Bridge West",
+    "area_id": "6",
+    "map_id": "5",
+    "map_name": "Pleasant Path Bridge",
+    "events": {
+      "MF_NOK12_BuiltBridge": "can_shake_trees"
+    },
+    "locations": {
+      "Pleasant Path Bridge Yellow Block": "can_hit_floating_blocks"
+    },
+    "exits": {
+      "Pleasant Path Entry": "True",
+      "Pleasant Path Bridge East": "'MF_NOK12_BuiltBridge'"
+    }
+  },
+  {
+    "region_name": "Pleasant Path Bridge East",
+    "area_id": "6",
+    "map_id": "5",
+    "map_name": "Pleasant Path Bridge",
+    "locations": {
+      "Pleasant Path Bridge Kooper Island": "Kooper"
+    },
+    "exits": {
+      "Pleasant Path Bridge West": "'MF_NOK12_BuiltBridge'",
+      "Pleasant Path Bridge East Exit": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Pleasant Path Bridge East Exit",
+    "area_id": "6",
+    "map_id": "5",
+    "map_name": "Pleasant Path Bridge",
+    "locations": {
+      "Pleasant Path Bridge Behind Fence": "True"
+    },
+    "exits": {
+      "Pleasant Crossroads Upper": "True",
+      "Pleasant Path Bridge East": "True"
+    }
+  },
+  {
+    "region_name": "Pleasant Crossroads Upper",
+    "area_id": "6",
+    "map_id": "6",
+    "map_name": "Pleasant Crossroads",
+    "locations": {
+      "Pleasant Crossroads Hidden Panel": "can_flip_panels",
+      "Pleasant Crossroads Behind Peg": "True"
+    },
+    "exits": {
+      "Pleasant Path Bridge East": "True",
+      "Path to Fortress 1 West Exit": "True",
+      "Pleasant Crossroads Lower": "True"
+    }
+  },
+  {
+    "region_name": "Pleasant Crossroads Lower",
+    "area_id": "6",
+    "map_id": "6",
+    "map_name": "Pleasant Crossroads",
+    "locations": {
+      "Pleasant Crossroads Brick Block Puzzle": "can_hit_grounded_blocks and can_hit_floating_blocks"
+    },
+    "exits": {
+      "Koopa Village 1": "True",
+      "Pleasant Crossroads Upper": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Path to Fortress 1 West Exit",
+    "area_id": "6",
+    "map_id": "7",
+    "map_name": "Path to Fortress 1",
+    "locations": {
+      "Path to Fortress 1 Hidden Panel": "can_flip_panels",
+      "Path to Fortress 1 X On Ground 1": "True",
+      "Path to Fortress 1 X On Ground 2": "True",
+      "Path to Fortress 1 X On Ground 3": "True",
+      "Path to Fortress 1 X On Ground 4": "True",
+      "Path to Fortress 1 X On Ground 5": "True"
+    },
+    "exits": {
+      "Pleasant Crossroads Upper": "True",
+      "Path to Fortress 1 West": "True",
+      "Path to Fortress 1 On Block": "Kooper"
+    }
+  },
+  {
+    "region_name": "Path to Fortress 1 On Block",
+    "area_id": "6",
+    "map_id": "7",
+    "map_name": "Path to Fortress 1",
+    "locations": {
+      "Path to Fortress 1 On Brick Block": "True"
+    },
+    "exits": {
+      "Path to Fortress 1 West": "True"
+    }
+  },
+  {
+    "region_name": "Path to Fortress 1 West",
+    "area_id": "6",
+    "map_id": "7",
+    "map_name": "Path to Fortress 1",
+    "events": {
+      "MF_NOK14_BuiltBridge": "Kooper"
+    },
+    "exits": {
+      "Path to Fortress 1 East": "'MF_NOK14_BuiltBridge'",
+      "Path to Fortress 1 West Exit": "can_climb_steps",
+      "Path to Fortress 1 On Block": "Ultra Boots"
+    }
+  },
+  {
+    "region_name": "Path to Fortress 1 East",
+    "area_id": "6",
+    "map_id": "7",
+    "map_name": "Path to Fortress 1",
+    "events": {
+      "MF_NOK14_BuiltBridge": "(can_climb_steps or Hammer or Kooper or Bombette)"
+    },
+    "locations": {
+      "Path to Fortress 1 Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks"
+    },
+    "exits": {
+      "Path to Fortress 2": "True",
+      "Path to Fortress 1 West": "'MF_NOK14_BuiltBridge' and can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Path to Fortress 2",
+    "area_id": "6",
+    "map_id": "8",
+    "map_name": "Path to Fortress 2",
+    "locations": {
+      "Path to Fortress 2 In Tree": "can_shake_trees"
+    },
+    "exits": {
+      "Path to Fortress 1 East": "True",
+      "Fortress Exterior": "True",
+      "Path to Fortress 2 Lower Pipe": "Bombette and can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Path to Fortress 2 Lower Pipe",
+    "area_id": "6",
+    "map_id": "8",
+    "map_name": "Path to Fortress 2",
+    "exits": {
+      "Path to Fortress 2": "Bombette",
+      "Path to Fortress 2 Upper": "can_reenter_vertical_pipes"
+    }
+  },
+  {
+    "region_name": "Path to Fortress 2 Upper Pipe",
+    "area_id": "6",
+    "map_id": "8",
+    "map_name": "Path to Fortress 2",
+    "exits": {
+      "Path to Fortress 2 Upper": "True",
+      "Path to Fortress 2 Lower Pipe": "can_reenter_vertical_pipes"
+    }
+  },
+  {
+    "region_name": "Path to Fortress 2 Upper",
+    "area_id": "6",
+    "map_id": "8",
+    "map_name": "Path to Fortress 2",
+    "exits": {
+      "Fortress Exterior Upper": "True",
+      "Path to Fortress 2": "True"
+    }
+  }
+]

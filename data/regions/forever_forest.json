@@ -1,0 +1,191 @@
+[
+  {
+    "region_name": "Flower Sounds",
+    "area_id": "12",
+    "map_id": "0",
+    "map_name": "Flower Sounds",
+    "exits": {
+      "Exit to Toad Town": "True",
+      "Stump Eyes Entrance": "True"
+    }
+  },
+  {
+    "region_name": "Stump Eyes",
+    "area_id": "12",
+    "map_id": "1",
+    "map_name": "Stump Eyes",
+    "events": {
+      "RF_ForestPass": "True"
+    },
+    "exits": {
+      "Flowers (Oaklie)": "True",
+      "Stump Eyes Entrance": "True",
+      "Flower Sounds": "True"
+    }
+  },
+  {
+    "region_name": "Stump Eyes Entrance",
+    "area_id": "12",
+    "map_id": "1",
+    "map_name": "Stump Eyes",
+    "exits": {
+      "Flower Sounds": "True",
+      "Stump Eyes": "(Forest_Pass or 'RF_ForestPass')"
+    }
+  },
+  {
+    "region_name": "Flowers (Oaklie)",
+    "area_id": "12",
+    "map_id": "2",
+    "map_name": "Flowers (Oaklie)",
+    "exits": {
+      "Flower Sounds": "True",
+      "Tree Face (Bub-ulb)": "True",
+      "Stump Eyes": "True"
+    }
+  },
+  {
+    "region_name": "Tree Face (Bub-ulb)",
+    "area_id": "12",
+    "map_id": "3",
+    "map_name": "Tree Face (Bub-ulb)",
+    "locations": {
+      "Tree Face (Bub-ulb) Bub-ulb Gift": "True"
+    },
+    "exits": {
+      "Mushrooms (Path Splits)": "True",
+      "Flower Sounds": "True",
+      "Flowers (Oaklie)": "True"
+    }
+  },
+  {
+    "region_name": "Mushrooms (Path Splits)",
+    "area_id": "12",
+    "map_id": "4",
+    "map_name": "Mushrooms (Path Splits)",
+    "exits": {
+      "Flower Sounds": "True",
+      "Flowers Vanish": "True",
+      "Tree Face (Bub-ulb)": "True",
+      "Bee Hive (HP Plus)": "True"
+    }
+  },
+  {
+    "region_name": "Flowers Vanish",
+    "area_id": "12",
+    "map_id": "5",
+    "map_name": "Flowers Vanish",
+    "exits": {
+      "Laughing Rock": "True",
+      "Flower Sounds": "True",
+      "Mushrooms (Path Splits)": "True"
+    }
+  },
+  {
+    "region_name": "Laughing Rock",
+    "area_id": "12",
+    "map_id": "6",
+    "map_name": "Laughing Rock",
+    "exits": {
+      "Flowers Appear (FP Plus)": "True",
+      "Flower Sounds": "True",
+      "Flowers Vanish": "True",
+      "Outside Boo's Mansion": "True"
+    }
+  },
+  {
+    "region_name": "Bee Hive (HP Plus)",
+    "area_id": "12",
+    "map_id": "7",
+    "map_name": "Bee Hive (HP Plus)",
+    "locations": {
+      "Bee Hive (HP Plus) Central Block": "can_hit_floating_blocks"
+    },
+    "exits": {
+      "Flower Sounds": "True",
+      "Mushrooms (Path Splits)": "True"
+    }
+  },
+  {
+    "region_name": "Flowers Appear (FP Plus)",
+    "area_id": "12",
+    "map_id": "8",
+    "map_name": "Flowers Appear (FP Plus)",
+    "locations": {
+      "Flowers Appear (FP Plus) Central Block": "can_hit_floating_blocks"
+    },
+    "exits": {
+      "Laughing Rock": "True",
+      "Flower Sounds": "True"
+    }
+  },
+  {
+    "region_name": "Exit to Toad Town",
+    "area_id": "12",
+    "map_id": "9",
+    "map_name": "Exit to Toad Town",
+    "exits": {
+      "Southern District": "True",
+      "Flower Sounds": "True"
+    }
+  },
+  {
+    "region_name": "Outside Boo's Mansion",
+    "area_id": "12",
+    "map_id": "10",
+    "map_name": "Outside Boo's Mansion",
+    "locations": {
+      "Outside Boo's Mansion Yellow Block": "can_hit_floating_blocks",
+      "Outside Boo's Mansion In Bush (Back Right)": "True"
+    },
+    "exits": {
+      "Laughing Rock": "(Forest_Pass or 'RF_ForestPass')",
+      "Exit to Gusty Gulch West": "True",
+      "Outside Boo's Mansion Pipe": "'GF_TIK09_WarpPipe' and Boots",
+      "Outside Boo's Mansion Steps": "Boots"
+    }
+  },
+  {
+    "region_name": "Outside Boo's Mansion Steps",
+    "area_id": "12",
+    "map_id": "10",
+    "map_name": "Outside Boo's Mansion",
+    "exits": {
+      "Outside Boo's Mansion": "True",
+      "Foyer 1F": "True"
+    }
+  },
+  {
+    "region_name": "Outside Boo's Mansion Pipe",
+    "area_id": "12",
+    "map_id": "10",
+    "map_name": "Outside Boo's Mansion",
+    "exits": {
+      "Warp Zone 2 (B2) Pipe": "can_reenter_vertical_pipes",
+      "Outside Boo's Mansion": "True"
+    }
+  },
+  {
+    "region_name": "Exit to Gusty Gulch West",
+    "area_id": "12",
+    "map_id": "11",
+    "map_name": "Exit to Gusty Gulch",
+    "exits": {
+      "Outside Boo's Mansion": "True",
+      "Exit to Gusty Gulch East": "'RF_OpenedGustyGulch'"
+    }
+  },
+  {
+    "region_name": "Exit to Gusty Gulch East",
+    "area_id": "12",
+    "map_id": "11",
+    "map_name": "Exit to Gusty Gulch",
+    "locations": {
+      "Exit to Gusty Gulch Hidden Panel": "can_flip_panels"
+    },
+    "exits": {
+      "Windmill Exterior": "True",
+      "Exit to Gusty Gulch West": "'RF_OpenedGustyGulch'"
+    }
+  }
+]

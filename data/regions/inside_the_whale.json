@@ -1,0 +1,25 @@
+[
+  {
+    "region_name": "Whale Mouth",
+    "area_id": "3",
+    "map_id": "0",
+    "map_name": "Whale Mouth",
+    "exits": {
+      "Port District": "True",
+      "Whale Stomach": "True"
+    }
+  },
+  {
+    "region_name": "Whale Stomach",
+    "area_id": "3",
+    "map_id": "1",
+    "map_name": "Whale Stomach",
+    "events": {
+      "RF_CanRideWhale": "Watt"
+    },
+    "exits": {
+      "Whale Mouth": "True",
+      "Port District": "'RF_CanRideWhale'"
+    }
+  }
+]

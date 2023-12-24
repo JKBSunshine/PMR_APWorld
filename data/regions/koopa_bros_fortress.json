@@ -1,0 +1,327 @@
+[
+  {
+    "region_name": "Fortress Exterior",
+    "area_id": "7",
+    "map_id": "0",
+    "map_name": "Fortress Exterior",
+    "exits": {
+      "Path to Fortress 2": "True",
+      "Left Tower": "True"
+    }
+  },
+  {
+    "region_name": "Fortress Exterior South",
+    "area_id": "7",
+    "map_id": "0",
+    "map_name": "Fortress Exterior",
+    "exits": {
+      "Right Tower": "True"
+    }
+  },
+  {
+    "region_name": "Fortress Exterior East",
+    "area_id": "7",
+    "map_id": "0",
+    "map_name": "Fortress Exterior",
+    "locations": {
+      "Fortress Exterior Chest Behind Fortress": "True"
+    },
+    "exits": {
+      "Right Tower": "Bombette"
+    }
+  },
+  {
+    "region_name": "Fortress Exterior Upper",
+    "area_id": "7",
+    "map_id": "0",
+    "map_name": "Fortress Exterior",
+    "locations": {
+      "Fortress Exterior Chest On Ledge": "True"
+    },
+    "exits": {
+      "Right Tower": "Bombette"
+    }
+  },
+  {
+    "region_name": "Left Tower 1F",
+    "area_id": "7",
+    "map_id": "1",
+    "map_name": "Left Tower",
+    "locations": {
+      "Left Tower Koopa Troopa Reward": "True"
+    },
+    "exits": {
+      "Fortress Exterior": "True",
+      "Left Stairway 1F": "(Koopa_Fortress_Key, 1)"
+    }
+  },
+  {
+    "region_name": "Left Tower 2F",
+    "area_id": "7",
+    "map_id": "1",
+    "map_name": "Left Tower",
+    "events": {
+      "MF_TRD01_RaisedStairs": "can_hit_grounded_switches"
+    },
+    "locations": {
+      "Left Tower Top Of Tower": "can_climb_steps"
+    },
+    "exits": {
+      "Left Stairway 2F": "True",
+      "Left Tower 3F": "'MF_TRD01_RaisedStairs''"
+    }
+  },
+  {
+    "region_name": "Left Tower 3F",
+    "area_id": "7",
+    "map_id": "1",
+    "map_name": "Left Tower",
+    "locations": {
+      "Left Tower Top Of Tower": "can_climb_steps"
+    },
+    "exits": {
+      "Left Tower 2F": "'MF_TRD01_RaisedStairs''",
+      "Fortress Battlement West Door": "True"
+    }
+  },
+  {
+    "region_name": "Left Stairway 1F",
+    "area_id": "7",
+    "map_id": "2",
+    "map_name": "Left Stairway",
+    "exits": {
+      "Left Tower 1F": "True",
+      "Central Hall 1F": "True",
+      "Left Stairway 1F Platform": "'MF_TRD02_LoweredStairs' and Boots",
+      "Left Stairway 2F": "'MF_TRD02_LoweredStairs' and Boots"
+    }
+  },
+  {
+    "region_name": "Left Stairway 2F",
+    "area_id": "7",
+    "map_id": "2",
+    "map_name": "Left Stairway",
+    "events": {
+      "MF_TRD02_LoweredStairs": "can_hit_grounded_switches"
+    },
+    "exits": {
+      "Left Tower 2F": "(Koopa_Fortress_Key, 4)",
+      "Central Hall 2F": "True",
+      "Left Stairway 1F": "'MF_TRD02_LoweredStairs'",
+      "Left Stairway 1F Platform": "'MF_TRD02_LoweredStairs' and can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Left Stairway 1F Platform",
+    "area_id": "7",
+    "map_id": "2",
+    "map_name": "Left Stairway",
+    "events": {
+      "RF_TRD_02_OpenedLeftJail": "Bombette"
+    },
+    "exits": {
+      "Central Hall 1F Left Jail": "'RF_TRD_02_OpenedLeftJail'",
+      "Left Stairway 1F": "True",
+      "Left Stairway 2F": "'MF_TRD02_LoweredStairs' and can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Central Hall 1F Left Jail",
+    "area_id": "7",
+    "map_id": "3",
+    "map_name": "Central Hall",
+    "locations": {
+      "Central Hall Left Cell": "True"
+    },
+    "exits": {
+      "Left Stairway 1F Platform": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Central Hall 1F",
+    "area_id": "7",
+    "map_id": "3",
+    "map_name": "Central Hall",
+    "locations": {
+      "Central Hall Center Cell": "True",
+      "Central Hall Right Cell": "Bombette"
+    },
+    "exits": {
+      "Left Stairway 1F": "True",
+      "Right Stairway 1F": "True"
+    }
+  },
+  {
+    "region_name": "Central Hall 2F Left Door",
+    "area_id": "7",
+    "map_id": "3",
+    "map_name": "Central Hall",
+    "exits": {
+      "Left Stairway 2F": "can_climb_steps",
+      "Central Hall 2F Right Door": "can_climb_steps and (Kooper or (Parakarry and can_hit_grounded_switches)",
+      "Central Hall 1F": "True"
+    }
+  },
+  {
+    "region_name": "Central Hall 2F Right Door",
+    "area_id": "7",
+    "map_id": "3",
+    "map_name": "Central Hall",
+    "exits": {
+      "Right Stairway 2F": "can_climb_steps",
+      "Central Hall 2F Left Door": "can_climb_steps and (Kooper or (Parakarry and can_hit_grounded_switches)",
+      "Central Hall 1F": "True"
+    }
+  },
+  {
+    "region_name": "Right Starway 1F",
+    "area_id": "7",
+    "map_id": "4",
+    "map_name": "Right Starway",
+    "events": {
+      "MF_TRD04_LoweredStairs": "can_hit_grounded_switches"
+    },
+    "exits": {
+      "Central Hall 1F": "True",
+      "Right Tower": "(Koopa_Fortress_Key, 2)",
+      "Right Starway B1F": "'MF_TRD04_LoweredStairs'"
+    }
+  },
+  {
+    "region_name": "Right Starway B1F",
+    "area_id": "7",
+    "map_id": "4",
+    "map_name": "Right Starway",
+    "events": {
+      "MF_TRD04_LoweredStairs": "True"
+    },
+    "exits": {
+      "Dungeon Trap": "True",
+      "Fortress Jail": "True",
+      "Right Starway 1F": "'MF_TRD04_LoweredStairs' and can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Right Starway 2F",
+    "area_id": "7",
+    "map_id": "4",
+    "map_name": "Right Starway",
+    "exits": {
+      "Central Hall 2F": "(Koopa_Fortress_Key, 3)",
+      "Right Tower": "True"
+    }
+  },
+  {
+    "region_name": "Right Tower",
+    "area_id": "7",
+    "map_id": "5",
+    "map_name": "Right Tower",
+    "exits": {
+      "Right Starway 1F": "True",
+      "Fortress Exterior South": "True",
+      "Fortress Exterior East": "Bombette",
+      "Right Starway 2F": "True",
+      "Fortress Jail Inner": "can_hit_floating_blocks"
+    }
+  },
+  {
+    "region_name": "Fortress Jail Outer",
+    "area_id": "7",
+    "map_id": "6",
+    "map_name": "Jail",
+    "exits": {
+      "Right Starway B1F": "True",
+      "Fortress Jail Inner": "Bombette"
+    }
+  },
+  {
+    "region_name": "Fortress Jail Inner",
+    "area_id": "7",
+    "map_id": "6",
+    "map_name": "Jail",
+    "locations": {
+      "Jail Bombette Partner": "True"
+    },
+    "exits": {
+      "Fortress Jail Outer": "Bombette"
+    }
+  },
+  {
+    "region_name": "Dungeon Trap",
+    "area_id": "7",
+    "map_id": "7",
+    "map_name": "Dungeon Trap",
+    "exits": {
+      "Right Starway": "True",
+      "Dungeon Fire Room": "True"
+    }
+  },
+  {
+    "region_name": "Dungeon Fire Room",
+    "area_id": "7",
+    "map_id": "8",
+    "map_name": "Dungeon Fire Room",
+    "locations": {
+      "Dungeon Fire Room On The Ground": "can_climb_steps"
+    },
+    "exits": {
+      "Dungeon Trap": "True"
+    }
+  },
+  {
+    "region_name": "Fortress Battlement West Door",
+    "area_id": "7",
+    "map_id": "9",
+    "map_name": "Battlement",
+    "exits": {
+      "Left Tower 3F": "True",
+      "Fortress Battlement": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Fortress Battlement East Door",
+    "area_id": "7",
+    "map_id": "9",
+    "map_name": "Battlement",
+    "exits": {
+      "Boss Battle Room": "True",
+      "Fortress Battlement": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Fortress Battlement",
+    "area_id": "7",
+    "map_id": "9",
+    "map_name": "Battlement",
+    "exits": {
+      "Battlement Rock": "True",
+      "Battlement West Door": "can_climb_steps",
+      "Battlement East Door": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Fortress Battlement Rock",
+    "area_id": "7",
+    "map_id": "9",
+    "map_name": "Battlement",
+    "locations": {
+      "Battlement Block Behind Rock": "Bombette and can_hit_floating_blocks"
+    },
+    "exits": {
+      "Fortress Battlement": "Boots"
+    }
+  },
+  {
+    "region_name": "Boss Battle Room",
+    "area_id": "7",
+    "map_id": "10",
+    "map_name": "Boss Battle Room",
+    "events": {
+      "STARSPIRIT_1": "(Hammer or Bombette or Watt)",
+      "MF_Ch1_RescuedStarSpirit": "(Hammer or Bombette or Watt)"
+    },
+    "exits": {
+      "Fortress Battlement East Door": "True"
+    }
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "region_name": "Playroom Lobby",
+    "area_id": "25",
+    "map_id": "0",
+    "map_name": "Playroom Lobby",
+    "exits": {
+      "Station District Pipe": "True"
+    }
+  }
+]
+

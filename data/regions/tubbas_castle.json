@@ -1,0 +1,291 @@
+[
+  {
+    "region_name": "Outside Tubbas Castle",
+    "area_id": "15",
+    "map_id": "0",
+    "map_name": "Outside Tubbas Castle",
+    "exits": {
+      "Wasteland Ascent 2 East": "True",
+      "Great Hall 1F": "True"
+    }
+  },
+  {
+    "region_name": "Great Hall 1F",
+    "area_id": "15",
+    "map_id": "1",
+    "map_name": "Great Hall",
+    "exits": {
+      "Outside Tubbas Castle": "True",
+      "West Hall (1F)": "Bow",
+      "East Hall (1/2F) 1F": "Bow and (Tubba_Castle_Key, 1)"
+    }
+  },
+  {
+    "region_name": "Great Hall 2F",
+    "area_id": "15",
+    "map_id": "1",
+    "map_name": "Great Hall",
+    "exits": {
+      "West Hall (2F)": "True",
+      "East Hall (1/2F) 2F": "True"
+    }
+  },
+  {
+    "region_name": "Great Hall 3F",
+    "area_id": "15",
+    "map_id": "1",
+    "map_name": "Great Hall",
+    "exits": {
+      "Save Room (3F)": "True",
+      "Master Bedroom (3F)": "True"
+    }
+  },
+  {
+    "region_name": "West Hall (1F)",
+    "area_id": "15",
+    "map_id": "2",
+    "map_name": "West Hall (1F)",
+    "exits": {
+      "Table/Clock Room (1/2F)": "True",
+      "Great Hall 1F": "True",
+      "Study (1F)": "True",
+      "Covered Tables Room (1F)": "True"
+    }
+  },
+  {
+    "region_name": "Table/Clock Room (1/2F) 1F",
+    "area_id": "15",
+    "map_id": "3",
+    "map_name": "Table/Clock Room (1/2F)",
+    "exits": {
+      "Stairs to Basement": "True",
+      "West Hall (1F)": "True",
+      "Stairs Above Basement": "True"
+    }
+  },
+  {
+    "region_name": "Table/Clock Room (1/2F) 2F",
+    "area_id": "15",
+    "map_id": "3",
+    "map_name": "Table/Clock Room (1/2F)",
+    "locations": {
+      "Table/Clock Room (1/2F) On Table": "True"
+    },
+    "exits": {
+      "Stairs to Third Floor": "(Tubba_Castle_Key, 2)",
+      "Table/Clock Room (1/2F) 1F": "True",
+      "West Hall (2F)": "True",
+      "Hidden Bedroom (2F)": "True"
+    }
+  },
+  {
+    "region_name": "Stairs to Basement",
+    "area_id": "15",
+    "map_id": "4",
+    "map_name": "Stairs to Basement",
+    "exits": {
+      "Table/Clock Room (1/2F) 1F": "True",
+      "Basement Lower": "True"
+    }
+  },
+  {
+    "region_name": "Stairs Above Basement",
+    "area_id": "15",
+    "map_id": "5",
+    "map_name": "Stairs Above Basement",
+    "exits": {
+      "Table/Clock Room (1/2F) 1F": "True",
+      "Basement Upper": "Super_Boots"
+    }
+  },
+  {
+    "region_name": "Basement Upper",
+    "area_id": "15",
+    "map_id": "6",
+    "map_name": "Basement",
+    "locations": {
+      "Basement Chest": "True"
+    },
+    "exits": {
+      "Basement Lower": "True"
+    }
+  },
+  {
+    "region_name": "Basement Lower",
+    "area_id": "15",
+    "map_id": "6",
+    "map_name": "Basement",
+    "exits": {
+      "Stairs to Basement": "True"
+    }
+  },
+  {
+    "region_name": "Study (1F)",
+    "area_id": "15",
+    "map_id": "7",
+    "map_name": "Study (1F)",
+    "locations": {
+      "Study (1F) On Table": "Boots"
+    },
+    "exits": {
+      "West Hall (1F)": "True"
+    }
+  },
+  {
+    "region_name": "East Hall (1/2F) 2F",
+    "area_id": "15",
+    "map_id": "8",
+    "map_name": "East Hall (1/2F)",
+    "exits": {
+      "Great Hall 2F": "True",
+      "East Hall (1/2F) 1F": "Bow"
+    }
+  },
+  {
+    "region_name": "East Hall (1/2F) 1F",
+    "area_id": "15",
+    "map_id": "8",
+    "map_name": "East Hall (1/2F)",
+    "exits": {
+      "Great Hall 1F": "True",
+      "East Hall (1/2F) 2F": "Bow"
+    }
+  },
+  {
+    "region_name": "West Hall (2F)",
+    "area_id": "15",
+    "map_id": "9",
+    "map_name": "West Hall (2F)",
+    "exits": {
+      "Table/Clock Room (1/2F) 2F": "True",
+      "Great Hall": "True",
+      "Spike Trap Room (2F)": "True",
+      "Sealed Room (2F)": "Bombette"
+    }
+  },
+  {
+    "region_name": "Sealed Room (2F)",
+    "area_id": "15",
+    "map_id": "10",
+    "map_name": "Sealed Room (2F)",
+    "events": {
+      "GF_DGB10_BoardedFloor3": "Super_Boots"
+    },
+    "exits": {
+      "West Hall (2F)": "True",
+      "Covered Tables Room (1F)": "Super_Boots",
+      "Covered Tables Room (1F) On Table": "Super_Boots"
+    }
+  },
+  {
+    "region_name": "Covered Tables Room (1F)",
+    "area_id": "15",
+    "map_id": "11",
+    "map_name": "Covered Tables Room (1F)",
+    "exits": {
+      "West Hall (1F)": "True",
+      "Sealed Room (2F)": "'GF_DGB10_BoardedFloor3' and Boots"
+    }
+  },
+  {
+    "region_name": "Covered Tables Room (1F) On Table",
+    "area_id": "15",
+    "map_id": "11",
+    "map_name": "Covered Tables Room (1F)",
+    "locations": {
+      "Covered Tables Room (1F) On Table": "Parakarry"
+    },
+    "exits": {
+      "Covered Tables Room (1F)": "True",
+      "Sealed Room (2F)": "'GF_DGB10_BoardedFloor3'"
+    }
+  },
+  {
+    "region_name": "Spike Trap Room (2F)",
+    "area_id": "15",
+    "map_id": "12",
+    "map_name": "Spike Trap Room (2F)",
+    "locations": {
+      "Spike Trap Room (2F) In Chest": "(Bow or Lakilester)"
+    },
+    "exits": {
+      "West Hall (2F)": "True"
+    }
+  },
+  {
+    "region_name": "Hidden Bedroom (2F)",
+    "area_id": "15",
+    "map_id": "13",
+    "map_name": "Hidden Bedroom (2F)",
+    "locations": {
+      "Hidden Bedroom (2F) In Hidden Room": "Boots and Parakarry",
+      "Hidden Bedroom (2F) On Bed 1": "Boots and Parakarry",
+      "Hidden Bedroom (2F) On Bed 2": "Boots and Parakarry",
+      "Hidden Bedroom (2F) On Bed 3": "Boots and Parakarry",
+      "Hidden Bedroom (2F) On Bed 4": "Boots and Parakarry",
+      "Hidden Bedroom (2F) On Bed 5": "Boots and Parakarry",
+      "Hidden Bedroom (2F) On Bed 6": "Boots and Parakarry"
+    },
+    "exits": {
+      "Table/Clock Room (1/2F) 2F": "True"
+    }
+  },
+  {
+    "region_name": "Stairs to Third Floor",
+    "area_id": "15",
+    "map_id": "14",
+    "map_name": "Stairs to Third Floor",
+    "locations": {
+      "Stairs to Third Floor Yellow Block": "True"
+    },
+    "exits": {
+      "Table/Clock Room (1/2F) 2F": "True",
+      "West Hall (3F)": "True"
+    }
+  },
+  {
+    "region_name": "West Hall (3F)",
+    "area_id": "15",
+    "map_id": "15",
+    "map_name": "West Hall (3F)",
+    "exits": {
+      "Stairs to Third Floor": "True",
+      "Save Room (3F)": "(Tubba_Castle_Key, 3)",
+      "Sleeping Clubbas Room (3F)": "True"
+    }
+  },
+  {
+    "region_name": "Sleeping Clubbas Room (3F)",
+    "area_id": "15",
+    "map_id": "16",
+    "map_name": "Sleeping Clubbas Room (3F)",
+    "locations": {
+      "Sleeping Clubbas Room (3F) On Pedestal": "can_climb_steps"
+    },
+    "exits": {
+      "West Hall (3F)": "True"
+    }
+  },
+  {
+    "region_name": "Save Room (3F)",
+    "area_id": "15",
+    "map_id": "17",
+    "map_name": "Save Room (3F)",
+    "exits": {
+      "West Hall (3F)": "True",
+      "Great Hall 3F": "True"
+    }
+  },
+  {
+    "region_name": "Master Bedroom (3F)",
+    "area_id": "15",
+    "map_id": "18",
+    "map_name": "Master Bedroom (3F)",
+    "events": {
+      "MysticalKey": "True"
+    },
+    "exits": {
+      "Great Hall 3F": "True"
+    }
+  }
+]

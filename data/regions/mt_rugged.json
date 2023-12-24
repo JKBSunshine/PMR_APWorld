@@ -1,0 +1,238 @@
+[
+  {
+    "region_name": "Mt Rugged 1 West",
+    "area_id": "8",
+    "map_id": "0",
+    "map_name": "Mt Rugged 1",
+    "locations": {
+      "Mt Rugged 1 On Slide 1": "True"
+    },
+    "exits": {
+      "Train Station Upper": "True",
+      "Mt Rugged 1 East": "can_climb_steps",
+      "Mt Rugged 1 On Slide": "(Kooper or Lakilester)"
+    }
+  },
+  {
+    "region_name": "Mt Rugged 1 On Slide",
+    "area_id": "8",
+    "map_id": "0",
+    "map_name": "Mt Rugged 1",
+    "locations": {
+      "Mt Rugged 1 On Slide 2": "True",
+      "Mt Rugged 1 On Slide 3": "True"
+    },
+    "exits": {
+      "Mt Rugged 1 West": "True",
+      "Mt Rugged 1 East": "Lakilester"
+    }
+  },
+  {
+    "region_name": "Mt Rugged 1 East",
+    "area_id": "8",
+    "map_id": "0",
+    "map_name": "Mt Rugged 1",
+    "locations": {
+    },
+    "exits": {
+      "Mt Rugged West Lower": "True",
+      "Mt Rugged 1 West": "True",
+      "Mt Rugged 1 East Lower": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Mt Rugged 1 East Lower",
+    "area_id": "8",
+    "map_id": "0",
+    "map_name": "Mt Rugged 1",
+    "locations": {
+      "Mt Rugged 1 Hurting Whacka": "'RF_Missable' and (Hammer or Bombette)",
+      "Mt Rugged 1 Yellow Block": "can_hit_floating_blocks"
+    },
+    "exits": {
+      "Mt Rugged 1 East": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Mt Rugged 2 West Lower",
+    "area_id": "8",
+    "map_id": "1",
+    "map_name": "Mt Rugged 2",
+    "exits": {
+      "Mt Rugged 1 East": "True",
+      "Mt Rugged 2 West": "True"
+    }
+  },
+  {
+    "region_name": "Mt Rugged 2",
+    "area_id": "8",
+    "map_id": "1",
+    "map_name": "Mt Rugged 2",
+    "locations": {
+      "Mt Rugged 2 Hidden Panel": "can_flip_panels"
+    },
+    "exits": {
+      "Mt Rugged 1 East": "True",
+      "Mt Rugged 2 West Lower": "can_climb_steps",
+      "Mt Rugged 2 East Lower": "Boots"
+    }
+  },
+  {
+    "region_name": "Mt Rugged 2 East Lower",
+    "area_id": "8",
+    "map_id": "1",
+    "map_name": "Mt Rugged 2",
+    "locations": {
+      "Mt Rugged 2 Kooper Ledge": "(Kooper or Parakarry)",
+      "Mt Rugged 2 Parakarry Ledge": "Parakarry"
+    },
+    "exits": {
+      "Mt Rugged 3 Lower": "True",
+      "Mt Rugged 2 West": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Mt Rugged 2 East Upper",
+    "area_id": "8",
+    "map_id": "1",
+    "map_name": "Mt Rugged 2",
+    "exits": {
+      "Mt Rugged 3 West Upper": "True",
+      "Mt Rugged 2 West Upper": "True"
+    }
+  },
+  {
+    "region_name": "Mt Rugged 2 West Upper",
+    "area_id": "8",
+    "map_id": "1",
+    "map_name": "Mt Rugged 2",
+    "exits": {
+      "Mt Rugged 4 West Lower": "True",
+      "Mt Rugged 2": "True"
+    }
+  },
+  {
+    "region_name": "Mt Rugged 3 Lower",
+    "area_id": "8",
+    "map_id": "2",
+    "map_name": "Mt Rugged 3",
+    "locations": {
+    },
+    "exits": {
+      "Mt Rugged 2 East Lower": "True",
+      "Mt Rugged 3 2": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Mt Rugged 3 Upper",
+    "area_id": "8",
+    "map_id": "2",
+    "map_name": "Mt Rugged 3",
+    "locations": {
+      "Mt Rugged 3 On Scaffolding": "True",
+      "Mt Rugged 3 Bub-ulb Gift": "Parakarry"
+    },
+    "exits": {
+      "Mt Rugged 3 Lower": "True",
+      "Suspension Bridge": "True",
+      "Mt Rugged 2 East Upper": "True"
+    }
+  },
+  {
+    "region_name": "Mt Rugged 4",
+    "area_id": "8",
+    "map_id": "3",
+    "map_name": "Mt Rugged 4",
+    "locations": {
+      "Mt Rugged 4 Hidden Cave Chest": "can_climb_steps",
+      "Mt Rugged 4 Slide Ledge": "can_climb_steps",
+      "Mt Rugged 4 Left Ledge Center": "Parakarry",
+      "Mt Rugged 4 Left Ledge Right": "(Kooper or Parakarry) and can_climb_steps",
+      "Mt Rugged 4 Left Ledge 3": "Parakarry",
+      "Mt Rugged 4 Left Ledge 4": "Parakarry",
+      "Mt Rugged 4 Left Ledge 5": "Parakarry",
+      "Mt Rugged 4 Left Ledge 6": "Parakarry",
+      "Mt Rugged 4 Left Ledge 7": "Parakarry",
+      "Mt Rugged 4 Bottom Left 1": "can_climb_steps",
+      "Mt Rugged 4 Bottom Left 2": "can_climb_steps",
+      "Mt Rugged 4 Yellow Block Top Left": "can_hit_grounded_blocks and can_climb_steps",
+      "Mt Rugged 4 Yellow Block Floating": "can_hit_floating_blocks",
+      "Mt Rugged 4 Yellow Block Top Right": "can_hit_grounded_blocks and can_climb_steps"
+    },
+    "exits": {
+      "Mt Rugged 2 West Upper": "True"
+    }
+  },
+  {
+    "region_name": "Suspension Bridge West",
+    "area_id": "8",
+    "map_id": "4",
+    "map_name": "Suspension Bridge",
+    "locations": {
+      "Suspension Bridge Bottom Of Cliff": "True"
+    },
+    "exits": {
+      "Mt Rugged 3 Upper": "True",
+      "Suspension Bridge East": "Parakarry"
+    }
+  },
+  {
+    "region_name": "Suspension Bridge East",
+    "area_id": "8",
+    "map_id": "4",
+    "map_name": "Suspension Bridge",
+    "exits": {
+      "Desert Rugged Entrance West": "True",
+      "Suspension Bridge West": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Train Station Upper Exit",
+    "area_id": "8",
+    "map_id": "5",
+    "map_name": "Train Station",
+    "locations": {
+      "Train Station Parakarry Partner": "has_parakarry_letters"
+    },
+    "exits": {
+      "Mt Rugged 1 West": "True",
+      "Train Station Lower": "Boots"
+    }
+  },
+  {
+    "region_name": "Train Station Lower",
+    "area_id": "8",
+    "map_id": "5",
+    "map_name": "Train Station",
+    "locations": {
+      "Train Station Bush 1": "True",
+      "Train Station Bush 2": "True",
+      "Train Station Bush 3": "True",
+      "Train Station Bush Top": "True"
+    },
+    "exits": {
+      "Train Station Upper": "Boots",
+      "Train Station Platform": "Boots"
+    }
+  },
+  {
+    "region_name": "Train Station Platform",
+    "area_id": "8",
+    "map_id": "5",
+    "map_name": "Train Station",
+    "exits": {
+      "Train Station Lower": "Boots",
+      "Train Ride Scene": "True"
+    }
+  },
+  {
+    "region_name": "Train Ride Scene",
+    "area_id": "8",
+    "map_id": "6",
+    "map_name": "Train Ride Scene",
+    "exits": {
+      "Station District Train": "True",
+      "Train Station Platform": "True"
+    }
+  }
+]

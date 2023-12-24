@@ -1,0 +1,346 @@
+[
+  {
+    "region_name": "Volcano Entrance",
+    "area_id": "18",
+    "map_id": "0",
+    "map_name": "Volcano Entrance",
+    "exits": {
+      "Path to the Volcano Entrance": "True",
+      "First Lava Lake West": "True"
+    }
+  },
+  {
+    "region_name": "First Lava Lake West",
+    "area_id": "18",
+    "map_id": "1",
+    "map_name": "First Lava Lake",
+    "exits": {
+      "Volcano Entrance": "True",
+      "First Lava Lake East": "(Lakilester or can_climb_steps)"
+    }
+  },
+  {
+    "region_name": "First Lava Lake East",
+    "area_id": "18",
+    "map_id": "1",
+    "map_name": "First Lava Lake",
+    "exits": {
+      "Central Cavern 1F": "True",
+      "First Lava Lake West": "(Lakilester or can_climb_steps)"
+    }
+  },
+  {
+    "region_name": "Central Cavern 1F",
+    "area_id": "18",
+    "map_id": "2",
+    "map_name": "Central Cavern",
+    "locations": {
+      "Central Cavern On Stone Pillar": "True",
+      "Central Cavern Yellow Block 1": "can_hit_floating_blocks",
+      "Central Cavern Yellow Block 2": "can_hit_floating_blocks",
+      "Central Cavern Yellow Block 3": "can_hit_floating_blocks",
+      "Central Cavern Yellow Block 4": "can_hit_floating_blocks"
+    },
+    "exits": {
+      "First Lava Lake East": "True",
+      "Central Cavern B1F": "True",
+      "Central Cavern B1F East Exit": "True"
+    }
+  },
+  {
+    "region_name": "Central Cavern B1F",
+    "area_id": "18",
+    "map_id": "2",
+    "map_name": "Central Cavern",
+    "locations": {
+      "Central Cavern On Brick Block": "Ultra_Boots or (Kooper and can_climb_steps)"
+    },
+    "exits": {
+      "Central Cavern B2F": "can_climb_steps",
+      "Central Cavern B1F East Exit": "can_climb_steps",
+      "Central Cavern 1F": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Central Cavern B1F East Exit",
+    "area_id": "18",
+    "map_id": "2",
+    "map_name": "Central Cavern",
+    "exits": {
+      "Fire Bar Bridge": "True",
+      "Central Cavern B1F": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Central Cavern B2F",
+    "area_id": "18",
+    "map_id": "2",
+    "map_name": "Central Cavern",
+    "locations": {
+      "Central Cavern On Stone Pillar": "True"
+    },
+    "exits": {
+      "Zipline Cavern B2F": "'RF_KZN07_OpenedHammerChest'",
+      "Central Cavern B1F": "can_climb_steps",
+      "Central Cavern B4F West Exit": "can_climb_steps",
+      "Central Cavern B4F": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Central Cavern B4F West Exit",
+    "area_id": "18",
+    "map_id": "2",
+    "map_name": "Central Cavern",
+    "exits": {
+      "Descent Toward Ultra Hammer": "True",
+      "Zipline Cavern B4F": "True"
+    }
+  },
+  {
+    "region_name": "Central Cavern B4F",
+    "area_id": "18",
+    "map_id": "2",
+    "map_name": "Central Cavern",
+    "exits": {
+      "Zipline Cavern B4F": "True",
+      "Central Cavern B2F": "can_climb_steps",
+      "Central Cavern B4F West Exit": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Fire Bar Bridge",
+    "area_id": "18",
+    "map_id": "3",
+    "map_name": "Fire Bar Bridge",
+    "exits": {
+      "Central Cavern B1F East Exit": "True"
+    }
+  },
+  {
+    "region_name": "Descent Toward Ultra Hammer",
+    "area_id": "18",
+    "map_id": "4",
+    "map_name": "Descent Toward Ultra Hammer",
+    "exits": {
+      "Flowing Lava Puzzle East": "True",
+      "Central Cavern B4F West Exit": "True"
+    }
+  },
+  {
+    "region_name": "Flowing Lava Puzzle East",
+    "area_id": "18",
+    "map_id": "5",
+    "map_name": "Flowing Lava Puzzle",
+    "events": {
+      "RF_KZN06_SolvedBlockPuzzle": "(Parakarry or Lakilester)"
+    },
+    "locations": {
+      "Flowing Lava Puzzle Hidden Block": "can_climb_steps and can_see_hidden_blocks and can_hit_floating_blocks"
+    },
+    "exits": {
+      "Descent Toward Ultra Hammer": "True",
+      "Flowing Lava Puzzle West": "(Parakarry or Lakilester)",
+      "Flowing Lava Puzzle East Lower Exit": "'RF_KZN07_OpenedHammerChest' and can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Flowing Lava Puzzle West",
+    "area_id": "18",
+    "map_id": "5",
+    "map_name": "Flowing Lava Puzzle",
+    "exits": {
+      "Ultra Hammer Room": "True",
+      "Flowing Lava Puzzle East": "('RF_KZN06_SolvedBlockPuzzle' and Parakarry) or Lakilester"
+    }
+  },
+  {
+    "region_name": "Flowing Lava Puzzle East Lower Exit",
+    "area_id": "18",
+    "map_id": "5",
+    "map_name": "Flowing Lava Puzzle",
+    "exits": {
+      "Dizzy Stomp Room": "True",
+      "Flowing Lava Puzzle East": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Ultra Hammer Room",
+    "area_id": "18",
+    "map_id": "6",
+    "map_name": "Ultra Hammer Room",
+    "events": {
+      "RF_KZN07_OpenedHammerChest": "(Parakarry or Lakilester) and can_climb_steps",
+      "RF_KZN06_SolvedBlockPuzzle": "(Parakarry or Lakilester) and can_climb_steps"
+    },
+    "locations": {
+      "Ultra Hammer Room In Big Chest": "(Parakarry or Lakilester) and can_climb_steps"
+    },
+    "exits": {
+      "Flowing Lava Puzzle West": "True"
+    }
+  },
+  {
+    "region_name": "Dizzy Stomp Room",
+    "area_id": "18",
+    "map_id": "7",
+    "map_name": "Dizzy Stomp Room",
+    "locations": {
+      "Dizzy Stomp Room In Chest": "can_climb_steps and (Parakarry or Lakilester)"
+    },
+    "exits": {
+      "Flowing Lava Puzzle East Lower Exit": "True"
+    }
+  },
+  {
+    "region_name": "Zipline Cavern B2F",
+    "area_id": "18",
+    "map_id": "8",
+    "map_name": "Zipline Cavern",
+    "exits": {
+      "Central Cavern B2F": "True",
+      "Zipline Cavern B3F": "True",
+      "Zipline Cavern B4F": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Zipline Cavern B3F",
+    "area_id": "18",
+    "map_id": "8",
+    "map_name": "Zipline Cavern",
+    "exits": {
+      "Descent Toward Boss": "True",
+      "Zipline Cavern B4F": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Zipline Cavern B4F",
+    "area_id": "18",
+    "map_id": "8",
+    "map_name": "Zipline Cavern",
+    "locations": {
+      "Zipline Cavern Hidden Panel": "can_flip_panels"
+    },
+    "exits": {
+      "Central Cavern B4F": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Descent Toward Boss",
+    "area_id": "18",
+    "map_id": "9",
+    "map_name": "Descent Toward Boss",
+    "exits": {
+      "Zipline Cavern B3F": "True",
+      "Second Lava Lake West": "True"
+    }
+  },
+  {
+    "region_name": "Second Lava Lake West",
+    "area_id": "18",
+    "map_id": "10",
+    "map_name": "Second Lava Lake",
+    "exits": {
+      "Descent Toward Boss": "True",
+      "Second Lava Lake East": "(Lakilester or can_climb_steps)"
+    }
+  },
+  {
+    "region_name": "Second Lava Lake East",
+    "area_id": "18",
+    "map_id": "10",
+    "map_name": "Second Lava Lake",
+    "exits": {
+      "Spike Roller Trap": "True",
+      "Second Lava Lake West": "(Lakilester or can_climb_steps)"
+    }
+  },
+  {
+    "region_name": "Spike Roller Trap",
+    "area_id": "18",
+    "map_id": "11",
+    "map_name": "Spike Roller Trap",
+    "exits": {
+      "Second Lava Lake East": "True",
+      "Boss Antechamber": "'RF_KZN07_OpenedHammerChest' and can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Boss Antechamber Upper",
+    "area_id": "18",
+    "map_id": "12",
+    "map_name": "Boss Antechamber",
+    "locations": {
+      "Boss Antechamber Hidden Panel": "can_flip_panels"
+    },
+    "exits": {
+      "Spike Roller Trap": "True",
+      "Boss Room Upper": "True",
+      "Boss Antechamber Lower": "True"
+    }
+  },
+  {
+    "region_name": "Boss Antechamber Lower",
+    "area_id": "18",
+    "map_id": "12",
+    "map_name": "Boss Antechamber",
+    "exits": {
+      "Boss Room Lower": "True",
+      "Boss Antechamber Upper": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Boss Room Upper",
+    "area_id": "18",
+    "map_id": "13",
+    "map_name": "Boss Room",
+    "locations": {
+      "Boss Room Yellow Block Left": "can_hit_floating_blocks",
+      "Boss Room Yellow Block Right": "can_hit_floating_blocks"
+    },
+    "exits": {
+      "Boss Antechamber Upper": "True"
+    }
+  },
+  {
+    "region_name": "Boss Room Lower",
+    "area_id": "18",
+    "map_id": "13",
+    "map_name": "Boss Room",
+    "exits": {
+      "Boss Antechamber Lower": "True",
+      "Rising Lava 1 Lower": "True"
+    }
+  },
+  {
+    "region_name": "Rising Lava 1 Lower",
+    "area_id": "18",
+    "map_id": "14",
+    "map_name": "Rising Lava 1",
+    "exits": {
+      "Boss Room Lower": "True",
+      "Rising Lava 1 Upper": "Boots"
+    }
+  },
+  {
+    "region_name": "Rising Lava 1 Upper",
+    "area_id": "18",
+    "map_id": "14",
+    "map_name": "Rising Lava 1",
+    "exits": {
+      "Rising Lava 2": "True",
+      "Rising Lava 1 Lower": "True"
+    }
+  },
+  {
+    "region_name": "Rising Lava 2",
+    "area_id": "18",
+    "map_id": "15",
+    "map_name": "Rising Lava 2",
+    "events": {
+      "MF_Ch5_FoundEscapeRoute": "can_climb_steps"
+    },
+    "exits": {
+      "Rising Lava 1 Upper": "True"
+    }
+  }
+]

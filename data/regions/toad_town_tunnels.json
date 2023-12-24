@@ -1,0 +1,482 @@
+[
+  {
+    "region_name": "Warp Zone 1 (B1)",
+    "area_id": "2",
+    "map_id": "0",
+    "map_name": "Warp Zone 1 (B1)",
+    "events": {
+      "GF_TIK01_WarpPipes": "can_hit_grounded_switches"
+    },
+    "exits": {
+      "Sewer Entrance (B1)": "True",
+      "Short Elevator Room (B1)": "Super_Hammer",
+      "Warp Zone 1 (B1) 3": "'GF_TIK01_WarpPipes' and Boots",
+      "Warp Zone 1 (B1) 4": "'GF_TIK01_WarpPipes' and Boots",
+      "Warp Zone 1 (B1) 5": "'GF_TIK01_WarpPipes' and Boots"
+    }
+  },
+  {
+    "region_name": "Warp Zone 1 (B1) Goomba Village Pipe",
+    "area_id": "2",
+    "map_id": "0",
+    "map_name": "Warp Zone 1 (B1)",
+    "exits": {
+      "Goomba Village Pipe": "can_reenter_vertical_pipes",
+      "Warp Zone 1 (B1)": "True",
+      "Warp Zone 1 (B1) Koopa Village Pipe": "'GF_TIK01_WarpPipes' and Parakarry"
+    }
+  },
+  {
+    "region_name": "Warp Zone 1 (B1) Koopa Village Pipe",
+    "area_id": "2",
+    "map_id": "0",
+    "map_name": "Warp Zone 1 (B1)",
+    "exits": {
+      "Koopa Village 2 Pipe": "can_reenter_vertical_pipes",
+      "Warp Zone 1 (B1)": "True",
+      "Warp Zone 1 (B1) Goomba Village Pipe": "'GF_TIK01_WarpPipes' and Parakarry",
+      "Warp Zone 1 (B1) Outpost Pipe": "'GF_TIK01_WarpPipes' and Parakarry"
+    }
+  },
+  {
+    "region_name": "Warp Zone 1 (B1) Outpost Pipe",
+    "area_id": "2",
+    "map_id": "0",
+    "map_name": "Warp Zone 1 (B1)",
+    "exits": {
+      "Outpost 1 Pipe": "can_reenter_vertical_pipes",
+      "Warp Zone 1 (B1)": "True",
+      "Warp Zone 1 (B1) Koopa Village Pipe": "'GF_TIK01_WarpPipes' and Parakarry"
+    }
+  },
+  {
+    "region_name": "Blooper Boss 1 (B1)",
+    "area_id": "2",
+    "map_id": "1",
+    "map_name": "Blooper Boss 1 (B1)",
+    "locations": {
+      "Blooper Boss 1 (B1) Blooper Fight Reward": "True"
+    },
+    "exits": {
+      "Hall to Blooper 1 (B1)": "True"
+    }
+  },
+  {
+    "region_name": "Short Elevator Room (B1)",
+    "area_id": "2",
+    "map_id": "2",
+    "map_name": "Short Elevator Room (B1)",
+    "locations": {
+      "Short Elevator Room (B1) Yellow Block Center": "can_hit_floating_blocks",
+      "Short Elevator Room (B1) Yellow Block Left": "can_hit_floating_blocks",
+      "Short Elevator Room (B1) Yellow Block Right": "can_hit_floating_blocks"
+    },
+    "exits": {
+      "Warp Zone 1 (B1)": "True",
+      "Scales Room (B2) West": "True"
+    }
+  },
+  {
+    "region_name": "Scales Room (B2) West",
+    "area_id": "2",
+    "map_id": "3",
+    "map_name": "Scales Room (B2)",
+    "exits": {
+      "Spring Room (B2)": "True",
+      "Short Elevator Room (B1)": "True",
+      "Scales Room (B2) East": "Boots",
+      "Scales Room (B2) Lower": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Scales Room (B2) East",
+    "area_id": "2",
+    "map_id": "3",
+    "map_name": "Scales Room (B2)",
+    "exits": {
+      "Elevator Attic Room (B2)": "True",
+      "Scales Room (B2) West": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Scales Room (B2) Lower",
+    "area_id": "2",
+    "map_id": "3",
+    "map_name": "Scales Room (B2)",
+    "exits": {
+      "Scales Room (B2) Lower Pipe": "can_climb_steps",
+      "Scales Room (B2) West": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Scales Room (B2) Lower Pipe",
+    "area_id": "2",
+    "map_id": "3",
+    "map_name": "Scales Room (B2)",
+    "exits": {
+      "Metal Block Room (B3)": "can_reenter_vertical_pipes",
+      "Scales Room (B2) Lower": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Spring Room (B2)",
+    "area_id": "2",
+    "map_id": "4",
+    "map_name": "Spring Room (B2)",
+    "locations": {
+      "Spring Room (B2) Chest On Ledge": "can_hit_floating_blocks and can_climb_steps"
+    },
+    "exits": {
+      "Scales Room (B2) West": "True"
+    }
+  },
+  {
+    "region_name": "Sewer Entrance (B1)",
+    "area_id": "2",
+    "map_id": "5",
+    "map_name": "Sewer Entrance (B1)",
+    "exits": {
+      "Warp Zone 1 (B1)": "Super_Hammer",
+      "Hall to Blooper 1 (B1)": "Hammer or Bombette",
+      "Southern District Sewers Pipe": "True",
+      "Second Level Entry (B2) West": "Super_Boots"
+    }
+  },
+  {
+    "region_name": "Sewer Entrance (B1) Tall Pipe",
+    "area_id": "2",
+    "map_id": "5",
+    "map_name": "Sewer Entrance (B1)",
+    "exits": {
+      "Sewer Entrance (B1)": "True",
+      "Second Level Entry (B2) West": "can_reenter_vertical_pipes"
+    }
+  },
+  {
+    "region_name": "Elevator Attic Room (B2) West",
+    "area_id": "2",
+    "map_id": "6",
+    "map_name": "Elevator Attic Room (B2)",
+    "locations": {
+      "Elevator Attic Room (B2) On Parakarry Ledge": "Parakarry"
+    },
+    "exits": {
+      "Scales Room (B2) East": "True",
+      "Elevator Attic Room (B2) East": "True"
+    }
+  },
+  {
+    "region_name": "Elevator Attic Room (B2) East",
+    "area_id": "2",
+    "map_id": "6",
+    "map_name": "Elevator Attic Room (B2)",
+    "exits": {
+      "Elevator Attic Room (B2) East Pipe": "Boots"
+    }
+  },
+  {
+    "region_name": "Elevator Attic Room (B2) East Pipe",
+    "area_id": "2",
+    "map_id": "6",
+    "map_name": "Elevator Attic Room (B2)",
+    "exits": {
+      "Elevator Attic Room (B2) West Pipe": "can_reenter_vertical_pipes",
+      "Elevator Attic Room (B2) East": "True"
+    }
+  },
+  {
+    "region_name": "Elevator Attic Room (B2) West Pipe",
+    "area_id": "2",
+    "map_id": "6",
+    "map_name": "Elevator Attic Room (B2)",
+    "exits": {
+      "Elevator Attic Room (B2) East Pipe": "can_reenter_vertical_pipes",
+      "Elevator Attic Room (B2) True": "True"
+    }
+  },
+  {
+    "region_name": "Second Level Entry (B2) West",
+    "area_id": "2",
+    "map_id": "7",
+    "map_name": "Second Level Entry (B2)",
+    "exits": {
+      "Warp Zone 2 (B2)": "True",
+      "Sewer Entrance (B1) Tall Pipe": "True",
+      "Second Level Entry (B2) East": "Sushie"
+    }
+  },
+  {
+    "region_name": "Second Level Entry (B2) East",
+    "area_id": "2",
+    "map_id": "7",
+    "map_name": "Second Level Entry (B2)",
+    "events": {
+      "GF_TIK08_WarpPipe": "can_hit_grounded_switches"
+    },
+    "exits": {
+      "Room with Spikes (B2)": "True",
+      "Second Level Entry (B2) West": "Sushie",
+      "Second Level Entry (B2) Blue Pipe": "'GF_TIK08_WarpPipe' and Boots"
+    }
+  },
+  {
+    "region_name": "Second Level Entry (B2) Blue Pipe",
+    "area_id": "2",
+    "map_id": "7",
+    "map_name": "Second Level Entry (B2)",
+    "exits": {
+      "Village Buildings Pipe": "can_reenter_pipes",
+      "Second Level Entry (B2) East": "True"
+    }
+  },
+  {
+    "region_name": "Warp Zone 2 (B2)",
+    "area_id": "2",
+    "map_id": "8",
+    "map_name": "Warp Zone 2 (B2)",
+    "events": {
+      "GF_TIK09_WarpPipe": "can_hit_grounded_switches"
+    },
+    "exits": {
+      "Blue Pushblock Room (B2)": "True",
+      "Second Level Entry (B2) West": "True",
+      "Warp Zone 2 (B2) Pipe": "'GF_TIK09_WarpPipe' and Boots"
+    }
+  },
+  {
+    "region_name": "Warp Zone 2 (B2) Pipe",
+    "area_id": "2",
+    "map_id": "8",
+    "map_name": "Warp Zone 2 (B2)",
+    "exits": {
+      "Outside Boo's Mansion Pipe": "True",
+      "Warp Zone 2 (B2)": "True"
+    }
+  },
+  {
+    "region_name": "Blue Pushblock Room (B2)",
+    "area_id": "2",
+    "map_id": "9",
+    "map_name": "Blue Pushblock Room (B2)",
+    "locations": {
+      "Blue Pushblock Room (B2) Hidden Block Left": "can_see_hidden_blocks and can_hit_floating_blocks and can_climb_steps",
+      "Blue Pushblock Room (B2) Hidden Block Center": "can_see_hidden_blocks and can_hit_floating_blocks and can_climb_steps",
+      "Blue Pushblock Room (B2) Hidden Block Right": "can_see_hidden_blocks and can_hit_floating_blocks and can_climb_steps"
+    },
+    "exits": {
+      "Warp Zone 2 (B2)": "True"
+    }
+  },
+  {
+    "region_name": "Metal Block Room (B3)",
+    "area_id": "2",
+    "map_id": "10",
+    "map_name": "Metal Block Room (B3)",
+    "exits": {
+      "Scales Room (B2) Lower Pipe": "True"
+    }
+  },
+  {
+    "region_name": "Rip Cheato Antechamber (B3)",
+    "area_id": "2",
+    "map_id": "11",
+    "map_name": "Rip Cheato Antechamber (B3)",
+    "exits": {
+      "Bridge to Shiver City (B2)": "True",
+      "Rip Cheato's Home (B3)": "Bombette"
+    }
+  },
+  {
+    "region_name": "Rip Cheato's Home (B3)",
+    "area_id": "2",
+    "map_id": "12",
+    "map_name": "Rip Cheato's Home (B3)",
+    "locations": {
+      "Rip Cheato's Home (B3) Rip Cheato Offer 1": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 2": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 3": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 4": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 5": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 6": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 7": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 8": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 9": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 10": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 11": "True"
+    },
+    "exits": {
+      "Southern District Odd House Pipe": "True",
+      "Rip Cheato Antechamber (B3)": "Bombette"
+    }
+  },
+  {
+    "region_name": "Frozen Room (B3) West Pipe",
+    "area_id": "2",
+    "map_id": "13",
+    "map_name": "Frozen Room (B3)",
+    "exits": {
+      "Pipe to Frozen Room (B2) Pipe": "can_reenter_vertical_pipes",
+      "Frozen Room (B3) East Pipe": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Frozen Room (B3) East Pipe",
+    "area_id": "2",
+    "map_id": "13",
+    "map_name": "Frozen Room (B3)",
+    "exits": {
+      "Shiver City Center Pipe": "True",
+      "Frozen Room (B3) West Pipe": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Hall to Blooper 1 (B1)",
+    "area_id": "2",
+    "map_id": "14",
+    "map_name": "Hall to Blooper 1 (B1)",
+    "locations": {
+      "Hall to Blooper 1 (B1) Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks"
+    },
+    "exits": {
+      "Sewer Entrance (B1)": "True",
+      "Blooper Boss 1 (B1)": "True"
+    }
+  },
+  {
+    "region_name": "Under the Toad Town Pond",
+    "area_id": "2",
+    "map_id": "15",
+    "map_name": "Under the Toad Town Pond",
+    "exits": {
+      "Gate District Island Pipe": "True"
+    }
+  },
+  {
+    "region_name": "Room with Spikes (B2)",
+    "area_id": "2",
+    "map_id": "16",
+    "map_name": "Room with Spikes (B2)",
+    "locations": {
+      "Room with Spikes (B2) Yellow Block": "Ultra_Boots"
+    },
+    "exits": {
+      "Second Level Entry (B2) East": "True",
+      "Bridge to Shiver City (B2) West": "True",
+      "Room with Spikes (B2) Pipe": "Lakilester and Boots"
+    }
+  },
+  {
+    "region_name": "Room with Spikes (B2) Pipe",
+    "area_id": "2",
+    "map_id": "16",
+    "map_name": "Room with Spikes (B2)",
+    "exits": {
+      "Winding Path (Spiny Room)": "can_reenter_vertical_pipes",
+      "Room with Spikes (B2)": "Lakilester"
+    }
+  },
+  {
+    "region_name": "Bridge to Shiver City (B2)",
+    "area_id": "2",
+    "map_id": "17",
+    "map_name": "Bridge to Shiver City (B2)",
+    "events": {
+      "RF_BuiltCh7Bridge": "Ultra_Boots and can_see_hidden_blocks"
+    },
+    "locations": {
+      "Bridge to Shiver City (B2) Yellow Block 1": "Super_Boots",
+      "Bridge to Shiver City (B2) Yellow Block 2": "'RF_BuiltCh7Bridge' and Super_Boots",
+      "Bridge to Shiver City (B2) Yellow Block 3": "'RF_BuiltCh7Bridge' and Super_Boots",
+      "Bridge to Shiver City (B2) Yellow Block 4": "'RF_BuiltCh7Bridge' and Super_Boots",
+      "Bridge to Shiver City (B2) Yellow Block 5": "'RF_BuiltCh7Bridge' and Super_Boots"
+    },
+    "exits": {
+      "Room with Spikes (B2)": "True",
+      "Bridge to Shiver City (B2) East Door": "can_climb_steps and 'RF_BuiltCh7Bridge'",
+      "Bridge to Shiver City (B2) Pipe": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Bridge to Shiver City (B2) East Door",
+    "area_id": "2",
+    "map_id": "17",
+    "map_name": "Bridge to Shiver City (B2)",
+    "exits": {
+      "Pipe to Frozen Room (B2)": "True",
+      "Bridge to Shiver City (B2)": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Bridge to Shiver City (B2) Pipe",
+    "area_id": "2",
+    "map_id": "17",
+    "map_name": "Bridge to Shiver City (B2)",
+    "exits": {
+      "Rip Cheato Antechamber (B3)": "can_reenter_vertical_pipes",
+      "Bridge to Shiver City (B2)": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Pipe to Frozen Room (B2)",
+    "area_id": "2",
+    "map_id": "18",
+    "map_name": "Pipe to Frozen Room (B2)",
+    "exits": {
+      "Bridge to Shiver City (B2) East": "True",
+      "Pipe to Frozen Room (B2) Pipe": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Pipe to Frozen Room (B2) Pipe",
+    "area_id": "2",
+    "map_id": "18",
+    "map_name": "Pipe to Frozen Room (B2)",
+    "exits": {
+      "Frozen Room (B3) West Pipe": "can_reenter_vertical_pipes",
+      "Pipe to Frozen Room (B2)": "True"
+    }
+  },
+  {
+    "region_name": "Winding Path (Spiny Room)",
+    "area_id": "2",
+    "map_id": "19",
+    "map_name": "Winding Path (Spiny Room)",
+    "locations": {
+      "Winding Path (Spiny Room) Hidden Block Center": "can_see_hidden_blocks and can_hit_floating_blocks",
+      "Winding Path (Spiny Room) Hidden Block Right": "can_see_hidden_blocks and can_hit_floating_blocks",
+      "Winding Path (Spiny Room) Hidden Block Left": "can_see_hidden_blocks and can_hit_floating_blocks",
+      "Winding Path (Spiny Room) Yellow Block": "can_hit_floating_blocks"
+    },
+    "exits": {
+      "Room with Spikes (B2) Pipe": "True",
+      "Hall to Ultra Boots (B3)": "Super_Hammer"
+    }
+  },
+  {
+    "region_name": "Hall to Ultra Boots (B3)",
+    "area_id": "2",
+    "map_id": "20",
+    "map_name": "Hall to Ultra Boots (B3)",
+    "locations": {
+      "Hall to Ultra Boots (B3) Hidden Block": "can_see_hidden_blocks and Ultra_Boots",
+      "Hall to Ultra Boots (B3) Yellow Block Left": "Ultra_Boots",
+      "Hall to Ultra Boots (B3) Yellow Block Right": "Ultra_Boots"
+    },
+    "exits": {
+      "Winding Path (Spiny Room)": "True",
+      "Ultra Boots Room (B3)": "Ultra_Hammer"
+    }
+  },
+  {
+    "region_name": "Ultra Boots Room (B3)",
+    "area_id": "2",
+    "map_id": "21",
+    "map_name": "Ultra Boots Room (B3)",
+    "locations": {
+      "Ultra Boots Room (B3) In Big Chest": "can_hit_floating_blocks and can_climb_steps"
+    },
+    "exits": {
+      "Hall to Ultra Boots (B3)": "True"
+    }
+  }
+]
