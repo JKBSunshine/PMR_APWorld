@@ -103,15 +103,16 @@ rom_option_table = {
     "RandomText":               (95,     6,      5,      5,     0),
     "Widescreen":               (96,     6,      5,      6,     0),
     "RandomPitch":              (97,     7,      0,      0,     0),
-    "RandomChoice":             (98,     10,     0,      0,     0),
-    "ItemChoiceA":              (99,     10,     0,      1,     138),
-    "ItemChoiceB":              (100,    10,     0,      2,     140),
-    "ItemChoiceC":              (101,    10,     0,      3,     128),
-    "ItemChoiceD":              (102,    10,     0,      4,     136),
-    "ItemChoiceE":              (103,    10,     0,      5,     154),
-    "ItemChoiceF":              (104,    10,     0,      6,     130),
-    "ItemChoiceG":              (105,    10,     0,      7,     133),
-    "RandomQuiz":               (106,    3,      7,      128,   1)
+    "MuteDangerBeeps":          (98,     7,      0,      1,     0),
+    "RandomChoice":             (99,     10,     0,      0,     0),
+    "ItemChoiceA":              (100,     10,     0,      1,     138),
+    "ItemChoiceB":              (101,    10,     0,      2,     140),
+    "ItemChoiceC":              (102,    10,     0,      3,     128),
+    "ItemChoiceD":              (103,    10,     0,      4,     136),
+    "ItemChoiceE":              (104,    10,     0,      5,     154),
+    "ItemChoiceF":              (105,    10,     0,      6,     130),
+    "ItemChoiceG":              (106,    10,     0,      7,     133),
+    "RandomQuiz":               (107,    3,      7,      128,   1)
 }
 
 ap_to_rom_option_table = {
@@ -249,4 +250,5 @@ ap_to_rom_option_table = {
     "RomanNumerals": "roman_numerals",
     "RandomText": "random_text",
     "RandomPitch": "random_pitch",
+    "MuteDangerBeeps": "mute_danger_beeps",
 }
