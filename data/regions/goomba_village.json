@@ -273,13 +273,13 @@
     }
   },
   {
-    "region_name": "Mario's House Pipe",
+    "region_name": "Mario's House Warp Pipe",
     "area_id": "0",
     "map_id": "11",
     "map_name": "Mario's House",
     "exits": {
       "Mario's House": "True",
-      "Gate District": "can_reenter_vertical_pipes"
+      "Gate District Mario's House Pipe": "can_reenter_vertical_pipes"
     }
   }
 ]

@@ -5,7 +5,7 @@
     "map_id": "0",
     "map_name": "Center",
     "events": {
-      "RF_GrewBeanstalk": "'RF_Ch6_DestroyedPuffPuffMachine' and Magical_Bean and Fertile_Soil and Miracle_Water and can_climb_steps"
+      "RF_GrewBeanstalk": "'RF_Ch6_DestroyedPuffPuffMachine' and MagicalBean and FertileSoil and MiracleWater and can_climb_steps"
     },
     "exits": {
       "Plaza District": "True",
@@ -54,7 +54,7 @@
       "(NE) Fallen Logs In The Flowers": "True"
     },
     "exits": {
-      "(NE) Elevators": "True",
+      "(NE) Elevators East": "True",
       "(NE) Puff Puff Machine": "True"
     }
   },
@@ -118,14 +118,14 @@
     "map_id": "3",
     "map_name": "(SE) Briar Platforming",
     "events": {
-      "GF_FLO08_GaveYellowBerry": "Yellow_Berry"
+      "GF_FLO08_GaveYellowBerry": "YellowBerryProxy1"
     },
     "locations": {
       "(SE) Briar Platforming Left Side Vine": "True"
     },
     "exits": {
       "Fields Center": "True",
-      "(SE) Briar Platforming East": "'GF_FLO08_GaveYellowBerry' and (Parakarry or Lakilester)"
+      "(SE) Briar Platforming East": "YellowBerryProxy1 and (Parakarry or Lakilester)"
     }
   },
   {
@@ -178,10 +178,10 @@
     "map_id": "5",
     "map_name": "(SE) Lily's Fountain",
     "events": {
-      "RF_Ch6_ReturnedWaterStone": "Water_Stone"
+      "RF_Ch6_ReturnedWaterStone": "WaterStone"
     },
     "locations": {
-      "(SE) Lily's Fountain Lily Reward For WaterStone": "Water_Stone",
+      "(SE) Lily's Fountain Lily Reward For WaterStone": "WaterStone",
       "(SE) Lily's Fountain In Tree": "can_shake_trees"
     },
     "exits": {
@@ -194,7 +194,7 @@
     "map_id": "19",
     "map_name": "(SW) Path to Crystal Tree",
     "events": {
-      "GF_FLO25_GaveRedBerry": "Red_Berry"
+      "GF_FLO25_GaveRedBerry": "RedBerryProxy1"
     },
     "exits": {
       "Fields Center": "True",
@@ -236,7 +236,7 @@
     "map_id": "17",
     "map_name": "(West) Path to Maze",
     "events": {
-      "GF_FLO23_GaveBlueBerry": "Blue_Berry"
+      "GF_FLO23_GaveBlueBerry": "BlueBerryProxy1"
     },
     "exits": {
       "Fields Center": "True",
@@ -343,7 +343,7 @@
     "map_id": "7",
     "map_name": "(West) Rosie's Trellis",
     "locations": {
-      "(West) Rosie's Trellis Rosie Gift": "Crystal_Berry"
+      "(West) Rosie's Trellis Rosie Gift": "CrystalBerry"
     },
     "exits": {
       "(West) Maze West": "True"
@@ -359,7 +359,7 @@
     },
     "exits": {
       "Fields Center": "True",
-      "(NW) Bubble Flower West": "(Lakilester or Bubble_Berry)"
+      "(NW) Bubble Flower West": "(Lakilester or BubbleBerryProxy1)"
     }
   },
   {
@@ -421,7 +421,8 @@
     "map_id": "15",
     "map_name": "Huff N Puff Room",
     "events": {
-      "STARSPIRIT_6": "can_climb_steps"
+      "STARSPIRIT_6": "can_climb_steps",
+      "STARSPIRIT": "can_climb_steps"
     },
     "exits": {
       "Cloudy Climb": "True"

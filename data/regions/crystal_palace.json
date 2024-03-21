@@ -27,8 +27,8 @@
     "exits": {
       "Palace Entrance South": "True",
       "Palace Save Room Upper": "True",
-      "Blue Mirror Hall 1 South": "Blue_Key and Super_Boots",
-      "Red Mirror Hall": "Red_Key"
+      "Blue Mirror Hall 1 South": "BlueKey and Super_Boots",
+      "Red Mirror Hall": "RedKey"
     }
   },
   {
@@ -37,8 +37,8 @@
     "map_id": "1",
     "map_name": "Entry Hall",
     "exits": {
-      "Blue Mirror Hall 1 North": "Blue_Key and Super_Boots",
-      "Red Mirror Hall": "Red_Key",
+      "Blue Mirror Hall 1 North": "BlueKey and Super_Boots",
+      "Red Mirror Hall": "RedKey",
       "Reflected Save Room Upper": "True",
       "Palace Entrance North": "True"
     }
@@ -252,8 +252,8 @@
     "map_name": "Mirrored Door Room",
     "exits": {
       "Reflection Mimic Room": "True",
-      "Huge Statue Room": "True",
-      "Hidden Bridge Room South": "True"
+      "Huge Statue Room Upper": "True",
+      "Hidden Bridge Room South West": "True"
     }
   },
   {
@@ -262,8 +262,8 @@
     "map_id": "16",
     "map_name": "Mirrored Door Room",
     "exits": {
-      "Hidden Bridge Room North": "True",
-      "Small Statue Room": "True"
+      "Hidden Bridge Room North West": "True",
+      "Small Statue Room Upper": "True"
     }
   },
   {
@@ -351,7 +351,7 @@
     },
     "exits": {
       "Mirrored Door Room South": "True",
-      "Hidden Bridge Room South East": "('RF_PRA_29_ExtendedBridge'"
+      "Hidden Bridge Room South East": "'RF_PRA_29_ExtendedBridge'"
     }
   },
   {
@@ -364,7 +364,7 @@
     },
     "exits": {
       "Mirror Hole Room": "True",
-      "Hidden Bridge Room South West": "('RF_PRA_29_ExtendedBridge'"
+      "Hidden Bridge Room South West": "'RF_PRA_29_ExtendedBridge'"
     }
   },
   {
@@ -399,7 +399,7 @@
     "map_id": "22",
     "map_name": "Dino Puzzle Room",
     "exits": {
-      "Boss Antechamber": "True",
+      "Palace Boss Antechamber": "True",
       "Mirror Hole Room": "True"
     }
   },
@@ -409,10 +409,11 @@
     "map_id": "23",
     "map_name": "Crystal Summit",
     "events": {
-      "STARSPIRIT_7": "True"
+      "STARSPIRIT_7": "True",
+      "STARSPIRIT": "True"
     },
     "exits": {
-      "Boss Antechamber": "True"
+      "Palace Boss Antechamber": "True"
     }
   },
   {
@@ -442,7 +443,7 @@
     "map_name": "Mirror Hole Room",
     "exits": {
       "Hidden Bridge Room North East": "True",
-      "Dino Puzzle Room": "Crystal_Palace_Key",
+      "Dino Puzzle Room": "CrystalPalaceKey",
       "Hidden Bridge Room South East": "True"
     }
   },
@@ -474,7 +475,7 @@
     "map_id": "27",
     "map_name": "Palace Key Hall",
     "exits": {
-      "Huge Statue Room": "True",
+      "Huge Statue Room Lower": "True",
       "Palace Key Room": "True"
     }
   },
@@ -484,7 +485,7 @@
     "map_id": "28",
     "map_name": "P-Up, D-Down Hall",
     "exits": {
-      "Small Statue Room": "True",
+      "Small Statue Room Lower": "True",
       "P-Up, D-Down Room": "True"
     }
   },
@@ -509,7 +510,7 @@
     }
   },
   {
-    "region_name": "Boss Antechamber",
+    "region_name": "Palace Boss Antechamber",
     "area_id": "21",
     "map_id": "31",
     "map_name": "Boss Antechamber",

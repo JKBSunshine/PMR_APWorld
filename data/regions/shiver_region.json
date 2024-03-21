@@ -75,7 +75,7 @@
     "map_id": "3",
     "map_name": "Shiver Snowfield",
     "events": {
-      "MF_SAM_04_UnlockedShiverMountain": "Snowman_Bucket and Snowman_Scarf"
+      "MF_SAM_04_UnlockedShiverMountain": "SnowmanBucket and SnowmanScarf"
     },
     "locations": {
       "Shiver Snowfield Hidden Panel": "can_flip_panels",
@@ -85,7 +85,7 @@
     "exits": {
       "Road to Shiver Snowfield": "True",
       "Path to Starborn Valley West": "True",
-      "Shiver Mountain Passage West": "'MF_SAM_04_UnlockedShiverMountain''"
+      "Shiver Mountain Passage West": "'MF_SAM_04_UnlockedShiverMountain'"
     }
   },
   {
@@ -204,7 +204,7 @@
     "map_name": "Shiver Mountain Peaks",
     "exits": {
       "Shiver Mountain Tunnel": "True",
-      "Shiver Mountain Peaks": "Star_Stone and can_climb_steps",
+      "Shiver Mountain Peaks": "StarStone and can_climb_steps",
       "Merlar's Sanctuary": "Bombette"
     }
   },
@@ -228,7 +228,7 @@
     "map_id": "10",
     "map_name": "Shiver City Pond Area",
     "events": {
-      "RF_Ch7_SpokeWithHerringway": "'RF_Ch7_MurderMysteryStarted' and Warehouse_Key and Boots",
+      "RF_Ch7_SpokeWithHerringway": "'RF_Ch7_MurderMysteryStarted' and WarehouseKey and Boots",
       "StarPiece_SAM_1": "True",
       "StarPiece_SAM_8": "True"
     },

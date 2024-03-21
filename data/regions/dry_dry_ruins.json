@@ -29,7 +29,7 @@
     "map_id": "1",
     "map_name": "Sarcophagus Hall 1",
     "exits": {
-      "Sand Drainage Room 1 2F": "(Ruins_Key, 1)",
+      "Sand Drainage Room 1 2F": "(RuinsKey, 1)",
       "Sarcophagus Hall 1": "True"
     }
   },
@@ -87,7 +87,7 @@
     "map_id": "3",
     "map_name": "Descending Stairs 1",
     "exits": {
-      "Sarcophagus Hall 2 East Door": "(Ruins_Key, 2)",
+      "Sarcophagus Hall 2 East Door": "(RuinsKey, 2)",
       "Descending Stairs 1 1F": "can_climb_steps",
       "Descending Stairs 1 B1F Door": "can_climb_steps"
     }
@@ -119,7 +119,7 @@
     "map_id": "4",
     "map_name": "Pyramid Stone Room",
     "locations": {
-      "Pyramid Stone Room On Pedestal": "'RF_ISK09_OpenedHammerChest' and can_climb_steps"
+      "Pyramid Stone Room On Pedestal": "Super_Hammer and can_climb_steps"
     },
     "exits": {
       "Descending Stairs 1 B1F Door": "True"
@@ -169,10 +169,10 @@
     "map_name": "Sarcophagus Hall 2",
     "locations": {
       "Sarcophagus Hall 2 Pokey Gauntlet Reward": "can_hit_floating_blocks",
-      "Sarcophagus Hall 2 Behind Hammer Block": "'RF_ISK09_OpenedHammerChest' and can_climb_steps"
+      "Sarcophagus Hall 2 Behind Hammer Block": "Super_Hammer and can_climb_steps"
     },
     "exits": {
-      "Descending Stairs 2 B2F East Door": "(Ruins_Key, 3)",
+      "Descending Stairs 2 B2F East Door": "(RuinsKey, 3)",
       "Sarcophagus Hall 2 East Door": "can_climb_steps"
     }
   },
@@ -204,7 +204,7 @@
     "exits": {
       "Vertical Shaft B3F": "Bombette",
       "Stone Puzzle Room": "True",
-      "Descending Stairs 2 B2F": "can_climb_steps"
+      "Descending Stairs 2 B2F East Door": "can_climb_steps"
     }
   },
   {
@@ -250,13 +250,13 @@
     "map_id": "10",
     "map_name": "Stone Puzzle Room",
     "events": {
-      "MB_Ch2_Spirit_ISK11_SolvedArtifactPuzzle": "Pyramid_Stone and Diamond_Stone and Lunar_Stone and 'RF_DrainedThirdSandRoomAndCanSolvePuzzle'"
+      "MB_Ch2_Spirit_ISK11_SolvedArtifactPuzzle": "PyramidStone and DiamondStone and LunarStone and 'RF_DrainedThirdSandRoomAndCanSolvePuzzle'"
     },
     "exits": {
       "Descending Stairs 2 B3F": "True",
       "Stone Puzzle Room East Upper Door": "can_climb_steps",
       "Stone Puzzle Room East Lower Door": "True",
-      "Boss Antechamber": "MB_Ch2_Spirit_ISK11_SolvedArtifactPuzzle"
+      "Stone Puzzle Room Stairwell": "'MB_Ch2_Spirit_ISK11_SolvedArtifactPuzzle'"
     }
   },
   {
@@ -265,7 +265,7 @@
     "map_id": "10",
     "map_name": "Stone Puzzle Room",
     "exits": {
-      "Sand Drainage Room 3 B3F": "(Ruins_Key, 4)",
+      "Sand Drainage Room 3 B3F": "(RuinsKey, 4)",
       "Stone Puzzle Room": "True"
     }
   },
@@ -275,7 +275,7 @@
     "map_id": "10",
     "map_name": "Stone Puzzle Room",
     "exits": {
-      "Sand Drainage Room 3 B4F": "True",
+      "Sand Drainage Room 3 B4F West": "True",
       "Stone Puzzle Room": "can_climb_steps"
     }
   },
@@ -285,8 +285,8 @@
     "map_id": "10",
     "map_name": "Stone Puzzle Room",
     "exits": {
-      "Boss Antechamber": "True",
-      "Stone Puzzle Room": "MB_Ch2_Spirit_ISK11_SolvedArtifactPuzzle and can_climb_steps"
+      "Ruins Boss Antechamber": "True",
+      "Stone Puzzle Room": "'MB_Ch2_Spirit_ISK11_SolvedArtifactPuzzle' and can_climb_steps"
     }
   },
   {
@@ -345,11 +345,8 @@
     "area_id": "11",
     "map_id": "11",
     "map_name": "Sand Drainage Room 3",
-    "locations": {
-      "Sand Drainage Room 3 On Ledge": "True"
-    },
     "exits": {
-      "Sand Drainage Room 3 B4F Ledge": "'RF_ISK09_OpenedHammerChest' and can_climb_steps",
+      "Sand Drainage Room 3 B4F Ledge": "Super_Hammer and can_climb_steps",
       "Deep Tunnel": "True"
     }
   },
@@ -359,7 +356,7 @@
     "map_id": "12",
     "map_name": "Lunar Stone Room",
     "locations": {
-      "Lunar Stone Room On Pedestal": "'RF_ISK09_OpenedHammerChest' and can_climb_steps"
+      "Lunar Stone Room On Pedestal": "Super_Hammer and can_climb_steps"
     },
     "exits": {
       "Sand Drainage Room 3 B4F East": "True"
@@ -371,7 +368,7 @@
     "map_id": "13",
     "map_name": "Diamond Stone Room",
     "locations": {
-      "Diamond Stone Room On Pedestal": "'RF_ISK09_OpenedHammerChest' and can_climb_steps"
+      "Diamond Stone Room On Pedestal": "Super_Hammer and can_climb_steps"
     },
     "exits": {
       "Vertical Shaft B5F": "True"
@@ -383,11 +380,12 @@
     "map_id": "14",
     "map_name": "Tutankoopa Room",
     "events": {
-      "STARSPIRIT_2": "MB_Ch2_Spirit_ISK11_SolvedArtifactPuzzle",
-      "RF_Ch2_SavedStarSpirit": "MB_Ch2_Spirit_ISK11_SolvedArtifactPuzzle"
+      "STARSPIRIT_2": "'MB_Ch2_Spirit_ISK11_SolvedArtifactPuzzle'",
+      "STARSPIRIT": "'MB_Ch2_Spirit_ISK11_SolvedArtifactPuzzle'",
+      "RF_Ch2_SavedStarSpirit": "'MB_Ch2_Spirit_ISK11_SolvedArtifactPuzzle'"
     },
     "exits": {
-      "Boss Antechamber": "True"
+      "Ruins Boss Antechamber": "True"
     }
   },
   {
@@ -400,7 +398,7 @@
     }
   },
   {
-    "region_name": "Boss Antechamber",
+    "region_name": "Ruins Boss Antechamber",
     "area_id": "11",
     "map_id": "16",
     "map_name": "Boss Antechamber",

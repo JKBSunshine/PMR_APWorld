@@ -10,9 +10,9 @@
     "exits": {
       "Sewer Entrance (B1)": "True",
       "Short Elevator Room (B1)": "Super_Hammer",
-      "Warp Zone 1 (B1) 3": "'GF_TIK01_WarpPipes' and Boots",
-      "Warp Zone 1 (B1) 4": "'GF_TIK01_WarpPipes' and Boots",
-      "Warp Zone 1 (B1) 5": "'GF_TIK01_WarpPipes' and Boots"
+      "Warp Zone 1 (B1) Goomba Village Pipe": "'GF_TIK01_WarpPipes' and Boots",
+      "Warp Zone 1 (B1) Koopa Village Pipe": "'GF_TIK01_WarpPipes' and Boots",
+      "Warp Zone 1 (B1) Outpost Pipe": "'GF_TIK01_WarpPipes' and Boots"
     }
   },
   {
@@ -94,7 +94,7 @@
     "map_id": "3",
     "map_name": "Scales Room (B2)",
     "exits": {
-      "Elevator Attic Room (B2)": "True",
+      "Elevator Attic Room (B2) West": "True",
       "Scales Room (B2) West": "can_climb_steps"
     }
   },
@@ -191,7 +191,7 @@
     "map_name": "Elevator Attic Room (B2)",
     "exits": {
       "Elevator Attic Room (B2) East Pipe": "can_reenter_vertical_pipes",
-      "Elevator Attic Room (B2) True": "True"
+      "Elevator Attic Room (B2) West": "True"
     }
   },
   {
@@ -282,7 +282,7 @@
     "map_id": "11",
     "map_name": "Rip Cheato Antechamber (B3)",
     "exits": {
-      "Bridge to Shiver City (B2)": "True",
+      "Bridge to Shiver City (B2) Pipe": "True",
       "Rip Cheato's Home (B3)": "Bombette"
     }
   },
@@ -376,7 +376,7 @@
     }
   },
   {
-    "region_name": "Bridge to Shiver City (B2)",
+    "region_name": "Bridge to Shiver City (B2) West",
     "area_id": "2",
     "map_id": "17",
     "map_name": "Bridge to Shiver City (B2)",
@@ -403,7 +403,7 @@
     "map_name": "Bridge to Shiver City (B2)",
     "exits": {
       "Pipe to Frozen Room (B2)": "True",
-      "Bridge to Shiver City (B2)": "can_climb_steps"
+      "Bridge to Shiver City (B2) West": "can_climb_steps"
     }
   },
   {
@@ -413,7 +413,7 @@
     "map_name": "Bridge to Shiver City (B2)",
     "exits": {
       "Rip Cheato Antechamber (B3)": "can_reenter_vertical_pipes",
-      "Bridge to Shiver City (B2)": "can_climb_steps"
+      "Bridge to Shiver City (B2) West": "can_climb_steps"
     }
   },
   {
@@ -422,7 +422,7 @@
     "map_id": "18",
     "map_name": "Pipe to Frozen Room (B2)",
     "exits": {
-      "Bridge to Shiver City (B2) East": "True",
+      "Bridge to Shiver City (B2) East Door": "True",
       "Pipe to Frozen Room (B2) Pipe": "can_climb_steps"
     }
   },

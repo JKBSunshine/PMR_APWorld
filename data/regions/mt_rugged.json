@@ -8,7 +8,7 @@
       "Mt Rugged 1 On Slide 1": "True"
     },
     "exits": {
-      "Train Station Upper": "True",
+      "Train Station Upper Exit": "True",
       "Mt Rugged 1 East": "can_climb_steps",
       "Mt Rugged 1 On Slide": "(Kooper or Lakilester)"
     }
@@ -35,7 +35,8 @@
     "locations": {
     },
     "exits": {
-      "Mt Rugged West Lower": "True",
+      "Mt Rugged 1 On Slide": "can_climb_steps",
+      "Mt Rugged 2 West": "True",
       "Mt Rugged 1 West": "True",
       "Mt Rugged 1 East Lower": "can_climb_steps"
     }
@@ -54,17 +55,17 @@
     }
   },
   {
-    "region_name": "Mt Rugged 2 West Lower",
+    "region_name": "Mt Rugged 2 West",
     "area_id": "8",
     "map_id": "1",
     "map_name": "Mt Rugged 2",
     "exits": {
       "Mt Rugged 1 East": "True",
-      "Mt Rugged 2 West": "True"
+      "Mt Rugged 2 Center": "can_climb_steps"
     }
   },
   {
-    "region_name": "Mt Rugged 2",
+    "region_name": "Mt Rugged 2 Center",
     "area_id": "8",
     "map_id": "1",
     "map_name": "Mt Rugged 2",
@@ -72,9 +73,8 @@
       "Mt Rugged 2 Hidden Panel": "can_flip_panels"
     },
     "exits": {
-      "Mt Rugged 1 East": "True",
-      "Mt Rugged 2 West Lower": "can_climb_steps",
-      "Mt Rugged 2 East Lower": "Boots"
+      "Mt Rugged 2 East Lower": "Boots",
+      "Mt Rugged 2 West": "can_climb_steps"
     }
   },
   {
@@ -88,7 +88,7 @@
     },
     "exits": {
       "Mt Rugged 3 Lower": "True",
-      "Mt Rugged 2 West": "can_climb_steps"
+      "Mt Rugged 2 Center": "can_climb_steps"
     }
   },
   {
@@ -97,7 +97,7 @@
     "map_id": "1",
     "map_name": "Mt Rugged 2",
     "exits": {
-      "Mt Rugged 3 West Upper": "True",
+      "Mt Rugged 3 Upper": "True",
       "Mt Rugged 2 West Upper": "True"
     }
   },
@@ -107,8 +107,8 @@
     "map_id": "1",
     "map_name": "Mt Rugged 2",
     "exits": {
-      "Mt Rugged 4 West Lower": "True",
-      "Mt Rugged 2": "True"
+      "Mt Rugged 4": "True",
+      "Mt Rugged 2 Center": "True"
     }
   },
   {
@@ -120,7 +120,7 @@
     },
     "exits": {
       "Mt Rugged 2 East Lower": "True",
-      "Mt Rugged 3 2": "can_climb_steps"
+      "Mt Rugged 3 Upper": "can_climb_steps"
     }
   },
   {
@@ -134,7 +134,7 @@
     },
     "exits": {
       "Mt Rugged 3 Lower": "True",
-      "Suspension Bridge": "True",
+      "Suspension Bridge West": "True",
       "Mt Rugged 2 East Upper": "True"
     }
   },
@@ -192,7 +192,7 @@
     "map_id": "5",
     "map_name": "Train Station",
     "locations": {
-      "Train Station Parakarry Partner": "has_parakarry_letters"
+      "Train Station Parakarry Partner": "True"
     },
     "exits": {
       "Mt Rugged 1 West": "True",
@@ -211,7 +211,7 @@
       "Train Station Bush Top": "True"
     },
     "exits": {
-      "Train Station Upper": "Boots",
+      "Train Station Upper Exit": "Boots",
       "Train Station Platform": "Boots"
     }
   },

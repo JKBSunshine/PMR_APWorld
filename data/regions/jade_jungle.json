@@ -22,7 +22,7 @@
     "map_id": "0",
     "map_name": "Whale Cove",
     "exits": {
-      "SW Jungle (Super Block)": "True",
+      "SW Jungle (Super Block) SW": "True",
       "Whale Cove": "can_climb_steps"
     }
   },
@@ -82,7 +82,7 @@
       "StarPiece_JAN_8": "True"
     },
     "locations": {
-      "Village Buildings Kolorado Volcano Vase Reward": "saved_all_yoshikids and Volcano_Vase and 'MF_Ch5_RescuedStarSpirit'",
+      "Village Buildings Kolorado Volcano Vase Reward": "saved_all_yoshikids and VolcanoVase and 'MF_Ch5_RescuedStarSpirit'",
       "Village Buildings Yellow Yoshi Food Reward": "saved_all_yoshikids and 'RF_CanVisitTayceT' and 'RF_CanCook' and 'MF_Ch5_RescuedStarSpirit'",
       "Village Buildings Red Yoshi Kid Letter Reward": "'RF_SavedYoshiKid_3' and Parakarry and Letter21",
       "Village Buildings In Palm Tree": "can_shake_trees",
@@ -156,7 +156,7 @@
     },
     "exits": {
       "NE Jungle (Raven Statue) South": "True",
-      "SE Jungle (Quake Hammer) East": "'GF_JAN05_CreateLogBridge''"
+      "SE Jungle (Quake Hammer) East": "'GF_JAN05_CreateLogBridge'"
     }
   },
   {
@@ -192,7 +192,7 @@
       "NE Jungle (Raven Statue) Underwater": "Sushie"
     },
     "exits": {
-      "Deep Jungle 1": "Jade_Raven",
+      "Deep Jungle 1": "JadeRaven",
       "NE Jungle (Raven Statue) East": "Sushie",
       "NE Jungle (Raven Statue) South": "Sushie"
     }
@@ -323,7 +323,8 @@
       "Western Dead End Underwater": "Sushie"
     },
     "exits": {
-      "NW Jungle (Large Ledge)": "True"
+      "NW Jungle (Large Ledge) SE": "Sushie",
+      "NW Jungle (Large Ledge) NW": "Sushie"
     }
   },
   {
@@ -335,7 +336,7 @@
       "RF_SavedYoshiKid_5": "'RF_YoshiKidsMissing' and Watt and Boots"
     },
     "exits": {
-      "NW Jungle (Large Ledge)": "True"
+      "NW Jungle (Large Ledge) Pipe": "True"
     }
   },
   {
@@ -448,8 +449,8 @@
       "Great Tree Vine Ascent End Of Vine": "True"
     },
     "exits": {
-      "Lower Great Tree Interior": "True",
-      "Upper Great Tree Interior": "True"
+      "Lower Great Tree Interior Upper Door": "True",
+      "Upper Great Tree Interior Lower Door": "True"
     }
   },
   {
@@ -480,6 +481,7 @@
     "events": {
       "MF_Ch5_ZiplineBuilt": "'MF_Ch5_RafaelMovedRoot'",
       "STARSPIRIT_5": "'MF_Ch5_FoundEscapeRoute'",
+      "STARSPIRIT": "'MF_Ch5_FoundEscapeRoute'",
       "MF_Ch5_RescuedStarSpirit": "'MF_Ch5_FoundEscapeRoute'"
     },
     "locations": {
@@ -488,7 +490,7 @@
     },
     "exits": {
       "Village Buildings": "True",
-      "Base of Great Tree": "'MF_Ch5_RafaelMovedRoot",
+      "Base of Great Tree East": "'MF_Ch5_RafaelMovedRoot'",
       "Path to the Volcano Entrance": "'MF_Ch5_ZiplineBuilt' and can_climb_steps"
     }
   },

@@ -5,7 +5,7 @@
     "map_id": "1",
     "map_name": "Gate District",
     "events": {
-      "RF_RadioTradeEvt1Done": "'RF_RadioTradeEvt1' and Koopa_Leaf",
+      "RF_RadioTradeEvt1Done": "'RF_RadioTradeEvt1' and KoopaLeaf",
       "RF_CanVisitRussT": "True"
     },
     "locations": {
@@ -14,7 +14,7 @@
       "Gate District Russ T. Dictionary Reward": "Dictionary",
       "Gate District Russ T. Letter Reward": "Parakarry and Letter04",
       "Gate District Miss T. Letter Reward": "Parakarry and Letter18",
-      "Gate District Radio Trade Event 1 Reward": "'RF_RadioTradeEvt1' and Koopa_Leaf",
+      "Gate District Radio Trade Event 1 Reward": "'RF_RadioTradeEvt1' and KoopaLeaf",
       "Gate District Shop Item 1": "True",
       "Gate District Shop Item 2": "True",
       "Gate District Shop Item 3": "True",
@@ -22,10 +22,10 @@
       "Gate District Shop Item 5": "True",
       "Gate District Shop Item 6": "True",
       "Gate District Dojo: Chan": "(Boots or Goombario or Watt or Sushie)",
-      "Gate District Dojo: Lee": "(starspirits, 1) and (Boots or Goombario or Watt or Sushie)",
-      "Gate District Dojo: Master 1": "(starspirits, 3) and (Boots or Goombario or Watt or Sushie)",
-      "Gate District Dojo: Master 2": "(starspirits, 4) and (Boots or Goombario or Watt or Sushie)",
-      "Gate District Dojo: Master 3": "(starspirits, 5) and (Boots or Goombario or Watt or Sushie)"
+      "Gate District Dojo: Lee": "'STARSPIRIT' and (Boots or Goombario or Watt or Sushie)",
+      "Gate District Dojo: Master 1": "('STARSPIRIT', 3) and (Boots or Goombario or Watt or Sushie)",
+      "Gate District Dojo: Master 2": "('STARSPIRIT', 4) and (Boots or Goombario or Watt or Sushie)",
+      "Gate District Dojo: Master 3": "('STARSPIRIT', 5) and (Boots or Goombario or Watt or Sushie)"
     },
     "exits": {
       "Toad Town Entrance East": "True",
@@ -60,7 +60,7 @@
     "map_id": "1",
     "map_name": "Gate District",
     "exits": {
-      "Mario's House Pipe": "can_reenter_vertical_pipes",
+      "Mario's House Warp Pipe": "can_reenter_vertical_pipes",
       "Gate District": "True"
     }
   },
@@ -72,9 +72,9 @@
     "events": {
       "RF_CanReadToadTownNews": "True",
       "StarPiece_MAC_1": "True",
-      "StarPiece_MAC_5": "(starspirits, 2)",
-      "StarPiece_MAC_9": "(starspirits, 4)",
-      "StarPiece_MAC_13": "(starspirits, 6)"
+      "StarPiece_MAC_5": "('STARSPIRIT', 2)",
+      "StarPiece_MAC_9": "('STARSPIRIT', 4)",
+      "StarPiece_MAC_13": "('STARSPIRIT', 6)"
     },
     "locations": {
       "Plaza District Merlon House Stomping": "Super_Boots",
@@ -87,25 +87,25 @@
       "Plaza District Rowf's Shop Set 1 - 2": "True",
       "Plaza District Rowf's Shop Set 1 - 3": "True",
       "Plaza District Rowf's Shop Set 1 - 4": "True",
-      "Plaza District Rowf's Shop Set 2 - 1": "(starspirits, 1)",
-      "Plaza District Rowf's Shop Set 2 - 2": "(starspirits, 1)",
-      "Plaza District Rowf's Shop Set 2 - 3": "(starspirits, 1)",
-      "Plaza District Rowf's Shop Set 3 - 1": "(starspirits, 2)",
-      "Plaza District Rowf's Shop Set 3 - 2": "(starspirits, 2)",
-      "Plaza District Rowf's Shop Set 3 - 3": "(starspirits, 2)",
-      "Plaza District Rowf's Shop Set 4 - 1": "(starspirits, 3)",
-      "Plaza District Rowf's Shop Set 4 - 2": "(starspirits, 3)",
-      "Plaza District Rowf's Shop Set 4 - 3": "(starspirits, 3)",
-      "Plaza District Rowf's Shop Set 5 - 1": "(starspirits, 4)",
-      "Plaza District Rowf's Shop Set 5 - 2": "(starspirits, 4)",
-      "Plaza District Rowf's Shop Set 5 - 3": "(starspirits, 4)"
+      "Plaza District Rowf's Shop Set 2 - 1": "('STARSPIRIT', 1)",
+      "Plaza District Rowf's Shop Set 2 - 2": "('STARSPIRIT', 1)",
+      "Plaza District Rowf's Shop Set 2 - 3": "('STARSPIRIT', 1)",
+      "Plaza District Rowf's Shop Set 3 - 1": "('STARSPIRIT', 2)",
+      "Plaza District Rowf's Shop Set 3 - 2": "('STARSPIRIT', 2)",
+      "Plaza District Rowf's Shop Set 3 - 3": "('STARSPIRIT', 2)",
+      "Plaza District Rowf's Shop Set 4 - 1": "('STARSPIRIT', 3)",
+      "Plaza District Rowf's Shop Set 4 - 2": "('STARSPIRIT', 3)",
+      "Plaza District Rowf's Shop Set 4 - 3": "('STARSPIRIT', 3)",
+      "Plaza District Rowf's Shop Set 5 - 1": "('STARSPIRIT', 4)",
+      "Plaza District Rowf's Shop Set 5 - 2": "('STARSPIRIT', 4)",
+      "Plaza District Rowf's Shop Set 5 - 3": "('STARSPIRIT', 4)"
     },
     "exits": {
       "Gate District": "True",
       "Pleasant Path Entry": "True",
       "Ruined Castle Grounds": "True",
       "Southern District": "True",
-      "Fields Center": "(Magical_Seed1 or 'RF_MagicalSeed1') and (Magical_Seed2 or 'RF_MagicalSeed2') and (Magical_Seed3 or 'RF_MagicalSeed3') and (Magical_Seed4 or 'RF_MagicalSeed4')"
+      "Fields Center": "(MagicalSeed1 or 'RF_MagicalSeed1') and (MagicalSeed2 or 'RF_MagicalSeed2') and (MagicalSeed3 or 'RF_MagicalSeed3') and (MagicalSeed4 or 'RF_MagicalSeed4')"
     }
   },
   {
@@ -114,22 +114,22 @@
     "map_id": "3",
     "map_name": "Southern District",
     "events": {
-      "GF_MAC02_UnlockedHouse": "Odd_Key",
-      "RF_CanCook": "Frying_Pan",
+      "GF_MAC02_UnlockedHouse": "OddKey",
+      "RF_CanCook": "FryingPan",
       "RF_CanVisitTayceT": "True",
-      "Koopa_Tea": "'RF_CanCook' and Koopa_Leaf",
-      "Nutty_Cake": "'RF_CanCook' and Goomnut",
-      "Cake": "'RF_CanCook' and Cake_Mix",
-      "Lemon_Candy": "'RF_CanCook' and Cookbook and Cake_Mix and Lemon",
-      "Koopasta": "'RF_CanCook' and Cookbook and Koopa_Leaf and (Dried_Pasta or 'Dried_Pasta')",
-      "Kooky_Cookie": "'RF_CanCook' and Cookbook and Koopa_Leaf and Cake_Mix",
-      "Life_Shroom": "'RF_CanCook' and Cookbook and Super_Shroom and (Koopa_Leaf or Goomnut)",
-      "Sleepy_Sheep": "'RF_CanCook' and Cookbook and Strange_Leaf and (Blue_Berry or Yellow_Berry or Red_Berry)",
-      "Tasty_Tonic": "'RF_CanCook' and (Lemon or Lime or Coconut or (Cookbook and Bubble_Berry))"
+      "AF_CanMakeKoopaTea": "'RF_CanCook' and KoopaLeaf",
+      "AF_CanMakeNuttyCake": "'RF_CanCook' and Goomnut",
+      "AF_CanMakeCake": "'RF_CanCook' and CakeMix",
+      "AF_CanMakeLemonCandy": "'RF_CanCook' and Cookbook and CakeMix and Lemon",
+      "AF_CanMakeKoopasta": "'RF_CanCook' and Cookbook and KoopaLeaf and (DriedPasta or 'Dried_Pasta')",
+      "AF_CanMakeKookyCookie": "'RF_CanCook' and Cookbook and KoopaLeaf and CakeMix",
+      "AF_CanMakeLifeShroom": "'RF_CanCook' and Cookbook and SuperShroom and (KoopaLeaf or Goomnut)",
+      "AF_CanMakeSleepySheep": "'RF_CanCook' and Cookbook and StrangeLeaf and (BlueBerryProxy1 or YellowBerryProxy1 or RedBerryProxy1)",
+      "AF_CanMakeTastyTonic": "'RF_CanCook' and (Lemon or Lime or Coconut or (Cookbook and BubbleBerryProxy1))"
     },
     "locations": {
       "Southern District Bub-ulb Gift": "can_climb_steps",
-      "Southern District Tayce T. Frying Pan Reward": "Frying_Pan",
+      "Southern District Tayce T. Frying Pan Reward": "FryingPan",
       "Southern District Fice T. Letter Reward": "Parakarry and Letter07",
       "Southern District Fice T. Forest Pass": "'RF_ClosedForest'",
       "Southern District Hidden Panel": "can_flip_panels"
@@ -159,7 +159,7 @@
     "map_id": "3",
     "map_name": "Southern District",
     "events": {
-      "GF_MAC02_UnlockedHouse": "Odd_Key"
+      "GF_MAC02_UnlockedHouse": "OddKey"
     },
     "locations": {
       "Southern District Inside Blue House": "True"
@@ -228,15 +228,15 @@
     "map_name": "Residental District",
     "events": {
       "StarPiece_MAC_1": "True",
-      "StarPiece_MAC_5": "(starspirits, 2)",
-      "StarPiece_MAC_9": "(starspirits, 4)",
-      "StarPiece_MAC_13": "(starspirits, 6)"
+      "StarPiece_MAC_5": "('STARSPIRIT', 2)",
+      "StarPiece_MAC_9": "('STARSPIRIT', 4)",
+      "StarPiece_MAC_13": "('STARSPIRIT', 6)"
     },
     "locations": {
-      "Residental District Storeroom Item 1": "Storeroom_Key",
-      "Residental District Storeroom Item 2": "Storeroom_Key",
-      "Residental District Storeroom Item 3": "Storeroom_Key",
-      "Residental District Storeroom Item 4": "Storeroom_Key",
+      "Residental District Storeroom Item 1": "StoreroomKey",
+      "Residental District Storeroom Item 2": "StoreroomKey",
+      "Residental District Storeroom Item 3": "StoreroomKey",
+      "Residental District Storeroom Item 4": "StoreroomKey",
       "Residental District Shop Item 1": "True",
       "Residental District Shop Item 2": "True",
       "Residental District Shop Item 3": "True",
@@ -271,9 +271,9 @@
     "events": {
       "RF_RadioTradeEvt3Done": "'RF_RadioTradeEvt3' and Coconut",
       "StarPiece_MAC_1": "True",
-      "StarPiece_MAC_5": "(starspirits, 2)",
-      "StarPiece_MAC_9": "(starspirits, 4)",
-      "StarPiece_MAC_13": "(starspirits, 6)"
+      "StarPiece_MAC_5": "('STARSPIRIT', 2)",
+      "StarPiece_MAC_9": "('STARSPIRIT', 4)",
+      "StarPiece_MAC_13": "('STARSPIRIT', 6)"
     },
     "locations": {
       "Port District Poet Gift": "True",

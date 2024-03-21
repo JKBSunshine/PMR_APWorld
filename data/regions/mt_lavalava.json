@@ -34,13 +34,6 @@
     "area_id": "18",
     "map_id": "2",
     "map_name": "Central Cavern",
-    "locations": {
-      "Central Cavern On Stone Pillar": "True",
-      "Central Cavern Yellow Block 1": "can_hit_floating_blocks",
-      "Central Cavern Yellow Block 2": "can_hit_floating_blocks",
-      "Central Cavern Yellow Block 3": "can_hit_floating_blocks",
-      "Central Cavern Yellow Block 4": "can_hit_floating_blocks"
-    },
     "exits": {
       "First Lava Lake East": "True",
       "Central Cavern B1F": "True",
@@ -53,12 +46,27 @@
     "map_id": "2",
     "map_name": "Central Cavern",
     "locations": {
-      "Central Cavern On Brick Block": "Ultra_Boots or (Kooper and can_climb_steps)"
+      "Central Cavern Yellow Block 1": "can_hit_floating_blocks",
+      "Central Cavern Yellow Block 2": "can_hit_floating_blocks",
+      "Central Cavern Yellow Block 3": "can_hit_floating_blocks",
+      "Central Cavern Yellow Block 4": "can_hit_floating_blocks"
     },
     "exits": {
       "Central Cavern B2F": "can_climb_steps",
-      "Central Cavern B1F East Exit": "can_climb_steps",
+      "Central Cavern B1F Brick Block": "Ultra_Boots",
       "Central Cavern 1F": "can_climb_steps"
+    }
+  },
+  {
+    "region_name": "Central Cavern B1F Brick Block",
+    "area_id": "18",
+    "map_id": "2",
+    "map_name": "Central Cavern",
+    "locations": {
+      "Central Cavern On Brick Block": "True"
+    },
+    "exits": {
+      "Central Cavern B1F": "can_climb_steps"
     }
   },
   {
@@ -67,7 +75,8 @@
     "map_id": "2",
     "map_name": "Central Cavern",
     "exits": {
-      "Fire Bar Bridge": "True",
+      "Fire Bar Bridge": "can_climb_steps",
+      "Central Cavern B1F Brick Block": "Kooper",
       "Central Cavern B1F": "can_climb_steps"
     }
   },
@@ -80,7 +89,7 @@
       "Central Cavern On Stone Pillar": "True"
     },
     "exits": {
-      "Zipline Cavern B2F": "'RF_KZN07_OpenedHammerChest'",
+      "Zipline Cavern B2F": "Ultra_Hammer",
       "Central Cavern B1F": "can_climb_steps",
       "Central Cavern B4F West Exit": "can_climb_steps",
       "Central Cavern B4F": "can_climb_steps"
@@ -140,7 +149,7 @@
     "exits": {
       "Descent Toward Ultra Hammer": "True",
       "Flowing Lava Puzzle West": "(Parakarry or Lakilester)",
-      "Flowing Lava Puzzle East Lower Exit": "'RF_KZN07_OpenedHammerChest' and can_climb_steps"
+      "Flowing Lava Puzzle East Lower Exit": "Ultra_Hammer and can_climb_steps"
     }
   },
   {
@@ -261,7 +270,7 @@
     "map_name": "Spike Roller Trap",
     "exits": {
       "Second Lava Lake East": "True",
-      "Boss Antechamber": "'RF_KZN07_OpenedHammerChest' and can_climb_steps"
+      "Boss Antechamber Upper": "Ultra_Hammer and can_climb_steps"
     }
   },
   {

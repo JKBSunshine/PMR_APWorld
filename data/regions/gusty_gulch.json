@@ -6,10 +6,7 @@
     "map_name": "Wasteland Ascent 1",
     "locations": {
       "Wasteland Ascent 1 On Rock": "Kooper",
-      "Wasteland Ascent 1 Infront Of Branch": "True",
-      "Wasteland Ascent 1 Yellow Block 1": "can_hit_floating_blocks",
-      "Wasteland Ascent 1 Yellow Block 2": "can_hit_floating_blocks",
-      "Wasteland Ascent 1 Yellow Block Right": "can_hit_floating_blocks"
+      "Wasteland Ascent 1 Yellow Block 1": "can_hit_floating_blocks"
     },
     "exits": {
       "Ghost Town 2": "True",
@@ -86,7 +83,8 @@
     "map_id": "4",
     "map_name": "Windmill Exterior",
     "events": {
-      "STARSPIRIT_3": "'RF_Ch3_HeartFledFirstTunnel'"
+      "STARSPIRIT_3": "'RF_Ch3_HeartFledFirstTunnel'",
+      "STARSPIRIT": "'RF_Ch3_HeartFledFirstTunnel'"
     },
     "exits": {
       "Ghost Town 1": "True",

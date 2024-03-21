@@ -25,21 +25,21 @@
     }
   },
   {
-    "region_name": "N3W1 Ruins Entrance 1",
+    "region_name": "N3W1 Ruins Entrance",
     "area_id": "10",
     "map_id": "2",
     "map_name": "N3W1 Ruins Entrance",
     "events": {
-      "RF_RadioTradeEvt2Done": "'RF_RadioTradeEvt2' and 'Nutty_Cake'"
+      "RF_RadioTradeEvt2Done": "'RF_RadioTradeEvt2' and 'AF_CanMakeNuttyCake'"
     },
     "locations": {
-      "N3W1 Ruins Entrance Radio Trade Event 2 Reward": "'RF_RadioTradeEvt2' and 'Nutty_Cake'"
+      "N3W1 Ruins Entrance Radio Trade Event 2 Reward": "'RF_RadioTradeEvt2' and 'AF_CanMakeNuttyCake'"
     },
     "exits": {
       "N3W2": "True",
       "N3": "True",
       "N2W1": "True",
-      "Ruins Entrance": "Pulse_Stone"
+      "Ruins Entrance": "PulseStone"
     }
   },
   {

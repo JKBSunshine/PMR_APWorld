@@ -5,7 +5,7 @@
     "map_id": "0",
     "map_name": "Dark Cave 1",
     "exits": {
-      "Lava Channel 3": "True",
+      "Lava Channel 3 East Exit": "True",
       "Dark Cave 1 Upper": "Parakarry"
     }
   },
@@ -62,7 +62,7 @@
     "map_name": "Castle Key Timing Puzzle",
     "exits": {
       "Split Level Hall Upper Door": "True",
-      "Castle Key Timing Puzzle 2": "(Kooper or Bombette) and Boots"
+      "Castle Key Timing Puzzle East Door": "(Kooper or Bombette) and Boots"
     }
   },
   {
@@ -213,7 +213,7 @@
     "map_id": "9",
     "map_name": "Lava Channel 3",
     "exits": {
-      "Dark Cave 1 Lower": "(Bowser_Castle_Key, 2)",
+      "Dark Cave 1 Lower": "(BowserCastleKey, 2)",
       "Lava Channel 3 West": "(Lakilester or 'GF_KPA16_ShutOffLava')"
     }
   },
@@ -343,7 +343,7 @@
     "map_id": "16",
     "map_name": "Maze Room",
     "exits": {
-      "Maze Guide Room": "True",
+      "Maze Guide Room Upper": "True",
       "Blue Fire Bridge": "True",
       "Maze Room Lower": "True"
     }
@@ -365,7 +365,7 @@
     "map_name": "Hall to Water Puzzle",
     "exits": {
       "Lower Grand Hall Upper": "True",
-      "Left Water Puzzle": "True"
+      "Left Water Puzzle 1F": "True"
     }
   },
   {
@@ -375,7 +375,7 @@
     "map_name": "Split Level Hall",
     "exits": {
       "Upper Grand Hall Upper": "True",
-      "Maze Guide Room Lower": "(Bowser_Castle_Key,5)",
+      "Maze Guide Room Lower": "(BowserCastleKey, 5)",
       "Split Level Hall Upper Door": "can_climb_steps"
     }
   },
@@ -443,7 +443,7 @@
     "map_id": "23",
     "map_name": "Front Door Exterior",
     "exits": {
-      "Entry Lava Hall": "(Bowser_Castle_Key, 1)",
+      "Entry Lava Hall": "(BowserCastleKey, 1)",
       "Outside Lower Jail West": "True",
       "Hangar": "True"
     }
@@ -509,7 +509,7 @@
     "map_name": "Guard Door 2",
     "exits": {
       "Room with Hidden Door 2": "True",
-      "Castle Battlement Lower": "True"
+      "Castle Battlement Lower Door": "True"
     }
   },
   {
@@ -627,7 +627,7 @@
       "Room with Hidden Door 1 Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks"
     },
     "exits": {
-      "Bill Blaster Hall": "True",
+      "Bill Blaster Hall Upper": "True",
       "Hidden Passage 1": "True"
     }
   },
@@ -648,7 +648,7 @@
     "map_name": "Room with Hidden Door 2",
     "exits": {
       "Hidden Passage 1": "True",
-      "Guard Door 2": "(Bowser_Castle_Key, 4)",
+      "Guard Door 2": "(BowserCastleKey, 4)",
       "Hidden Passage 2": "True"
     }
   },
@@ -730,8 +730,8 @@
     "map_id": "47",
     "map_name": "Bill Blaster Hall",
     "exits": {
-      "Right Water Puzzle": "True",
-      "Bill Blaster Hall 2": "Boots"
+      "Right Water Puzzle 1F": "True",
+      "Bill Blaster Hall Upper": "Boots"
     }
   },
   {
@@ -751,7 +751,7 @@
     "map_name": "Left Water Puzzle",
     "exits": {
       "Hall to Water Puzzle": "True",
-      "Right Water Puzzle": "True"
+      "Right Water Puzzle 1F": "True"
     }
   },
   {
@@ -761,7 +761,7 @@
     "map_name": "Right Water Puzzle",
     "exits": {
       "Left Water Puzzle 1F": "True",
-      "Bill Blaster Hall Lower": "(Bowser_Castle_Key, 3)",
+      "Bill Blaster Hall Lower": "(BowserCastleKey, 3)",
       "Right Water Puzzle 2F": "Sushie and can_climb_steps and can_hit_floating_blocks"
     }
   },
@@ -780,9 +780,6 @@
     "area_id": "22",
     "map_id": "48",
     "map_name": "Left Water Puzzle",
-    "locations": {
-      "Left Water Puzzle Top Left Ledge": "Sushie and 'RF_WaterLevel2'"
-    },
     "exits": {
       "Left Water Puzzle 3F": "Sushie and Bombette and can_climb_steps",
       "Right Water Puzzle 2F": "Sushie"
@@ -797,17 +794,16 @@
       "Left Water Puzzle Top Left Ledge": "Sushie and 'RF_WaterLevel2'"
     },
     "exits": {
-      "Right Water Puzzle 3F": "True",
-      "Right Water Puzzle": "True"
+      "Right Water Puzzle 3F": "True"
     }
   },
   {
     "region_name": "Right Water Puzzle 3F",
     "area_id": "22",
     "map_id": "48",
-    "map_name": "Left Water Puzzle",
+    "map_name": "Right Water Puzzle",
     "events": {
-      "RF_WaterLevel2": "can_see_hidden_blocks and Ultra_Boots"
+      "RF_WaterLevel2": "Boots"
     },
     "locations": {
       "Right Water Puzzle Hidden Block": "can_see_hidden_blocks and Ultra_Boots"

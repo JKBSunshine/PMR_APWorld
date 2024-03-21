@@ -55,10 +55,10 @@
     "exits": {
       "BLU Anti-Guy Hall": "True",
       "BLU Block City": "True",
-      "PNK Station": "'MF_Ch4_CanThrowInTrain' and Toy_Train and Boots",
-      "RED Station": "'MF_Ch4_CanThrowInTrain' and Toy_Train and 'RF_BlueSwitchPulled' and Boots",
+      "PNK Station": "'MF_Ch4_CanThrowInTrain' and ToyTrain and Boots",
+      "RED Station": "'MF_Ch4_CanThrowInTrain' and ToyTrain and 'RF_BlueSwitchPulled' and Boots",
       "Residental District Toybox Room": "can_climb_steps",
-      "BLU Station Switch": "'MF_Ch4_CanThrowInTrain' and Toy_Train and 'RF_BlueSwitchPulled' and Boots"
+      "BLU Station Switch": "'MF_Ch4_CanThrowInTrain' and ToyTrain and 'RF_BlueSwitchPulled' and Boots"
     }
   },
   {
@@ -105,7 +105,7 @@
     "map_id": "4",
     "map_name": "PNK Gourmet Guy Crossing",
     "events": {
-      "MF_Ch4_GaveCakeToGourmetGuy": "'Cake'"
+      "MF_Ch4_GaveCakeToGourmetGuy": "'AF_CanMakeCake'"
     },
     "locations": {
       "PNK Gourmet Guy Crossing Gourmet Guy Reward": "'MF_Ch4_GaveCakeToGourmetGuy'"
@@ -142,8 +142,8 @@
     },
     "exits": {
       "PNK Tracks Hallway South": "True",
-      "BLU Station": "Toy_Train and 'MF_Ch4_CanThrowInTrain' and Boots",
-      "GRN Station": "'MF_Ch4_PulledPinkSwitch' and Boots and Toy_Train and 'MF_Ch4_CanThrowInTrain'",
+      "BLU Station": "ToyTrain and 'MF_Ch4_CanThrowInTrain' and Boots",
+      "GRN Station": "'MF_Ch4_PulledPinkSwitch' and Boots and ToyTrain and 'MF_Ch4_CanThrowInTrain'",
       "PNK Playhouse": "True"
     }
   },
@@ -181,7 +181,7 @@
     "map_id": "7",
     "map_name": "GRN Station",
     "events": {
-      "MF_Ch4_SolvedColorPuzzle": "'RF_CanVisitRussT' and Mystery_Note and Dictionary and Hammer"
+      "MF_Ch4_SolvedColorPuzzle": "'RF_CanVisitRussT' and MysteryNote and Dictionary and Hammer"
     },
     "locations": {
       "GRN Station Hidden Panel": "can_flip_panels",
@@ -189,8 +189,8 @@
     },
     "exits": {
       "GRN Treadmills/Slot Machine": "True",
-      "PNK Station": "Toy_Train and 'MF_Ch4_CanThrowInTrain' and Boots",
-      "RED Station": "Toy_Train and 'MF_Ch4_CanThrowInTrain' and 'MF_Ch4_SolvedColorPuzzle' and Boots"
+      "PNK Station": "ToyTrain and 'MF_Ch4_CanThrowInTrain' and Boots",
+      "RED Station": "ToyTrain and 'MF_Ch4_CanThrowInTrain' and 'MF_Ch4_SolvedColorPuzzle' and Boots"
     }
   },
   {
@@ -232,8 +232,8 @@
     "exits": {
       "RED Moving Platforms East Exit": "True",
       "RED Boss Barricade West": "True",
-      "GRN Station": "Toy_Train and 'MF_Ch4_CanThrowInTrain' and Boots",
-      "BLU Station": "Toy_Train and 'MF_Ch4_CanThrowInTrain' and Boots"
+      "GRN Station": "ToyTrain and 'MF_Ch4_CanThrowInTrain' and Boots",
+      "BLU Station Switch": "ToyTrain and 'MF_Ch4_CanThrowInTrain' and Boots"
     }
   },
   {
@@ -295,7 +295,7 @@
     "map_id": "12",
     "map_name": "BLU Anti-Guy Hall",
     "locations": {
-      "BLU Anti-Guy Hall In Chest": "'Lemon_Candy'",
+      "BLU Anti-Guy Hall In Chest": "'AF_CanMakeLemonCandy'",
       "BLU Anti-Guy Hall Yellow Block": "can_hit_floating_blocks",
       "BLU Anti-Guy Hall Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks"
     },
@@ -320,7 +320,8 @@
     "map_id": "14",
     "map_name": "RED General Guy Room",
     "events": {
-      "STARSPIRIT_4": "True"
+      "STARSPIRIT_4": "True",
+      "STARSPIRIT": "True"
     },
     "exits": {
       "RED Boss Antechamber": "True"

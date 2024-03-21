@@ -12,8 +12,8 @@
     "exits": {
       "Outside Boo's Mansion Steps": "True",
       "Pot Room": "True",
-      "Basement Stairs Upper": "Boo_Weight and can_climb_steps",
-      "Foyer 2F": "(Boots or Boo_Weight) and can_climb_steps"
+      "Basement Stairs Upper": "BooWeight and can_climb_steps",
+      "Foyer 2F": "(Boots or BooWeight) and can_climb_steps"
     }
   },
   {
@@ -25,7 +25,7 @@
       "Record Player Room": "True",
       "Record Room": "True",
       "Foyer 1F": "True",
-      "Foyer 3F": "Boo_Portrait"
+      "Foyer 3F": "BooPortrait"
     }
   },
   {
@@ -57,13 +57,13 @@
       "Basement Stairs Hidden Panel": "can_flip_panels"
     },
     "exits": {
-      "Basement Upper": "True",
+      "Mansion Basement Upper": "True",
       "Basement Stairs Upper": "Boots",
       "Library Lower": "Bombette"
     }
   },
   {
-    "region_name": "Basement Upper",
+    "region_name": "Mansion Basement Upper",
     "area_id": "13",
     "map_id": "2",
     "map_name": "Basement",
@@ -73,11 +73,11 @@
     "exits": {
       "Basement Stairs Lower": "True",
       "Super Boots Room": "True",
-      "Basement Lower": "'RF_OBK03_BuiltStairs'"
+      "Mansion Basement Lower": "'RF_OBK03_BuiltStairs'"
     }
   },
   {
-    "region_name": "Basement Lower",
+    "region_name": "Mansion Basement Lower",
     "area_id": "13",
     "map_id": "2",
     "map_name": "Basement",
@@ -94,7 +94,7 @@
       "Basement Shop Item 6": "'RF_OpenedGustyGulch'"
     },
     "exits": {
-      "Basement Upper": "'RF_OBK03_BuiltStairs'"
+      "Mansion Basement Upper": "'RF_OBK03_BuiltStairs'"
     }
   },
   {
@@ -111,7 +111,7 @@
       "Super Boots Room Hidden Panel": "can_flip_panels"
     },
     "exits": {
-      "Basement Lower": "'RF_OBK04_OpenedBigChest'"
+      "Mansion Basement Lower": "'RF_OBK04_OpenedBigChest'"
     }
   },
   {
@@ -156,7 +156,7 @@
     "map_id": "6",
     "map_name": "Record Player Room",
     "locations": {
-      "Record Player Room In Chest": "Boo_Record"
+      "Record Player Room In Chest": "BooRecord"
     },
     "exits": {
       "Foyer 2F": "True"

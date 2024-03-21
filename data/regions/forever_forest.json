@@ -30,7 +30,7 @@
     "map_name": "Stump Eyes",
     "exits": {
       "Flower Sounds": "True",
-      "Stump Eyes": "(Forest_Pass or 'RF_ForestPass')"
+      "Stump Eyes": "ForestPass or 'RF_ForestPass'"
     }
   },
   {
@@ -139,7 +139,7 @@
       "Outside Boo's Mansion In Bush (Back Right)": "True"
     },
     "exits": {
-      "Laughing Rock": "(Forest_Pass or 'RF_ForestPass')",
+      "Laughing Rock": "ForestPass or 'RF_ForestPass'",
       "Exit to Gusty Gulch West": "True",
       "Outside Boo's Mansion Pipe": "'GF_TIK09_WarpPipe' and Boots",
       "Outside Boo's Mansion Steps": "Boots"

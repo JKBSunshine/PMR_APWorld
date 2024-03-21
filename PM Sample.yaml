@@ -1,0 +1,152 @@
+Paper Mario:
+    progression_balancing: 50
+    accessibility: items
+
+    # True and False values are case sensitive
+    # Values with spaces in them must use underscores
+
+    # Some settings and options are not yet implemented, and will not successfully generate. These will be marked (NYI).
+    # Many settings do not affect logic or generation in any way and will only be relevant when an actual file gets created. These will be marked (NLA).
+    # Changing settings with either marks at the moment will at worst break generation, and at best change nothing.
+
+    # Items
+    keysanity: True                         # Other options: False (NYI)
+    shuffle_hidden_panels: False            # Other options: True
+    gear_shuffle_mode: vanilla              # Other options: gear_location_shuffle (NYI), full_shuffle (NYI)
+    trading_events: False                   # Other options: True
+    koot_favors: vanilla                    # Other options: shuffle_rewards, full_shuffle
+    koot_coins: False                       # Other options: True
+    overworld_coins: False                  # Other options: True
+    foliage_coins: False                    # Other options: True
+    coin_blocks: False                      # Other options: True
+    include_shops: True                     # Other options: False
+    dojo: False                             # Other options: True
+    partner_upgrades: vanilla               # Other options: super_block_locations (NYI), full_shuffle (NYI)
+    letter_rewards: vanilla                 # Other options: vanilla_letter_chain, final_letter_chain_reward, full_shuffle
+    super_multi_blocks: False               # Other options: True (NYI)
+    rowf_items: True                        # Other options: False
+    merlow_items: False                     # Other options: True
+    cheato_items: 6                         # Other options: 0 to 11
+
+    # Partner
+    partners: True                          # Other options: False
+    partners_always_usable: False           # Other options: True (NYI)
+    start_random_partners: False            # Other options: True
+    min_start_partners: 1                   # Other options: 1-8
+    max_start_partners: 1                   # Other options: 1-8
+    start_with_goombario: True              # Other options: False
+    start_with_kooper: False                # Other options: True
+    start_with_bombette: False              # Other options: True
+    start_with_parakarry: False             # Other options: True
+    start_with_bow: False                   # Other options: True
+    start_with_watt: False                  # Other options: True
+    start_with_sushie: False                # Other options: True
+    start_with_lakilester: False            # Other options: True
+
+    # Gameplay
+    badge_bp_shuffle: vanilla               # Other options: balanced_random, shuffled, fully_random
+    badge_fp_shuffle: vanilla               # Other options: balanced_random, shuffled, fully_random
+    partner_fp_shuffle: vanilla             # Other options: balanced_random, shuffled, fully_random
+    sp_shuffle: vanilla                     # Other options: balanced_random, shuffled, fully_random
+    mystery_shuffle: vanilla                # Other options: random_pick (NLA), random_per_use (NLA)
+    formation_shuffle: False                # Other options: True (NLA)
+
+    # General Difficulty
+    enemy_difficulty: vanilla               # Other options: shuffle_chapter_difficulty, progressive_scaling (NLA)
+    enemy_damage: Normal                    # Other options: double_pain, quadruple_pain (NLA)
+    cap_enemy_xp: False                     # Other options: True (NLA)
+    enemy_xp_multiplier: 2                  # Other options: 0-4 (entered multiplier is divided by 2 for the actual value in game)
+    no_save_blocks: False                   # Other options: True (NLA)
+    no_heart_blocks: False                  # Other options: True (NLA)
+    no_healing_items: False                 # Other options: True (NLA)
+    one_hit_ko: False                       # Other options: True (NLA)
+    drop_star_points: False                 # Other options: True (NLA)
+    badge_synergy: False                    # Other options: True (NLA)
+    merlow_rewards_pricing: vanilla         # Other options: cheap (NYI)
+    star_spirits_required: 7                # Other options: 0-7 (NYI)
+    require_specific_spirits: False         # Other options: True (NYI)
+    limit_chapter_logic: False              # Other options: True (NYI)
+
+    # Stats and Gear
+    starting_boots: Normal                  # Other options: jumpless, super, ultra
+    starting_hammer: Normal                 # Other options: hammerless, super, ultra
+    starting_coins: 100                     # Other options: 0-999 (NYI)
+    starting_hp: 10                         # Other options: 10-50 (NYI)
+    starting_bp: 3                          # Other options: 3-30 (NYI)
+    starting_fp: 5                          # Other options: 5-50 (NYI)
+    starting_sp: 0                          # Other options: 0-7 (NYI)
+    start_with_random_items: False          # Other options: True (NYI)
+    min_start_items: 0                      # Other options: 0-10 (NYI)
+    max_start_items: 0                      # Other options: 0-10 (NYI)
+
+    # Item Pool
+    consumable_item_pool: vanilla           # Other options: fully_random (NYI), balanced_random (NYI), mystery_only (NYI)
+    consumable_item_quality: 100            # Other options: 25-125
+    item_traps: No_Traps                    # Other options: sparse (NYI), moderate (NYI), plenty (NYI)
+    item_pouches: False                     # Other options: True
+    unused_badge_dupes: False               # Other options: True
+    beta_items: False                       # Other options: True
+    progressive_badges: False               # Other options: True
+    badge_pool_limit: 128                   # Other options: 0-128
+
+    # World Settings
+    starting_map: Toad_Town                 # Other options: goomba_village (NYI), dry_dry_outpost (NYI), yoshi_village (NYI)
+    open_prologue: False                    # Other options: True (NYI)
+    open_mt_rugged: False                   # Other options: True (NYI)
+    open_forest: False                      # Other options: True (NYI)
+    magical_seeds: 4                        # Other options: 0-4 (NYI)
+    open_toybox: False                      # Other options: True (NYI)
+    open_whale: False                       # Other options: True (NYI)
+    open_blue_house: False                  # Other options: True (NYI)
+    ch7_bridge_visible: False               # Other options: True (NYI)
+    mirror_mode: Off                        # Other options: always_on (NLA), random_on_every_load (NLA), static_random (NLA)
+    bowser_castle_mode: vanilla             # Other options: shortened (NYI), boss_rush (NYI)
+    shuffle_dungeon_entrances: False        # Other options: True (NYI)
+    power_star_hunt: False                  # Other options: True (NYI)
+    star_hunt_skips_ch8: False              # Other options: True (NYI)
+    required_power_stars: 50                # Other options: 0-120 (NYI)
+    total_power_stars: 70                   # Other options: 0-120 (NYI)
+
+    # Quality of Life Settings
+    hidden_block_mode: Always_Visible       # Other options: vanilla, watt_out, watt_obtained, always_visible
+    prevent_ooblzs: True                    # Other options: False (NLA)
+    skip_quiz: True                         # Other options: False (NLA)
+    quizmo_always_appears: True             # Other options: False (NLA)
+    visible_hidden_panels: True             # Other options: False (NLA)
+    always_speedy_spin: True                # Other options: False (NLA)
+    always_peekaboo: True                   # Other options: False (NLA)
+    always_ispy: True                       # Other options: False (NLA)
+    foliage_item_hints: True                # Other options: False (NLA)
+    cook_without_frying_pan: True           # Other options: False (NLA)
+    cutscene_mode: Minimal                  # Other options: vanilla (NLA), shortened (NLA)
+    skip_epilogue: True                     # Other options: False (NLA)
+
+    # Cosmetics
+    mario_palette: Default                  # Other options: [A lot of 'em] (NLA)
+    goombario_palette: Default              # Other options: [A lot of 'em] (NLA)
+    kooper_palette: Default                 # Other options: [A lot of 'em] (NLA)
+    bombette_palette: Default               # Other options: [A lot of 'em] (NLA)
+    parakarry_palette: Default              # Other options: [A lot of 'em] (NLA)
+    bow_palette: Default                    # Other options: [A lot of 'em] (NLA)
+    watt_palette: Default                   # Other options: [A lot of 'em] (NLA)
+    sushie_palette: Default                 # Other options: [A lot of 'em] (NLA)
+    lakilester_palette: Default             # Other options: [A lot of 'em] (NLA)
+    boss_palette: Default                   # Other options: random_pick (NLA), random_pick_no_vanilla (NLA), random_on_every_load (NLA)
+    npc_palette: Default                    # Other options: random_pick (NLA), random_pick_no_vanilla (NLA), random_on_every_load (NLA)
+    enemy_palette: Default                  # Other options: random_pick (NLA), random_pick_no_vanilla (NLA), random_on_every_load (NLA)
+    hammer_palette: Default                 # Other options: random_pick (NLA), random_pick_no_vanilla (NLA), random_on_every_load (NLA)
+    status_menu_palette: Default            # Other options: [A lot of 'em] (NLA)
+    coin_palette: Default                   # Other options: [A lot of 'em] (NLA)
+    random_text: False                      # Other options: True (NLA)
+    roman_numerals: False                   # Other options: True (NLA)
+
+    # Audio
+    shuffle_music: Off                      # Other options: shuffle_by_mood (NLA), shuffle_by_type (NLA), full_shuffle (NLA)
+    shuffle_jingles: False                  # Other options: True (NLA)
+    random_pitch: False                     # Other options: True (NLA)
+    mute_danger_beeps: True                 # Other options: False (NLA)
+
+    death_link: False
+description: Sample Paper Mario AP World YAML
+game: Paper Mario
+name: JKB
