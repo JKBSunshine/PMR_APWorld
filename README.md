@@ -14,14 +14,12 @@ take note of what is and isn't implemented before reporting bugs.
 
 Some of these are partially implemented, some of these are mostly implemented, and some aren't even started.
 
-- Output of a patch file that applies the desired settings, randomized items, locations, etc.
 - Create yaml file using PMR settings string
 - Set up a way to communicate with an AP server for sending/receiving items.
 - Logic helpers to account for access rules that change depending on settings
 - Logic helper to determine when to grant Parakarry check
 - Logic for keysanity option: false
 - Logic for gear shuffle options: vanilla and gear_locations
-- Super blocks and multi-coin blocks as potential locations, as well as being able to shuffle them
 - Mystery shuffle
 - Formation shuffle
 - Random puzzles
