@@ -12,6 +12,7 @@ from .data.item_exclusion import exclude_due_to_settings, exclude_from_taycet_pl
 from .data.itemlocation_replenish import replenishing_itemlocations
 from .modules.modify_itempool import get_trapped_itempool, get_randomized_itempool
 from BaseClasses import ItemClassification as Ic
+from .data.enum_types import BlockType
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
@@ -140,6 +141,12 @@ def get_pool_core(world: "PaperMarioWorld"):
                                 (world.options.starting_hammer.value == StartingHammer.option_Hammerless))
             else:
                 shuffle_item = (world.options.gear_shuffle_mode.value != GearShuffleMode.option_Vanilla)
+            if not shuffle_item:
+                location.disabled = True
+
+        if location.name in location_groups["RandomBlock"]:
+            shuffle_item = world.placed_blocks[location.name] == BlockType.YELLOW
+
             if not shuffle_item:
                 location.disabled = True
 

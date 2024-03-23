@@ -11,8 +11,9 @@ from ..data.LocationsList import location_groups
 from ..Locations import PMLocation
 
 
-def get_key(blockdata):
-    return (0xA1 << 24) | (blockdata[0] << 16) | (blockdata[1] << 8) | blockdata[2]
+def get_block_key(block_name):
+    block_data = block_table[block_name]
+    return (0xA1 << 24) | (block_data[0] << 16) | (block_data[1] << 8) | block_data[2]
 
 
 def get_block_placement(
@@ -20,95 +21,63 @@ def get_block_placement(
     supers_are_yellow: bool
 ):
     block_placement = []
-
+    block_names = []
+    block_values = []
     # make list of blocks to shuffle, taking care to change supers to normal item blocks if that setting is on
-    if not shuffle_blocks:
-        for block, data in block_table.items():
+    for block, data in block_table.items():
+        block_names.append(block)
+        if data[4] == BlockType.SUPER and supers_are_yellow:
+            block_values.append(BlockType.YELLOW)
+        else:
+            block_values.append(data[4])
 
-            if data[4] == BlockType.SUPER and supers_are_yellow:
-                block_placement.append((get_key(data), BlockType.YELLOW))
-            else:
-                block_placement.append((get_key(data), data[4]))
-    else:
-        db_keys = {}
-        db_values = {}
-        for block, data in block_table.items():
-            key = get_key(data)
-            area_id = (key & 0xFF0000) >> 16
-            if area_id not in db_keys:
-                db_keys[area_id] = [key]
-            else:
-                db_keys[area_id].append(key)
+    if shuffle_blocks:
+        random.shuffle(block_values)
 
-            if data[4] == BlockType.SUPER and supers_are_yellow:
-                block_type = BlockType.YELLOW
-            else:
-                block_type = data[4]
-
-            if block_type not in db_values:
-                db_values[block_type] = 1
-            else:
-                db_values[block_type] = db_values[block_type] + 1
-
-        block_type_supers = BlockType.SUPER if not supers_are_yellow else BlockType.YELLOW
-
-        while (block_type_supers in db_values) and db_keys:
-            # Choose random area, then random db key / block spawn in that area
-            area_id = random.choice(list(db_keys))
-            db_key = random.choice(db_keys[area_id])
-            db_keys[area_id].remove(db_key)
-            if not db_keys[area_id]:
-                db_keys.pop(area_id)
-
-            block_placement.append((db_key, block_type_supers))
-
-            db_values[block_type_supers] = db_values[block_type_supers] - 1
-            if db_values[block_type_supers] == 0:
-                db_values.pop(block_type_supers)
-
-    return block_placement
+    return dict(zip(block_names, block_values))
 
 
-#  id      area     map     index         name      vanilla type (0 is multi, 1 is super)
+#                                              (0 is multi, 1 is super)
+#  id      area     map     index         name    vanilla type               location name
 block_table = {
-    1:      (0,      3,      64,     "RandomBlockA", 0),
-    2:      (1,      6,      64,     "RandomBlockA", 0),
-    3:      (2,      6,      64,     "RandomBlockA", 1),
-    4:      (2,      9,      64,     "RandomBlockA", 1),
-    5:      (2,      10,     64,     "RandomBlockA", 1),
-    6:      (2,      13,     64,     "RandomBlockA", 1),
-    7:      (2,      14,     64,     "RandomBlockA", 0),
-    8:      (2,      15,     64,     "RandomBlockA", 1),
-    9:      (6,      5,      64,     "RandomBlockA", 0),
-    10:     (8,      5,      64,     "RandomBlockA", 1),
-    11:     (10,     6,      64,     "RandomBlockA", 0),
-    12:     (10,     11,     64,     "RandomBlockA", 0),
-    13:     (10,     19,     64,     "RandomBlockA", 0),
-    14:     (10,     19,     65,     "RandomBlockB", 0),
-    15:     (10,     28,     64,     "RandomBlockA", 0),
-    16:     (10,     37,     64,     "RandomBlockA", 0),
-    17:     (10,     40,     64,     "RandomBlockA", 0),
-    18:     (10,     41,     64,     "RandomBlockA", 1),
-    19:     (10,     48,     64,     "RandomBlockA", 0),
-    20:     (10,     48,     65,     "RandomBlockB", 0),
-    21:     (10,     48,     66,     "RandomBlockC", 0),
-    22:     (10,     48,     67,     "RandomBlockD", 0),
-    23:     (10,     48,     68,     "RandomBlockE", 0),
-    24:     (10,     48,     69,     "RandomBlockF", 0),
-    25:     (11,     9,      64,     "RandomBlockA", 1),
-    26:     (14,     2,      64,     "RandomBlockA", 0),
-    27:     (15,     4,      64,     "RandomBlockA", 1),
-    28:     (16,     8,      64,     "RandomBlockA", 0),
-    29:     (16,     10,     64,     "RandomBlockA", 1),
-    30:     (16,     10,     65,     "RandomBlockB", 0),
-    31:     (16,     16,     64,     "RandomBlockA", 0),
-    32:     (17,     8,      64,     "RandomBlockA", 1),
-    33:     (18,     3,      64,     "RandomBlockA", 1),
-    34:     (18,     8,      64,     "RandomBlockA", 1),
-    35:     (19,     3,      64,     "RandomBlockA", 1),
-    36:     (19,     6,      64,     "RandomBlockA", 0),
-    37:     (19,     11,     64,     "RandomBlockA", 1),
-    38:     (20,     7,      64,     "RandomBlockA", 1),
-    39:     (21,     11,     64,     "RandomBlockA", 0),
-    40:     (21,     11,     65,     "RandomBlockB", 0)
+    "Jr. Troopa's Playground In MultiCoinBlock":            (0,      3,      64,     "RandomBlockA",    0),
+    "Port District In MultiCoinBlock":                      (1,      6,      64,     "RandomBlockA",    0),
+    "Elevator Attic Room (B2) In SuperBlock":               (2,      6,      64,     "RandomBlockA",    1),
+    "Blue Pushblock Room (B2) In SuperBlock":               (2,      9,      64,     "RandomBlockA",    1),
+    "Metal Block Room (B3) In SuperBlock":                  (2,      10,     64,     "RandomBlockA",    1),
+    "Frozen Room (B3) In SuperBlock":                       (2,      13,     64,     "RandomBlockA",    1),
+    "Hall to Blooper 1 (B1) In MultiCoinBlock":             (2,      14,     64,     "RandomBlockA",    0),
+    "Under the Toad Town Pond In SuperBlock":               (2,      15,     64,     "RandomBlockA",    1),
+    "Pleasant Path Bridge In MultiCoinBlock":               (6,      5,      64,     "RandomBlockA",    0),
+    "Train Station In SuperBlock":                          (8,      5,      64,     "RandomBlockA",    1),
+    "N3E3 In MultiCoinBlock":                               (10,     6,      64,     "RandomBlockA",    0),
+    "N2E1 (Tweester A) In MultiCoinBlock":                  (10,     11,     64,     "RandomBlockA",    0),
+    "N1E2 In MultiCoinBlock Center":                        (10,     19,     64,     "RandomBlockA",    0),
+    "N1E2 In MultiCoinBlock Bottom Right":                  (10,     19,     65,     "RandomBlockB",    0),
+    "S1W3 In MultiCoinBlock Top Left":                      (10,     28,     64,     "RandomBlockA",    0),
+    "S2W1 In MultiCoinBlock Top":                           (10,     37,     64,     "RandomBlockA",    0),
+    "S2E2 West of Oasis In MultiCoinBlock":                 (10,     40,     64,     "RandomBlockA",    0),
+    "S2E3 Oasis In SuperBlock":                             (10,     41,     64,     "RandomBlockA",    1),
+    "S3E3 South of Oasis In MultiCoinBlock Top Left":       (10,     48,     64,     "RandomBlockA",    0),
+    "S3E3 South of Oasis In MultiCoinBlock Top Right":      (10,     48,     65,     "RandomBlockB",    0),
+    "S3E3 South of Oasis In MultiCoinBlock Right":          (10,     48,     66,     "RandomBlockC",    0),
+    "S3E3 South of Oasis In MultiCoinBlock Left":           (10,     48,     67,     "RandomBlockD",    0),
+    "S3E3 South of Oasis In MultiCoinBlock Bottom Left":    (10,     48,     68,     "RandomBlockE",    0),
+    "S3E3 South of Oasis In MultiCoinBlock Bottom Right":   (10,     48,     69,     "RandomBlockF",    0),
+    "Vertical Shaft In SuperBlock":                         (11,     9,      64,     "RandomBlockA",    1),
+    "Wasteland Ascent 2 In MultiCoinBlock":                 (14,     2,      64,     "RandomBlockA",    0),
+    "Stairs to Basement In SuperBlock":                     (15,     4,      64,     "RandomBlockA",    1),
+    "GRN Treadmills/Slot Machine In MultiCoinBlock":        (16,     8,      64,     "RandomBlockA",    0),
+    "RED Moving Platforms In SuperBlock":                   (16,     10,     64,     "RandomBlockA",    1),
+    "RED Moving Platforms In MultiCoinBlock":               (16,     10,     65,     "RandomBlockB",    0),
+    "PNK Tracks Hallway In MultiCoinBlock":                 (16,     16,     64,     "RandomBlockA",    0),
+    "SW Jungle (Super Block) In SuperBlock":                (17,     8,      64,     "RandomBlockA",    1),
+    "Fire Bar Bridge In SuperBlock":                        (18,     3,      64,     "RandomBlockA",    1),
+    "Zipline Cavern In SuperBlock":                         (18,     8,      64,     "RandomBlockA",    1),
+    "(SE) Briar Platforming In SuperBlock":                 (19,     3,      64,     "RandomBlockA",    1),
+    "(West) Maze In MultiCoinBlock":                        (19,     6,      64,     "RandomBlockA",    0),
+    "(NE) Elevators In SuperBlock":                         (19,     11,     64,     "RandomBlockA",    1),
+    "Shiver Mountain Hills In SuperBlock":                  (20,     7,      64,     "RandomBlockA",    1),
+    "Blue Mirror Hall 2 In MultiCoinBlock Front":           (21,     11,     64,     "RandomBlockA",    0),
+    "Blue Mirror Hall 2 In MultiCoinBlock Back":            (21,     11,     65,     "RandomBlockB",    0)
 }
