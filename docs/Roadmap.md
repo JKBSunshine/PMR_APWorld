@@ -1,7 +1,7 @@
 This is not necessarily a strict roadmap, nor is it exhaustive of everything that there is to do. 
 
 ### Necessary for Alpha
-- Output of a patch file that applies the desired settings, randomized items, locations, etc.
+- ~~Output of a patch file that applies the desired settings, randomized items, locations, etc.~~
 - Set up a way to communicate with an AP server for sending/receiving items.
 
 ### Pre-Early Alpha
@@ -11,7 +11,7 @@ This is not necessarily a strict roadmap, nor is it exhaustive of everything tha
 - Logic for gear shuffle options: vanilla and gear_locations
 
 ### Early-Mid Alpha
-- Super blocks and multi-coin blocks as potential locations, as well as being able to shuffle them
+- ~~Super blocks and multi-coin blocks as potential locations, as well as being able to shuffle them~~
 - Bowser Castle Mode (change entrances, remove locations)
 - Power Star Hunt (logic, items, remove locations in ch8 if skipped)
 - Entrance Randomizer
