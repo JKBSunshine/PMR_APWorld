@@ -13,7 +13,7 @@ class CoinPalette:
         self.crcs = crcs
 
 
-def get_randomized_coinpalette(color_id: int, should_randomize_color: bool):
+def get_randomized_coinpalette(color_id: int):
     """
     Choose and return a color palette for coin sprites in accordance to chosen
     settings, as well as all locations in ROM where the palette needs to be
@@ -142,14 +142,14 @@ def get_randomized_coinpalette(color_id: int, should_randomize_color: bool):
         ]
     }
 
-    if should_randomize_color:
+    if color_id == 5:
         # Choose random coin palette, ignoring given color id
         coin_color_keys = [color_id for color_id in coin_color_palettes.keys()]
         chosen_color_id = random.choice(coin_color_keys)
     else:
         chosen_color_id = color_id
 
-    return CoinPalette(coin_color_palettes.get(chosen_color_id), target_rom_locations, None), chosen_color_id
+    return coin_color_palettes.get(chosen_color_id), target_rom_locations, None
 
 
 def get_randomized_palettes(world) -> list:
