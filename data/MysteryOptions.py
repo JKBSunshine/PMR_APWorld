@@ -7,10 +7,10 @@ class MysteryOptions:
     def __init__(self):
         self.mystery_random_choice = 0
         self.mystery_random_pick = False
-        self.mystery_itemA = [name for name, values in item_table.items() if values[2] == 138][0]
-        self.mystery_itemB = [name for name, values in item_table.items() if values[2] == 140][0]
-        self.mystery_itemC = [name for name, values in item_table.items() if values[2] == 128][0]
-        self.mystery_itemD = [name for name, values in item_table.items() if values[2] == 136][0]
-        self.mystery_itemE = [name for name, values in item_table.items() if values[2] == 154][0]
-        self.mystery_itemF = [name for name, values in item_table.items() if values[2] == 130][0]
-        self.mystery_itemG = [name for name, values in item_table.items() if values[2] == 133][0]
+        self.mystery_itemA = 138
+        self.mystery_itemB = 140
+        self.mystery_itemC = 128
+        self.mystery_itemD = 136
+        self.mystery_itemE = 154
+        self.mystery_itemF = 130
+        self.mystery_itemG = 133
