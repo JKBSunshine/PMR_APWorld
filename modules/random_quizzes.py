@@ -16,9 +16,9 @@ def get_randomized_quizzes() -> list:
     db_keys = []
     db_values = []
 
-    for quiz in quiz_table:
-        db_keys.append(get_key(quiz.key))
-        db_values.append(quiz.value)
+    for name, data in quiz_table.items():
+        db_keys.append(get_key(name))
+        db_values.append(data[4])
 
     random.shuffle(db_values)
 
