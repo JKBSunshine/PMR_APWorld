@@ -1001,7 +1001,7 @@ class PaperMarioOptions(PerGameCommonOptions):
     starting_fp: StartingFP
     starting_sp: StartingSP
     start_with_random_items: StartWithRandomItems
-    min_start_items: MinStartPartners
+    min_start_items: MinStartItems
     max_start_items: MaxStartItems
 
     # Item Pool
