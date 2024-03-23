@@ -24,4 +24,6 @@ to view the zip file, which contains the spoiler log, the patched rom, and an Ar
 Note that since some settings are not yet implemented fully, not all of them will result in a successful generation. 
 Refer to the To Do section in the main ReadMe to see if a setting is not yet implemented.
 
-At this time, it can successfully patch a modded rom into a playable solo seed. I have not yet done excessive testing to check for crashes, unbeatable seeds, or anything else. It's very possible that certain workarounds implemented to help get to this point will make it impossible to beat the game for technical or logical reasons; please report these if you find any. For instance, a likely issue (I think) will be that keys that there are multiples of will not work properly.
+At this time, it can successfully patch a modded rom into a playable solo seed. I have not yet done excessive testing to check for crashes, unbeatable seeds, or anything else. It's very possible that certain workarounds implemented to help get to this point will make it impossible to beat the game for technical or logical reasons; please report these if you find any. 
+
+One such workaround involves dungeon keys that you collect having X icons and not working on doors; as a temporary measure, you start the game with all of those dungeon keys which are usable, though it will only be in logic to use as many of the aforementioned X keys as you have. Try to be mindful to not use more keys than you have found so that you can more accurately test seeds.
