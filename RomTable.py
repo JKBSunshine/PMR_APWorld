@@ -1,15 +1,10 @@
 # from https://github.com/icebound777/PMR-SeedGenerator/blob/main/table.py
 
-from .data.RomOptionList import rom_option_table, get_key, ap_to_rom_option_table
-from .modules.random_quizzes import get_randomized_quizzes
-from .options import EnemyDamage
+from .data.RomOptionList import rom_option_table, ap_to_rom_option_table
+from .modules.random_blocks import get_block_key
+from .options import EnemyDamage, PaperMarioOptions, PartnerUpgradeShuffle, ShuffleKootFavors, ShuffleLetters, BowserCastleMode
 from .data.MysteryOptions import MysteryOptions
-from .modules.random_mystery import get_random_mystery
-
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from . import PaperMarioWorld
+from .data.node import Node
 
 
 class RomTable:
@@ -27,64 +22,23 @@ class RomTable:
     def __getitem__(self, key):
         return self.db[key]
 
-    def generate_pairs(self, world: PaperMarioWorld):
-        # Get data for options that don't affect logic
-        mystery_opts = get_random_mystery(world.options.mystery_shuffle.value)
-
+    def generate_pairs(self,  options: PaperMarioOptions, placed_items: list, placed_blocks: dict, entrances: list,
+                       actor_attributes: list, move_costs: list, palettes: list, quizzes: list,
+                       music_list: list, mapmirror_list: list, puzzle_list: list, mystery_opts: MysteryOptions):
         table_data = []
 
-        # Set up the option_dbtuples a little differently from upstream to account for different access to settings
-        option_dbtuples = []
-        for option in ap_to_rom_option_table:
-            if option.get("value") == "":
-                #  handle options that are calculated, not yet implemented, or otherwise not changeable by the player
-                match option.get("key"):
-                    case "BlocksMatchContent" | "FastTextSkip" | "ShuffleItems" | "RandomQuiz":
-                        option_dbtuples.append({get_key(option.get("key")), 1})
-                    case "ChallengeMode" | "ShuffleDungeonRooms" | "ShuffleEntrancesByAll" | "MatchEntranceTypes":
-                        option_dbtuples.append({get_key(option.get("key")), 0})
-                    case {'id': x} if x.startswith("StartingItem"):
-                        option_dbtuples.append({get_key(option.get("key")), 0})
-                    case "DoubleDamage":
-                        option_dbtuples.append({get_key(option.get("key")),
-                                                world.options.enemy_damage.value == EnemyDamage.option_Double_Pain})
-                    case "QuadrupleDamage":
-                        option_dbtuples.append({get_key(option.get("key")),
-                                                world.options.enemy_damage.value == EnemyDamage.option_Quadruple_Pain})
-                    case "EnabledCheckBits":
-                        option_dbtuples.append({get_key(option.get("key")), 0})  # TODO
-                    case "EnabledShopBits":
-                        option_dbtuples.append({get_key(option.get("key")), 0})  # TODO
-                    case "ItemChoiceA":
-                        option_dbtuples.append({get_key(option.get("key")), mystery_opts.mystery_itemA})
-                    case "ItemChoiceB":
-                        option_dbtuples.append({get_key(option.get("key")), mystery_opts.mystery_itemA})
-                    case "ItemChoiceC":
-                        option_dbtuples.append({get_key(option.get("key")), mystery_opts.mystery_itemA})
-                    case "ItemChoiceD":
-                        option_dbtuples.append({get_key(option.get("key")), mystery_opts.mystery_itemA})
-                    case "ItemChoiceE":
-                        option_dbtuples.append({get_key(option.get("key")), mystery_opts.mystery_itemA})
-                    case "ItemChoiceF":
-                        option_dbtuples.append({get_key(option.get("key")), mystery_opts.mystery_itemA})
-                    case "ItemChoiceG":
-                        option_dbtuples.append({get_key(option.get("key")), mystery_opts.mystery_itemA})
-                    case "StartingLevel":
-                        option_dbtuples.append({get_key(option.get("key")), (world.options.starting_bp.value / 5 +
-                                                                             world.options.starting_bp.value / 5 +
-                                                                             world.options.starting_bp.value / 3) - 3})
-            else:
-                option_dbtuples.append({get_key(option.get("key")), getattr(world.options, option.get("value")).value})
+        # Options
+        option_dbtuples = get_dbtuples(options, mystery_opts)
 
         for option_data in option_dbtuples:
-            if isinstance(option_data, dict) and "key" in option_data:
-                option_data_value = option_data.get("value")
-                if isinstance(option_data_value, int) and option_data_value < 0:
-                    option_data_value = 0x100000000 + option_data_value
-                table_data.append({
-                    "key": option_data.get("key"),
-                    "value": option_data_value,
-                })
+            option_key = option_data[0]
+            option_value = option_data[1]
+            if isinstance(option_value, int) and option_value < 0:
+                option_value = 0x100000000 + option_value
+            table_data.append({
+                "key": option_key,
+                "value": option_value,
+            })
 
         # temp fix for multiworld
         table_data.append({
@@ -93,8 +47,6 @@ class RomTable:
         })
 
         # Quizzes
-        quizzes = get_randomized_quizzes()
-
         for key, value in quizzes:
             table_data.append({
                 "key": key,
@@ -102,14 +54,12 @@ class RomTable:
             })
 
         # Items
-        placed_items = world.placed_items
         for node in placed_items:
             if node.key_name_item is not None and node.current_item is not None:
-                assert not node.current_item.unplaceable  # sanity check
 
                 table_data.append({
                     "key": node.get_item_key(),
-                    "value": node.current_item.value,
+                    "value": node.current_item.id,
                 })
 
             # Item Prices
@@ -123,16 +73,13 @@ class RomTable:
                     "value": node.current_item.base_price
                 })
 
-        # Blocks
-        placed_blocks = world.placed_blocks
-        for key, value in placed_blocks:
+        for name, value in placed_blocks.items():
             table_data.append({
-                "key": key,
+                "key": get_block_key(name),
                 "value": value
             })
 
         # Entrances
-        entrances = []  # world.entrance_list
         for key, value in entrances:
             table_data.append({
                 "key": key,
@@ -140,7 +87,6 @@ class RomTable:
             })
 
         # Actor Attributes
-        actor_attributes = world.enemy_stats
         for key, value in actor_attributes:
             table_data.append({
                 "key": key,
@@ -148,7 +94,6 @@ class RomTable:
             })
 
         # Palettes
-        palettes = world.palette_data
         for key, value in palettes:
             table_data.append({
                 "key": key,
@@ -156,7 +101,6 @@ class RomTable:
             })
 
         # Move Costs
-        move_costs = world.move_costs
         for key, value in move_costs:
             table_data.append({
                 "key": key,
@@ -164,7 +108,6 @@ class RomTable:
             })
 
         # Audio
-        music_list = world.music_list
         for key, value in music_list:
             table_data.append({
                 "key": key,
@@ -172,8 +115,14 @@ class RomTable:
             })
 
         # Map mirroring
-        mapmirror_list = world.static_map_mirroring
         for key, value in mapmirror_list:
+            table_data.append({
+                "key": key,
+                "value": value
+            })
+
+        # Puzzles & Minigames
+        for key, value in puzzle_list:
             table_data.append({
                 "key": key,
                 "value": value
@@ -181,8 +130,6 @@ class RomTable:
 
         table_data.sort(key=lambda pair: pair["key"])
         return table_data
-
-
 
     def create(self):
         self.info = get_table_info()
@@ -214,3 +161,134 @@ def generate_table_pairs(value_set):
 
     table_data.sort(key=lambda pair: pair["key"])
     return table_data
+
+
+def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions) -> list:
+    dbtuples = []
+
+    # map tracker check and shop bits
+    map_tracker_bits = 0x1 + 0x2
+    if options.shuffle_hidden_panels.value:
+        map_tracker_bits += 0x4
+    if options.partner_upgrades.value >= PartnerUpgradeShuffle.option_Super_Block_Locations:
+        map_tracker_bits += 0x8
+    if options.overworld_coins.value:
+        map_tracker_bits += 0x10
+    if options.coin_blocks.value:
+        map_tracker_bits += 0x20
+    if options.koot_coins.value:
+        map_tracker_bits += 0x40
+    if options.foliage_coins.value:
+        map_tracker_bits += 0x80
+    if options.dojo.value:
+        map_tracker_bits += 0x100
+    if options.koot_favors.value != ShuffleKootFavors.option_Vanilla:
+        map_tracker_bits += 0x200
+    if options.trading_events.value:
+        map_tracker_bits += 0x400
+    if options.letter_rewards.value != ShuffleLetters.option_Vanilla:
+        map_tracker_bits += 0x800
+    if not options.open_forest.value:
+        map_tracker_bits += 0x1000
+    if options.bowser_castle_mode.value == BowserCastleMode.option_Vanilla:
+        map_tracker_bits += 0x2000
+    if options.bowser_castle_mode.value <= BowserCastleMode.option_Shortened:
+        map_tracker_bits += 0x4000
+    if (options.partner_upgrades.value >= PartnerUpgradeShuffle.option_Super_Block_Locations
+            and options.super_multi_blocks.value
+    ):
+        map_tracker_bits += 0x8000
+
+    map_tracker_check_bits = map_tracker_bits
+    map_tracker_shop_bits = 0x7
+    if options.bowser_castle_mode.value <= BowserCastleMode.option_Shortened:
+        map_tracker_shop_bits += 0x8
+
+    # status menu palette bits
+    menu_color_a, menu_color_b = 0xEBE677FF, 0x8E5A25FF
+    match options.status_menu_palette.value:
+        case 0:
+            menu_color_a, menu_color_b = 0xEBE677FF, 0x8E5A25FF
+        case 1:
+            menu_color_a, menu_color_b = 0x8D8FFFFF, 0x2B4566FF
+        case 2:
+            menu_color_a, menu_color_b = 0xAAD080FF, 0x477B53FF
+        case 3:
+            menu_color_a, menu_color_b = 0x8ED4ECFF, 0x436245FF
+        case 4:
+            menu_color_a, menu_color_b = 0xD7BF74FF, 0x844632FF
+        case 5:
+            menu_color_a, menu_color_b = 0xB797B7FF, 0x62379AFF
+        case 6:
+            menu_color_a, menu_color_b = 0xC0C0C0FF, 0x404040FF
+
+    # starting map
+    starting_map = 0x00010104
+
+    for rom_option, ap_option in ap_to_rom_option_table.items():
+        option_key = get_db_key(rom_option)
+        option_value = -1
+        if ap_option == "":
+            #  handle options that are calculated, not yet implemented, or otherwise not changeable by the player
+            match rom_option:
+                # Always turned on
+                case "BlocksMatchContent" | "FastTextSkip" | "ShuffleItems" | "RandomQuiz" | "PeachCastleReturnPipe":
+                    option_value = 1
+                # Always turned off
+                case "ChallengeMode" | "ShuffleDungeonRooms" | "ShuffleEntrancesByAll" | "MatchEntranceTypes" | "Widescreen":
+                    option_value = 0
+                # NYI
+                case "StartingItem0" | "StartingItem1" | "StartingItem2" | "StartingItem3" | "StartingItem4":
+                    option_value = 0
+                case "StartingItem5" | "StartingItem6" | "StartingItem7" | "StartingItem8" | "StartingItem9":
+                    option_value = 0
+                case "StartingItemA" | "StartingItemB" | "StartingItemC" | "StartingItemD" | "StartingItemE" | "StartingItemF":
+                    option_value = 0
+                case "XPMultiplier":
+                    option_value =  int(options.enemy_xp_multiplier.value / 2)
+                # One setting on the front end, but two separate flags for the mod
+                case "DoubleDamage":
+                    option_value = options.enemy_damage.value == EnemyDamage.option_Double_Pain
+                case "QuadrupleDamage":
+                    option_value = options.enemy_damage.value == EnemyDamage.option_Quadruple_Pain
+                case "EnabledCheckBits":
+                    option_value = map_tracker_check_bits
+                case "EnabledShopBits":
+                    option_value = map_tracker_shop_bits
+                case "Box5ColorA":
+                    option_value = menu_color_a
+                case "Box5ColorB":
+                    option_value = menu_color_b
+                case "ItemChoiceA":
+                    option_value = mystery_opts.mystery_itemA
+                case "ItemChoiceB":
+                    option_value = mystery_opts.mystery_itemB
+                case "ItemChoiceC":
+                    option_value = mystery_opts.mystery_itemC
+                case "ItemChoiceD":
+                    option_value = mystery_opts.mystery_itemD
+                case "ItemChoiceE":
+                    option_value = mystery_opts.mystery_itemE
+                case "ItemChoiceF":
+                    option_value = mystery_opts.mystery_itemF
+                case "ItemChoiceG":
+                    option_value = mystery_opts.mystery_itemG
+                # Calculated based on starting stats
+                case "StartingLevel":
+                    option_value = int(options.starting_hp.value / 5 +
+                                                  options.starting_fp.value / 5 +
+                                                  options.starting_bp.value / 3) - 3
+                case "StartingMap":
+                    option_value = starting_map
+
+        else:
+            option_value = getattr(options, ap_option).value
+
+        dbtuples.append((option_key, option_value))
+        # print(f"{rom_option}, {option_value}")
+    return dbtuples
+
+
+def get_db_key(rom_option):
+    data = rom_option_table[rom_option]
+    return (0xAF << 24) | (data[1] << 16) | (data[2] << 8) | data[3]

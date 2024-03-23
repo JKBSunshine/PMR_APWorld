@@ -1,7 +1,4 @@
 # get the address for the given option using its key type (0xAF), area, map, and index
-def get_key(rom_option):
-    data = rom_option_table[rom_option]
-    return (0xAF << 24) | (data[1] << 16) | (data[2] << 8) | data[3]
 
 
 #    Name                        id    area     map    index   default val
@@ -126,18 +123,19 @@ ap_to_rom_option_table = {
     "AlwaysSpeedySpin": "always_speedy_spin",
     "AlwaysISpy": "always_ispy",
     "AlwaysPeekaboo": "always_peekaboo",
-    "ShortenCutscenes": "shorten_cutscenes",
+    "CutsceneMode": "cutscene_mode",
     "FastTextSkip": "",
     "SkipEpilogue": "skip_epilogue",
     "PeachCastleReturnPipe": "",
     "FoliageItemHints": "foliage_item_hints",
     "HiddenPanelVisibility": "visible_hidden_panels",
+    "MuteDangerBeeps": "mute_danger_beeps",
 
     # Difficulty and enemies
     "ProgressiveScaling": "enemy_difficulty",
     "ChallengeMode": "",  # NYI, always false
     "CapEnemyXP": "cap_enemy_xp",
-    "XPMultiplier": "enemy_xp_multiplier",
+    "XPMultiplier": "",
     "DoubleDamage": "",  # damage multiplier == 2
     "QuadrupleDamage": "",  # damage multiplier == 4
     "OHKO": "one_hit_ko",
@@ -172,7 +170,7 @@ ap_to_rom_option_table = {
     "ItemChoiceG": "",
 
     # Starting setup
-    "StartingMap": "starting_map",
+    "StartingMap": "",
     "StartingLevel": "",  # calculated based on the next 3
     "StartingMaxHP": "starting_hp",
     "StartingMaxFP": "starting_fp",
@@ -242,13 +240,16 @@ ap_to_rom_option_table = {
     "SkipQuiz": "skip_quiz",
 
     # Cosmetics
-    "Box5ColorA": "status_menu_palette",
-    "Box5ColorB": "status_menu_palette",
+    "ColorMode": "status_menu_palette",
+    "Box5ColorA": "",
+    "Box5ColorB": "",
     "CoinColor": "coin_palette",
 
     # Joke options
     "RomanNumerals": "roman_numerals",
     "RandomText": "random_text",
     "RandomPitch": "random_pitch",
-    "MuteDangerBeeps": "mute_danger_beeps",
+    "MirrorMode": "mirror_mode",
+
+    "Widescreen": "",
 }

@@ -13,6 +13,8 @@ from BaseClasses import (Region, Entrance, Location, Item, Tutorial,
 from Options import Range, Toggle, VerifyKeys, Accessibility
 from worlds.AutoWorld import World, WebWorld
 from . import Locations, options
+from .data.enum_types import BlockType
+from .data.maparea import MapArea
 from .modules.random_audio import get_randomized_audio
 from .modules.random_map_mirroring import get_mirrored_map_list
 from .modules.random_movecosts import get_randomized_moves
@@ -32,16 +34,14 @@ from .modules.random_actor_stats import get_shuffled_chapter_difficulty
 from .data import regions
 from .Rules import set_rules
 from .modules.random_partners import get_rnd_starting_partners
-from .options import EnemyDifficulty, PaperMarioOptions, ShuffleKootFavors, PartnerUpgradeShuffle, HiddenBlockMode
-# from .Rom import write_data_to_rom
+from .options import EnemyDifficulty, PaperMarioOptions, ShuffleKootFavors, PartnerUpgradeShuffle, HiddenBlockMode, GearShuffleMode
+from .data.node import Node
+from .Rom import generate_output
 from Fill import fill_restrictive
 from .modules.random_blocks import get_block_placement
 import pkg_resources
 
 logger = logging.getLogger("Paper Mario")
-
-# PM's generate_output doesn't benefit from more than 2 threads, instead it uses a lot of memory.
-i_o_limiter = threading.Semaphore(2)
 
 
 class PMSettings(settings.Group):
@@ -101,17 +101,19 @@ class PaperMarioWorld(World):
     data_version = 1
     required_client_version = (0, 4, 4)
     auth: bytes
+
     def __init__(self, multiworld, player):
         super(PaperMarioWorld, self).__init__(multiworld, player)
-        self.placed_blocks = []
-        self.enemy_stats = []
-        self.chapter_changes = {}
-        self.battle_formations = []
-        self.move_costs = []
-        self.palette_data = []
-        self.music_list = []
-        self.static_map_mirroring = []
-        self.remove_from_start_inventory = []
+
+        # For generation
+        self.placed_items = []
+        self.placed_blocks = {}
+
+        self._regions_cache = {}
+        self.parser = Rule_AST_Transformer(self, self.player)
+
+        self.regions = []
+        self.starting_items = Counter()
 
     @classmethod
     def stage_assert_generate(cls, multiworld: MultiWorld) -> None:
@@ -120,11 +122,6 @@ class PaperMarioWorld(World):
 
     # Do some housekeeping before generating, namely fixing some options that might be incompatible with each other
     def generate_early(self) -> None:
-        self.parser = Rule_AST_Transformer(self, self.player)
-
-        self.regions = []  # internal caches of regions for this world, used later
-        self._regions_cache = {}
-        self.starting_items = Counter()
 
         # Make sure it doesn't try to shuffle Koot coins if rewards aren't shuffled
         if self.options.koot_favors.value == ShuffleKootFavors.option_Vanilla:
@@ -187,8 +184,8 @@ class PaperMarioWorld(World):
         # place blocks if not done already
         if not self.placed_blocks:
             self.placed_blocks = get_block_placement(self.options.super_multi_blocks.value,
-                                                     self.options.partner_upgrades.value ==
-                                                     PartnerUpgradeShuffle.option_Full_Shuffle)
+                                                     self.options.partner_upgrades.value >=
+                                                     PartnerUpgradeShuffle.option_Super_Block_Locations)
 
     def create_regions(self) -> None:
         # Create base regions
@@ -266,21 +263,6 @@ class PaperMarioWorld(World):
         if self.options.open_forest.value:
             loc = self.multiworld.get_location("Southern District Fice T. Forest Pass", self.player)
             loc.parent_region.locations.remove(loc)
-
-        self.enemy_stats, self.chapter_changes = get_shuffled_chapter_difficulty(
-            self.options.enemy_difficulty.value, starting_chapter=1)
-
-        self.options.palette_data = get_randomized_palettes(self)
-
-        self.options.move_costs = get_randomized_moves(self.options.badge_bp_shuffle.value,
-                                                       self.options.badge_fp_shuffle.value,
-                                                       self.options.partner_fp_shuffle.value,
-                                                       self.options.sp_shuffle.value)
-
-        self.options.music_list = get_randomized_audio(self.options.shuffle_music.value,
-                                                       self.options.shuffle_jingles.value)
-
-        self.options.static_map_mirroring = get_mirrored_map_list()
 
     def modify_multidata(self, multidata: dict):
         import base64
@@ -379,15 +361,15 @@ class PaperMarioWorld(World):
                         prefill_item_names.append(item.name)
 
         # gear items shuffled among gear locations
-        if self.options.gear_shuffle_mode.value == 1:
-            for item in item_groups["Gear"]:
-                if item in self.itempool:
+        if self.options.gear_shuffle_mode.value == GearShuffleMode.option_Gear_Location_Shuffle:
+            for item in self.itempool:
+                if item.name in item_groups["Gear"]:
                     prefill_item_names.append(item.name)
 
         # upgrades shuffled among super blocks
-        if self.options.partner_upgrades.value == 1:
-            for item in item_groups["PartnerUpgrade"]:
-                if item in self.itempool:
+        if self.options.partner_upgrades.value == PartnerUpgradeShuffle.option_Super_Block_Locations:
+            for item in self.itempool:
+                if item.name in item_groups["PartnerUpgrade"]:
                     prefill_item_names.append(item.name)
 
         prefill_items = []
@@ -440,9 +422,11 @@ class PaperMarioWorld(World):
                          single_player_placement=True, lock=True, allow_excluded=True)
 
         # Place gear items in gear locations
-        if self.options.gear_shuffle_mode == 1:
+        if self.options.gear_shuffle_mode.value == GearShuffleMode.option_Gear_Location_Shuffle:
             gear_items = list(filter(lambda item: pm_is_item_of_type(item, "GEAR"), self.pre_fill_items))
-            locations = location_groups["Gear"]
+            gear_locations = location_groups["Gear"]
+            locations = list(filter(lambda location: location.name in gear_locations,
+                                    self.multiworld.get_unfilled_locations(player=self.player)))
             if isinstance(locations, list):
                 for item in gear_items:
                     self.pre_fill_items.remove(item)
@@ -450,10 +434,12 @@ class PaperMarioWorld(World):
                 fill_restrictive(self.multiworld, prefill_state(state), locations, gear_items,
                                  single_player_placement=True, lock=True, allow_excluded=True)
 
-        # Place partner upgrade items in super block locations
-        if self.options.gear_shuffle_mode == 1:
+        # Place partner upgrade items in super block turned yellow block locations
+        if self.options.partner_upgrades.value == PartnerUpgradeShuffle.option_Super_Block_Locations:
             upgrade_items = list(filter(lambda item: pm_is_item_of_type(item, "PARTNERUPGRADE"), self.pre_fill_items))
-            locations = location_groups["SuperBlock"]
+            yellow_block_locations = [name for (name, value) in self.placed_blocks.items() if value == BlockType.YELLOW]
+            locations = list(filter(lambda location: location.name in yellow_block_locations,
+                                    self.multiworld.get_unfilled_locations(player=self.player)))
             if isinstance(locations, list):
                 for item in upgrade_items:
                     self.pre_fill_items.remove(item)
@@ -478,8 +464,8 @@ class PaperMarioWorld(World):
                     fill_restrictive(self.multiworld, prefill_state(state), locations, key_items,
                                      single_player_placement=True, lock=True, allow_excluded=True)
 
-
-    # def generate_output(self, output_directory: str):
+    def generate_output(self, output_directory: str):
+        generate_output(self, output_directory)
 
     def get_locations(self):
         return self.multiworld.get_locations(self.player)
@@ -509,3 +495,5 @@ class PaperMarioWorld(World):
             "power_star_hunt"
         )
         return slot_data
+
+
