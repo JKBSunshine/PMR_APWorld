@@ -1,7 +1,7 @@
 from BaseClasses import ItemClassification as Ic
 
-#                                  0                     1                 2     3         4         5           6
-#    Name                        Type              Progression            ID, BasePrice, Unused, UnusedDupe, Unplaceable
+#                                  0                     1                         2     3         4         5           6
+#    Name                   Type              Progression                      ID, BasePrice, Unused, UnusedDupe, Unplaceable
 item_table = {
     "Nothing":                 ("NOTHING",         Ic.filler,                      0,     0,     False,  False,  False),
     "Boots":                   ("OTHER",           Ic.filler,                      1,     50,    False,  False,  True),
@@ -22,7 +22,7 @@ item_table = {
     "KoopaFortressKey":        ("KEYITEM",         Ic.progression,                      16,    50,    False,  False,  False),
     "RuinsKey":                ("KEYITEM",         Ic.progression,                      17,    50,    False,  False,  False),
     "PulseStone":              ("KEYITEM",         Ic.progression,                 18,    50,    False,  False,  False),
-    "Tubbacastlekey":          ("KEYITEM",         Ic.progression,                      19,    50,    False,  False,  False),
+    "TubbaCastleKey":          ("KEYITEM",         Ic.progression,                      19,    50,    False,  False,  False),
     "CrystalPalaceKey":        ("KEYITEM",         Ic.progression,                 20,    50,    False,  False,  False),
     "LunarStone":              ("KEYITEM",         Ic.progression,                 21,    50,    False,  False,  False),
     "PyramidStone":            ("KEYITEM",         Ic.progression,                 22,    50,    False,  False,  False),
@@ -682,9 +682,9 @@ item_groups = {
     "StarPiece": [name for (name, data) in item_table.items() if data[0] == "STARPIECE"],
     "FavorItem": [name for (name, data) in item_table.items() if name.startswith("Koot") and not data[6]],
     "Letter": [name for (name, data) in item_table.items() if name.startswith("Letter") and not data[6]],
-    "Boots": [name for (name, data) in item_table.items() if "HammerProxy" in name],
-    "Hammers": [name for (name, data) in item_table.items() if "BootsProxy" in name],
-    "Gear": [name for (name, data) in item_table.items() if "BootsProxy" in name or "HammerProxy" in name]
+    "Boots": [name for (name, data) in item_table.items() if data[0] == "GEAR" and "BootsProxy" in name],
+    "Hammers": [name for (name, data) in item_table.items() if data[0] == "GEAR" and "HammerProxy" in name],
+    "Gear": [name for (name, data) in item_table.items() if data[0] == "GEAR" and ("BootsProxy" in name or "HammerProxy" in name)]
 }
 
 
