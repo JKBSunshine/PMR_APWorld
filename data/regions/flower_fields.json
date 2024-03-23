@@ -37,7 +37,8 @@
     "map_id": "11",
     "map_name": "(NE) Elevators",
     "locations": {
-      "(NE) Elevators Stomp On Ledge": "Super_Boots"
+      "(NE) Elevators Stomp On Ledge": "Super_Boots",
+      "(NE) Elevators In SuperBlock": "can_climb_steps and can_hit_floating_blocks"
     },
     "exits": {
       "(NE) Fallen Logs": "True",
@@ -136,7 +137,8 @@
     "locations": {
       "(SE) Briar Platforming In The Flowers": "True",
       "(SE) Briar Platforming In Tree 1": "can_shake_trees",
-      "(SE) Briar Platforming In Tree 2": "can_shake_trees"
+      "(SE) Briar Platforming In Tree 2": "can_shake_trees",
+      "(SE) Briar Platforming In SuperBlock": "can_climb_steps and can_hit_floating_blocks"
     },
     "exits": {
       "(SE) Water Level Room West": "True",
@@ -332,9 +334,12 @@
     "area_id": "19",
     "map_id": "6",
     "map_name": "(West) Maze",
+    "locations": {
+      "(West) Maze In MultiCoinBlock": "can_hit_floating_blocks"
+    },
     "exits": {
       "(West) Rosie's Trellis": "True",
-      "(West) Maze East": "Boots"
+      "(West) Maze Pipe 6": "Boots"
     }
   },
   {

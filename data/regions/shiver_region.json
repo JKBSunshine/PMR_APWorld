@@ -177,6 +177,9 @@
     "events": {
       "RF_DefeatedFirstDuplighost": "Hammer"
     },
+    "locations": {
+      "Shiver Mountain Hills In SuperBlock": "can_climb_steps and can_hit_floating_blocks"
+    },
     "exits": {
       "Shiver Mountain Tunnel": "True",
       "Shiver Mountain Hills West": "('RF_DefeatedFirstDuplighost' or can_climb_steps)"

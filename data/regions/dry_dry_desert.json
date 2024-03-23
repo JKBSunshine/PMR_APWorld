@@ -84,7 +84,8 @@
     "map_id": "6",
     "map_name": "N3E3",
     "locations": {
-      "N3E3 In Tree": "can_shake_trees"
+      "N3E3 In Tree": "can_shake_trees",
+      "N3E3 In MultiCoinBlock": "can_hit_floating_blocks"
     },
     "exits": {
       "N3E2 Pokey Army": "True",
@@ -148,7 +149,8 @@
     "map_name": "N2E1 (Tweester A)",
     "locations": {
       "N2E1 (Tweester A) Yellow Block Left": "can_hit_grounded_blocks",
-      "N2E1 (Tweester A) Yellow Block Right": "can_hit_grounded_blocks"
+      "N2E1 (Tweester A) Yellow Block Right": "can_hit_grounded_blocks",
+      "N2E1 (Tweester A) In MultiCoinBlock": "can_hit_floating_blocks"
     },
     "exits": {
       "N2": "True",
@@ -261,6 +263,10 @@
     "area_id": "10",
     "map_id": "19",
     "map_name": "N1E2",
+    "locations": {
+      "N1E2 In MultiCoinBlock Center": "can_hit_floating_blocks",
+      "N1E2 In MultiCoinBlock Bottom Right": "can_hit_floating_blocks"
+    },
     "exits": {
       "N1E1 Palm Trio": "True",
       "N1E3": "True",
@@ -394,6 +400,9 @@
     "area_id": "10",
     "map_id": "28",
     "map_name": "S1W3",
+    "locations":{
+      "S1W3 In MultiCoinBlock Top Left": "can_hit_floating_blocks"
+    },
     "exits": {
       "S1W2 (Tweester D)": "True",
       "W3 Kolorado's Camp": "True",
@@ -523,6 +532,9 @@
     "area_id": "10",
     "map_id": "37",
     "map_name": "S2W1",
+    "locations": {
+      "S2W1 In MultiCoinBlock Top": "can_hit_floating_blocks"
+    },
     "exits": {
       "S2W2": "True",
       "S2": "True",
@@ -562,7 +574,8 @@
     "map_name": "S2E2 West of Oasis",
     "locations": {
       "S2E2 West of Oasis Behind Bush": "True",
-      "S2E2 West of Oasis In Tree": "can_shake_trees"
+      "S2E2 West of Oasis In Tree": "can_shake_trees",
+      "S2E2 West of Oasis In MultiCoinBlock": "can_hit_floating_blocks"
     },
     "exits": {
       "S2E1 Blue Cactus": "True",
@@ -580,7 +593,8 @@
       "S2E3 Oasis In Fruit Tree (Left)": "can_shake_trees",
       "S2E3 Oasis In Fruit Tree (Right)": "can_shake_trees",
       "S2E3 Oasis In Tree (Far Left)": "can_shake_trees",
-      "S2E3 Oasis In Tree (Front Right)": "can_shake_trees"
+      "S2E3 Oasis In Tree (Front Right)": "can_shake_trees",
+      "S2E3 Oasis In SuperBlock": "can_hit_floating_blocks"
     },
     "exits": {
       "S2E2 West of Oasis": "True",
@@ -665,7 +679,13 @@
     "map_id": "48",
     "map_name": "S3E3 South of Oasis",
     "locations": {
-      "S3E3 South of Oasis In Tree (Far Right)": "can_shake_trees"
+      "S3E3 South of Oasis In Tree (Far Right)": "can_shake_trees",
+      "S3E3 South of Oasis In MultiCoinBlock Top Left": "can_hit_floating_blocks",
+      "S3E3 South of Oasis In MultiCoinBlock Top Right": "can_hit_floating_blocks",
+      "S3E3 South of Oasis In MultiCoinBlock Left": "can_hit_floating_blocks",
+      "S3E3 South of Oasis In MultiCoinBlock Right": "can_hit_floating_blocks",
+      "S3E3 South of Oasis In MultiCoinBlock Bottom Left": "can_hit_floating_blocks",
+      "S3E3 South of Oasis In MultiCoinBlock Bottom Right": "can_hit_floating_blocks"
     },
     "exits": {
       "S3E2": "True",

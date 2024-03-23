@@ -184,6 +184,10 @@
     "area_id": "21",
     "map_id": "11",
     "map_name": "Blue Mirror Hall 2",
+    "locations": {
+      "Blue Mirror Hall 2 In MultiCoinBlock Front": "can_see_hidden_blocks",
+      "Blue Mirror Hall 2 In MultiCoinBlock Back": "can_see_hidden_blocks"
+    },
     "exits": {
       "Blue Mirror Hall 1 North": "Bombette",
       "Blue Mirror Hall 1 South": "Bombette"

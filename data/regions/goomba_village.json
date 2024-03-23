@@ -138,7 +138,8 @@
       "Jr. Troopa's Playground Bush Top 2": "True",
       "Jr. Troopa's Playground Bush Center": "True",
       "Jr. Troopa's Playground Bush Top Left": "True",
-      "Jr. Troopa's Playground In Hammer Bush": "True"
+      "Jr. Troopa's Playground In Hammer Bush": "True",
+      "Jr. Troopa's Playground In MultiCoinBlock": "can_hit_grounded_blocks"
     },
     "exits": {
       "Bottom of the Cliff West": "True"

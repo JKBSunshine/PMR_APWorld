@@ -280,7 +280,8 @@
       "Port District Poet Melody Reward": "Melody",
       "Port District Fishmael Letter Reward": "Parakarry and Letter15",
       "Port District Radio Trade Event 3 Reward": "'RF_RadioTradeEvt3' and Coconut",
-      "Port District Hidden Panel": "can_flip_panels"
+      "Port District Hidden Panel": "can_flip_panels",
+      "Port District In MultiCoinBlock": "Boots"
     },
     "exits": {
       "Residental District": "True",

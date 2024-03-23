@@ -192,7 +192,8 @@
     "map_id": "5",
     "map_name": "Train Station",
     "locations": {
-      "Train Station Parakarry Partner": "True"
+      "Train Station Parakarry Partner": "True",
+      "Train Station In SuperBlock": "can_hit_floating_blocks"
     },
     "exits": {
       "Mt Rugged 1 West": "True",

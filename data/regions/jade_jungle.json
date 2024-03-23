@@ -253,7 +253,8 @@
       "SW Jungle (Super Block) In Tree (Right)": "can_shake_trees",
       "SW Jungle (Super Block) Underwater 1": "Sushie",
       "SW Jungle (Super Block) Underwater 2": "Sushie",
-      "SW Jungle (Super Block) Underwater 3": "Sushie"
+      "SW Jungle (Super Block) Underwater 3": "Sushie",
+      "SW Jungle (Super Block) In SuperBlock": "can_hit_floating_blocks"
     },
     "exits": {
       "NW Jungle (Large Ledge) SE": "True",

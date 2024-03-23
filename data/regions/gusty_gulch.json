@@ -60,7 +60,8 @@
     "locations": {
       "Wasteland Ascent 2 Behind Rock": "True",
       "Wasteland Ascent 2 Yellow Block Left": "can_hit_floating_blocks",
-      "Wasteland Ascent 2 Yellow Block Right": "can_hit_floating_blocks"
+      "Wasteland Ascent 2 Yellow Block Right": "can_hit_floating_blocks",
+      "Wasteland Ascent 2 In MultiCoinBlock": "can_hit_floating_blocks"
     },
     "exits": {
       "Outside Tubbas Castle": "True",

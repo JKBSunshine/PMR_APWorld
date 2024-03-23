@@ -238,6 +238,9 @@
     "area_id": "11",
     "map_id": "9",
     "map_name": "Vertical Shaft",
+    "locations": {
+      "Vertical Shaft In SuperBlock": "can_hit_floating_blocks"
+    },
     "exits": {
       "Diamond Stone Room": "Bombette",
       "Deep Tunnel": "True",

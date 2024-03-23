@@ -121,6 +121,9 @@
     "area_id": "18",
     "map_id": "3",
     "map_name": "Fire Bar Bridge",
+    "locations": {
+      "Fire Bar Bridge In SuperBlock": "can_hit_floating_blocks"
+    },
     "exits": {
       "Central Cavern B1F East Exit": "True"
     }
@@ -205,6 +208,9 @@
     "area_id": "18",
     "map_id": "8",
     "map_name": "Zipline Cavern",
+    "locations": {
+      "Zipline Cavern In SuperBlock": "can_hit_floating_blocks"
+    },
     "exits": {
       "Central Cavern B2F": "True",
       "Zipline Cavern B3F": "True",

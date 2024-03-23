@@ -214,7 +214,8 @@
       "GRN Treadmills/Slot Machine Hidden Room 3": "Boots and Bow",
       "GRN Treadmills/Slot Machine Hidden Room 4": "Boots and Bow",
       "GRN Treadmills/Slot Machine Hidden Room 5": "Boots and Bow",
-      "GRN Treadmills/Slot Machine Hidden Room 6": "Boots and Bow"
+      "GRN Treadmills/Slot Machine Hidden Room 6": "Boots and Bow",
+      "GRN Treadmills/Slot Machine In MultiCoinBlock": "Parakarry and Boots and Bow"
     },
     "exits": {
       "GRN Station": "True"
@@ -270,7 +271,9 @@
     "locations": {
       "RED Moving Platforms Yellow Block 1": "can_hit_floating_blocks",
       "RED Moving Platforms Yellow Block 2": "can_hit_floating_blocks",
-      "RED Moving Platforms Hidden Block Center": "can_see_hidden_blocks"
+      "RED Moving Platforms Hidden Block Center": "can_see_hidden_blocks",
+      "RED Moving Platforms In SuperBlock": "can_see_hidden_blocks",
+      "RED Moving Platforms In MultiCoinBlock": "can_see_hidden_blocks"
     },
     "exits": {
       "RED Moving Platforms West Exit": "Boots",
@@ -347,7 +350,8 @@
     "map_name": "PNK Tracks Hallway",
     "locations": {
       "PNK Tracks Hallway Yellow Block North 1": "can_hit_floating_blocks",
-      "PNK Tracks Hallway Yellow Block North 2": "can_hit_floating_blocks"
+      "PNK Tracks Hallway Yellow Block North 2": "can_hit_floating_blocks",
+      "PNK Tracks Hallway In MultiCoinBlock": "can_hit_floating_blocks"
     },
     "exits": {
       "PNK Gourmet Guy Crossing North": "True",

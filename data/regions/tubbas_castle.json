@@ -17,7 +17,7 @@
     "exits": {
       "Outside Tubbas Castle": "True",
       "West Hall (1F)": "Bow",
-      "East Hall (1/2F) 1F": "Bow and (Tubbacastlekey, 1)"
+      "East Hall (1/2F) 1F": "Bow and (TubbaCastleKey, 1)"
     }
   },
   {
@@ -72,7 +72,7 @@
       "Table/Clock Room (1/2F) On Table": "True"
     },
     "exits": {
-      "Stairs to Third Floor": "(Tubbacastlekey, 2)",
+      "Stairs to Third Floor": "(TubbaCastleKey, 2)",
       "Table/Clock Room (1/2F) 1F": "True",
       "West Hall (2F)": "True",
       "Hidden Bedroom (2F)": "True"
@@ -83,6 +83,9 @@
     "area_id": "15",
     "map_id": "4",
     "map_name": "Stairs to Basement",
+    "locations": {
+      "Stairs to Basement In SuperBlock": "can_hit_floating_blocks"
+    },
     "exits": {
       "Table/Clock Room (1/2F) 1F": "True",
       "Tubba Basement Lower": "True"
@@ -250,7 +253,7 @@
     "map_name": "West Hall (3F)",
     "exits": {
       "Stairs to Third Floor": "True",
-      "Save Room (3F)": "(Tubbacastlekey, 3)",
+      "Save Room (3F)": "(TubbaCastleKey, 3)",
       "Sleeping Clubbas Room (3F)": "True"
     }
   },

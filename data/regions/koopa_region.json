@@ -196,7 +196,8 @@
     "map_id": "5",
     "map_name": "Pleasant Path Bridge",
     "locations": {
-      "Pleasant Path Bridge Behind Fence": "True"
+      "Pleasant Path Bridge Behind Fence": "True",
+      "Pleasant Path Bridge In MultiCoinBlock": "can_hit_floating_blocks"
     },
     "exits": {
       "Pleasant Crossroads Upper": "True",
