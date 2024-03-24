@@ -26,7 +26,7 @@ from .data.ItemList import item_table
 from .data.node import Node
 from .Locations import PMLocation
 from .data.maparea import MapArea
-
+from .modules.random_shop_prices import get_shop_price
 
 class PMContainer(APContainer):
     game: str = 'Paper Mario'
@@ -291,6 +291,11 @@ def get_filled_node_list(world):
             cur_node.current_item = location.item
         else:
             cur_node.current_item = item_table["Mushroom"][2]
+
+        if "Shop" in cur_node.identifier:
+            cur_node.current_item.base_price = get_shop_price(pm_loc,
+                                                              world.options.include_shops.value,
+                                                              world.options.merlow_items.value)
 
         placed_items.append(cur_node)
 
