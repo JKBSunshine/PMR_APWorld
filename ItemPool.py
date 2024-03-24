@@ -150,6 +150,12 @@ def get_pool_core(world: "PaperMarioWorld"):
             if not shuffle_item:
                 location.disabled = True
 
+        if location.identifier in ["DRO_01/ShopItemB", "DRO_01/ShopItemD", "DRO_01/ShopItemE"]:
+            shuffle_item = world.options.random_puzzles.value
+
+            if not shuffle_item:
+                location.disabled = True
+
         # add it to the proper pool, or place the item
         if shuffle_item:
             # hammer bush gets shuffled as a Tayce T item if shuffling gear locations and not hammerless
@@ -400,6 +406,7 @@ def get_items_to_exclude(world: "PaperMarioWorld") -> list:
             excluded_items.append("BootsProxy2")
         if world.options.starting_boots.value >= StartingBoots.option_Normal:
             excluded_items.append("BootsProxy1")
+
     if world.options.partner_upgrades.value:
         for item_name in exclude_due_to_settings.get("partner_upgrade_shuffle"):
             excluded_items.append(item_name)
