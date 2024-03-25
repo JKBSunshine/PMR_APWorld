@@ -30,7 +30,7 @@
     "map_name": "Stump Eyes",
     "exits": {
       "Flower Sounds": "True",
-      "Stump Eyes": "ForestPass or 'RF_ForestPass'"
+      "Stump Eyes": "ForestPass or open_forest"
     }
   },
   {

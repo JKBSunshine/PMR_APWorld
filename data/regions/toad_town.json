@@ -10,10 +10,10 @@
     },
     "locations": {
       "Gate District Hidden Panel": "can_flip_panels",
-      "Gate District Sushie Island": "Sushie",
+      "Gate District Sushie Island": "can_use_ability_sushie",
       "Gate District Russ T. Dictionary Reward": "Dictionary",
-      "Gate District Russ T. Letter Reward": "Parakarry and Letter04",
-      "Gate District Miss T. Letter Reward": "Parakarry and Letter18",
+      "Gate District Russ T. Letter Reward": "can_use_ability_parakarry and Letter04",
+      "Gate District Miss T. Letter Reward": "can_use_ability_parakarry and Letter18",
       "Gate District Radio Trade Event 1 Reward": "'RF_RadioTradeEvt1' and KoopaLeaf",
       "Gate District Shop Item 1": "True",
       "Gate District Shop Item 2": "True",
@@ -30,7 +30,7 @@
     "exits": {
       "Toad Town Entrance East": "True",
       "Plaza District": "True",
-      "Gate District Island": "Sushie",
+      "Gate District Island": "can_use_ability_sushie",
       "Gate District Mario's House Pipe": "can_climb_steps"
     }
   },
@@ -51,7 +51,7 @@
     "map_name": "Gate District",
     "exits": {
       "Gate District Island Pipe": "can_climb_steps",
-      "Gate District": "Sushie"
+      "Gate District": "can_use_ability_sushie"
     }
   },
   {
@@ -80,8 +80,8 @@
       "Plaza District Merlon House Stomping": "Super_Boots",
       "Plaza District Rowf's Calculator Reward": "Calculator",
       "Plaza District Postmaster MailBag Reward": "Mailbag",
-      "Plaza District Merlon Letter Reward": "Parakarry and Letter01",
-      "Plaza District Minh T. Letter Reward": "Parakarry and Letter09",
+      "Plaza District Merlon Letter Reward": "can_use_ability_parakarry and Letter01",
+      "Plaza District Minh T. Letter Reward": "can_use_ability_parakarry and Letter09",
       "Plaza District In Tree": "can_shake_trees",
       "Plaza District Rowf's Shop Set 1 - 1": "True",
       "Plaza District Rowf's Shop Set 1 - 2": "True",
@@ -105,7 +105,7 @@
       "Pleasant Path Entry": "True",
       "Ruined Castle Grounds": "True",
       "Southern District": "True",
-      "Fields Center": "(MagicalSeed1 or 'RF_MagicalSeed1') and (MagicalSeed2 or 'RF_MagicalSeed2') and (MagicalSeed3 or 'RF_MagicalSeed3') and (MagicalSeed4 or 'RF_MagicalSeed4')"
+      "Fields Center": "(MagicalSeeds, magical_seeds)"
     }
   },
   {
@@ -115,7 +115,7 @@
     "map_name": "Southern District",
     "events": {
       "GF_MAC02_UnlockedHouse": "OddKey",
-      "RF_CanCook": "FryingPan",
+      "RF_CanCook": "FryingPan or cook_without_frying_pan",
       "RF_CanVisitTayceT": "True",
       "AF_CanMakeKoopaTea": "'RF_CanCook' and KoopaLeaf",
       "AF_CanMakeNuttyCake": "'RF_CanCook' and Goomnut",
@@ -130,7 +130,7 @@
     "locations": {
       "Southern District Bub-ulb Gift": "can_climb_steps",
       "Southern District Tayce T. Frying Pan Reward": "FryingPan",
-      "Southern District Fice T. Letter Reward": "Parakarry and Letter07",
+      "Southern District Fice T. Letter Reward": "can_use_ability_parakarry and Letter07",
       "Southern District Fice T. Forest Pass": "'RF_ClosedForest'",
       "Southern District Hidden Panel": "can_flip_panels"
     },
@@ -159,7 +159,7 @@
     "map_id": "3",
     "map_name": "Southern District",
     "events": {
-      "GF_MAC02_UnlockedHouse": "OddKey"
+      "GF_MAC02_UnlockedHouse": "OddKey or open_blue_house"
     },
     "locations": {
       "Southern District Inside Blue House": "True"
@@ -185,11 +185,11 @@
     "map_id": "4",
     "map_name": "Station District",
     "events": {
-      "GF_MAC03_BombedRock": "Bombette"
+      "GF_MAC03_BombedRock": "can_use_ability_bombette or open_mt_rugged"
     },
     "locations": {
-      "Station District Dane T. Letter Reward 1": "Parakarry and Letter20 and Boots",
-      "Station District Dane T. Letter Reward 2": "Parakarry and Letter22 and Boots",
+      "Station District Dane T. Letter Reward 1": "can_use_ability_parakarry and Letter20 and Boots",
+      "Station District Dane T. Letter Reward 2": "can_use_ability_parakarry and Letter22 and Boots",
       "Station District Hidden Panel": "can_flip_panels"
     },
     "exits": {
@@ -247,7 +247,7 @@
     "exits": {
       "Southern District": "True",
       "Port District": "True",
-      "Residental District Toybox Room": "(Bow or 'RF_ToyboxOpen')"
+      "Residental District Toybox Room": "(can_use_ability_bow or open_toybox)"
     }
   },
   {
@@ -278,15 +278,15 @@
     "locations": {
       "Port District Poet Gift": "True",
       "Port District Poet Melody Reward": "Melody",
-      "Port District Fishmael Letter Reward": "Parakarry and Letter15",
+      "Port District Fishmael Letter Reward": "can_use_ability_parakarry and Letter15",
       "Port District Radio Trade Event 3 Reward": "'RF_RadioTradeEvt3' and Coconut",
       "Port District Hidden Panel": "can_flip_panels",
       "Port District In MultiCoinBlock": "Boots"
     },
     "exits": {
       "Residental District": "True",
-      "Riding the Whale": "'RF_CanRideWhale'",
-      "Whale Mouth": "(Hammer or Super_Boots or Bombette)"
+      "Riding the Whale": "'RF_CanRideWhale' or open_whale",
+      "Whale Mouth": "(Hammer or Super_Boots or can_use_ability_bombette)"
     }
   },
   {

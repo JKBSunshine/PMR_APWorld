@@ -45,7 +45,7 @@
       "Shooting Star Summit Hidden Panel": "can_flip_panels and can_climb_steps"
     },
     "exits": {
-      "Star Way": "('STARSPIRIT', 7)",
+      "Star Way": "can_reach_star_way",
       "Shooting Star Summit Base": "True"
     }
   },
@@ -125,7 +125,7 @@
     "locations": {
       "Merluvlee's House Hidden Panel": "can_flip_panels",
       "Merluvlee's House Merluvlee Koopa Koot Favor": "'FAVOR_3_03_active' and CrystalBall",
-      "Merluvlee's House Merlow Letter Reward": "Parakarry and Letter06",
+      "Merluvlee's House Merlow Letter Reward": "can_use_ability_parakarry and Letter06",
       "Merluvlee's House Merlow's Badges 1": "'RF_OutOfLogic'",
       "Merluvlee's House Merlow's Badges 2": "'RF_OutOfLogic'",
       "Merluvlee's House Merlow's Badges 3": "'RF_OutOfLogic'",

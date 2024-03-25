@@ -10,7 +10,7 @@
     "exits": {
       "Train Station Upper Exit": "True",
       "Mt Rugged 1 East": "can_climb_steps",
-      "Mt Rugged 1 On Slide": "(Kooper or Lakilester)"
+      "Mt Rugged 1 On Slide": "(can_use_ability_kooper or can_use_ability_lakilester)"
     }
   },
   {
@@ -24,7 +24,7 @@
     },
     "exits": {
       "Mt Rugged 1 West": "True",
-      "Mt Rugged 1 East": "Lakilester"
+      "Mt Rugged 1 East": "can_use_ability_lakilester"
     }
   },
   {
@@ -47,7 +47,7 @@
     "map_id": "0",
     "map_name": "Mt Rugged 1",
     "locations": {
-      "Mt Rugged 1 Hurting Whacka": "'RF_Missable' and (Hammer or Bombette)",
+      "Mt Rugged 1 Hurting Whacka": "'RF_Missable' and (Hammer or can_use_ability_bombette)",
       "Mt Rugged 1 Yellow Block": "can_hit_floating_blocks"
     },
     "exits": {
@@ -83,8 +83,8 @@
     "map_id": "1",
     "map_name": "Mt Rugged 2",
     "locations": {
-      "Mt Rugged 2 Kooper Ledge": "(Kooper or Parakarry)",
-      "Mt Rugged 2 Parakarry Ledge": "Parakarry"
+      "Mt Rugged 2 Kooper Ledge": "(can_use_ability_kooper or can_use_ability_parakarry)",
+      "Mt Rugged 2 Parakarry Ledge": "can_use_ability_parakarry"
     },
     "exits": {
       "Mt Rugged 3 Lower": "True",
@@ -130,7 +130,7 @@
     "map_name": "Mt Rugged 3",
     "locations": {
       "Mt Rugged 3 On Scaffolding": "True",
-      "Mt Rugged 3 Bub-ulb Gift": "Parakarry"
+      "Mt Rugged 3 Bub-ulb Gift": "can_use_ability_parakarry"
     },
     "exits": {
       "Mt Rugged 3 Lower": "True",
@@ -146,13 +146,13 @@
     "locations": {
       "Mt Rugged 4 Hidden Cave Chest": "can_climb_steps",
       "Mt Rugged 4 Slide Ledge": "can_climb_steps",
-      "Mt Rugged 4 Left Ledge Center": "Parakarry",
-      "Mt Rugged 4 Left Ledge Right": "(Kooper or Parakarry) and can_climb_steps",
-      "Mt Rugged 4 Left Ledge 3": "Parakarry",
-      "Mt Rugged 4 Left Ledge 4": "Parakarry",
-      "Mt Rugged 4 Left Ledge 5": "Parakarry",
-      "Mt Rugged 4 Left Ledge 6": "Parakarry",
-      "Mt Rugged 4 Left Ledge 7": "Parakarry",
+      "Mt Rugged 4 Left Ledge Center": "can_use_ability_parakarry",
+      "Mt Rugged 4 Left Ledge Right": "(can_use_ability_kooper or can_use_ability_parakarry) and can_climb_steps",
+      "Mt Rugged 4 Left Ledge 3": "can_use_ability_parakarry",
+      "Mt Rugged 4 Left Ledge 4": "can_use_ability_parakarry",
+      "Mt Rugged 4 Left Ledge 5": "can_use_ability_parakarry",
+      "Mt Rugged 4 Left Ledge 6": "can_use_ability_parakarry",
+      "Mt Rugged 4 Left Ledge 7": "can_use_ability_parakarry",
       "Mt Rugged 4 Bottom Left 1": "can_climb_steps",
       "Mt Rugged 4 Bottom Left 2": "can_climb_steps",
       "Mt Rugged 4 Yellow Block Top Left": "can_hit_grounded_blocks and can_climb_steps",
@@ -173,7 +173,7 @@
     },
     "exits": {
       "Mt Rugged 3 Upper": "True",
-      "Suspension Bridge East": "Parakarry"
+      "Suspension Bridge East": "can_use_ability_parakarry"
     }
   },
   {
@@ -192,7 +192,7 @@
     "map_id": "5",
     "map_name": "Train Station",
     "locations": {
-      "Train Station Parakarry Partner": "True",
+      "Train Station Parakarry Partner": "(Letters, 3)",
       "Train Station In SuperBlock": "can_hit_floating_blocks"
     },
     "exits": {

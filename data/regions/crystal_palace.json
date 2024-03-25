@@ -122,7 +122,7 @@
     "map_name": "Red Key Hall",
     "exits": {
       "Palace Save Room Lower": "Hammer",
-      "Red Key Room": "Bombette and Hammer"
+      "Red Key Room": "can_use_ability_bombette and Hammer"
     }
   },
   {
@@ -166,7 +166,7 @@
     "map_name": "Blue Mirror Hall 1",
     "exits": {
       "Entry Hall South": "True",
-      "Blue Mirror Hall 2": "Bombette"
+      "Blue Mirror Hall 2": "can_use_ability_bombette"
     }
   },
   {
@@ -175,7 +175,7 @@
     "map_id": "10",
     "map_name": "Blue Mirror Hall 1",
     "exits": {
-      "Blue Mirror Hall 2": "Bombette",
+      "Blue Mirror Hall 2": "can_use_ability_bombette",
       "Entry Hall North": "True"
     }
   },
@@ -189,8 +189,8 @@
       "Blue Mirror Hall 2 In MultiCoinBlock Back": "can_see_hidden_blocks"
     },
     "exits": {
-      "Blue Mirror Hall 1 North": "Bombette",
-      "Blue Mirror Hall 1 South": "Bombette"
+      "Blue Mirror Hall 1 North": "can_use_ability_bombette",
+      "Blue Mirror Hall 1 South": "can_use_ability_bombette"
     }
   },
   {
@@ -246,7 +246,7 @@
     "map_name": "Reflection Mimic Room",
     "exits": {
       "Triple Dip Room South": "Hammer",
-      "Mirrored Door Room South": "Kooper and Hammer"
+      "Mirrored Door Room South": "can_use_ability_kooper and Hammer"
     }
   },
   {
@@ -351,7 +351,7 @@
     "map_id": "21",
     "map_name": "Hidden Bridge Room",
     "events": {
-      "RF_PRA_29_ExtendedBridge": "('RF_PRA_29_ExtendedBridge' or Kooper)"
+      "RF_PRA_29_ExtendedBridge": "('RF_PRA_29_ExtendedBridge' or can_use_ability_kooper)"
     },
     "exits": {
       "Mirrored Door Room South": "True",
@@ -390,7 +390,7 @@
     "map_id": "21",
     "map_name": "Hidden Bridge Room",
     "events": {
-      "RF_PRA_29_ExtendedBridge": "('RF_PRA_29_ExtendedBridge' or Kooper)"
+      "RF_PRA_29_ExtendedBridge": "('RF_PRA_29_ExtendedBridge' or can_use_ability_kooper)"
     },
     "exits": {
       "Mirrored Door Room North": "True",
@@ -427,7 +427,7 @@
     "map_name": "Turnstyle Room",
     "exits": {
       "Triple Dip Room North": "True",
-      "Turnstyle Room South": "Bombette"
+      "Turnstyle Room South": "can_use_ability_bombette"
     }
   },
   {
@@ -436,8 +436,8 @@
     "map_id": "24",
     "map_name": "Turnstyle Room",
     "exits": {
-      "Triple Dip Room South": "Bombette",
-      "Turnstyle Room North": "Bombette"
+      "Triple Dip Room South": "can_use_ability_bombette",
+      "Turnstyle Room North": "can_use_ability_bombette"
     }
   },
   {

@@ -29,7 +29,7 @@
     "map_id": "1",
     "map_name": "Sarcophagus Hall 1",
     "exits": {
-      "Sand Drainage Room 1 2F": "(RuinsKey, 1)",
+      "Sand Drainage Room 1 2F": "(RuinsKeys, 1)",
       "Sarcophagus Hall 1": "True"
     }
   },
@@ -77,7 +77,7 @@
       "Sand Drainage Room 1 1F": "True",
       "Sand Drainage Room 2 1F": "True",
       "Descending Stairs 1 B2F Door": "True",
-      "Descending Stairs 1 2F Door": "Parakarry",
+      "Descending Stairs 1 2F Door": "can_use_ability_parakarry",
       "Descending Stairs 1 B1F Door": "can_climb_steps"
     }
   },
@@ -87,7 +87,7 @@
     "map_id": "3",
     "map_name": "Descending Stairs 1",
     "exits": {
-      "Sarcophagus Hall 2 East Door": "(RuinsKey, 2)",
+      "Sarcophagus Hall 2 East Door": "(RuinsKeys, 2)",
       "Descending Stairs 1 1F": "can_climb_steps",
       "Descending Stairs 1 B1F Door": "can_climb_steps"
     }
@@ -98,7 +98,7 @@
     "map_id": "3",
     "map_name": "Descending Stairs 1",
     "exits": {
-      "Sand Drainage Room 2 2F": "Bombette",
+      "Sand Drainage Room 2 2F": "can_use_ability_bombette",
       "Descending Stairs 1 1F": "True"
     }
   },
@@ -172,7 +172,7 @@
       "Sarcophagus Hall 2 Behind Hammer Block": "Super_Hammer and can_climb_steps"
     },
     "exits": {
-      "Descending Stairs 2 B2F East Door": "(RuinsKey, 3)",
+      "Descending Stairs 2 B2F East Door": "(RuinsKeys, 3)",
       "Sarcophagus Hall 2 East Door": "can_climb_steps"
     }
   },
@@ -182,7 +182,7 @@
     "map_id": "7",
     "map_name": "Descending Stairs 2",
     "exits": {
-      "Descending Stairs 2 B2F West Door": "Parakarry",
+      "Descending Stairs 2 B2F West Door": "can_use_ability_parakarry",
       "Descending Stairs 2 B3F": "can_climb_steps",
       "Sarcophagus Hall 2": "True"
     }
@@ -202,7 +202,7 @@
     "map_id": "7",
     "map_name": "Descending Stairs 2",
     "exits": {
-      "Vertical Shaft B3F": "Bombette",
+      "Vertical Shaft B3F": "can_use_ability_bombette",
       "Stone Puzzle Room": "True",
       "Descending Stairs 2 B2F East Door": "can_climb_steps"
     }
@@ -229,7 +229,7 @@
     "map_id": "9",
     "map_name": "Vertical Shaft",
     "exits": {
-      "Descending Stairs 2 B3F": "Bombette",
+      "Descending Stairs 2 B3F": "can_use_ability_bombette",
       "Vertical Shaft B5F": "True"
     }
   },
@@ -242,7 +242,7 @@
       "Vertical Shaft In SuperBlock": "can_hit_floating_blocks"
     },
     "exits": {
-      "Diamond Stone Room": "Bombette",
+      "Diamond Stone Room": "can_use_ability_bombette",
       "Deep Tunnel": "True",
       "Vertical Shaft B3F": "can_climb_steps"
     }
@@ -268,7 +268,7 @@
     "map_id": "10",
     "map_name": "Stone Puzzle Room",
     "exits": {
-      "Sand Drainage Room 3 B3F": "(RuinsKey, 4)",
+      "Sand Drainage Room 3 B3F": "(RuinsKeys, 4)",
       "Stone Puzzle Room": "True"
     }
   },

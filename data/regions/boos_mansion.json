@@ -6,7 +6,7 @@
     "map_name": "Foyer",
     "locations": {
       "Foyer From Franky (Koopa Koot Favor)": "'RF_OpenedGustyGulch' and 'FAVOR_5_02_active'",
-      "Foyer Franky Letter Reward": "'RF_OpenedGustyGulch' and Parakarry and Letter12",
+      "Foyer Franky Letter Reward": "'RF_OpenedGustyGulch' and can_use_ability_parakarry and Letter12",
       "Foyer Hidden Panel": "can_flip_panels"
     },
     "exits": {
@@ -59,7 +59,7 @@
     "exits": {
       "Mansion Basement Upper": "True",
       "Basement Stairs Upper": "Boots",
-      "Library Lower": "Bombette"
+      "Library Lower": "can_use_ability_bombette"
     }
   },
   {
@@ -85,7 +85,7 @@
       "RF_OBK03_BuiltStairs": "Boots"
     },
     "locations": {
-      "Basement Igor Letter Reward": "Parakarry and Letter11",
+      "Basement Igor Letter Reward": "can_use_ability_parakarry and Letter11",
       "Basement Shop Item 1": "'RF_OpenedGustyGulch'",
       "Basement Shop Item 2": "'RF_OpenedGustyGulch'",
       "Basement Shop Item 3": "'RF_OpenedGustyGulch'",
@@ -125,7 +125,7 @@
     },
     "exits": {
       "Foyer 1F": "True",
-      "Library Upper": "Super_Boots and Bombette"
+      "Library Upper": "Super_Boots and can_use_ability_bombette"
     }
   },
   {
@@ -135,7 +135,7 @@
     "map_name": "Library",
     "locations": {
       "Library In Crate": "Super_Boots",
-      "Library On Bookshelf": "Parakarry"
+      "Library On Bookshelf": "can_use_ability_parakarry"
     },
     "exits": {
       "Library Lower": "True"
@@ -147,7 +147,7 @@
     "map_id": "5",
     "map_name": "Library",
     "exits": {
-      "Basement Stairs Lower": "Bombette"
+      "Basement Stairs Lower": "can_use_ability_bombette"
     }
   },
   {

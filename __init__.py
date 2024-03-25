@@ -218,9 +218,6 @@ class PaperMarioWorld(World):
         for hammer in range(1, self.options.starting_hammer.value + 2):
             self.multiworld.push_precollected(self.create_item(f"HammerProxy{hammer}"))
 
-        if self.options.hidden_block_mode.value == HiddenBlockMode.option_Always_Visible:
-            self.multiworld.push_precollected(self.create_item("AF_CanSeeHiddenBlocks", allow_arbitrary_name=True))
-
         # Partners
         if self.options.start_with_goombario.value:
             self.multiworld.push_precollected(self.create_item("Goombario"))

@@ -24,11 +24,11 @@
     "map_id": "11",
     "map_name": "(NE) Elevators",
     "locations": {
-      "(NE) Elevators Leftside Vine": "(can_climb_steps or Kooper or Lakilester)"
+      "(NE) Elevators Leftside Vine": "(can_climb_steps or can_use_ability_kooper or can_use_ability_lakilester)"
     },
     "exits": {
       "Fields Center": "True",
-      "(NE) Elevators East": "Super_Boots and Lakilester"
+      "(NE) Elevators East": "Super_Boots and can_use_ability_lakilester"
     }
   },
   {
@@ -42,7 +42,7 @@
     },
     "exits": {
       "(NE) Fallen Logs": "True",
-      "(NE) Elevators West": "(Super_Boots or Lakilester)"
+      "(NE) Elevators West": "(Super_Boots or can_use_ability_lakilester)"
     }
   },
   {
@@ -65,7 +65,7 @@
     "map_id": "13",
     "map_name": "(NE) Puff Puff Machine",
     "events": {
-      "RF_Ch6_DestroyedPuffPuffMachine": "(Hammer or Bombette)"
+      "RF_Ch6_DestroyedPuffPuffMachine": "(Hammer or can_use_ability_bombette)"
     },
     "exits": {
       "(NE) Fallen Logs": "True"
@@ -126,7 +126,7 @@
     },
     "exits": {
       "Fields Center": "True",
-      "(SE) Briar Platforming East": "YellowBerryProxy1 and (Parakarry or Lakilester)"
+      "(SE) Briar Platforming East": "YellowBerryProxy1 and (can_use_ability_parakarry or can_use_ability_lakilester)"
     }
   },
   {
@@ -142,7 +142,7 @@
     },
     "exits": {
       "(SE) Water Level Room West": "True",
-      "(SE) Briar Platforming West": "'GF_FLO08_GaveYellowBerry' and (Parakarry or Lakilester)"
+      "(SE) Briar Platforming West": "'GF_FLO08_GaveYellowBerry' and (can_use_ability_parakarry or can_use_ability_lakilester)"
     }
   },
   {
@@ -152,12 +152,12 @@
     "map_name": "(SE) Water Level Room",
     "locations": {
       "(SE) Water Level Room Yellow Block": "can_hit_floating_blocks",
-      "(SE) Water Level Room In Tree 1": "can_shake_trees and Sushie and 'RF_Ch6_ReturnedWaterStone'",
-      "(SE) Water Level Room In Tree 2": "can_shake_trees and Sushie and 'RF_Ch6_ReturnedWaterStone'"
+      "(SE) Water Level Room In Tree 1": "can_shake_trees and can_use_ability_sushie and 'RF_Ch6_ReturnedWaterStone'",
+      "(SE) Water Level Room In Tree 2": "can_shake_trees and can_use_ability_sushie and 'RF_Ch6_ReturnedWaterStone'"
     },
     "exits": {
       "(SE) Briar Platforming East": "True",
-      "(SE) Water Level Room East": "(can_climb_steps or 'RF_Ch6_ReturnedWaterStone') and (can_climb_steps or Sushie)"
+      "(SE) Water Level Room East": "(can_climb_steps or 'RF_Ch6_ReturnedWaterStone') and (can_climb_steps or can_use_ability_sushie)"
     }
   },
   {
@@ -171,7 +171,7 @@
     },
     "exits": {
       "(SE) Lily's Fountain": "True",
-      "(SE) Water Level Room West": "(can_climb_steps or 'RF_Ch6_ReturnedWaterStone') and (can_climb_steps or Sushie)"
+      "(SE) Water Level Room West": "(can_climb_steps or 'RF_Ch6_ReturnedWaterStone') and (can_climb_steps or can_use_ability_sushie)"
     }
   },
   {
@@ -364,7 +364,7 @@
     },
     "exits": {
       "Fields Center": "True",
-      "(NW) Bubble Flower West": "(Lakilester or BubbleBerryProxy1)"
+      "(NW) Bubble Flower West": "(can_use_ability_lakilester or BubbleBerryProxy1)"
     }
   },
   {
@@ -377,7 +377,7 @@
     },
     "exits": {
       "(NW) Lakilester": "True",
-      "(NW) Bubble Flower East": "(Lakilester or can_climb_steps)"
+      "(NW) Bubble Flower East": "(can_use_ability_lakilester or can_climb_steps)"
     }
   },
   {
@@ -386,7 +386,7 @@
     "map_id": "8",
     "map_name": "(NW) Lakilester",
     "locations": {
-      "(NW) Lakilester Cage Under Rock": "Bombette and can_climb_steps",
+      "(NW) Lakilester Cage Under Rock": "can_use_ability_bombette and can_climb_steps",
       "(NW) Lakilester In The Flowers": "True",
       "(NW) Lakilester Lakilester Partner": "'RF_Ch6_SpokeWithTheSun'"
     },
@@ -401,7 +401,7 @@
     "map_id": "10",
     "map_name": "(NW) Sun Tower",
     "events": {
-      "RF_Ch6_SpokeWithTheSun": "Bombette"
+      "RF_Ch6_SpokeWithTheSun": "can_use_ability_bombette"
     },
     "exits": {
       "(NW) Lakilester": "True"
@@ -413,7 +413,7 @@
     "map_id": "14",
     "map_name": "Cloudy Climb",
     "locations": {
-      "Cloudy Climb On Cloud": "(can_climb_steps or Kooper)"
+      "Cloudy Climb On Cloud": "(can_climb_steps or can_use_ability_kooper)"
     },
     "exits": {
       "Huff N Puff Room": "True",

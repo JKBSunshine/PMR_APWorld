@@ -16,8 +16,8 @@
     "map_name": "Great Hall",
     "exits": {
       "Outside Tubbas Castle": "True",
-      "West Hall (1F)": "Bow",
-      "East Hall (1/2F) 1F": "Bow and (TubbaCastleKey, 1)"
+      "West Hall (1F)": "can_use_ability_bow",
+      "East Hall (1/2F) 1F": "can_use_ability_bow and (TubbaKeys, 1)"
     }
   },
   {
@@ -72,7 +72,7 @@
       "Table/Clock Room (1/2F) On Table": "True"
     },
     "exits": {
-      "Stairs to Third Floor": "(TubbaCastleKey, 2)",
+      "Stairs to Third Floor": "(TubbaKeys, 2)",
       "Table/Clock Room (1/2F) 1F": "True",
       "West Hall (2F)": "True",
       "Hidden Bedroom (2F)": "True"
@@ -141,7 +141,7 @@
     "map_name": "East Hall (1/2F)",
     "exits": {
       "Great Hall 2F": "True",
-      "East Hall (1/2F) 1F": "Bow"
+      "East Hall (1/2F) 1F": "can_use_ability_bow"
     }
   },
   {
@@ -151,7 +151,7 @@
     "map_name": "East Hall (1/2F)",
     "exits": {
       "Great Hall 1F": "True",
-      "East Hall (1/2F) 2F": "Bow"
+      "East Hall (1/2F) 2F": "can_use_ability_bow"
     }
   },
   {
@@ -163,7 +163,7 @@
       "Table/Clock Room (1/2F) 2F": "True",
       "Great Hall 2F": "True",
       "Spike Trap Room (2F)": "True",
-      "Sealed Room (2F)": "Bombette"
+      "Sealed Room (2F)": "can_use_ability_bombette"
     }
   },
   {
@@ -196,7 +196,7 @@
     "map_id": "11",
     "map_name": "Covered Tables Room (1F)",
     "locations": {
-      "Covered Tables Room (1F) On Table": "Parakarry"
+      "Covered Tables Room (1F) On Table": "can_use_ability_parakarry"
     },
     "exits": {
       "Covered Tables Room (1F)": "True",
@@ -209,7 +209,7 @@
     "map_id": "12",
     "map_name": "Spike Trap Room (2F)",
     "locations": {
-      "Spike Trap Room (2F) In Chest": "(Bow or Lakilester)"
+      "Spike Trap Room (2F) In Chest": "(can_use_ability_bow or can_use_ability_lakilester)"
     },
     "exits": {
       "West Hall (2F)": "True"
@@ -221,13 +221,13 @@
     "map_id": "13",
     "map_name": "Hidden Bedroom (2F)",
     "locations": {
-      "Hidden Bedroom (2F) In Hidden Room": "Boots and Parakarry",
-      "Hidden Bedroom (2F) On Bed 1": "Boots and Parakarry",
-      "Hidden Bedroom (2F) On Bed 2": "Boots and Parakarry",
-      "Hidden Bedroom (2F) On Bed 3": "Boots and Parakarry",
-      "Hidden Bedroom (2F) On Bed 4": "Boots and Parakarry",
-      "Hidden Bedroom (2F) On Bed 5": "Boots and Parakarry",
-      "Hidden Bedroom (2F) On Bed 6": "Boots and Parakarry"
+      "Hidden Bedroom (2F) In Hidden Room": "Boots and can_use_ability_parakarry",
+      "Hidden Bedroom (2F) On Bed 1": "Boots and can_use_ability_parakarry",
+      "Hidden Bedroom (2F) On Bed 2": "Boots and can_use_ability_parakarry",
+      "Hidden Bedroom (2F) On Bed 3": "Boots and can_use_ability_parakarry",
+      "Hidden Bedroom (2F) On Bed 4": "Boots and can_use_ability_parakarry",
+      "Hidden Bedroom (2F) On Bed 5": "Boots and can_use_ability_parakarry",
+      "Hidden Bedroom (2F) On Bed 6": "Boots and can_use_ability_parakarry"
     },
     "exits": {
       "Table/Clock Room (1/2F) 2F": "True"
@@ -253,7 +253,7 @@
     "map_name": "West Hall (3F)",
     "exits": {
       "Stairs to Third Floor": "True",
-      "Save Room (3F)": "(TubbaCastleKey, 3)",
+      "Save Room (3F)": "(TubbaKeys, 3)",
       "Sleeping Clubbas Room (3F)": "True"
     }
   },

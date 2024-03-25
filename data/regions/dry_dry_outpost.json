@@ -15,7 +15,7 @@
       "Outpost 1 In Red Tree": "can_shake_trees",
       "Outpost 1 Composer Lyrics Reward": "Lyrics",
       "Outpost 1 Store Legend": "'FAVOR_7_02_done' and 'RF_MouserReturned'",
-      "Outpost 1 Little Mouser Letter Reward": "Parakarry and Letter19 and 'RF_MouserReturned'",
+      "Outpost 1 Little Mouser Letter Reward": "can_use_ability_parakarry and Letter19 and 'RF_MouserReturned'",
       "Outpost 1 Shop Item 1": "'RF_MouserReturned'",
       "Outpost 1 Shop Item 2": "'RF_MouserReturned'",
       "Outpost 1 Shop Item 3": "'RF_MouserReturned'",
@@ -53,7 +53,7 @@
     "locations": {
       "Outpost 2 Merlee Request (Koopa Koot Favor)": "'GF_HOS06_MerluvleeRequestedCrystalBall' and Boots",
       "Outpost 2 Moustafa Gift": "'RF_CanMeetMoustafa' and Boots",
-      "Outpost 2 Mr. E. Letter Reward": "Parakarry and Letter17",
+      "Outpost 2 Mr. E. Letter Reward": "can_use_ability_parakarry and Letter17",
       "Outpost 2 Hidden Panel": "can_flip_panels and 'RF_CanMeetMoustafa' and Boots",
       "Outpost 2 Toad House Roof": "'RF_CanMeetMoustafa' and Boots"
     },

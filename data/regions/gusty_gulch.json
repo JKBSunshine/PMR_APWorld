@@ -5,7 +5,7 @@
     "map_id": "0",
     "map_name": "Wasteland Ascent 1",
     "locations": {
-      "Wasteland Ascent 1 On Rock": "Kooper",
+      "Wasteland Ascent 1 On Rock": "can_use_ability_kooper",
       "Wasteland Ascent 1 Yellow Block 1": "can_hit_floating_blocks"
     },
     "exits": {
@@ -49,7 +49,7 @@
     "map_name": "Wasteland Ascent 2",
     "exits": {
       "Wasteland Ascent 1 East": "True",
-      "Wasteland Ascent 2 East": "Parakarry"
+      "Wasteland Ascent 2 East": "can_use_ability_parakarry"
     }
   },
   {

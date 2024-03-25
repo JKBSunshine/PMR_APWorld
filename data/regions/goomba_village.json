@@ -18,7 +18,7 @@
     "map_name": "Goomba Village",
     "exits": {
       "Goomba Road 1": "True",
-      "Goomba Village": "(Hammer or Bombette)"
+      "Goomba Village": "(Hammer or can_use_ability_bombette)"
     }
   },
   {
@@ -35,9 +35,9 @@
       "Goomba Village Goompa Koopa Koot Favor": "'FAVOR_2_01_active'",
       "Goomba Village Goompa Gift": "True",
       "Goomba Village Goombaria Dolly Reward": "Dolly",
-      "Goomba Village Goompa Letter Reward": "Parakarry and Letter02",
-      "Goomba Village Goompapa Letter Reward 1": "Parakarry and Letter10",
-      "Goomba Village Goompapa Letter Reward 2": "Parakarry and Letter24",
+      "Goomba Village Goompa Letter Reward": "can_use_ability_parakarry and Letter02",
+      "Goomba Village Goompapa Letter Reward 1": "can_use_ability_parakarry and Letter10",
+      "Goomba Village Goompapa Letter Reward 2": "can_use_ability_parakarry and Letter24",
       "Goomba Village Goomnut Tree": "can_shake_trees",
       "Goomba Village Goombario Partner": "True",
       "Goomba Village Bush Bottom Right": "True"
@@ -46,7 +46,7 @@
       "Forest Clearing": "True",
       "Behind the Village East": "True",
       "Bottom of the Cliff West": "'RF_BrokenVeranda'",
-      "Goomba Village Exit East": "(Hammer or Bombette)",
+      "Goomba Village Exit East": "(Hammer or can_use_ability_bombette)",
       "Goomba Village Pipe": "'GF_TIK01_WarpPipes' and Boots"
     }
   },
@@ -90,7 +90,7 @@
     "map_id": "2",
     "map_name": "Bottom of the Cliff",
     "events": {
-      "RF_FixedVeranda": "(Hammer or Bombette)"
+      "RF_FixedVeranda": "(Hammer or can_use_ability_bombette)"
     },
     "locations": {
       "Bottom of the Cliff Block On Ground": "can_hit_grounded_blocks",
@@ -98,7 +98,7 @@
     },
     "exits": {
       "Jr. Troopa's Playground": "True",
-      "Bottom of the Cliff East": "(Hammer or Bombette)"
+      "Bottom of the Cliff East": "(Hammer or can_use_ability_bombette)"
     }
   },
   {
@@ -107,7 +107,7 @@
     "map_id": "2",
     "map_name": "Bottom of the Cliff",
     "events": {
-      "RF_FixedVeranda": "(Hammer or Bombette)"
+      "RF_FixedVeranda": "(Hammer or can_use_ability_bombette)"
     },
     "locations": {
       "Bottom of the Cliff Hidden Panel": "can_flip_panels",
@@ -120,7 +120,7 @@
     },
     "exits": {
       "Behind the Village West": "True",
-      "Bottom of the Cliff West": "(Hammer or Bombette)"
+      "Bottom of the Cliff West": "(Hammer or can_use_ability_bombette)"
     }
   },
   {
@@ -219,7 +219,7 @@
     },
     "exits": {
       "Goomba Road 4": "True",
-      "Goomba King's Castle East": "'RF_BeatGoombaKing'"
+      "Goomba King's Castle East": "'RF_BeatGoombaKing' or open_prologue"
     }
   },
   {
@@ -234,7 +234,7 @@
     },
     "exits": {
       "Toad Town Entrance West": "True",
-      "Goomba King's Castle West": "'RF_BeatGoombaKing'"
+      "Goomba King's Castle West": "'RF_BeatGoombaKing' or open_prologue"
     }
   },
   {

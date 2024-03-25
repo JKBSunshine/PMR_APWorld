@@ -27,7 +27,7 @@
       "Fortress Exterior Chest Behind Fortress": "True"
     },
     "exits": {
-      "Right Tower": "Bombette"
+      "Right Tower": "can_use_ability_bombette"
     }
   },
   {
@@ -52,7 +52,7 @@
     },
     "exits": {
       "Fortress Exterior": "True",
-      "Left Stairway 1F": "(KoopaFortressKey, 1)"
+      "Left Stairway 1F": "(FortressKeys, 1)"
     }
   },
   {
@@ -102,7 +102,7 @@
       "MF_TRD02_LoweredStairs": "can_hit_grounded_switches"
     },
     "exits": {
-      "Left Tower 2F": "(KoopaFortressKey, 4)",
+      "Left Tower 2F": "(FortressKeys, 4)",
       "Central Hall 2F Left Door": "True",
       "Left Stairway 1F": "'MF_TRD02_LoweredStairs'",
       "Left Stairway 1F Platform": "'MF_TRD02_LoweredStairs' and can_climb_steps"
@@ -114,7 +114,7 @@
     "map_id": "2",
     "map_name": "Left Stairway",
     "events": {
-      "RF_TRD_02_OpenedLeftJail": "Bombette"
+      "RF_TRD_02_OpenedLeftJail": "can_use_ability_bombette"
     },
     "exits": {
       "Central Hall 1F Left Jail": "'RF_TRD_02_OpenedLeftJail'",
@@ -141,7 +141,7 @@
     "map_name": "Central Hall",
     "locations": {
       "Central Hall Center Cell": "True",
-      "Central Hall Right Cell": "Bombette"
+      "Central Hall Right Cell": "can_use_ability_bombette"
     },
     "exits": {
       "Left Stairway 1F": "True",
@@ -155,7 +155,7 @@
     "map_name": "Central Hall",
     "exits": {
       "Left Stairway 2F": "can_climb_steps",
-      "Central Hall 2F Right Door": "can_climb_steps and (Kooper or Parakarry)",
+      "Central Hall 2F Right Door": "can_climb_steps and (can_use_ability_kooper or can_use_ability_parakarry)",
       "Central Hall 1F": "True"
     }
   },
@@ -166,7 +166,7 @@
     "map_name": "Central Hall",
     "exits": {
       "Right Starway 2F": "can_climb_steps",
-      "Central Hall 2F Left Door": "can_climb_steps and (Kooper or Parakarry)",
+      "Central Hall 2F Left Door": "can_climb_steps and (can_use_ability_kooper or can_use_ability_parakarry)",
       "Central Hall 1F": "True"
     }
   },
@@ -180,7 +180,7 @@
     },
     "exits": {
       "Central Hall 1F": "True",
-      "Right Tower": "(KoopaFortressKey, 2)",
+      "Right Tower": "(FortressKeys, 2)",
       "Right Starway B1F": "'MF_TRD04_LoweredStairs'"
     }
   },
@@ -204,7 +204,7 @@
     "map_id": "4",
     "map_name": "Right Starway",
     "exits": {
-      "Central Hall 2F Right Door": "(KoopaFortressKey, 3)",
+      "Central Hall 2F Right Door": "(FortressKeys, 3)",
       "Right Tower": "True"
     }
   },
@@ -216,7 +216,7 @@
     "exits": {
       "Right Starway 1F": "True",
       "Fortress Exterior South": "True",
-      "Fortress Exterior East": "Bombette",
+      "Fortress Exterior East": "can_use_ability_bombette",
       "Right Starway 2F": "True",
       "Fortress Jail Inner": "can_hit_floating_blocks"
     }
@@ -228,7 +228,7 @@
     "map_name": "Jail",
     "exits": {
       "Right Starway B1F": "True",
-      "Fortress Jail Inner": "Bombette"
+      "Fortress Jail Inner": "can_use_ability_bombette"
     }
   },
   {
@@ -240,7 +240,7 @@
       "Jail Bombette Partner": "True"
     },
     "exits": {
-      "Fortress Jail Outer": "Bombette"
+      "Fortress Jail Outer": "can_use_ability_bombette"
     }
   },
   {
@@ -302,7 +302,7 @@
     "map_id": "9",
     "map_name": "Battlement",
     "locations": {
-      "Battlement Block Behind Rock": "Bombette and can_hit_floating_blocks"
+      "Battlement Block Behind Rock": "can_use_ability_bombette and can_hit_floating_blocks"
     },
     "exits": {
       "Fortress Battlement": "Boots"

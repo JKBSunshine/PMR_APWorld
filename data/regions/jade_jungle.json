@@ -84,7 +84,7 @@
     "locations": {
       "Village Buildings Kolorado Volcano Vase Reward": "saved_all_yoshikids and VolcanoVase and 'MF_Ch5_RescuedStarSpirit'",
       "Village Buildings Yellow Yoshi Food Reward": "saved_all_yoshikids and 'RF_CanVisitTayceT' and 'RF_CanCook' and 'MF_Ch5_RescuedStarSpirit'",
-      "Village Buildings Red Yoshi Kid Letter Reward": "'RF_SavedYoshiKid_3' and Parakarry and Letter21",
+      "Village Buildings Red Yoshi Kid Letter Reward": "'RF_SavedYoshiKid_3' and can_use_ability_parakarry and Letter21",
       "Village Buildings In Palm Tree": "can_shake_trees",
       "Village Buildings Shop Item 1": "can_climb_steps",
       "Village Buildings Shop Item 2": "can_climb_steps",
@@ -117,8 +117,8 @@
     "map_name": "Sushi Tree",
     "locations": {
       "Sushi Tree In Volcano Chest": "'MF_Ch5_RescuedStarSpirit'",
-      "Sushi Tree On Island": "Sushie",
-      "Sushi Tree In Island Tree": "can_shake_trees and Sushie",
+      "Sushi Tree On Island": "can_use_ability_sushie",
+      "Sushi Tree In Island Tree": "can_shake_trees and can_use_ability_sushie",
       "Sushi Tree Sushie Partner": "can_shake_trees"
     },
     "exits": {
@@ -131,14 +131,14 @@
     "map_id": "5",
     "map_name": "SE Jungle (Quake Hammer)",
     "locations": {
-      "SE Jungle (Quake Hammer) Red Block": "Sushie and can_hit_floating_blocks",
+      "SE Jungle (Quake Hammer) Red Block": "can_use_ability_sushie and can_hit_floating_blocks",
       "SE Jungle (Quake Hammer) Bush (Bottom Right)": "True",
       "SE Jungle (Quake Hammer) In Tree (Right)": "can_shake_trees"
     },
     "exits": {
       "Village Buildings": "True",
       "Sushi Tree": "True",
-      "SW Jungle (Super Block) SW": "Sushie",
+      "SW Jungle (Super Block) SW": "can_use_ability_sushie",
       "SE Jungle (Quake Hammer) West": "'GF_JAN05_CreateLogBridge'"
     }
   },
@@ -166,8 +166,8 @@
     "map_name": "NE Jungle (Raven Statue)",
     "exits": {
       "SE Jungle (Quake Hammer) West": "True",
-      "NE Jungle (Raven Statue) East": "Sushie",
-      "NE Jungle (Raven Statue) North": "Sushie"
+      "NE Jungle (Raven Statue) East": "can_use_ability_sushie",
+      "NE Jungle (Raven Statue) North": "can_use_ability_sushie"
     }
   },
   {
@@ -177,8 +177,8 @@
     "map_name": "NE Jungle (Raven Statue)",
     "exits": {
       "Small Jungle Ledge": "True",
-      "NE Jungle (Raven Statue) South": "Sushie",
-      "NE Jungle (Raven Statue) North": "Sushie",
+      "NE Jungle (Raven Statue) South": "can_use_ability_sushie",
+      "NE Jungle (Raven Statue) North": "can_use_ability_sushie",
       "NE Jungle (Raven Statue) West": "'GF_JAN06_CreateLogBridge'"
     }
   },
@@ -189,12 +189,12 @@
     "map_name": "NE Jungle (Raven Statue)",
     "locations": {
       "NE Jungle (Raven Statue) In Tree (Top Left)": "can_shake_trees",
-      "NE Jungle (Raven Statue) Underwater": "Sushie"
+      "NE Jungle (Raven Statue) Underwater": "can_use_ability_sushie"
     },
     "exits": {
       "Deep Jungle 1": "JadeRaven",
-      "NE Jungle (Raven Statue) East": "Sushie",
-      "NE Jungle (Raven Statue) South": "Sushie"
+      "NE Jungle (Raven Statue) East": "can_use_ability_sushie",
+      "NE Jungle (Raven Statue) South": "can_use_ability_sushie"
     }
   },
   {
@@ -238,7 +238,7 @@
     },
     "exits": {
       "Whale Cove NE Exit": "True",
-      "SW Jungle (Super Block) NE": "Sushie"
+      "SW Jungle (Super Block) NE": "can_use_ability_sushie"
     }
   },
   {
@@ -251,14 +251,14 @@
       "SW Jungle (Super Block) Bush (Top Right)": "True",
       "SW Jungle (Super Block) In Tree (Top)": "can_shake_trees",
       "SW Jungle (Super Block) In Tree (Right)": "can_shake_trees",
-      "SW Jungle (Super Block) Underwater 1": "Sushie",
-      "SW Jungle (Super Block) Underwater 2": "Sushie",
-      "SW Jungle (Super Block) Underwater 3": "Sushie",
+      "SW Jungle (Super Block) Underwater 1": "can_use_ability_sushie",
+      "SW Jungle (Super Block) Underwater 2": "can_use_ability_sushie",
+      "SW Jungle (Super Block) Underwater 3": "can_use_ability_sushie",
       "SW Jungle (Super Block) In SuperBlock": "can_hit_floating_blocks"
     },
     "exits": {
       "NW Jungle (Large Ledge) SE": "True",
-      "SW Jungle (Super Block) SW": "Sushie"
+      "SW Jungle (Super Block) SW": "can_use_ability_sushie"
     }
   },
   {
@@ -274,8 +274,8 @@
     "exits": {
       "SW Jungle (Super Block) NE": "True",
       "NE Jungle (Raven Statue) West": "True",
-      "NW Jungle (Large Ledge) NW": "Sushie",
-      "Western Dead End": "Sushie"
+      "NW Jungle (Large Ledge) NW": "can_use_ability_sushie",
+      "Western Dead End": "can_use_ability_sushie"
     }
   },
   {
@@ -284,8 +284,8 @@
     "map_id": "9",
     "map_name": "NW Jungle (Large Ledge)",
     "exits": {
-      "Western Dead End": "Sushie",
-      "NW Jungle (Large Ledge) SE": "Sushie",
+      "Western Dead End": "can_use_ability_sushie",
+      "NW Jungle (Large Ledge) SE": "can_use_ability_sushie",
       "NW Jungle (Large Ledge) Ledge": "can_climb_steps"
     }
   },
@@ -318,14 +318,14 @@
     "map_id": "10",
     "map_name": "Western Dead End",
     "events": {
-      "RF_SavedYoshiKid_4": "'RF_YoshiKidsMissing' and Sushie and Hammer"
+      "RF_SavedYoshiKid_4": "'RF_YoshiKidsMissing' and can_use_ability_sushie and Hammer"
     },
     "locations": {
-      "Western Dead End Underwater": "Sushie"
+      "Western Dead End Underwater": "can_use_ability_sushie"
     },
     "exits": {
-      "NW Jungle (Large Ledge) SE": "Sushie",
-      "NW Jungle (Large Ledge) NW": "Sushie"
+      "NW Jungle (Large Ledge) SE": "can_use_ability_sushie",
+      "NW Jungle (Large Ledge) NW": "can_use_ability_sushie"
     }
   },
   {
@@ -334,7 +334,7 @@
     "map_id": "11",
     "map_name": "Root Cavern",
     "events": {
-      "RF_SavedYoshiKid_5": "'RF_YoshiKidsMissing' and Watt and Boots"
+      "RF_SavedYoshiKid_5": "'RF_YoshiKidsMissing' and can_use_ability_watt and Boots"
     },
     "exits": {
       "NW Jungle (Large Ledge) Pipe": "True"

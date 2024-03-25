@@ -352,7 +352,7 @@
     "map_id": "25",
     "map_name": "E1 Nomadimouse",
     "locations": {
-      "E1 Nomadimouse Nomadimouse Letter Reward": "Parakarry and Letter08",
+      "E1 Nomadimouse Nomadimouse Letter Reward": "can_use_ability_parakarry and Letter08",
       "E1 Nomadimouse In Tree": "can_shake_trees"
     },
     "exits": {
@@ -467,7 +467,7 @@
     "map_id": "33",
     "map_name": "S1E2 Small Bluffs",
     "locations": {
-      "S1E2 Small Bluffs On Brick Block": "(Kooper or Ultra_Boots) and (can_climb_steps or Ultra_Boots)"
+      "S1E2 Small Bluffs On Brick Block": "(can_use_ability_kooper or Ultra_Boots) and (can_climb_steps or Ultra_Boots)"
     },
     "exits": {
       "S1E1": "True",

@@ -25,7 +25,7 @@
     "map_name": "RED Boss Barricade",
     "exits": {
       "RED Station": "True",
-      "RED Boss Barricade East": "Bombette"
+      "RED Boss Barricade East": "can_use_ability_bombette"
     }
   },
   {
@@ -36,11 +36,11 @@
     "locations": {
       "RED Boss Barricade Yellow Block Right": "can_hit_floating_blocks",
       "RED Boss Barricade Hidden Block Left": "can_see_hidden_blocks and can_hit_floating_blocks",
-      "RED Boss Barricade On Brick Block": "Ultra_Boots or (Boots and (Hammer or Super_Boots) and Kooper and can_see_hidden_blocks)"
+      "RED Boss Barricade On Brick Block": "Ultra_Boots or (Boots and (Hammer or Super_Boots) and can_use_ability_kooper and can_see_hidden_blocks)"
     },
     "exits": {
       "RED Boss Antechamber": "True",
-      "RED Boss Barricade West": "Bombette"
+      "RED Boss Barricade West": "can_use_ability_bombette"
     }
   },
   {
@@ -83,7 +83,7 @@
       "BLU Block City In Chest": "Boots and (Hammer or Super_Boots)",
       "BLU Block City Yellow Block 1": "Boots and (Hammer or Super_Boots)",
       "BLU Block City Yellow Block 2": "Boots and (Hammer or Super_Boots)",
-      "BLU Block City Yellow Block On Ledge": "Parakarry and Boots and (Hammer or Super_Boots)",
+      "BLU Block City Yellow Block On Ledge": "can_use_ability_parakarry and Boots and (Hammer or Super_Boots)",
       "BLU Block City Midair 1": "Boots and (Hammer or Super_Boots)",
       "BLU Block City Midair 2": "Boots and (Hammer or Super_Boots)",
       "BLU Block City Midair 3": "Boots and (Hammer or Super_Boots)",
@@ -92,7 +92,7 @@
       "BLU Block City Midair 6": "Boots and (Hammer or Super_Boots)",
       "BLU Block City Midair 7": "Boots and (Hammer or Super_Boots)",
       "BLU Block City Midair 8": "Boots and (Hammer or Super_Boots)",
-      "BLU Block City On Building": "Parakarry and Boots and (Hammer or Super_Boots)",
+      "BLU Block City On Building": "can_use_ability_parakarry and Boots and (Hammer or Super_Boots)",
       "BLU Block City Behind Building Block": "Boots and (Hammer or Super_Boots)"
     },
     "exits": {
@@ -199,23 +199,23 @@
     "map_id": "8",
     "map_name": "GRN Treadmills/Slot Machine",
     "locations": {
-      "GRN Treadmills/Slot Machine Infront Of Chest": "Parakarry and Boots and Bow",
-      "GRN Treadmills/Slot Machine In Chest": "Parakarry and Boots and Bow",
-      "GRN Treadmills/Slot Machine Hidden Room Center": "Boots and Bow",
-      "GRN Treadmills/Slot Machine Defeat Shy Guy": "Bow",
+      "GRN Treadmills/Slot Machine Infront Of Chest": "can_use_ability_parakarry and Boots and can_use_ability_bow",
+      "GRN Treadmills/Slot Machine In Chest": "can_use_ability_parakarry and Boots and can_use_ability_bow",
+      "GRN Treadmills/Slot Machine Hidden Room Center": "Boots and can_use_ability_bow",
+      "GRN Treadmills/Slot Machine Defeat Shy Guy": "can_use_ability_bow",
       "GRN Treadmills/Slot Machine On Treadmill 1": "True",
       "GRN Treadmills/Slot Machine On Treadmill 2": "True",
       "GRN Treadmills/Slot Machine On Treadmill 3": "True",
       "GRN Treadmills/Slot Machine On Treadmill 4": "True",
       "GRN Treadmills/Slot Machine On Treadmill 5": "True",
       "GRN Treadmills/Slot Machine On Treadmill 6": "True",
-      "GRN Treadmills/Slot Machine Hidden Room 1": "Boots and Bow",
-      "GRN Treadmills/Slot Machine Hidden Room 2": "Boots and Bow",
-      "GRN Treadmills/Slot Machine Hidden Room 3": "Boots and Bow",
-      "GRN Treadmills/Slot Machine Hidden Room 4": "Boots and Bow",
-      "GRN Treadmills/Slot Machine Hidden Room 5": "Boots and Bow",
-      "GRN Treadmills/Slot Machine Hidden Room 6": "Boots and Bow",
-      "GRN Treadmills/Slot Machine In MultiCoinBlock": "Parakarry and Boots and Bow"
+      "GRN Treadmills/Slot Machine Hidden Room 1": "Boots and can_use_ability_bow",
+      "GRN Treadmills/Slot Machine Hidden Room 2": "Boots and can_use_ability_bow",
+      "GRN Treadmills/Slot Machine Hidden Room 3": "Boots and can_use_ability_bow",
+      "GRN Treadmills/Slot Machine Hidden Room 4": "Boots and can_use_ability_bow",
+      "GRN Treadmills/Slot Machine Hidden Room 5": "Boots and can_use_ability_bow",
+      "GRN Treadmills/Slot Machine Hidden Room 6": "Boots and can_use_ability_bow",
+      "GRN Treadmills/Slot Machine In MultiCoinBlock": "can_use_ability_parakarry and Boots and can_use_ability_bow"
     },
     "exits": {
       "GRN Station": "True"
@@ -286,7 +286,7 @@
     "map_id": "11",
     "map_name": "RED Lantern Ghost",
     "locations": {
-      "RED Lantern Ghost Watt Partner": "(Hammer or Kooper or Bombette)"
+      "RED Lantern Ghost Watt Partner": "(Hammer or can_use_ability_kooper or can_use_ability_bombette)"
     },
     "exits": {
       "RED Moving Platforms West Exit": "True"
@@ -314,7 +314,7 @@
     "map_name": "RED Boss Antechamber",
     "exits": {
       "RED Boss Barricade East": "True",
-      "RED General Guy Room": "Watt"
+      "RED General Guy Room": "can_use_ability_watt"
     }
   },
   {

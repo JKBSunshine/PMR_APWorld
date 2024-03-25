@@ -6,7 +6,7 @@
     "map_name": "Dark Cave 1",
     "exits": {
       "Lava Channel 3 East Exit": "True",
-      "Dark Cave 1 Upper": "Parakarry"
+      "Dark Cave 1 Upper": "can_use_ability_parakarry"
     }
   },
   {
@@ -32,7 +32,7 @@
     },
     "exits": {
       "Dark Cave 1 Upper": "True",
-      "Dark Cave 2 Upper": "Parakarry"
+      "Dark Cave 2 Upper": "can_use_ability_parakarry"
     }
   },
   {
@@ -62,7 +62,7 @@
     "map_name": "Castle Key Timing Puzzle",
     "exits": {
       "Split Level Hall Upper Door": "True",
-      "Castle Key Timing Puzzle East Door": "(Kooper or Bombette) and Boots"
+      "Castle Key Timing Puzzle East Door": "(can_use_ability_kooper or can_use_ability_bombette) and Boots"
     }
   },
   {
@@ -92,7 +92,7 @@
     "map_name": "Ultra Shroom Timing Puzzle",
     "exits": {
       "Upper Grand Hall Upper": "True",
-      "Ultra Shroom Timing Puzzle West Door": "Bombette and Boots"
+      "Ultra Shroom Timing Puzzle West Door": "can_use_ability_bombette and Boots"
     }
   },
   {
@@ -111,11 +111,11 @@
     "map_id": "5",
     "map_name": "Outside Lower Jail",
     "locations": {
-      "Outside Lower Jail Yellow Block": "(Lakilester or 'GF_KPA16_ShutOffLava') and can_hit_floating_blocks"
+      "Outside Lower Jail Yellow Block": "(can_use_ability_lakilester or 'GF_KPA16_ShutOffLava') and can_hit_floating_blocks"
     },
     "exits": {
-      "Front Door Exterior Lava": "(Lakilester or 'GF_KPA16_ShutOffLava')",
-      "Lava Channel 1 Lava": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+      "Front Door Exterior Lava": "(can_use_ability_lakilester or 'GF_KPA16_ShutOffLava')",
+      "Lava Channel 1 Lava": "(can_use_ability_lakilester or 'GF_KPA16_ShutOffLava')"
     }
   },
   {
@@ -138,7 +138,7 @@
     "exits": {
       "Outside Lower Jail East": "True",
       "Lava Channel 1 East": "Boots",
-      "Lava Channel 1 Lava": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+      "Lava Channel 1 Lava": "(can_use_ability_lakilester or 'GF_KPA16_ShutOffLava')"
     }
   },
   {
@@ -157,8 +157,8 @@
     "map_id": "7",
     "map_name": "Lava Channel 1",
     "exits": {
-      "Outside Lower Jail Lava": "(Lakilester or 'GF_KPA16_ShutOffLava')",
-      "Lava Channel 1 West": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+      "Outside Lower Jail Lava": "(can_use_ability_lakilester or 'GF_KPA16_ShutOffLava')",
+      "Lava Channel 1 West": "(can_use_ability_lakilester or 'GF_KPA16_ShutOffLava')"
     }
   },
   {
@@ -168,8 +168,8 @@
     "map_name": "Lava Channel 2",
     "exits": {
       "Lava Channel 1 East": "True",
-      "Lava Channel 2 East": "(Parakarry or 'GF_KPA16_ShutOffLava') and (Lakilester or Boots or 'GF_KPA16_ShutOffLava') and can_climb_steps",
-      "Lava Channel 2 Central Exit": "can_climb_steps and (Lakilester or 'GF_KPA16_ShutOffLava')"
+      "Lava Channel 2 East": "(can_use_ability_parakarry or 'GF_KPA16_ShutOffLava') and (can_use_ability_lakilester or Boots or 'GF_KPA16_ShutOffLava') and can_climb_steps",
+      "Lava Channel 2 Central Exit": "can_climb_steps and (can_use_ability_lakilester or 'GF_KPA16_ShutOffLava')"
     }
   },
   {
@@ -179,7 +179,7 @@
     "map_name": "Lava Channel 2",
     "exits": {
       "Lava Channel 3 West": "True",
-      "Lava Channel 2 West": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+      "Lava Channel 2 West": "(can_use_ability_lakilester or 'GF_KPA16_ShutOffLava')"
     }
   },
   {
@@ -189,7 +189,7 @@
     "map_name": "Lava Channel 2",
     "exits": {
       "Lava Key Room": "True",
-      "Lava Channel 2 West": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+      "Lava Channel 2 West": "(can_use_ability_lakilester or 'GF_KPA16_ShutOffLava')"
     }
   },
   {
@@ -198,13 +198,13 @@
     "map_id": "9",
     "map_name": "Lava Channel 3",
     "locations": {
-      "Lava Channel 3 On Island 1": "(Lakilester and can_climb_steps and (Parakarry or Kooper)) or (can_climb_steps and 'GF_KPA16_ShutOffLava')",
+      "Lava Channel 3 On Island 1": "(can_use_ability_lakilester and can_climb_steps and (can_use_ability_parakarry or can_use_ability_kooper)) or (can_climb_steps and 'GF_KPA16_ShutOffLava')",
       "Lava Channel 3 On Island 2": "'GF_KPA16_ShutOffLava' and Boots"
     },
     "exits": {
       "Lava Channel 2 East": "True",
       "Lava Channel 3 East Exit": "'GF_KPA16_ShutOffLava' and can_climb_steps",
-      "Lava Channel 3 Central Exit": "('GF_KPA16_ShutOffLava' or (Lakilester and Bow and Parakarry)) and can_climb_steps"
+      "Lava Channel 3 Central Exit": "('GF_KPA16_ShutOffLava' or (can_use_ability_lakilester and can_use_ability_bow and can_use_ability_parakarry)) and can_climb_steps"
     }
   },
   {
@@ -213,8 +213,8 @@
     "map_id": "9",
     "map_name": "Lava Channel 3",
     "exits": {
-      "Dark Cave 1 Lower": "(BowserCastleKey, 2)",
-      "Lava Channel 3 West": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+      "Dark Cave 1 Lower": "(BowserKeys, 2)",
+      "Lava Channel 3 West": "(can_use_ability_lakilester or 'GF_KPA16_ShutOffLava')"
     }
   },
   {
@@ -224,7 +224,7 @@
     "map_name": "Lava Channel 3",
     "exits": {
       "Lava Control Room": "True",
-      "Lava Channel 3 West": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+      "Lava Channel 3 West": "(can_use_ability_lakilester or 'GF_KPA16_ShutOffLava')"
     }
   },
   {
@@ -236,7 +236,7 @@
       "Lava Key Room In Chest": "'GF_KPA16_ShutOffLava' and can_climb_steps"
     },
     "exits": {
-      "Lava Channel 2 Central Exit": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+      "Lava Channel 2 Central Exit": "(can_use_ability_lakilester or 'GF_KPA16_ShutOffLava')"
     }
   },
   {
@@ -245,10 +245,10 @@
     "map_id": "11",
     "map_name": "Lava Control Room",
     "events": {
-      "GF_KPA16_ShutOffLava": "Lakilester and can_climb_steps"
+      "GF_KPA16_ShutOffLava": "can_use_ability_lakilester and can_climb_steps"
     },
     "exits": {
-      "Lava Channel 3 Central Exit": "(Lakilester or 'GF_KPA16_ShutOffLava')"
+      "Lava Channel 3 Central Exit": "(can_use_ability_lakilester or 'GF_KPA16_ShutOffLava')"
     }
   },
   {
@@ -261,7 +261,7 @@
       "Lower Jail In Crate 2": "Super_Boots"
     },
     "exits": {
-      "Outside Lower Jail East": "Bombette"
+      "Outside Lower Jail East": "can_use_ability_bombette"
     }
   },
   {
@@ -375,7 +375,7 @@
     "map_name": "Split Level Hall",
     "exits": {
       "Upper Grand Hall Upper": "True",
-      "Maze Guide Room Lower": "(BowserCastleKey, 5)",
+      "Maze Guide Room Lower": "(BowserKeys, 5)",
       "Split Level Hall Upper Door": "can_climb_steps"
     }
   },
@@ -396,7 +396,7 @@
     "map_name": "Fake Peach Hallway",
     "exits": {
       "Blue Fire Bridge": "True",
-      "Guard Door 3": "(Boots or Hammer or Kooper or Bombette)"
+      "Guard Door 3": "(Boots or Hammer or can_use_ability_kooper or can_use_ability_bombette)"
     }
   },
   {
@@ -443,7 +443,7 @@
     "map_id": "23",
     "map_name": "Front Door Exterior",
     "exits": {
-      "Entry Lava Hall": "(BowserCastleKey, 1)",
+      "Entry Lava Hall": "(BowserKeys, 1)",
       "Outside Lower Jail West": "True",
       "Hangar": "True"
     }
@@ -484,7 +484,7 @@
     "map_name": "Guard Door 1",
     "exits": {
       "Hall to Guard Door 1": "True",
-      "Lower Jail": "Bombette and Lakilester and Parakarry and Bow",
+      "Lower Jail": "can_use_ability_bombette and can_use_ability_lakilester and can_use_ability_parakarry and can_use_ability_bow",
       "Lower Grand Hall Lower": "'RF_Ch8_FirstGuardDoor'",
       "Guard Door 1 North Exit": "'RF_Ch8_FirstGuardDoor'"
     }
@@ -648,7 +648,7 @@
     "map_name": "Room with Hidden Door 2",
     "exits": {
       "Hidden Passage 1": "True",
-      "Guard Door 2": "(BowserCastleKey, 4)",
+      "Guard Door 2": "(BowserKeys, 4)",
       "Hidden Passage 2": "True"
     }
   },
@@ -761,8 +761,8 @@
     "map_name": "Right Water Puzzle",
     "exits": {
       "Left Water Puzzle 1F": "True",
-      "Bill Blaster Hall Lower": "(BowserCastleKey, 3)",
-      "Right Water Puzzle 2F": "Sushie and can_climb_steps and can_hit_floating_blocks"
+      "Bill Blaster Hall Lower": "(BowserKeys, 3)",
+      "Right Water Puzzle 2F": "can_use_ability_sushie and can_climb_steps and can_hit_floating_blocks"
     }
   },
   {
@@ -771,8 +771,8 @@
     "map_id": "49",
     "map_name": "Right Water Puzzle",
     "exits": {
-      "Left Water Puzzle 2F": "Sushie",
-      "Right Water Puzzle 1F": "Sushie and can_hit_floating_blocks"
+      "Left Water Puzzle 2F": "can_use_ability_sushie",
+      "Right Water Puzzle 1F": "can_use_ability_sushie and can_hit_floating_blocks"
     }
   },
   {
@@ -781,8 +781,8 @@
     "map_id": "48",
     "map_name": "Left Water Puzzle",
     "exits": {
-      "Left Water Puzzle 3F": "Sushie and Bombette and can_climb_steps",
-      "Right Water Puzzle 2F": "Sushie"
+      "Left Water Puzzle 3F": "can_use_ability_sushie and can_use_ability_bombette and can_climb_steps",
+      "Right Water Puzzle 2F": "can_use_ability_sushie"
     }
   },
   {
@@ -791,7 +791,7 @@
     "map_id": "48",
     "map_name": "Left Water Puzzle",
     "locations": {
-      "Left Water Puzzle Top Left Ledge": "Sushie and 'RF_WaterLevel2'"
+      "Left Water Puzzle Top Left Ledge": "can_use_ability_sushie and 'RF_WaterLevel2'"
     },
     "exits": {
       "Right Water Puzzle 3F": "True"
@@ -809,7 +809,7 @@
       "Right Water Puzzle Hidden Block": "can_see_hidden_blocks and Ultra_Boots"
     },
     "exits": {
-      "Right Water Puzzle 3F": "Bombette",
+      "Right Water Puzzle 3F": "can_use_ability_bombette",
       "Right Water Puzzle 2F": "can_hit_floating_blocks"
     }
   }

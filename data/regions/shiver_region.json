@@ -13,7 +13,7 @@
     "locations": {
       "Shiver City Mayor Area Hidden Panel": "can_flip_panels and 'RF_Ch7_MurderMysterySolved'",
       "Shiver City Mayor Area Mayor Penguin Gift": "'RF_Ch7_MurderMysterySolved' and 'RF_Ch7_GotSnowmanScarf'",
-      "Shiver City Mayor Area Mayor Penguin Letter Reward": "Parakarry and Letter05",
+      "Shiver City Mayor Area Mayor Penguin Letter Reward": "can_use_ability_parakarry and Letter05",
       "Shiver City Mayor Area Chest In House": "Boots"
     },
     "exits": {
@@ -124,7 +124,7 @@
     },
     "locations": {
       "Starborn Valley Merle Gift": "can_climb_steps",
-      "Starborn Valley Frost T. Letter Reward": "Parakarry and Letter23"
+      "Starborn Valley Frost T. Letter Reward": "can_use_ability_parakarry and Letter23"
     },
     "exits": {
       "Path to Starborn Valley East": "True"
@@ -159,7 +159,7 @@
     "map_id": "7",
     "map_name": "Shiver Mountain Hills",
     "events": {
-      "RF_DefeatedFirstDuplighost": "Kooper and Hammer"
+      "RF_DefeatedFirstDuplighost": "can_use_ability_kooper and Hammer"
     },
     "locations": {
       "Shiver Mountain Hills Bottom Path": "can_climb_steps"
@@ -208,7 +208,7 @@
     "exits": {
       "Shiver Mountain Tunnel": "True",
       "Shiver Mountain Peaks": "StarStone and can_climb_steps",
-      "Merlar's Sanctuary": "Bombette"
+      "Merlar's Sanctuary": "can_use_ability_bombette"
     }
   },
   {
@@ -236,7 +236,7 @@
       "StarPiece_SAM_8": "True"
     },
     "locations": {
-      "Shiver City Pond Area In Frozen Pond": "(Bombette or Super_Boots) and Sushie and 'RF_Ch7_MurderMysteryStarted'"
+      "Shiver City Pond Area In Frozen Pond": "(can_use_ability_bombette or Super_Boots) and can_use_ability_sushie and 'RF_Ch7_MurderMysteryStarted'"
     },
     "exits": {
       "Shiver City Center": "True",

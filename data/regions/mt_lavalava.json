@@ -16,7 +16,7 @@
     "map_name": "First Lava Lake",
     "exits": {
       "Volcano Entrance": "True",
-      "First Lava Lake East": "(Lakilester or can_climb_steps)"
+      "First Lava Lake East": "(can_use_ability_lakilester or can_climb_steps)"
     }
   },
   {
@@ -26,7 +26,7 @@
     "map_name": "First Lava Lake",
     "exits": {
       "Central Cavern 1F": "True",
-      "First Lava Lake West": "(Lakilester or can_climb_steps)"
+      "First Lava Lake West": "(can_use_ability_lakilester or can_climb_steps)"
     }
   },
   {
@@ -76,7 +76,7 @@
     "map_name": "Central Cavern",
     "exits": {
       "Fire Bar Bridge": "can_climb_steps",
-      "Central Cavern B1F Brick Block": "Kooper",
+      "Central Cavern B1F Brick Block": "can_use_ability_kooper",
       "Central Cavern B1F": "can_climb_steps"
     }
   },
@@ -144,14 +144,14 @@
     "map_id": "5",
     "map_name": "Flowing Lava Puzzle",
     "events": {
-      "RF_KZN06_SolvedBlockPuzzle": "(Parakarry or Lakilester)"
+      "RF_KZN06_SolvedBlockPuzzle": "(can_use_ability_parakarry or can_use_ability_lakilester)"
     },
     "locations": {
       "Flowing Lava Puzzle Hidden Block": "can_climb_steps and can_see_hidden_blocks and can_hit_floating_blocks"
     },
     "exits": {
       "Descent Toward Ultra Hammer": "True",
-      "Flowing Lava Puzzle West": "(Parakarry or Lakilester)",
+      "Flowing Lava Puzzle West": "(can_use_ability_parakarry or can_use_ability_lakilester)",
       "Flowing Lava Puzzle East Lower Exit": "Ultra_Hammer and can_climb_steps"
     }
   },
@@ -162,7 +162,7 @@
     "map_name": "Flowing Lava Puzzle",
     "exits": {
       "Ultra Hammer Room": "True",
-      "Flowing Lava Puzzle East": "('RF_KZN06_SolvedBlockPuzzle' and Parakarry) or Lakilester"
+      "Flowing Lava Puzzle East": "('RF_KZN06_SolvedBlockPuzzle' and can_use_ability_parakarry) or can_use_ability_lakilester"
     }
   },
   {
@@ -181,11 +181,11 @@
     "map_id": "6",
     "map_name": "Ultra Hammer Room",
     "events": {
-      "RF_KZN07_OpenedHammerChest": "(Parakarry or Lakilester) and can_climb_steps",
-      "RF_KZN06_SolvedBlockPuzzle": "(Parakarry or Lakilester) and can_climb_steps"
+      "RF_KZN07_OpenedHammerChest": "(can_use_ability_parakarry or can_use_ability_lakilester) and can_climb_steps",
+      "RF_KZN06_SolvedBlockPuzzle": "(can_use_ability_parakarry or can_use_ability_lakilester) and can_climb_steps"
     },
     "locations": {
-      "Ultra Hammer Room In Big Chest": "(Parakarry or Lakilester) and can_climb_steps"
+      "Ultra Hammer Room In Big Chest": "(can_use_ability_parakarry or can_use_ability_lakilester) and can_climb_steps"
     },
     "exits": {
       "Flowing Lava Puzzle West": "True"
@@ -197,7 +197,7 @@
     "map_id": "7",
     "map_name": "Dizzy Stomp Room",
     "locations": {
-      "Dizzy Stomp Room In Chest": "can_climb_steps and (Parakarry or Lakilester)"
+      "Dizzy Stomp Room In Chest": "can_climb_steps and (can_use_ability_parakarry or can_use_ability_lakilester)"
     },
     "exits": {
       "Flowing Lava Puzzle East Lower Exit": "True"
@@ -256,7 +256,7 @@
     "map_name": "Second Lava Lake",
     "exits": {
       "Descent Toward Boss": "True",
-      "Second Lava Lake East": "(Lakilester or can_climb_steps)"
+      "Second Lava Lake East": "(can_use_ability_lakilester or can_climb_steps)"
     }
   },
   {
@@ -266,7 +266,7 @@
     "map_name": "Second Lava Lake",
     "exits": {
       "Spike Roller Trap": "True",
-      "Second Lava Lake West": "(Lakilester or can_climb_steps)"
+      "Second Lava Lake West": "(can_use_ability_lakilester or can_climb_steps)"
     }
   },
   {

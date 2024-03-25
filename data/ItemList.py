@@ -684,7 +684,12 @@ item_groups = {
     "Letter": [name for (name, data) in item_table.items() if name.startswith("Letter") and not data[6]],
     "Boots": [name for (name, data) in item_table.items() if data[0] == "GEAR" and "BootsProxy" in name],
     "Hammers": [name for (name, data) in item_table.items() if data[0] == "GEAR" and "HammerProxy" in name],
-    "Gear": [name for (name, data) in item_table.items() if data[0] == "GEAR" and ("BootsProxy" in name or "HammerProxy" in name)]
+    "Gear": [name for (name, data) in item_table.items() if data[0] == "GEAR" and ("BootsProxy" in name or "HammerProxy" in name)],
+    "FortressKeys": [name for (name, data) in item_table.items() if name.startswith("KoopaFortressKey") and not data[6]],
+    "RuinsKeys": [name for (name, data) in item_table.items() if name.startswith("RuinsKey") and not data[6]],
+    "TubbaKeys": [name for (name, data) in item_table.items() if name.startswith("TubbaCastleKey") and not data[6]],
+    "MagicalSeeds": [name for (name, data) in item_table.items() if name.startswith("MagicalSeed") and not data[6]],
+    "BowserKeys": [name for (name, data) in item_table.items() if name.startswith("BowserCastleKey") and not data[6]],
 }
 
 

@@ -371,7 +371,7 @@ def get_items_to_exclude(world: "PaperMarioWorld") -> list:
             excluded_items.append(item_name)
 
     if world.options.magical_seeds.value < 4:
-        for item_name in exclude_due_to_settings.get("startwith_forest_open"):
+        for item_name in exclude_due_to_settings.get("magical_seeds_required").get(world.options.magical_seeds.value):
             excluded_items.append(item_name)
 
     if world.options.bowser_castle_mode.value > BowserCastleMode.option_Vanilla:

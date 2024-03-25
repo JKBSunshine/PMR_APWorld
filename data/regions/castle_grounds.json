@@ -5,7 +5,7 @@
     "map_id": "1",
     "map_name": "Ruined Castle Grounds",
     "locations": {
-      "Ruined Castle Grounds Muss T. Letter Reward": "Parakarry and Letter13"
+      "Ruined Castle Grounds Muss T. Letter Reward": "can_use_ability_parakarry and Letter13"
     },
     "exits": {
       "Plaza District": "True",

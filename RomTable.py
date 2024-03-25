@@ -238,40 +238,16 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions) -> li
                 case "ChallengeMode" | "ShuffleDungeonRooms" | "ShuffleEntrancesByAll" | "MatchEntranceTypes" | "Widescreen":
                     option_value = 0
                 # NYI, giving dungeon keys temporarily until that logic is fixed
-                case "StartingItem0":
-                    option_value = 365
-                case "StartingItem1":
-                    option_value = 366
-                case "StartingItem2":
-                    option_value = 367
-                case "StartingItem3":
-                    option_value = 368
-                case "StartingItem4":
-                    option_value = 369
-                case "StartingItem5":
-                    option_value = 370
-                case "StartingItem6":
-                    option_value = 371
-                case "StartingItem7":
-                    option_value = 372
-                case "StartingItem8":
-                    option_value = 373
-                case "StartingItem9":
-                    option_value = 374
-                case "StartingItemA":
-                    option_value = 375
-                case "StartingItemB":
-                    option_value = 376
-                case "StartingItemC":
-                    option_value = 377
-                case "StartingItemD":
-                    option_value = 378
-                case "StartingItemE":
-                    option_value = 379
+                case "StartingItem0" | "StartingItem1" | "StartingItem2" | "StartingItem3" | "StartingItem4":
+                    option_value = 0
+                case "StartingItem5" | "StartingItem6" | "StartingItem7" | "StartingItem8" | "StartingItem9":
+                    option_value = 0
+                case "StartingItemA" | "StartingItemB" | "StartingItemC" | "StartingItemD" | "StartingItemE":
+                    option_value = 0
                 case "StartingItemF":
-                    option_value = 380
+                    option_value = 0
                 case "XPMultiplier":
-                    option_value =  int(options.enemy_xp_multiplier.value / 2)
+                    option_value = int(options.enemy_xp_multiplier.value)
                 # One setting on the front end, but two separate flags for the mod
                 case "DoubleDamage":
                     option_value = options.enemy_damage.value == EnemyDamage.option_Double_Pain

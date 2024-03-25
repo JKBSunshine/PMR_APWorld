@@ -7,7 +7,7 @@ from inspect import signature, Parameter
 import logging
 import re
 
-from .data.ItemList import item_table
+from .data.ItemList import item_table, item_groups
 from BaseClasses import CollectionState
 from .Locations import PMLocation
 from .Utils import data_path, read_json
@@ -77,9 +77,9 @@ class Rule_AST_Transformer(ast.NodeTransformer):
                     ctx=ast.Load()),
                 args=[ast.Str(escaped_items[node.id]), ast.Constant(self.player)],
                 keywords=[])
-        elif node.id in self.multiworld.__dict__:
+        elif node.id in self.multiworld.options.__dict__:
             # Settings are constant
-            return ast.parse('%r' % self.multiworld.__dict__[node.id], mode='eval').body
+            return ast.parse('%r' % self.multiworld.options.__dict__[node.id].value, mode='eval').body
         elif node.id in CollectionState.__dict__:
             return self.make_call(node, node.id, [], [])
         elif node.id in self.kwarg_defaults or node.id in allowed_globals:
@@ -130,21 +130,30 @@ class Rule_AST_Transformer(ast.NodeTransformer):
 
         if isinstance(count, ast.Name):
             # Must be a settings constant
-            count = ast.parse('%r' % self.multiworld.__dict__[count.id], mode='eval').body
+            count = ast.parse('%r' % self.multiworld.options.__dict__[count.id].value, mode='eval').body
 
         if iname in escaped_items:
             iname = escaped_items[iname]
 
-        if iname not in item_table:
+        if iname not in item_table and iname not in item_groups:
             self.events.add(iname)
 
-        return ast.Call(
-            func=ast.Attribute(
-                value=ast.Name(id='state', ctx=ast.Load()),
-                attr='has',
-                ctx=ast.Load()),
-            args=[ast.Str(iname), ast.Constant(self.player), count],
-            keywords=[])
+        if iname in item_groups:
+            return ast.Call(
+                func=ast.Attribute(
+                    value=ast.Name(id='state', ctx=ast.Load()),
+                    attr='has_group',
+                    ctx=ast.Load()),
+                args=[ast.Str(iname), ast.Constant(self.player), count],
+                keywords=[])
+        else:
+            return ast.Call(
+                    func=ast.Attribute(
+                    value=ast.Name(id='state', ctx=ast.Load()),
+                    attr='has',
+                    ctx=ast.Load()),
+                    args=[ast.Str(iname), ast.Constant(self.player), count],
+                    keywords=[])
 
     def visit_Call(self, node):
         if not isinstance(node.func, ast.Name):

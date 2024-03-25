@@ -15,7 +15,7 @@
     "map_id": "1",
     "map_name": "Whale Stomach",
     "events": {
-      "RF_CanRideWhale": "Watt"
+      "RF_CanRideWhale": "can_use_ability_watt"
     },
     "exits": {
       "Whale Mouth": "True",
