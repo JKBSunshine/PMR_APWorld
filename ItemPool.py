@@ -137,7 +137,7 @@ def get_pool_core(world: "PaperMarioWorld"):
         if location.name in location_groups["Gear"]:
             # hammer 1 bush is special in that it is made to not be empty even if starting with hammer
             if location.name == "Jr. Troopa's Playground In Hammer Bush":
-                shuffle_item = ((world.options.gear_shuffle_mode.value != GearShuffleMode.option_Vanilla) and
+                shuffle_item = ((world.options.gear_shuffle_mode.value != GearShuffleMode.option_Vanilla) or
                                 (world.options.starting_hammer.value == StartingHammer.option_Hammerless))
             else:
                 shuffle_item = (world.options.gear_shuffle_mode.value != GearShuffleMode.option_Vanilla)
@@ -240,7 +240,7 @@ def get_pool_core(world: "PaperMarioWorld"):
     if world.options.partner_upgrades.value != PartnerUpgradeShuffle.option_Vanilla:
         for name, data in item_table.items():
             if data[0] == "PARTNERUPGRADE" and not data[6]:
-                pool_badges.append(name)
+                pool_other_items.append(name)
 
     # adjust item pools based on settings
     items_to_remove_from_pools = get_items_to_exclude(world)
@@ -393,7 +393,7 @@ def get_items_to_exclude(world: "PaperMarioWorld") -> list:
         for item_name in exclude_due_to_settings.get("do_progressive_badges"):
             excluded_items.append(item_name)
 
-    if world.options.gear_shuffle_mode >= GearShuffleMode.option_Gear_Location_Shuffle:
+    if world.options.gear_shuffle_mode.value >= GearShuffleMode.option_Gear_Location_Shuffle:
         if world.options.starting_hammer.value == StartingHammer.option_Ultra:
             excluded_items.append("HammerProxy3")
         if world.options.starting_hammer.value >= StartingHammer.option_Super:
