@@ -748,8 +748,8 @@ class KooperColorPalette(Choice):
     option_Default = 0
     option_Green = 1
     option_Red = 2
-    option_Grey = 3
-    option_Purple = 4
+    option_Purple = 3
+    option_Grey = 4
     option_Random_Pick = 10
     option_Random_Pick_No_Vanilla = 11
     option_Random_On_Every_Load = 12
@@ -759,12 +759,12 @@ class BombetteColorPalette(Choice):
     """Changes the way the sprite looks in-game."""
     display_name = "Bombette's Color Palette"
     option_Default = 0
-    option_Green = 1
-    option_Red = 2
+    option_Orange = 1
+    option_Green = 2
     option_Yellow = 3
     option_Blue = 4
-    option_Purple = 5
-    option_Orange = 6
+    option_Red = 5
+    option_Purple = 6
     option_Random_Pick = 10
     option_Random_Pick_No_Vanilla = 11
     option_Random_On_Every_Load = 12
@@ -786,10 +786,10 @@ class BowColorPalette(Choice):
     """Changes the way the sprite looks in-game."""
     display_name = "Bow's Color Palette"
     option_Default = 0
-    option_Red = 2
+    option_Red = 1
+    option_Pink = 2
     option_Blue = 3
     option_Grey = 4
-    option_Pink = 5
     option_Random_Pick = 10
     option_Random_Pick_No_Vanilla = 11
     option_Random_On_Every_Load = 12
@@ -799,9 +799,9 @@ class WattColorPalette(Choice):
     """Changes the way the sprite looks in-game."""
     display_name = "Watt's Color Palette"
     option_Default = 0
-    option_Green = 1
-    option_Blue = 2
-    option_Pink = 3
+    option_Blue = 1
+    option_Pink = 2
+    option_Green = 3
     option_Random_Pick = 10
     option_Random_Pick_No_Vanilla = 11
     option_Random_On_Every_Load = 12
@@ -811,9 +811,9 @@ class SushieColorPalette(Choice):
     """Changes the way the sprite looks in-game."""
     display_name = "Sushie's Color Palette"
     option_Default = 0
-    option_Green = 1
-    option_Red = 2
-    option_Yellow = 3
+    option_Red = 1
+    option_Yellow = 2
+    option_Green = 3
     option_Blue = 4
     option_Random_Pick = 10
     option_Random_Pick_No_Vanilla = 11
@@ -824,10 +824,10 @@ class LakilesterColorPalette(Choice):
     """Changes the way the sprite looks in-game."""
     display_name = "Lakilester's Color Palette"
     option_Default = 0
-    option_Green = 1
-    option_Red = 2
-    option_Blue = 3
-    option_Dark = 4
+    option_Blue = 1
+    option_Dark = 2
+    option_Red = 3
+    option_Green = 4
     option_Random_Pick = 10
     option_Random_Pick_No_Vanilla = 11
     option_Random_On_Every_Load = 12
@@ -890,7 +890,7 @@ class CoinColorPalette(Choice):
     option_Blue = 2
     option_Purple = 3
     option_Silver = 4
-    option_Random_Pick = 10
+    option_Random_Pick = 5
 
 
 class RandomText(Toggle):
