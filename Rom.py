@@ -51,9 +51,13 @@ def generate_output(world, output_dir: str) -> None:
     enemy_stats, chapter_changes = get_shuffled_chapter_difficulty(
         world.options.enemy_difficulty.value, starting_chapter=1)
 
-    battle_formations = get_random_formations(chapter_changes,
-                                              world.options.enemy_difficulty.value ==
-                                              EnemyDifficulty.option_Progressive_Scaling)
+    battle_formations = []
+
+    if (world.options.formation_shuffle.value or
+            world.options.enemy_difficulty.value == EnemyDifficulty.option_Progressive_Scaling):
+        battle_formations = get_random_formations(chapter_changes,
+                                                  world.options.enemy_difficulty.value ==
+                                                  EnemyDifficulty.option_Progressive_Scaling)
 
     entrance_list = []
 
