@@ -1,6 +1,7 @@
 # modified slightly from https://github.com/icebound777/PMR-SeedGenerator/blob/main/rando_modules/random_shop_prices.py
 import random
 from ..Locations import PMLocation
+from ..options import MerlowRewardsPricing
 from BaseClasses import Item
 
 
@@ -23,7 +24,7 @@ def get_shop_price(node: PMLocation,
             # gathering the required star pieces becomes much easier
             # overall.
             starpiece_increments = 10
-            if merlow_cost_setting == 0:
+            if merlow_cost_setting == MerlowRewardsPricing.option_Cheap:
                 starpiece_increments = 5
 
             if "ShopRewardA" in node.identifier:
