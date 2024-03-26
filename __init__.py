@@ -374,6 +374,9 @@ class PaperMarioWorld(World):
             if item.name in prefill_item_names and item not in prefill_items:
                 prefill_items.append(item)
             else:
+                # sets extra copies of consumable progression items to be filler so that they aren't considered in logic
+                if item in prefill_items and item.type == "ITEM":
+                    item.classification = ic.filler
                 main_items.append(item)
 
         return main_items, prefill_items
