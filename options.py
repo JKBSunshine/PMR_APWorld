@@ -263,9 +263,8 @@ class ShuffleBattleFormations(Toggle):
 
 
 class RandomPuzzles(Toggle):
-    """Shuffles which enemies you encounter and in what number.
-    Enemies are limited to those that normally appear in the area."""
-    display_name = "Randomizes most of the games puzzles."
+    """Randomizes most of the games puzzles."""
+    display_name = "Randomize Puzzles"
 
 
 # Difficulty settings
