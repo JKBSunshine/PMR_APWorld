@@ -680,7 +680,7 @@ item_groups = {
     "BadgeDupe": [name for (name, data) in item_table.items() if data[0] == "BADGE" and data[5] and not data[6]],
     "PowerStar": [name for (name, data) in item_table.items() if data[0] == "POWERSTAR"],
     "StarPiece": [name for (name, data) in item_table.items() if data[0] == "STARPIECE"],
-    "FavorItem": [name for (name, data) in item_table.items() if name.startswith("Koot") and not data[6]],
+    "FavorItem": [name for (name, data) in item_table.items() if (name.startswith("Koot") or name == "CrystalBall") and not data[6]],
     "Letter": [name for (name, data) in item_table.items() if name.startswith("Letter") and not data[6]],
     "Boots": [name for (name, data) in item_table.items() if data[0] == "GEAR" and "BootsProxy" in name],
     "Hammers": [name for (name, data) in item_table.items() if data[0] == "GEAR" and "HammerProxy" in name],
