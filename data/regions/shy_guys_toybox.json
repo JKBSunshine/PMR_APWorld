@@ -155,6 +155,9 @@
     "events": {
       "MF_Ch4_PulledPinkSwitch": "True"
     },
+    "locations": {
+      "PNK Station Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks"
+},
     "exits": {
       "PNK Tracks Hallway North": "True"
     }
