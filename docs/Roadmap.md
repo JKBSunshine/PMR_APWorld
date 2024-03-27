@@ -5,8 +5,8 @@ This is not necessarily a strict roadmap, nor is it exhaustive of everything tha
 - Set up a way to communicate with an AP server for sending/receiving items.
 
 ### Pre-Early Alpha
-- Logic helpers to account for access rules that change depending on settings
-- Logic helper to determine when to grant Parakarry check
+- ~~Logic helpers to account for access rules that change depending on settings~~
+- ~~Logic helper to determine when to grant Parakarry check~~
 - Logic for keysanity option: false
 - Logic for gear shuffle options: vanilla and gear_locations
 
@@ -17,11 +17,11 @@ This is not necessarily a strict roadmap, nor is it exhaustive of everything tha
 - Entrance Randomizer
 - Require Specific Spirits
 - Limit Chapter Logic
-- Open World settings
+- ~~Open World settings~~
 
 ### Mid-Late Alpha
 - Enemy difficulty
-- Consumable item pool randomization
+- ~~Consumable item pool randomization~~
 - Item traps
 - Start with random items
 - Random puzzles
