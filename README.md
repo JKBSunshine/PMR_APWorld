@@ -16,8 +16,6 @@ Some of these are partially implemented, some of these are mostly implemented, a
 
 - Create yaml file using PMR settings string
 - Set up a way to communicate with an AP server for sending/receiving items.
-- Logic helpers to account for access rules that change depending on settings
-- Logic helper to determine when to grant Parakarry check
 - Logic for keysanity option: false
 - Logic for gear shuffle options: vanilla and gear_locations
 - Mystery shuffle
@@ -27,10 +25,8 @@ Some of these are partially implemented, some of these are mostly implemented, a
 - Require Specific Spirits
 - Limit Chapter Logic
 - Start with random items
-- Consumable item pool randomization
 - Item traps
 - Entrance Randomizer
-- Open World settings
 - Bowser Castle Mode (change entrances, remove locations)
 - Power Star Hunt (logic, items, remove locations in ch8 if skipped)
 - Prevent Chapter 8 locations from holding too many progression items (OoT does similar with Ganon's Castle)
