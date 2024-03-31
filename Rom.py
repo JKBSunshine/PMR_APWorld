@@ -216,11 +216,17 @@ def write_data_to_rom(
     out_file_name = world.multiworld.get_out_file_name_base(world.player)
     output_path = os.path.join(output_directory, f"{out_file_name}.z64")
 
+    # copy modded file to output
     shutil.copyfile(target_modfile, output_path)
 
+    # edit copied file with rando data
     with open(output_path, "r+b") as file:
+        # Set slot auth
+        file.seek(rom_table.info["auth_address"])
+        file.write(world.auth)
+
         # Write the db header
-        file.seek(rom_table.info["address"])
+        # file.seek(rom_table.info["address"]) # we're already here, but leaving this in case we move auth elsewhere
         file.write(rom_table.info["magic_value"].to_bytes(4, byteorder="big"))
         file.write(rom_table.info["header_size"].to_bytes(4, byteorder="big"))
         file.write(rom_table.info["db_size"].to_bytes(4, byteorder="big"))
@@ -251,6 +257,7 @@ def write_data_to_rom(
 
         # Write end of item hints table
         file.write(0xFFFFFFFF.to_bytes(4, byteorder="big"))
+
         # Write end of db padding
         for _ in range(1, 5):
             file.write(0xFFFFFFFF.to_bytes(4, byteorder="big"))

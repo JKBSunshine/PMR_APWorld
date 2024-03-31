@@ -145,6 +145,7 @@ def get_table_info():
         "address": 0x1D00000,
         "formations_offset": 0,
         "itemhints_offset": 0,
+        "auth_address": 0x1CFFFF0
     }
 
     return table_info

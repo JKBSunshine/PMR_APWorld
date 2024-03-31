@@ -40,7 +40,7 @@ from .Rom import generate_output
 from Fill import fill_restrictive
 from .modules.random_blocks import get_block_placement
 import pkg_resources
-
+from .client import PaperMarioClient  # unused but required for generic client to hook onto
 logger = logging.getLogger("Paper Mario")
 
 
@@ -244,8 +244,7 @@ class PaperMarioWorld(World):
         set_rules(self)
 
     def generate_basic(self):
-
-        self.auth = self.random.getrandbits(16 * 8).to_bytes(16, "little")
+        self.auth = bytearray(self.multiworld.random.getrandbits(8) for _ in range(16))
 
         # remove internal event locations that are not going to exist in this seed
         all_state = self.get_state_with_complete_itempool()
