@@ -3,8 +3,7 @@ from .data.LocationsList import location_table
 
 """Paper Mario came out August 11th, 2000 (in Japan)"""
 location_id_prefix = 8112000000
-
-location_name_to_id = {name: (location_id_prefix + index) for (index, name) in enumerate(location_table)}
+location_name_to_id = {name: (location_id_prefix + index) for (index, name) in enumerate(location_table.keys())}
 
 
 # Special location class for paper mario that specifies paper mario specific info for locations
