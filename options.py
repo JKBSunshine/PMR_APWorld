@@ -126,6 +126,16 @@ class ShuffleFoliageCoins(Toggle):
     display_name = "Shuffle Foliage Coins"
 
 
+class LocalConsumables(Range):
+    """A percentage of consumable items will remain in the player's world instead of being shuffled into the multiworld.
+    This can prevent other people from getting too many of your filler items, as well as make it easier to restock your
+    inventory without farming items from enemies or using a potentially limited variety of consumables."""
+    display_name = "Local Consumables Percentage"
+    range_start = 0
+    range_end = 100
+    default = 100
+
+
 # Partners
 class ShufflePartners(Toggle):
     """Partners are items in the item pool and you get an item where you would normally get a partner."""
@@ -145,7 +155,7 @@ class StartRandomPartners(DefaultOnToggle):
 class MinStartPartners(Range):
     """Minimum number of partners you start with"""
     display_name = "Minimum Starting Partners"
-    range_start = 1
+    range_start = 0
     range_end = 8
     default = 1
 
@@ -153,7 +163,7 @@ class MinStartPartners(Range):
 class MaxStartPartners(Range):
     """Maximum number of partners you start with, must be greater than or equal to the minimum"""
     display_name = "Maximum Starting Partners"
-    range_start = 1
+    range_start = 0
     range_end = 8
     default = 1
 
@@ -950,6 +960,7 @@ class PaperMarioOptions(PerGameCommonOptions):
     rowf_items: LogicRowfItems
     merlow_items: LogicMerlowItems
     cheato_items: LogicRipCheatoItems
+    local_consumables: LocalConsumables
 
     # Partner
     partners: ShufflePartners

@@ -365,14 +365,23 @@ class PaperMarioWorld(World):
                     prefill_item_names.append(item.name)
 
         prefill_items = []
+        local_consumable_chance = self.options.local_consumables.value
         for item in self.itempool:
+
             if item.name in prefill_item_names and item not in prefill_items:
                 prefill_items.append(item)
             else:
+                # check if this item gets kept local or not
                 # sets extra copies of consumable progression items to be filler so that they aren't considered in logic
-                if item in prefill_items and item.type == "ITEM":
+                keep_consumable_local = False
+                if item.type == "ITEM":
                     item.classification = ic.filler
-                main_items.append(item)
+                    keep_consumable_local = self.random.randint(0, 100) <= local_consumable_chance
+
+                if keep_consumable_local:
+                    prefill_items.append(item)
+                else:
+                    main_items.append(item)
 
         return main_items, prefill_items
 
@@ -403,7 +412,8 @@ class PaperMarioWorld(World):
 
         # place progression items that are also consumables in locations that are replenishable
         replenish_locations = [name for name, data in location_table.items() if data[0] in replenishing_itemlocations]
-        replenish_items = list(filter(lambda item: item.name in progression_miscitems, self.pre_fill_items))
+        replenish_items = list(filter(lambda item: item.name in progression_miscitems and
+                                      item.classification == ic.progression, self.pre_fill_items))
 
         for item in replenish_items:
             self.pre_fill_items.remove(item)
@@ -457,6 +467,12 @@ class PaperMarioWorld(World):
                     self.multiworld.random.shuffle(locations)
                     fill_restrictive(self.multiworld, prefill_state(state), locations, key_items,
                                      single_player_placement=True, lock=True, allow_excluded=True)
+
+        # anything remaining in pre fill items is a consumable that got selected randomly to be kept local
+        fill_restrictive(self.multiworld, prefill_state(state),
+                         self.multiworld.get_unfilled_locations(player=self.player), self.pre_fill_items,
+                         single_player_placement=True, lock=True, allow_excluded=True)
+
 
     def generate_output(self, output_directory: str):
         generate_output(self, output_directory)
