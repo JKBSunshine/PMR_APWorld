@@ -4,22 +4,32 @@ from ..data.ItemList import item_table
 
 
 # RDRAM Addresses, leave off the initial 80
-ITMREC_ADDRESS = 0x0DBF24  # Item received counter
-MODE_ADDRESS = 0x151700  # Game Mode, checks if you're in a state to send/receive stuff
+MODE_ADDRESS = 0x0A08F1  # Game Mode, checks if you're in a state to send/receive stuff
 UIR_START_ADDRESS = 0x356B00  # Unique Item Registry
 PD_START_ADDRESS = 0x10F290  # Player Data
-MB_START_ADDRESS = 0x356000  # ModByte Data
 
-GF_START_ADDRESS = 0x0DBC70  # Game Flags
+# ModByte Data
+MB_START_ADDRESS = 0x356000
+ITM_RCV_SEQ = MB_START_ADDRESS + 0x134  # take 0x134 and 0x135 together as u16
+
+KEY_RECV_BUFFER = 0x358400  # takes item IDs to add to Mario's inventory as u16
+
+# Game Flags
+GF_START_ADDRESS = 0x0DBC70
 GF_END_ADDRESS = 0x0DBD77
 
-MF_START_ADDRESS = 0x357000  # Mod Flags
+# Mod Flags
+MF_START_ADDRESS = 0x357000
 MF_END_ADDRESS = 0x357228
+GOAL_FLAG = 0x1100
+
 
 # ROM Addresses
 MAGIC_VALUE = b'PMDB'
 TABLE_ADDRESS = 0x1D00000
 AUTH_ADDRESS = 0x1D00000 - 16
+
+GAME_MODE_WORLD = 4
 
 
 def get_uir_address(name):

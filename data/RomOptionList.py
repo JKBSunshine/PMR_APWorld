@@ -92,24 +92,26 @@ rom_option_table = {
     "FastTextSkip":             (87,     4,      0,      16,    0),
     "EnabledCheckBits":         (88,     4,      0,      32,    65535),
     "EnabledShopBits":          (89,     4,      0,      33,    65535),
-    "ColorMode":                (90,     6,      5,      0,     0),
-    "Box5ColorA":               (91,     6,      5,      1,     3957749759),
-    "Box5ColorB":               (92,     6,      5,      2,     2388272639),
-    "CoinColor":                (93,     6,      5,      3,     0),
-    "RomanNumerals":            (94,     6,      5,      4,     0),
-    "RandomText":               (95,     6,      5,      5,     0),
-    "Widescreen":               (96,     6,      5,      6,     0),
-    "RandomPitch":              (97,     7,      0,      0,     0),
-    "MuteDangerBeeps":          (98,     7,      0,      1,     0),
-    "RandomChoice":             (99,     10,     0,      0,     0),
-    "ItemChoiceA":              (100,     10,     0,      1,     138),
-    "ItemChoiceB":              (101,    10,     0,      2,     140),
-    "ItemChoiceC":              (102,    10,     0,      3,     128),
-    "ItemChoiceD":              (103,    10,     0,      4,     136),
-    "ItemChoiceE":              (104,    10,     0,      5,     154),
-    "ItemChoiceF":              (105,    10,     0,      6,     130),
-    "ItemChoiceG":              (106,    10,     0,      7,     133),
-    "RandomQuiz":               (107,    3,      7,      128,   1)
+    "PawnsEnabled":             (90,     5,      0,      0,     1),
+    "MultiworldEnabled":        (91,     5,      0,      1,     0),
+    "ColorMode":                (92,     6,      5,      0,     0),
+    "Box5ColorA":               (93,     6,      5,      1,     3957749759),
+    "Box5ColorB":               (94,     6,      5,      2,     2388272639),
+    "CoinColor":                (95,     6,      5,      3,     0),
+    "RomanNumerals":            (96,     6,      5,      4,     0),
+    "RandomText":               (97,     6,      5,      5,     0),
+    "Widescreen":               (98,     6,      5,      6,     0),
+    "RandomPitch":              (99,     7,      0,      0,     0),
+    "MuteDangerBeeps":          (100,     7,      0,      1,     0),
+    "RandomChoice":             (101,     10,     0,      0,     0),
+    "ItemChoiceA":              (102,     10,     0,      1,     138),
+    "ItemChoiceB":              (103,    10,     0,      2,     140),
+    "ItemChoiceC":              (104,    10,     0,      3,     128),
+    "ItemChoiceD":              (105,    10,     0,      4,     136),
+    "ItemChoiceE":              (106,    10,     0,      5,     154),
+    "ItemChoiceF":              (107,    10,     0,      6,     130),
+    "ItemChoiceG":              (108,    10,     0,      7,     133),
+    "RandomQuiz":               (109,    3,      7,      128,   1)
 }
 
 ap_to_rom_option_table = {
@@ -238,6 +240,10 @@ ap_to_rom_option_table = {
     "RandomQuiz": "",  # always true
     "QuizmoAlwaysAppears": "quizmo_always_appears",
     "SkipQuiz": "skip_quiz",
+
+    # Multiplayer
+    "PawnsEnabled": "",
+    "MultiworldEnabled": "",
 
     # Cosmetics
     "ColorMode": "status_menu_palette",

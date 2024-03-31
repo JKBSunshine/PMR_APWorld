@@ -14,6 +14,7 @@ import worlds._bizhawk as bizhawk
 from worlds._bizhawk.client import BizHawkClient
 from .data.data import *
 from .Locations import location_name_to_id
+from .items import item_id_prefix
 
 if TYPE_CHECKING:
     from worlds._bizhawk.context import BizHawkClientContext
@@ -59,17 +60,33 @@ class PaperMarioClient(BizHawkClient):
         ctx.auth = base64.b64encode(auth_raw).decode("utf-8")
 
     async def game_watcher(self, ctx: "BizHawkClientContext") -> None:
+        from CommonClient import logger
         try:
 
-            read_state = await bizhawk.read(ctx.bizhawk_ctx, [(MODE_ADDRESS, 4, "RDRAM"),
+            read_state = await bizhawk.read(ctx.bizhawk_ctx, [(MODE_ADDRESS, 1, "RDRAM"),
                                                               (MF_START_ADDRESS, 0x221, "RDRAM"),
-                                                              (GF_START_ADDRESS, 0x107, "RDRAM")])
+                                                              (GF_START_ADDRESS, 0x107, "RDRAM"),
+                                                              (ITM_RCV_SEQ, 2, "RDRAM")])
+
             # check for current state before receiving items
             game_mode = int.from_bytes(read_state[0], "big")
 
             # Update the server with any new locations that have been checked
             mod_flags = read_state[1]
             game_flags = read_state[2]
+            received_items = int.from_bytes(bytearray(read_state[3]), "big")
+
+            # if we need to receive items, do so, so long as we're loaded
+            # any game mode which occurs after loading a file is fine, use overworld for now since that's when items
+            # will actually be given to Mario anyways
+            if game_mode == GAME_MODE_WORLD and received_items < len(ctx.items_received):
+                next_item = ctx.items_received[received_items]
+                item_id = next_item.item - item_id_prefix
+                item_id = item_id << 16
+                await bizhawk.guarded_write(ctx.bizhawk_ctx,
+                                            [(KEY_RECV_BUFFER, item_id.to_bytes(4, "big"), "RDRAM")],
+                                            [(KEY_RECV_BUFFER, [0x00], "RDRAM")])
+
 
             mf_bytes = bytearray(mod_flags)
             gf_bytes = bytearray(game_flags)
@@ -98,6 +115,13 @@ class PaperMarioClient(BizHawkClient):
                         "cmd": "LocationChecks",
                         "locations": list(locs_to_send)
                     }])
+
+            # send game clear if flag is set
+            if not ctx.finished_game and (get_flag_value("GF", GOAL_FLAG, gf_bytes)):
+                await ctx.send_msgs([{
+                    "cmd": "StatusUpdate",
+                    "status": ClientStatus.CLIENT_GOAL
+                }])
 
         except bizhawk.RequestFailedError:
             # Exit handler and return to main loop to reconnect.

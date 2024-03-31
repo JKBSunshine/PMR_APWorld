@@ -4,6 +4,7 @@ import random
 
 import bsdiff4
 
+from . import PMItem
 from .calculate_crc import recalculate_crcs
 from .RomTable import RomTable
 import os
@@ -275,10 +276,10 @@ def get_filled_node_list(world):
         if pm_loc.price_keyname != "NONE":
             cur_node.key_name_price = pm_loc.price_keyname
 
-        if location.item.game == world.game:
-            cur_node.current_item = location.item
+        if pm_loc.item.player == world.player:
+            cur_node.current_item = pm_loc.item
         else:
-            cur_node.current_item = item_table["Mushroom"][2]
+            cur_node.current_item = PMItem("MultiWorldItem", world.player, item_table["MultiWorldItem"], False)
 
         if "Shop" in cur_node.identifier:
             cur_node.current_item.base_price = get_shop_price(pm_loc,

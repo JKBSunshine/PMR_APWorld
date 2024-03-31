@@ -2,9 +2,9 @@
 
 from .data.RomOptionList import rom_option_table, ap_to_rom_option_table
 from .modules.random_blocks import get_block_key
-from .options import EnemyDamage, PaperMarioOptions, PartnerUpgradeShuffle, ShuffleKootFavors, ShuffleLetters, BowserCastleMode
+from .options import (EnemyDamage, PaperMarioOptions, PartnerUpgradeShuffle, ShuffleKootFavors, ShuffleLetters,
+                      BowserCastleMode)
 from .data.MysteryOptions import MysteryOptions
-from .data.node import Node
 
 
 class RomTable:
@@ -63,11 +63,9 @@ class RomTable:
                 })
 
             # Item Prices
-            if (    node.key_name_price is not None
-                and (   node.key_name_price.startswith("ShopPrice")
-                     or node.key_name_price.startswith("RewardAmount")
-                )
-            ):
+            if (node.key_name_price is not None
+                and (node.key_name_price.startswith("ShopPrice")
+                     or node.key_name_price.startswith("RewardAmount"))):
                 table_data.append({
                     "key": node.get_price_key(),
                     "value": node.current_item.base_price
@@ -145,7 +143,7 @@ def get_table_info():
         "address": 0x1D00000,
         "formations_offset": 0,
         "itemhints_offset": 0,
-        "auth_address": 0x1CFFFF0
+        "auth_address": 0x1cffff0
     }
 
     return table_info
@@ -196,8 +194,7 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions) -> li
     if options.bowser_castle_mode.value <= BowserCastleMode.option_Shortened:
         map_tracker_bits += 0x4000
     if (options.partner_upgrades.value >= PartnerUpgradeShuffle.option_Super_Block_Locations
-            and options.super_multi_blocks.value
-    ):
+            and options.super_multi_blocks.value):
         map_tracker_bits += 0x8000
 
     map_tracker_check_bits = map_tracker_bits
@@ -233,10 +230,12 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions) -> li
             #  handle options that are calculated, not yet implemented, or otherwise not changeable by the player
             match rom_option:
                 # Always turned on
-                case "BlocksMatchContent" | "FastTextSkip" | "ShuffleItems" | "RandomQuiz" | "PeachCastleReturnPipe":
+                case "BlocksMatchContent" | "FastTextSkip" | "ShuffleItems" | "RandomQuiz" \
+                     | "PeachCastleReturnPipe" | "MultiworldEnabled":
                     option_value = 1
                 # Always turned off
-                case "ChallengeMode" | "ShuffleDungeonRooms" | "ShuffleEntrancesByAll" | "MatchEntranceTypes" | "Widescreen":
+                case "ChallengeMode" | "ShuffleDungeonRooms" | "ShuffleEntrancesByAll" | "MatchEntranceTypes" \
+                     | "Widescreen" | "PawnsEnabled":
                     option_value = 0
                 # NYI, giving dungeon keys temporarily until that logic is fixed
                 case "StartingItem0" | "StartingItem1" | "StartingItem2" | "StartingItem3" | "StartingItem4":
@@ -279,8 +278,8 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions) -> li
                 # Calculated based on starting stats
                 case "StartingLevel":
                     option_value = int(options.starting_hp.value / 5 +
-                                                  options.starting_fp.value / 5 +
-                                                  options.starting_bp.value / 3) - 3
+                                       options.starting_fp.value / 5 +
+                                       options.starting_bp.value / 3) - 3
                 case "StartingMap":
                     option_value = starting_map
 
