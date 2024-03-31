@@ -3,13 +3,18 @@
 from ..data.ItemList import item_table
 
 
-# RDRAM Addresses, leave off the initial 80
+# RDRAM Addresses
 MODE_ADDRESS = 0x0A08F1  # Game Mode, checks if you're in a state to send/receive stuff
 UIR_START_ADDRESS = 0x356B00  # Unique Item Registry
 PD_START_ADDRESS = 0x10F290  # Player Data
 
+# Location data
+AREA_ADDRESS = 0x0740AB
+MAP_ADDRESS = 0x0740B1
+
 # ModByte Data
 MB_START_ADDRESS = 0x356000
+STAR_SPIRITS_COUNT = 0x356090
 ITM_RCV_SEQ = MB_START_ADDRESS + 0x134  # take 0x134 and 0x135 together as u16
 
 KEY_RECV_BUFFER = 0x358400  # takes item IDs to add to Mario's inventory as u16
@@ -25,10 +30,11 @@ GOAL_FLAG = 0x1100
 
 
 # ROM Addresses
-MAGIC_VALUE = b'PMDB'
 TABLE_ADDRESS = 0x1D00000
 AUTH_ADDRESS = 0x1D00000 - 16
 
+# ROM and RAM values
+MAGIC_VALUE = b'PMDB'
 GAME_MODE_WORLD = 4
 
 
@@ -45,11 +51,10 @@ def get_mb_address(name):
     return hex(MB_START_ADDRESS + name)
 
 
-def get_flag_value(flag_type, flag_id, bytes) -> bool:
+def get_flag_value(flag_type, flag_id, flag_bytes) -> bool:
     flag_offset = int(flag_id / 32) * 4
     flag_remainder = flag_id % 32
 
-    hex_index = (7 - int(flag_remainder / 4)) % 2
     byte_index = 3 - int(flag_remainder / 8)
     value = 2 ** (flag_remainder % 8)
 
@@ -59,15 +64,11 @@ def get_flag_value(flag_type, flag_id, bytes) -> bool:
         case "MF":
             byte_start = flag_offset + byte_index
 
-    for index, byte in enumerate(bytes):
+    for index, byte in enumerate(flag_bytes):
         if index == byte_start:
             return byte & value == value
 
     return False
-
-    # if addressvalue & value = value
-    # return bytes[byte_start] & value == value
-    # return bytes[byte_start] & value == value
 
 
 # Location (spoiler log name)                    | Flag type and ID

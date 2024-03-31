@@ -736,7 +736,8 @@ location_groups = {
     "DojoReward": [name for (name, data) in location_table.items() if data[7].startswith("Dojo")],
     "RandomBlock": [name for (name, data) in location_table.items() if data[7].startswith("RandomBlockItem")],
     "SuperBlock": [name for (name, data) in location_table.items() if "SuperBlock" in name],
-    "Gear": [name for (name, data) in location_table.items() if "BootsProxy" in data[6] or "HammerProxy" in data[6]]
+    "Gear": [name for (name, data) in location_table.items() if "BootsProxy" in data[6] or "HammerProxy" in data[6]],
+    "AutoHint": [name for (name, data) in location_table.items() if data[7].startswith("Shop")]
 }
 
 gear_locations = [
