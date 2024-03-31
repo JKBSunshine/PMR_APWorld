@@ -1,16 +1,9 @@
-import logging
-import threading
-import copy
-import functools
 import settings
 import typing
 import os
-from typing import List, AbstractSet, Union, Dict, Any  # remove when 3.8 support is dropped
-from collections import Counter, deque
-from string import printable
-from BaseClasses import (Region, Entrance, Location, Item, Tutorial,
-                         CollectionState, MultiWorld, LocationProgressType, ItemClassification as ic)
-from Options import Range, Toggle, VerifyKeys, Accessibility
+import logging
+from typing import Dict, Any
+from BaseClasses import (Tutorial, CollectionState, MultiWorld, ItemClassification as ic)
 from worlds.AutoWorld import World, WebWorld
 from . import Locations, options
 from .data.enum_types import BlockType
@@ -31,10 +24,10 @@ from .data.itemlocation_special import limited_by_item_areas
 from .data.itemlocation_replenish import replenishing_itemlocations
 from .data.LocationsList import location_table, location_groups
 from .modules.random_actor_stats import get_shuffled_chapter_difficulty
-from .data import regions
 from .Rules import set_rules
 from .modules.random_partners import get_rnd_starting_partners
-from .options import EnemyDifficulty, PaperMarioOptions, ShuffleKootFavors, PartnerUpgradeShuffle, HiddenBlockMode, GearShuffleMode
+from .options import (EnemyDifficulty, PaperMarioOptions, ShuffleKootFavors, PartnerUpgradeShuffle, HiddenBlockMode,
+                      ShuffleSuperMultiBlocks, GearShuffleMode)
 from .data.node import Node
 from .Rom import generate_output
 from Fill import fill_restrictive
@@ -44,11 +37,11 @@ from .client import PaperMarioClient  # unused but required for generic client t
 logger = logging.getLogger("Paper Mario")
 
 
-class PMSettings(settings.Group):
+class PaperMarioSettings(settings.Group):
     class RomFile(settings.UserFilePath):
-        """File name of the Paper Mario 1.0 ROM"""
+        """File name of the Paper Mario USA ROM"""
         description = "Paper Mario ROM File"
-        copy_to = "Paper Mario.z64"
+        copy_to = "Paper Mario (USA).z64"
 
     class RomStart(str):
         """
@@ -76,9 +69,6 @@ class PaperMarioWeb(WebWorld):
     tutorials = [setup]
 
 
-# all_locations = {data["name"]: loc_id for loc_id, data in Locations.location_table.items()}
-
-
 class PaperMarioWorld(World):
     """
     Paper Mario is a turn-based adventure RPG. Bowser has kidnapped Princess Peach along with her castle using the
@@ -89,9 +79,13 @@ class PaperMarioWorld(World):
     game = "Paper Mario"
     web = PaperMarioWeb()
     topology_present = True
+
     options_dataclass = PaperMarioOptions
     options = PaperMarioOptions
-    settings: typing.ClassVar[PMSettings]
+
+    settings_key = "paper_mario_settings"
+    settings: typing.ClassVar[PaperMarioSettings]
+
     item_name_to_id = {item_name: pm_data_to_ap_id(data, False) for item_name, data in item_table.items()}
     location_name_to_id = location_name_to_id
 
@@ -109,11 +103,13 @@ class PaperMarioWorld(World):
         self.placed_items = []
         self.placed_blocks = {}
 
+        self.itempool = []
+        self.pre_fill_items = []
+
         self._regions_cache = {}
         self.parser = Rule_AST_Transformer(self, self.player)
 
         self.regions = []
-        self.starting_items = Counter()
 
     @classmethod
     def stage_assert_generate(cls, multiworld: MultiWorld) -> None:
@@ -143,6 +139,8 @@ class PaperMarioWorld(World):
                   or self.start_with_bombette.value or self.options.start_with_parakarry.value
                   or self.options.start_with_bow.value or self.start_with_watt.value
                   or self.options.start_with_sushie.value or self.options.start_with_lakilester.value):
+            logging.warning(f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) did not select a "
+                            f"starting partner and will be given one at random.")
             self.options.start_random_partners.value = True
 
         # swap mins and maxes so the min isn't bigger than the max
@@ -180,10 +178,10 @@ class PaperMarioWorld(World):
         if not self.options.require_specific_spirits.value:
             self.options.limit_chapter_logic.value = False
 
-        # shuffle blocks if necessary
-        # place blocks if not done already
+        # determine what blocks are what, shuffling if needed and setting them up to be used as locations
         if not self.placed_blocks:
-            self.placed_blocks = get_block_placement(self.options.super_multi_blocks.value,
+            self.placed_blocks = get_block_placement(self.options.super_multi_blocks.value ==
+                                                     ShuffleSuperMultiBlocks.option_true,
                                                      self.options.partner_upgrades.value >=
                                                      PartnerUpgradeShuffle.option_Super_Block_Locations)
 
@@ -198,7 +196,7 @@ class PaperMarioWorld(World):
         for file in pkg_resources.resource_listdir(__name__, "data/regions"):
             if not pkg_resources.resource_isdir(__name__, "data/regions/" + file):
                 self.load_regions_from_json(data_path("regions", file))
-        start.connect(self.get_region("Gate District Mario's House Pipe"))
+        start.connect(self.get_region("Gate District Mario's House Pipe"))  # TODO Set based on setting
 
         self.parser.create_delayed_rules()
 
@@ -208,6 +206,9 @@ class PaperMarioWorld(World):
                 exit.connect(self.get_region(exit.vanilla_connected_region))
 
     def create_items(self) -> None:
+        # This checks what locations are being included, gets those items, places non-shuffled items,
+        # adds any desired beta items and badges, ensures we have the correct number of items by removing coins or
+        # adding Tayce T items, and randomizes the consumables pool according to the player's settings.
         generate_itempool(self)
 
         # Starting inventory
@@ -236,9 +237,10 @@ class PaperMarioWorld(World):
         if self.options.start_with_lakilester.value:
             self.multiworld.push_precollected(self.create_item("Lakilester"))
 
+        # remove prefill items from item pool to be randomized
         self.itempool, self.pre_fill_items = self.divide_itempools()
 
-        self.multiworld.itempool += self.itempool
+        self.multiworld.itempool.extend(self.itempool)
 
     def set_rules(self) -> None:
         set_rules(self)
@@ -259,12 +261,6 @@ class PaperMarioWorld(World):
         if self.options.open_forest.value:
             loc = self.multiworld.get_location("Southern District Fice T. Forest Pass", self.player)
             loc.parent_region.locations.remove(loc)
-
-    def modify_multidata(self, multidata: dict):
-        import base64
-        # Replace connect name
-        multidata['connect_names'][base64.b64encode(self.auth).decode("ascii")] = multidata['connect_names'][
-            self.multiworld.player_name[self.player]]
 
     def load_regions_from_json(self, file_path):
         region_json = read_json(file_path)
@@ -304,7 +300,7 @@ class PaperMarioWorld(World):
                         new_location.show_in_spoiler = False
             if 'exits' in region:
                 for exit, rule in region['exits'].items():
-                    new_exit = PMEntrance(self.player, self.multiworld, '%s -> %s' % (new_region.name, exit), new_region)
+                    new_exit = PMEntrance(self.player, self.multiworld, f"{new_region.name} -> {exit}", new_region)
                     new_exit.vanilla_connected_region = exit
                     new_exit.rule_string = rule
                     self.parser.parse_spot_rule(new_exit)
@@ -319,7 +315,7 @@ class PaperMarioWorld(World):
 
     # Note on allow_arbitrary_name:
     # PM defines many helper items and event names that are treated indistinguishably from regular items,
-    #   but are only defined in the logic files. This means we need to create items for any name.
+    # but are only defined in the logic files. This means we need to create items for any name.
     # Allowing any item name to be created is dangerous in case of plando, so this is a middle ground.
     def create_item(self, name: str, allow_arbitrary_name: bool = False):
         if name in item_table:
@@ -396,7 +392,6 @@ class PaperMarioWorld(World):
             return state
 
         # Prefill required replenishable items, local key items depending on settings
-        items = self.get_pre_fill_items()
         locations = list(self.multiworld.get_unfilled_locations(self.player))
         self.multiworld.random.shuffle(locations)
 
@@ -414,7 +409,7 @@ class PaperMarioWorld(World):
             self.pre_fill_items.remove(item)
 
         locations = list(filter(lambda location: location.name in replenish_locations,
-                                             self.multiworld.get_unfilled_locations(player=self.player)))
+                                self.multiworld.get_unfilled_locations(player=self.player)))
 
         self.multiworld.random.shuffle(locations)
         fill_restrictive(self.multiworld, prefill_state(state), locations, replenish_items,
@@ -447,7 +442,7 @@ class PaperMarioWorld(World):
                                  single_player_placement=True, lock=True, allow_excluded=True)
 
         # Place dungeon key items in their own dungeon
-        if not self.options.keysanity:
+        if not self.options.keysanity.value:
             dungeon_restricted_items = {}
             for dungeon in limited_by_item_areas:
                 key_items = []
@@ -490,9 +485,13 @@ class PaperMarioWorld(World):
         return all_state
 
     def fill_slot_data(self) -> Dict[str, Any]:
-        slot_data = self.options.as_dict(
-            "power_star_hunt"
-        )
-        return slot_data
+        return {"power_star_hunt": self.options.power_star_hunt.value}
 
+    def modify_multidata(self, multidata: dict):
+        import base64
+        # Replace connect name
+        multidata['connect_names'][base64.b64encode(self.auth).decode("ascii")] = multidata['connect_names'][
+            self.multiworld.player_name[self.player]]
 
+    def get_filler_item_name(self) -> str:
+        return "Super Shroom"
