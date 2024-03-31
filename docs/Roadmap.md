@@ -2,7 +2,7 @@ This is not necessarily a strict roadmap, nor is it exhaustive of everything tha
 
 ### Necessary for Alpha
 - ~~Output of a patch file that applies the desired settings, randomized items, locations, etc.~~
-- Set up a way to communicate with an AP server for sending/receiving items.
+- ~~Set up a way to communicate with an AP server for sending/receiving items.~~
 
 ### Pre-Early Alpha
 - ~~Logic helpers to account for access rules that change depending on settings~~
@@ -32,3 +32,7 @@ This is not necessarily a strict roadmap, nor is it exhaustive of everything tha
 ### Late Alpha - Early Beta
 - Prevent Chapter 8 locations from holding too many progression items (OoT does similar with Ganon's Castle)
 - Create yaml file using PMR settings string
+- Offworld consumables
+- Item get animations
+- Offworld item sprite
+- Offworld item names and descriptions
