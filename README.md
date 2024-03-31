@@ -1,21 +1,17 @@
 # Paper Mario 64 AP World
-This is the AP World for Paper Mario 64 to be used in [Archipelago](https://archipelago.gg/). It is not yet playable. 
+This is the AP World for Paper Mario 64 to be used in [Archipelago](https://archipelago.gg/). It is in a playable, **alpha** state. Some things will work, some things will not. Things that do work might not work in a way that you would expect from a fully completed AP World. 
+
+Please report any issues you encounter in the dev-multipler channel in the Paper Mario Randomizer Discord or the Paper Mario thread in the Archipelago Discord's future game design forum. Be careful using different settings that may not be fully implemented yet, as it may result in unbeatable seeds, game crashes, or generation failures.
 
 ## Setup
 
-View the setup guide [here](https://github.com/JKBSunshine/PMR_APWorld/blob/main/docs/setup_en.md). Since the AP World is not yet playable, you cannot actually play a world created
-using this AP World. What you _can_ do is generate multiworlds and view the spoiler log to see if there are any obvious
-problems with the playthrough, or report any bugs you encounter while generating.
-
-As you can see below, there is still a fair bit of legwork to be done before this AP World is playable, so make sure to
-take note of what is and isn't implemented before reporting bugs. 
+View the setup guide [here](https://github.com/JKBSunshine/PMR_APWorld/blob/main/docs/setup_en.md). Along with general setup, it will include details on what settings should or should not be used. Before tweaking the base YAML, please refer to the setup guide to save yourself from trying a setting that isn't implemented.
 
 ## TO DO
 
 Some of these are partially implemented, some of these are mostly implemented, and some aren't even started.
 
 - Create yaml file using PMR settings string
-- Set up a way to communicate with an AP server for sending/receiving items.
 - Logic for keysanity option: false
 - Logic for gear shuffle options: vanilla and gear_locations
 - Mystery shuffle
@@ -41,4 +37,4 @@ Pronyo
 
 and can be found [here](https://github.com/icebound777/PMR-SeedGenerator). The AP World is being ported from PMR with their permission.
 
-Various AP Worlds were referenced to help port PMR, including OoT, Pokemon Emerald, Subnautica, and Kingdom Hearts 2.
+Various AP Worlds were referenced to help port PMR to Archipelago, including OoT, Pokemon Emerald, Castlevania 64, Subnautica, and Kingdom Hearts 2.
