@@ -7,6 +7,13 @@ Please report any issues you encounter in the dev-multipler channel in the Paper
 
 View the setup guide [here](https://github.com/JKBSunshine/PMR_APWorld/blob/main/docs/setup_en.md). Along with general setup, it will include details on what settings should or should not be used. Before tweaking the base YAML, please refer to the setup guide to save yourself from trying a setting that isn't implemented.
 
+## Quick Notes
+
+- Badges, consumables, and some other items are unable to be received from other players
+- Receiving items does not have any animation; items will simply appear in your inventory.
+- Off-world items that are in replenishable locations (shops, trees, bushes, etc) can be collected over and over again, but will only actually send once. Do not buy them from shops repeatedly, unless you are aiming to tip the shopkeeper.
+- Refer to the PMR Wiki for help for Paper Mario Randomizer, such as commonly missed locations, general tips, and more.
+  
 ## TO DO
 
 Some of these are partially implemented, some of these are mostly implemented, and some aren't even started.
