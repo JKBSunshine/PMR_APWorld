@@ -9,7 +9,7 @@
 
 ## Add the Paper Mario AP World to your Archipelago install
 Extract the zip file in the worlds folder of your Archipelago install. 
-This is generally found at C:\ProgramData\Archipelago\lib\worlds. Most AP Worlds are able to use a .apworld file extension, but some require the actual folder to exist; this is one of them, at least for now.
+This is generally found at C:\ProgramData\Archipelago\lib\worlds. Most AP Worlds are able to use a .apworld file extension, but some require the actual folder to exist; this is one of them. After extracting, you should be able to see a folder titled "papermario" alongside other worlds with folders.
 
 ## Creating a YAML file
 - Option A: Run ArchipelagoLauncher.exe (found in the base Archipelago folder) and click Generate Template Settings to generate a 
