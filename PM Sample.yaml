@@ -6,13 +6,15 @@ Paper Mario:
     # Values with spaces in them must use underscores
 
     # Some settings and options are not yet implemented, and will not successfully generate. These will be marked (NYI).
+    # Changing settings with this marks at the moment will at worst break generation, and at best change nothing. Probably.
     # Many settings do not affect logic or generation in any way and will only be relevant when an actual file gets created. These will be marked (NLA).
-    # Changing settings with either marks at the moment will at worst break generation, and at best change nothing.
+    # Changing these settings is usually fine, just don't be too surprised if they don't work. If you have generation issues or crash issues, leave them as is to ensure they aren't the cause.
+    
 
     # Items
     keysanity: True                         # Other options: False (NYI)
     shuffle_hidden_panels: False            # Other options: True
-    gear_shuffle_mode: vanilla              # Other options: gear_location_shuffle, full_shuffle
+    gear_shuffle_mode: full_shuffle         # Other options: gear_location_shuffle, vanilla
     trading_events: False                   # Other options: True
     koot_favors: vanilla                    # Other options: shuffle_rewards, full_shuffle
     koot_coins: False                       # Other options: True
@@ -27,10 +29,11 @@ Paper Mario:
     rowf_items: True                        # Other options: False
     merlow_items: False                     # Other options: True
     cheato_items: 6                         # Other options: 0 to 11
+    local_consumables: 100                  # Other options: 0 to 100 (NYI) Leave this alone, receiving consumables from others not working currently
 
     # Partner
     partners: True                          # Other options: False
-    partners_always_usable: False           # Other options: True (NYI)
+    partners_always_usable: False           # Other options: True
     start_random_partners: False            # Other options: True
     min_start_partners: 1                   # Other options: 1-8
     max_start_partners: 1                   # Other options: 1-8
@@ -48,11 +51,12 @@ Paper Mario:
     badge_fp_shuffle: vanilla               # Other options: balanced_random, shuffled, fully_random
     partner_fp_shuffle: vanilla             # Other options: balanced_random, shuffled, fully_random
     sp_shuffle: vanilla                     # Other options: balanced_random, shuffled, fully_random
-    mystery_shuffle: vanilla                # Other options: random_pick (NLA), random_per_use (NLA)
-    formation_shuffle: False                # Other options: True (NLA)
+    mystery_shuffle: vanilla                # Other options: random_pick (NYI), random_per_use (NYI)
+    formation_shuffle: False                # Other options: True (NYI)
+    random_puzzles: False                   # Other options: True (NYI)
 
     # General Difficulty
-    enemy_difficulty: vanilla               # Other options: shuffle_chapter_difficulty, progressive_scaling (NLA)
+    enemy_difficulty: vanilla               # Other options: shuffle_chapter_difficulty (NYI), progressive_scaling (NYI); these should work, but I had a crash on them once and haven't looked into them again yet
     enemy_damage: Normal                    # Other options: double_pain, quadruple_pain (NLA)
     cap_enemy_xp: False                     # Other options: True (NLA)
     enemy_xp_multiplier: 2                  # Other options: 0-4 (entered multiplier is divided by 2 for the actual value in game)
@@ -62,8 +66,8 @@ Paper Mario:
     one_hit_ko: False                       # Other options: True (NLA)
     drop_star_points: False                 # Other options: True (NLA)
     badge_synergy: False                    # Other options: True (NLA)
-    merlow_rewards_pricing: vanilla         # Other options: cheap (NYI)
-    star_spirits_required: 7                # Other options: 0-7 (NYI)
+    merlow_rewards_pricing: vanilla         # Other options: cheap
+    star_spirits_required: 7                # Other options: 0-7
     require_specific_spirits: False         # Other options: True (NYI)
     limit_chapter_logic: False              # Other options: True (NYI)
 
@@ -80,14 +84,14 @@ Paper Mario:
     max_start_items: 0                      # Other options: 0-10 (NYI)
 
     # Item Pool
-    consumable_item_pool: vanilla           # Other options: fully_random (NYI), balanced_random (NYI), mystery_only (NYI)
+    consumable_item_pool: vanilla           # Other options: fully_random, balanced_random, mystery_only
     consumable_item_quality: 100            # Other options: 25-125
     item_traps: No_Traps                    # Other options: sparse (NYI), moderate (NYI), plenty (NYI)
     item_pouches: False                     # Other options: True
     unused_badge_dupes: False               # Other options: True
     beta_items: False                       # Other options: True
     progressive_badges: False               # Other options: True
-    badge_pool_limit: 128                   # Other options: 0-128
+    badge_pool_limit: 128                   # Other options: 0-128 (NYI)
 
     # World Settings
     starting_map: Toad_Town                 # Other options: goomba_village (NYI), dry_dry_outpost (NYI), yoshi_village (NYI)
@@ -122,22 +126,22 @@ Paper Mario:
     skip_epilogue: True                     # Other options: False (NLA)
 
     # Cosmetics
-    mario_palette: Default                  # Other options: [A lot of 'em] (NLA)
-    goombario_palette: Default              # Other options: [A lot of 'em] (NLA)
-    kooper_palette: Default                 # Other options: [A lot of 'em] (NLA)
-    bombette_palette: Default               # Other options: [A lot of 'em] (NLA)
-    parakarry_palette: Default              # Other options: [A lot of 'em] (NLA)
-    bow_palette: Default                    # Other options: [A lot of 'em] (NLA)
-    watt_palette: Default                   # Other options: [A lot of 'em] (NLA)
-    sushie_palette: Default                 # Other options: [A lot of 'em] (NLA)
-    lakilester_palette: Default             # Other options: [A lot of 'em] (NLA)
-    boss_palette: Default                   # Other options: random_pick (NLA), random_pick_no_vanilla (NLA), random_on_every_load (NLA)
-    npc_palette: Default                    # Other options: random_pick (NLA), random_pick_no_vanilla (NLA), random_on_every_load (NLA)
-    enemy_palette: Default                  # Other options: random_pick (NLA), random_pick_no_vanilla (NLA), random_on_every_load (NLA)
-    hammer_palette: Default                 # Other options: random_pick (NLA), random_pick_no_vanilla (NLA), random_on_every_load (NLA)
-    status_menu_palette: Default            # Other options: [A lot of 'em] (NLA)
-    coin_palette: Default                   # Other options: [A lot of 'em] (NLA)
-    random_text: False                      # Other options: True (NLA)
+    mario_palette: Default                  # Other options: [A lot of 'em] (NLA), random_pick_no_vanilla seems to work
+    goombario_palette: Default              # Other options: [A lot of 'em] (NLA), random_pick_no_vanilla seems to work
+    kooper_palette: Default                 # Other options: [A lot of 'em] (NLA), random_pick_no_vanilla seems to work
+    bombette_palette: Default               # Other options: [A lot of 'em] (NLA), random_pick_no_vanilla seems to work
+    parakarry_palette: Default              # Other options: [A lot of 'em] (NLA), random_pick_no_vanilla seems to work
+    bow_palette: Default                    # Other options: [A lot of 'em] (NLA), random_pick_no_vanilla seems to work
+    watt_palette: Default                   # Other options: [A lot of 'em] (NLA), random_pick_no_vanilla seems to work
+    sushie_palette: Default                 # Other options: [A lot of 'em] (NLA), random_pick_no_vanilla seems to work
+    lakilester_palette: Default             # Other options: [A lot of 'em] (NLA), random_pick_no_vanilla seems to work
+    boss_palette: Default                   # Other options: random_pick (NLA), random_pick_no_vanilla, random_on_every_load (NLA)
+    npc_palette: Default                    # Other options: random_pick (NLA), random_pick_no_vanilla, random_on_every_load (NLA)
+    enemy_palette: Default                  # Other options: random_pick (NLA), random_pick_no_vanilla, random_on_every_load (NLA)
+    hammer_palette: Default                 # Other options: random_pick (NLA), random_pick_no_vanilla, random_on_every_load (NLA)
+    status_menu_palette: Default            # Other options: [A lot of 'em] (NYI)
+    coin_palette: Default                   # Other options: [A lot of 'em] (NYI)
+    random_text: False                      # Other options: True (NLA) 
     roman_numerals: False                   # Other options: True (NLA)
 
     # Audio
@@ -147,6 +151,7 @@ Paper Mario:
     mute_danger_beeps: True                 # Other options: False (NLA)
 
     death_link: False
+    local_items: ["Badge", "Coin"]
 description: Sample Paper Mario AP World YAML
 game: Paper Mario
 name: JKB
