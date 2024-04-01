@@ -7,7 +7,7 @@ from Options import Option, Choice, Range, DeathLink, Toggle, DefaultOnToggle, S
 from dataclasses import dataclass
 
 
-class ShuffleKeys(Toggle):
+class ShuffleKeys(DefaultOnToggle):
     """If disabled, keys can only be found in their respective dungeons"""
     display_name = "Keysanity"
 
@@ -41,6 +41,7 @@ class GearShuffleMode(Choice):
     option_Vanilla = 0
     option_Gear_Location_Shuffle = 1
     option_Full_Shuffle = 2
+    default = 2
 
 
 class ShuffleLetters(Choice):
@@ -92,7 +93,7 @@ class LogicRipCheatoItems(Range):
     default = 6
 
 
-class LogicRowfItems(Toggle):
+class LogicRowfItems(DefaultOnToggle):
     """Determines whether items sold by Rowf can be required for progression.
     He sells 4 items initially, and 3 more for each Star Spirit saved up to 16 total items.
     Note: You can talk to him and request he change his offerings."""
@@ -137,7 +138,7 @@ class LocalConsumables(Range):
 
 
 # Partners
-class ShufflePartners(Toggle):
+class ShufflePartners(DefaultOnToggle):
     """Partners are items in the item pool and you get an item where you would normally get a partner."""
     display_name = "Shuffle Partners"
 
@@ -286,7 +287,7 @@ class EnemyDifficulty(Choice):
     option_Vanilla = 0
     option_Shuffle_Chapter_Difficulty = 1
     option_Progressive_Scaling = 2
-    default = 2
+    default = 0
 
 
 class EnemyDamage(Choice):
@@ -505,7 +506,7 @@ class BadgePoolLimit(Range):
     display_name = "Badge Pool Limit"
     range_start = 0
     range_end = 128
-    default = 128
+    default = 79
 
 
 class ItemTraps(Choice):
