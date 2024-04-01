@@ -469,10 +469,11 @@ class PaperMarioWorld(World):
                                      single_player_placement=True, lock=True, allow_excluded=True)
 
         # anything remaining in pre fill items is a consumable that got selected randomly to be kept local
+        locations = self.multiworld.get_unfilled_locations(player=self.player)
+        self.multiworld.random.shuffle(locations)
         fill_restrictive(self.multiworld, prefill_state(state),
-                         self.multiworld.get_unfilled_locations(player=self.player), self.pre_fill_items,
+                         locations, self.pre_fill_items,
                          single_player_placement=True, lock=True, allow_excluded=True)
-
 
     def generate_output(self, output_directory: str):
         generate_output(self, output_directory)
