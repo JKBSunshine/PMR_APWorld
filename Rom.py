@@ -283,6 +283,7 @@ def get_filled_node_list(world):
 
         if "Shop" in cur_node.identifier:
             cur_node.current_item.base_price = get_shop_price(pm_loc,
+                                                              cur_node.current_item,
                                                               world.options.include_shops.value,
                                                               world.options.merlow_rewards_pricing.value)
 

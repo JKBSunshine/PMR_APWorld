@@ -1,11 +1,14 @@
 # modified slightly from https://github.com/icebound777/PMR-SeedGenerator/blob/main/rando_modules/random_shop_prices.py
 import random
+
+from .. import PMItem
 from ..Locations import PMLocation
 from ..options import MerlowRewardsPricing
 from BaseClasses import Item
 
 
 def get_shop_price(node: PMLocation,
+                   item: PMItem,
                    do_randomize_shops: bool,
                    merlow_cost_setting: int) -> int:
     """
@@ -59,11 +62,11 @@ def get_shop_price(node: PMLocation,
                 buy_price = 20
     else:
         # Regular Shop
-        item_type = node.item.type
+        item_type = item.type
 
         if do_randomize_shops:
             if item_type == "ITEM":
-                sell_price = node.item.base_price
+                sell_price = item.base_price
                 buy_price = round(sell_price * 1.5)
 
                 # Randomly adjust price a bit
