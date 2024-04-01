@@ -287,7 +287,7 @@ class EnemyDifficulty(Choice):
     option_Vanilla = 0
     option_Shuffle_Chapter_Difficulty = 1
     option_Progressive_Scaling = 2
-    default = 0
+    default = 2
 
 
 class EnemyDamage(Choice):
