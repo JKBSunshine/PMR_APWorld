@@ -56,7 +56,7 @@ Paper Mario:
     random_puzzles: False                   # Other options: True (NYI)
 
     # General Difficulty
-    enemy_difficulty: vanilla               # Other options: shuffle_chapter_difficulty (NYI), progressive_scaling (NYI); these should work, but I had a crash on them once and haven't looked into them again yet
+    enemy_difficulty: progressive_scaling   # Other options: shuffle_chapter_difficulty (NYI), progressive_scaling
     enemy_damage: Normal                    # Other options: double_pain, quadruple_pain (NLA)
     cap_enemy_xp: False                     # Other options: True (NLA)
     enemy_xp_multiplier: 2                  # Other options: 0-4 (entered multiplier is divided by 2 for the actual value in game)
