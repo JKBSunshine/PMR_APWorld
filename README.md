@@ -12,7 +12,7 @@ View the setup guide [here](https://github.com/JKBSunshine/PMR_APWorld/blob/main
 - Badges, consumables, and some other items are unable to be received from other players
 - Receiving items does not have any animation; items will simply appear in your inventory.
 - Off-world items that are in replenishable locations (shops, trees, bushes, etc) can be collected over and over again, but will only actually send once. Do not buy them from shops repeatedly, unless you are aiming to tip the shopkeeper.
-- Refer to the PMR Wiki for help for Paper Mario Randomizer, such as commonly missed locations, general tips, and more.
+- Refer to the [PMR Wiki](https://github.com/icebound777/PMR-SeedGenerator/wiki) for help for Paper Mario Randomizer, such as commonly missed locations, general tips, and more.
   
 ## TO DO
 
