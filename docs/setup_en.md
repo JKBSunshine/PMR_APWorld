@@ -16,7 +16,7 @@ This is generally found at C:\ProgramData\Archipelago\lib\worlds. Most AP Worlds
 template YAML file. It will open the folder of template files which you can then edit to your liking.
 - Option B (recommended): Use the PM Sample.yaml file included in the Paper Mario AP World zip file (or find it [here](https://github.com/JKBSunshine/PMR_APWorld/blob/main/PM%20Sample.yaml). You may edit it to your liking. It will also tell you what settings there are and what is/isn't implemented.
 
-Note that since some settings are not yet implemented fully, not all of them will result in a successful generation. (PM Sample.YAML)[https://github.com/JKBSunshine/PMR_APWorld/blob/main/PM%20Sample.yaml] can be referred to to see what options are and are not implemented.
+Note that since some settings are not yet implemented fully, not all of them will result in a successful generation. [PM Sample.YAML](https://github.com/JKBSunshine/PMR_APWorld/blob/main/PM%20Sample.yaml) can be referred to to see what options are and are not implemented.
 
 ## Generating a Game
 Follow [the general Archipelago instructions](https://archipelago.gg/tutorial/Archipelago/setup/en#generating-a-game) for generating a game, specifically on your local installation. You cannot generate games using the Paper Mario AP World on the website.
