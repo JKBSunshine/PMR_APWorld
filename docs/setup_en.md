@@ -2,28 +2,31 @@
 ## Required Software
 
 - [Archipelago](https://github.com/ArchipelagoMW/Archipelago/releases) v0.4.4 or higher. Make sure to install the
-  Generator. 
+  Generator. You will not be able to generate games with Paper Mario on the Archipelago site, only locally.
 - [The Paper Mario AP World](https://github.com/JKBSunshine/PMR_APWorld/tree/main). To download it, click Code and then Download ZIP.
-  - (Later this will be a release with a proper .apworld extension, but there's no point to that just yet.)
-- A legally obtained Paper Mario ROM, with the latest base rando patch applied to it. The patch file can typically be found in the [PMR GitHub](https://github.com/icebound777/PMR-SeedGenerator/tree/main/res)
+- A legally obtained, vanilla Paper Mario ROM.
+- [BizHawk](https://tasvideos.org/BizHawk/ReleaseHistory) 2.7 or later
 
-## Steps
-1. Extract the zip file in the worlds folder of your Archipelago install. 
-This is generally found at C:\ProgramData\Archipelago\lib\worlds
-2. Run ArchipelagoLauncher.exe (found in the base Archipelago folder) and click Generate Template Settings to generate a 
-template YAML file. It will open the folder of template files which you can then edit to your liking. 
-You may also instead use the PM Sample.yaml file included in the Paper Mario AP World zip file.
-3. After filling out your YAML, save it in the Players folder (found in the base Archipelago folder), 
-along with any other yaml files you wish to include in the multiworld. 
-4. Run ArchipelagoLauncher.exe again and click Generate, or just run ArchipelagoGenerate.exe.
-5. The first time you generate, you will be asked for the location of your modded Paper Mario ROM file. 
-6. After it is done generating, you can go to the output folder (found in the base Archipelago folder) 
-to view the zip file, which contains the spoiler log, the patched rom, and an Archipelago server file 
-(and any files that other games included in the multiworld might have generated). 
+## Add the Paper Mario AP World to your Archipelago install
+Extract the zip file in the worlds folder of your Archipelago install. 
+This is generally found at C:\ProgramData\Archipelago\lib\worlds. Most AP Worlds are able to use a .apworld file extension, but some require the actual folder to exist; this is one of them, at least for now.
 
-Note that since some settings are not yet implemented fully, not all of them will result in a successful generation. 
-Refer to the To Do section in the main ReadMe to see if a setting is not yet implemented.
+## Creating a YAML file
+- Option A: Run ArchipelagoLauncher.exe (found in the base Archipelago folder) and click Generate Template Settings to generate a 
+template YAML file. It will open the folder of template files which you can then edit to your liking.
+- Option B (recommended): Use the PM Sample.yaml file included in the Paper Mario AP World zip file (or find it [here](https://github.com/JKBSunshine/PMR_APWorld/blob/main/PM%20Sample.yaml). You may edit it to your liking. It will also tell you what settings there are and what is/isn't implemented.
 
-At this time, it can successfully patch a modded rom into a playable solo seed. I have not yet done excessive testing to check for crashes, unbeatable seeds, or anything else. It's very possible that certain workarounds implemented to help get to this point will make it impossible to beat the game for technical or logical reasons; please report these if you find any. 
+Note that since some settings are not yet implemented fully, not all of them will result in a successful generation. PM Sample.yaml can be referred to to see what options are and are not implemented.
 
-One such workaround involves dungeon keys that you collect having X icons and not working on doors; as a temporary measure, you start the game with all of those dungeon keys which are usable, though it will only be in logic to use as many of the aforementioned X keys as you have. Try to be mindful to not use more keys than you have found so that you can more accurately test seeds.
+## Generating a Game
+Follow [the general Archipelago instructions](https://archipelago.gg/tutorial/Archipelago/setup/en#generating-a-game) for generating a game, specifically on your local installation. You cannot generate games using the Paper Mario AP World on the website.
+
+## Hosting a Game
+Follow [the general Archipelago instructions](https://archipelago.gg/tutorial/Archipelago/setup/en#hosting-an-archipelago-server) for hosting an Archipelago server. You _can_ host games that use the Paper Mario AP World on the website, or you can host it locally.
+
+## Connecting to an Archipelago Server
+1. Obtain your .appm64 file from whoever is hosting the game. These files will not upload to the website even if it is hosted there, so you will have to send/receive them elsewhere.
+2. Once you have obtained your .appm64 patch file, simply double click it or open it. If this is your first time opening the patch file, you will be prompted to locate your vanilla ROM. You will also be prompted to locate your BizHawk client, which is named EmuHawk.exe in your BizHawk install. A patched .z64 file will be created in the same place as the patch file.
+3. Once the patch file has been created, BizHawk should start up automatically with the patched ROM. The Generic BizHawk Client for Archipelago will also open, as well as a Lua Console window. At this point all you need to do to connect is enter your room's address and port (e.g. archipelago.gg:38281) into the top text field of the client and click Connect.
+
+You should now be able to receive and send items. You'll need to do these steps every time you want to reconnect. It is perfectly safe to make progress offline; everything will re-sync when you reconnect.
