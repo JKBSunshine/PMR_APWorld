@@ -151,7 +151,7 @@ Paper Mario:
     mute_danger_beeps: True                 # Other options: False (NLA)
 
     death_link: False
-    local_items: ["Badge", "Coin"]
+    local_items: ["Badge", "Coin"]          # Keep these included to prevent crashes 
 description: Sample Paper Mario AP World YAML
 game: Paper Mario
 name: JKB
