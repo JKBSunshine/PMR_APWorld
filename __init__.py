@@ -105,6 +105,7 @@ class PaperMarioWorld(World):
 
         self.itempool = []
         self.pre_fill_items = []
+        self.dungeon_restricted_items = {}
 
         self._regions_cache = {}
         self.parser = Rule_AST_Transformer(self, self.player)
@@ -238,7 +239,7 @@ class PaperMarioWorld(World):
             self.multiworld.push_precollected(self.create_item("Lakilester"))
 
         # remove prefill items from item pool to be randomized
-        self.itempool, self.pre_fill_items = self.divide_itempools()
+        self.itempool, self.pre_fill_items, self.dungeon_restricted_items = self.divide_itempools()
 
         self.multiworld.itempool.extend(self.itempool)
 
@@ -350,7 +351,7 @@ class PaperMarioWorld(World):
                     for item in itemlist:
                         assert item not in dungeon_restricted_items
                         dungeon_restricted_items[item] = dungeon
-                        prefill_item_names.append(item.name)
+                        prefill_item_names.append(item)
 
         # gear items shuffled among gear locations
         if self.options.gear_shuffle_mode.value == GearShuffleMode.option_Gear_Location_Shuffle:
@@ -383,7 +384,7 @@ class PaperMarioWorld(World):
                 else:
                     main_items.append(item)
 
-        return main_items, prefill_items
+        return main_items, prefill_items, dungeon_restricted_items
 
     # handle player-specific stuff like cosmetics, audio, enemy stats, etc.
 
@@ -453,17 +454,25 @@ class PaperMarioWorld(World):
 
         # Place dungeon key items in their own dungeon
         if not self.options.keysanity.value:
-            dungeon_restricted_items = {}
             for dungeon in limited_by_item_areas:
-                key_items = []
-                locations = [name for name, data in location_table.items() if data[0][:3] == dungeon]
-                for itemlist in limited_by_item_areas[dungeon].values():
-                    for item in itemlist:
-                        assert item not in dungeon_restricted_items
-                        dungeon_restricted_items[item] = dungeon
-                        key_items.append(item)
-                        self.pre_fill_items.remove(item)
+                # get key items for this dungeon
+                key_names = list(filter(lambda item: self.dungeon_restricted_items[item] == dungeon,
+                                        self.dungeon_restricted_items.keys()))
+                key_items = list(filter(lambda item: item.name in key_names,
+                                        self.pre_fill_items))
+
+                # get locations for this dungeon
+                dungeon_locations = [name for name, data in location_table.items() if data[0][:3] == dungeon]
+
+                # remove edge case location since it isn't actually in the dungeon
+                if "Fortress Exterior Chest On Ledge" in dungeon_locations:
+                    dungeon_locations.remove("Fortress Exterior Chest On Ledge")
+
+                locations = list(filter(lambda location: location.name in dungeon_locations,
+                                        self.multiworld.get_unfilled_locations(player=self.player)))
                 if isinstance(locations, list):
+                    for item in key_items:
+                        self.pre_fill_items.remove(item)
                     self.multiworld.random.shuffle(locations)
                     fill_restrictive(self.multiworld, prefill_state(state), locations, key_items,
                                      single_player_placement=True, lock=True, allow_excluded=True)
