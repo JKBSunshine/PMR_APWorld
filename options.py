@@ -1046,7 +1046,7 @@ class PaperMarioOptions(PerGameCommonOptions):
     # Quality of Life Settings
     hidden_block_mode: HiddenBlockMode
     prevent_ooblzs: PreventOOBLZS
-    skip_quiz: SkipEpilogue
+    skip_quiz: SkipQuiz
     quizmo_always_appears: QuizmoAlwaysAppears
     visible_hidden_panels: VisibleHiddenPanels
     always_speedy_spin: AlwaysSpeedySpin
