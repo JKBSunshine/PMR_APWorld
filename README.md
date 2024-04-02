@@ -19,7 +19,6 @@ View the setup guide [here.](https://github.com/JKBSunshine/PMR_APWorld/blob/mai
 Some of these are partially implemented, some of these are mostly implemented, and some aren't even started.
 
 - Create yaml file using PMR settings string
-- Logic for keysanity option: false
 - Logic for gear shuffle options: vanilla and gear_locations
 - Mystery shuffle
 - Formation shuffle
