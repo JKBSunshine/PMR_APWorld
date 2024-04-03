@@ -107,7 +107,7 @@
     "map_id": "16",
     "map_name": "(East) Old Well",
     "locations": {
-      "(East) Old Well Well Reward": "Blue_Berry"
+      "(East) Old Well Well Reward": "BlueBerryProxy1"
     },
     "exits": {
       "(East) Petunia's Field": "True"
@@ -266,7 +266,11 @@
     "map_name": "(West) Maze",
     "exits": {
       "(West) Path to Maze West": "True",
-      "(West) Maze West": "Boots"
+      "(West) Maze Pipe 1": "Boots",
+      "(West) Maze Pipe 2": "Boots",
+      "(West) Maze Pipe 3": "Boots",
+      "(West) Maze Pipe 4": "Boots",
+      "(West) Maze Pipe 5": "Boots"
     }
   },
   {
