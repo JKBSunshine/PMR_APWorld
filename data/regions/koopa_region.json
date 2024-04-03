@@ -314,7 +314,7 @@
     "map_name": "Path to Fortress 2",
     "exits": {
       "Path to Fortress 2": "can_use_ability_bombette",
-      "Path to Fortress 2 Upper": "can_reenter_vertical_pipes"
+      "Path to Fortress 2 Upper Pipe": "can_reenter_vertical_pipes"
     }
   },
   {
