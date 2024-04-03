@@ -47,7 +47,7 @@
     "map_id": "0",
     "map_name": "Mt Rugged 1",
     "locations": {
-      "Mt Rugged 1 Hurting Whacka": "'RF_Missable' and (Hammer or can_use_ability_bombette)",
+      "Mt Rugged 1 Hurting Whacka": "Hammer or can_use_ability_bombette",
       "Mt Rugged 1 Yellow Block": "can_hit_floating_blocks"
     },
     "exits": {
@@ -192,7 +192,7 @@
     "map_id": "5",
     "map_name": "Train Station",
     "locations": {
-      "Train Station Parakarry Partner": "(Letters, 3)",
+      "Train Station Parakarry Partner": "(Letter, 3)",
       "Train Station In SuperBlock": "Super_Hammer and can_hit_floating_blocks"
     },
     "exits": {

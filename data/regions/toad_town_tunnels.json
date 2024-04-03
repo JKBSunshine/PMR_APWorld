@@ -299,17 +299,17 @@
     "map_id": "12",
     "map_name": "Rip Cheato's Home (B3)",
     "locations": {
-      "Rip Cheato's Home (B3) Rip Cheato Offer 1": "cheato_items >= 1",
-      "Rip Cheato's Home (B3) Rip Cheato Offer 2": "cheato_items >= 2",
-      "Rip Cheato's Home (B3) Rip Cheato Offer 3": "cheato_items >= 3",
-      "Rip Cheato's Home (B3) Rip Cheato Offer 4": "cheato_items >= 4",
-      "Rip Cheato's Home (B3) Rip Cheato Offer 5": "cheato_items >= 5",
-      "Rip Cheato's Home (B3) Rip Cheato Offer 6": "cheato_items >= 6",
-      "Rip Cheato's Home (B3) Rip Cheato Offer 7": "cheato_items >= 7",
-      "Rip Cheato's Home (B3) Rip Cheato Offer 8": "cheato_items >= 8",
-      "Rip Cheato's Home (B3) Rip Cheato Offer 9": "cheato_items >= 9",
-      "Rip Cheato's Home (B3) Rip Cheato Offer 10": "cheato_items >= 10",
-      "Rip Cheato's Home (B3) Rip Cheato Offer 11": "cheato_items >= 11"
+      "Rip Cheato's Home (B3) Rip Cheato Offer 1": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 2": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 3": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 4": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 5": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 6": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 7": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 8": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 9": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 10": "True",
+      "Rip Cheato's Home (B3) Rip Cheato Offer 11": "True"
     },
     "exits": {
       "Southern District Odd House Pipe": "True",

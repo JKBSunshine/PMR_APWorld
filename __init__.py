@@ -81,7 +81,7 @@ class PaperMarioWorld(World):
     topology_present = True
 
     options_dataclass = PaperMarioOptions
-    options = PaperMarioOptions
+    options:PaperMarioOptions
 
     settings_key = "paper_mario_settings"
     settings: typing.ClassVar[PaperMarioSettings]
@@ -424,7 +424,7 @@ class PaperMarioWorld(World):
 
         self.multiworld.random.shuffle(locations)
         fill_restrictive(self.multiworld, prefill_state(state), locations, replenish_items,
-                         single_player_placement=True, lock=True, allow_excluded=True)
+                         single_player_placement=True, lock=True, allow_excluded=False)
 
         # Place gear items in gear locations
         if self.options.gear_shuffle_mode.value == GearShuffleMode.option_Gear_Location_Shuffle:
@@ -437,7 +437,7 @@ class PaperMarioWorld(World):
                     self.pre_fill_items.remove(item)
                 self.multiworld.random.shuffle(locations)
                 fill_restrictive(self.multiworld, prefill_state(state), locations, gear_items,
-                                 single_player_placement=True, lock=True, allow_excluded=True)
+                                 single_player_placement=True, lock=True, allow_excluded=False)
 
         # Place partner upgrade items in super block turned yellow block locations
         if self.options.partner_upgrades.value == PartnerUpgradeShuffle.option_Super_Block_Locations:
@@ -450,7 +450,7 @@ class PaperMarioWorld(World):
                     self.pre_fill_items.remove(item)
                 self.multiworld.random.shuffle(locations)
                 fill_restrictive(self.multiworld, prefill_state(state), locations, upgrade_items,
-                                 single_player_placement=True, lock=True, allow_excluded=True)
+                                 single_player_placement=True, lock=True, allow_excluded=False)
 
         # Place dungeon key items in their own dungeon
         if not self.options.keysanity.value:

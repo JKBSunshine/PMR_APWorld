@@ -737,6 +737,9 @@ location_groups = {
     "RandomBlock": [name for (name, data) in location_table.items() if data[7].startswith("RandomBlockItem")],
     "SuperBlock": [name for (name, data) in location_table.items() if "SuperBlock" in name],
     "Gear": [name for (name, data) in location_table.items() if "BootsProxy" in data[6] or "HammerProxy" in data[6]],
+    "MerlowReward": [name for (name, data) in location_table.items() if data[0].startswith("HOS_06/ShopReward")],
+    "RipCheato": [name for (name, data) in location_table.items() if data[0].startswith("TIK_15/Gift")],
+    "RowfShop": [name for (name, data) in location_table.items() if data[0].startswith("MAC_01/ShopBadge")],
     "AutoHint": [name for (name, data) in location_table.items() if data[7].startswith("Shop")]
 }
 
@@ -746,4 +749,24 @@ gear_locations = [
     "Super Boots Room In Big Chest",
     "Ultra Hammer Room In Big Chest",
     "Ultra Boots Room (B3) In Big Chest"
+]
+
+
+missable_locations = [
+    "Mt Rugged 1 Hurting Whacka",  # Item can stop spawning
+    "Merluvlee's House Merlow's Badges 1",  # Merlow's badge shop requires all star pieces to complete
+    "Merluvlee's House Merlow's Badges 2",  # Instead of expecting all star pieces, exclude the locations
+    "Merluvlee's House Merlow's Badges 3",
+    "Merluvlee's House Merlow's Badges 4",
+    "Merluvlee's House Merlow's Badges 5",
+    "Merluvlee's House Merlow's Badges 6",
+    "Merluvlee's House Merlow's Badges 7",
+    "Merluvlee's House Merlow's Badges 8",
+    "Merluvlee's House Merlow's Badges 9",
+    "Merluvlee's House Merlow's Badges 10",
+    "Merluvlee's House Merlow's Badges 11",
+    "Merluvlee's House Merlow's Badges 12",
+    "Merluvlee's House Merlow's Badges 13",
+    "Merluvlee's House Merlow's Badges 14",
+    "Merluvlee's House Merlow's Badges 15",
 ]

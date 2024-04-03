@@ -5,13 +5,13 @@ from collections import namedtuple
 from itertools import chain
 from .items import PMItem
 from .data.ItemList import taycet_items, item_table, progression_miscitems, item_groups
-from .data.LocationsList import location_groups
+from .data.LocationsList import location_groups, location_table, missable_locations
 from decimal import Decimal, ROUND_HALF_UP
 from .options import *
 from .data.item_exclusion import exclude_due_to_settings, exclude_from_taycet_placement
 from .data.itemlocation_replenish import replenishing_itemlocations
 from .modules.modify_itempool import get_trapped_itempool, get_randomized_itempool
-from BaseClasses import ItemClassification as Ic
+from BaseClasses import ItemClassification as Ic, LocationProgressType
 from .data.enum_types import BlockType
 
 from typing import TYPE_CHECKING
@@ -45,6 +45,8 @@ def get_pool_core(world: "PaperMarioWorld"):
     placed_items = {}
     magical_seeds = 0
 
+    excluded_locations = missable_locations + get_locations_to_exclude(world)
+
     # remove unused items from the pool
 
     for location in world.get_locations():
@@ -56,7 +58,9 @@ def get_pool_core(world: "PaperMarioWorld"):
         itemdata = item_table[item]
         shuffle_item = True  # None for don't handle, False for place item, True for add to pool.
 
-        # Always Placed Items
+        # Excluded locations
+        if location.name in excluded_locations:
+            location.progress_type = LocationProgressType.EXCLUDED
 
         # Sometimes placed items
 
@@ -412,3 +416,22 @@ def get_items_to_exclude(world: "PaperMarioWorld") -> list:
             excluded_items.append(item_name)
 
     return excluded_items
+
+
+def get_locations_to_exclude(world: "PaperMarioWorld") -> list:
+    excluded_locations = []
+
+    if not world.options.merlow_items.value:
+        excluded_locations.extend(location_groups["MerlowReward"])
+
+    if not world.options.rowf_items.value:
+        excluded_locations.extend(location_groups["RowfShop"])
+
+    for i in range(0, 11):
+        location_name = location_groups["RipCheato"][i]
+        if location_table[location_name][5] >= world.options.cheato_items.value:
+            excluded_locations.append(location_groups["RipCheato"][i])
+
+    return excluded_locations
+
+
