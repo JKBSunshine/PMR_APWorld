@@ -1,8 +1,4 @@
 {
-    # Rules here define replacement "functions" or item aliases.
-    # The alias itself must always be alphanumeric only--string items bypass the aliasing.
-    # Rules should be simple python and can invoke other aliases or even the
-    # at/here metarules.
     "Boots": "(Boots, 1)",
     "Super_Boots": "(Boots, 2)",
     "Ultra_Boots": "(Boots, 3)",
@@ -12,17 +8,12 @@
 
     "can_flip_panels": "Ultra_Hammer or Super_Boots",
 
-    # This also applies to breaking yellow blocks, though the game never tells you that you can use Bombette
     "can_shake_trees": "Bombette or Hammer",
 
     "can_hit_grounded_blocks": "can_use_ability_bombette or can_use_ability_kooper or Super_Boots or Hammer",
     "can_hit_floating_blocks": "can_use_ability_kooper or Boots",
     "can_hit_grounded_switches": "can_use_ability_bombette or can_use_ability_kooper or Boots or Hammer or can_use_ability_parakarry",
 
-    # Steps are not literal stairs, but terrain too tall to walk up, requiring you to jump (or use Parakarry)
-    # Jumping gains more height than Parakarry, so not all 'steps' can be climbed with Parakarry
-    # Parakarry also cannot be used to go forward or back, only left or right
-    # If logic requires boots, Parakarry is likely either unable to be used there or requires overly-precise positioning
     "can_climb_steps": "Boots or can_use_ability_parakarry",
     "saved_all_yoshi_kids": "'RF_SavedYoshiKid_1' and 'RF_SavedYoshiKid_2' and 'RF_SavedYoshiKid_3' and 'RF_SavedYoshiKid_4' and 'RF_SavedYoshiKid_5'",
     "can_reenter_vertical_pipes": "can_use_ability_kooper or Boots or can_use_ability_parakarry",

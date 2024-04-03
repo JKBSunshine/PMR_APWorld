@@ -15,7 +15,7 @@ from .modules.random_palettes import get_randomized_palettes
 from .Regions import PMRegion
 from .RuleParser import Rule_AST_Transformer
 from .Entrance import PMEntrance
-from .Utils import data_path, read_json
+from .Utils import data_path, load_json_data
 from .Locations import PMLocation, location_factory, location_name_to_id
 from .ItemPool import generate_itempool
 from .items import PMItem, pm_is_item_of_type, pm_data_to_ap_id
@@ -264,8 +264,9 @@ class PaperMarioWorld(World):
             loc.parent_region.locations.remove(loc)
 
     def load_regions_from_json(self, file_path):
-        region_json = read_json(file_path)
+        region_json = load_json_data(file_path)
 
+        region: Dict[str, Any]
         for region in region_json:
             new_region = PMRegion(region['region_name'], self.player, self.multiworld)
             if 'map_id' in region:
