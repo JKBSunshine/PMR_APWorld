@@ -9,6 +9,7 @@ from .calculate_crc import recalculate_crcs
 from .RomTable import RomTable
 import os
 
+from .data.itemlocation_replenish import replenishing_itemlocations
 from .itemhints import get_itemhints
 from .modules.random_actor_stats import get_shuffled_chapter_difficulty
 from .modules.random_audio import get_randomized_audio
@@ -254,7 +255,7 @@ def generate_output(world, output_dir: str) -> None:
 
 def get_filled_node_list(world):
     placed_items = []
-
+    mw_keys = 0
     for location in world.multiworld.get_locations(world.player):
 
         if location.keyname is None:
@@ -279,7 +280,12 @@ def get_filled_node_list(world):
         if pm_loc.item.player == world.player:
             cur_node.current_item = pm_loc.item
         else:
-            cur_node.current_item = PMItem("MultiWorldItem", world.player, item_table["MultiWorldItem"], False)
+            if cur_node.identifier in replenishing_itemlocations:
+                mw_key_name = "MultiWorldKey" + f"{mw_keys:02x}".upper()
+                cur_node.current_item = PMItem("MultiWorldItem", world.player, item_table[mw_key_name], False)
+                mw_keys += 1
+            else:
+                cur_node.current_item = PMItem("MultiWorldItem", world.player, item_table["MultiWorldGeneric"], False)
 
         if "Shop" in cur_node.identifier:
             cur_node.current_item.base_price = get_shop_price(pm_loc,
