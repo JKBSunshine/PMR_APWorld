@@ -14,7 +14,7 @@ View the setup guide [here.](https://github.com/JKBSunshine/PMR_APWorld/blob/mai
 - Off-world items that are in replenishable locations (shops, trees, bushes, etc) can be collected over and over again, but will only actually send once. Do not buy them from shops repeatedly, unless you are aiming to tip the shopkeeper.
 - Refer to the [PMR Wiki](https://github.com/icebound777/PMR-SeedGenerator/wiki) for help for Paper Mario Randomizer, such as commonly missed locations, general tips, and more.
   
-## TO DO
+## TO DO from PMR
 
 Some of these are partially implemented, some of these are mostly implemented, and some aren't even started.
 
@@ -28,7 +28,7 @@ Some of these are partially implemented, some of these are mostly implemented, a
 - Limit Chapter Logic
 - Start with random items
 - Item traps
-- Entrance Randomizer
+- Dungeon Entrance Randomizer
 - Bowser Castle Mode (change entrances, remove locations)
 - Power Star Hunt (logic, items, remove locations in ch8 if skipped)
 - Prevent Chapter 8 locations from holding too many progression items (OoT does similar with Ganon's Castle)
