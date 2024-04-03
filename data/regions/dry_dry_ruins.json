@@ -314,7 +314,7 @@
     },
     "exits": {
       "Stone Puzzle Room East Lower Door": "True",
-      "Sand Drainage Room 3 B4F Ledge": "'RF_DrainedThirdSandRoomAndCanSolvePuzzle'"
+      "Sand Drainage Room 3 B4F Ledge": "'RF_DrainedThirdSandRoomAndCanSolvePuzzle' or Super_Hammer and can_climb_steps"
     }
   },
   {
@@ -341,16 +341,6 @@
     "exits": {
       "Sand Drainage Room 3 B4F East": "'RF_DrainedThirdSandRoomAndCanSolvePuzzle'",
       "Sand Drainage Room 3 B4F West": "'RF_DrainedThirdSandRoomAndCanSolvePuzzle' and can_climb_steps"
-    }
-  },
-  {
-    "region_name": "Sand Drainage Room 3 B5F",
-    "area_id": "11",
-    "map_id": "11",
-    "map_name": "Sand Drainage Room 3",
-    "exits": {
-      "Sand Drainage Room 3 B4F Ledge": "Super_Hammer and can_climb_steps",
-      "Deep Tunnel": "True"
     }
   },
   {
