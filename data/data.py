@@ -484,7 +484,7 @@ checks_table = {
     "S1 Yellow Block":                                        ("GF",   0x32B),
 
     "S1E2 Small Bluffs On Brick Block":                       ("GF",   0x343),
-    "S1E2 Small Bluffs Ontop Of Bluffs":                      ("GF",   0x344),
+    "S1E2 Small Bluffs Ontop Of Bluffs":                      ("GF",   0x342),
 
     "S1E3 North of Oasis Hidden Block":                       ("GF",   0x32D),
     "S1E3 North of Oasis Tree Bottom Left":                   ("GF",   0x34C),
@@ -498,6 +498,7 @@ checks_table = {
     "S2E3 Oasis In Fruit Tree (Right)":                       ("MF",   0x1057),
     "S2E3 Oasis In Tree (Far Left)":                          ("GF",   0x34E),
     "S2E3 Oasis In Tree (Front Right)":                       ("GF",   0x34F),
+    "S2E3 Oasis In SuperBlock":                               ("GF",   0x33D),
 
     "S3W2 Hidden AttackFX Hidden Block":                      ("GF",   0x32E),
 
