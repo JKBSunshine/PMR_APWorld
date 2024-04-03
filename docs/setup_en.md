@@ -8,13 +8,13 @@
 - [BizHawk](https://tasvideos.org/BizHawk/ReleaseHistory) 2.7 or later
 
 ## Add the Paper Mario AP World to your Archipelago install
-Extract the zip file in the worlds folder of your Archipelago install. 
-This is generally found at C:\ProgramData\Archipelago\lib\worlds. Most AP Worlds are able to use a .apworld file extension, but some require the actual folder to exist; this is one of them. After extracting, you should be able to see a folder titled "papermario" alongside other worlds with folders.
+Place the .apworld file in the worlds folder in your Archipelago install.
+This is generally found at C:\ProgramData\Archipelago\lib\worlds.
 
 ## Creating a YAML file
 - Option A: Run ArchipelagoLauncher.exe (found in the base Archipelago folder) and click Generate Template Settings to generate a 
 template YAML file. It will open the folder of template files which you can then edit to your liking.
-- Option B (recommended): Use the PM Sample.yaml file included in the Paper Mario AP World zip file (or find it [here](https://github.com/JKBSunshine/PMR_APWorld/blob/main/PM%20Sample.yaml). You may edit it to your liking. It will also tell you what settings there are and what is/isn't implemented.
+- Option B (recommended): Use the PM Sample.yaml file [here.](https://github.com/JKBSunshine/PMR_APWorld/blob/main/PM%20Sample.yaml) You may edit it to your liking. It will also tell you what settings there are and what is/isn't implemented.
 
 Note that since some settings are not yet implemented fully, not all of them will result in a successful generation. [PM Sample.YAML](https://github.com/JKBSunshine/PMR_APWorld/blob/main/PM%20Sample.yaml) can be referred to to see what options are and are not implemented.
 
