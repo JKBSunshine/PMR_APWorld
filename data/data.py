@@ -447,6 +447,7 @@ checks_table = {
 
     "N2E1 (Tweester A) Yellow Block Left":                    ("GF",   0x320),
     "N2E1 (Tweester A) Yellow Block Right":                   ("GF",   0x321),
+    "N2E1 (Tweester A) In MultiCoinBlock":                    ("GF",   0x331),
 
     "N1W3 Special Block Hit Block":                           ("GF",   0x322),
     "N1W3 Special Block Hit Block Plenty":                    ("GF",   0x323),
@@ -489,6 +490,8 @@ checks_table = {
     "S1E3 North of Oasis Hidden Block":                       ("GF",   0x32D),
     "S1E3 North of Oasis Tree Bottom Left":                   ("GF",   0x34C),
     "S1E3 North of Oasis Yellow Block":                       ("GF",   0x32C),
+
+    "S2W1 In MultiCoinBlock Top":                             ("GF", 0x335),
 
     "S2E2 West of Oasis Behind Bush":                         ("GF",   0x344),
     "S2E2 West of Oasis In Tree":                             ("GF",   0x34D),
