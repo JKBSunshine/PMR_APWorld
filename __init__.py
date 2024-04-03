@@ -137,8 +137,8 @@ class PaperMarioWorld(World):
 
         # turn on random partner if no partners were selected; debatable whether to use min/max here or set both to 1.
         elif not (self.options.start_with_goombario.value or self.options.start_with_kooper.value
-                  or self.start_with_bombette.value or self.options.start_with_parakarry.value
-                  or self.options.start_with_bow.value or self.start_with_watt.value
+                  or self.options.start_with_bombette.value or self.options.start_with_parakarry.value
+                  or self.options.start_with_bow.value or self.options.start_with_watt.value
                   or self.options.start_with_sushie.value or self.options.start_with_lakilester.value):
             logging.warning(f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) did not select a "
                             f"starting partner and will be given one at random.")
