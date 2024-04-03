@@ -478,12 +478,16 @@ class PaperMarioWorld(World):
                     fill_restrictive(self.multiworld, prefill_state(state), locations, key_items,
                                      single_player_placement=True, lock=True, allow_excluded=True)
 
-        # anything remaining in pre fill items is a consumable that got selected randomly to be kept local
+        # Anything remaining in pre fill items is a consumable that got selected randomly to be kept local
         locations = self.multiworld.get_unfilled_locations(player=self.player)
         self.multiworld.random.shuffle(locations)
-        fill_restrictive(self.multiworld, prefill_state(state),
-                         locations, self.pre_fill_items,
+        fill_restrictive(self.multiworld, prefill_state(state), locations, self.pre_fill_items,
                          single_player_placement=True, lock=True, allow_excluded=True)
+
+        # Locations with unrandomized junk should be changed to events
+        for loc in self.get_locations():
+            if loc.address is not None and not loc.show_in_spoiler:
+                loc.address = None
 
     def generate_output(self, output_directory: str):
         generate_output(self, output_directory)

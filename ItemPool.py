@@ -68,16 +68,19 @@ def get_pool_core(world: "PaperMarioWorld"):
             shuffle_item = world.options.overworld_coins.value
             if not shuffle_item:
                 location.disabled = True
+                location.show_in_spoiler = False
 
         if location.name in location_groups["BlockCoin"]:
             shuffle_item = world.options.coin_blocks.value
             if not shuffle_item:
                 location.disabled = True
+                location.show_in_spoiler = False
 
         if location.name in location_groups["FoliageCoin"]:
             shuffle_item = world.options.foliage_coins.value
             if not shuffle_item:
                 location.disabled = True
+                location.show_in_spoiler = False
 
         if location.name in location_groups["ShopItem"]:
             shuffle_item = world.options.include_shops.value
@@ -88,6 +91,7 @@ def get_pool_core(world: "PaperMarioWorld"):
             shuffle_item = world.options.shuffle_hidden_panels.value
             if not shuffle_item:
                 location.disabled = True
+                location.show_in_spoiler = False
 
         if location.name in location_groups["FavorReward"]:
             # coins get shuffled only if other rewards are also shuffled
@@ -108,12 +112,13 @@ def get_pool_core(world: "PaperMarioWorld"):
         if location.name in location_groups["LetterReward"]:
             if location.name == "Goomba Village Goompapa Letter Reward 2":
                 shuffle_item = (world.options.letter_rewards.value in [ShuffleLetters.option_Final_Letter_Chain_Reward,
-                                                                 ShuffleLetters.option_Full_Shuffle])
+                                                                       ShuffleLetters.option_Full_Shuffle])
             elif location.name in location_groups["LetterChain"]:
                 shuffle_item = (world.options.letter_rewards.value == ShuffleLetters.option_Full_Shuffle)
 
             else:
                 shuffle_item = (world.options.letter_rewards.value != ShuffleLetters.option_Vanilla)
+                location.show_in_spoiler = False
 
             if not shuffle_item:
                 location.disabled = True
@@ -153,6 +158,7 @@ def get_pool_core(world: "PaperMarioWorld"):
 
             if not shuffle_item:
                 location.disabled = True
+                location.show_in_spoiler = False
 
         if location.identifier in ["DRO_01/ShopItemB", "DRO_01/ShopItemD", "DRO_01/ShopItemE"]:
             shuffle_item = world.options.random_puzzles.value

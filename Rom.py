@@ -257,7 +257,7 @@ def get_filled_node_list(world):
 
     for location in world.multiworld.get_locations(world.player):
 
-        if location.address is None:
+        if location.keyname is None:
             continue
 
         if location.item is None:
