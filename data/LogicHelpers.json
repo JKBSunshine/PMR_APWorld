@@ -3,12 +3,12 @@
     # The alias itself must always be alphanumeric only--string items bypass the aliasing.
     # Rules should be simple python and can invoke other aliases or even the
     # at/here metarules.
-    "Boots": "BootsProxy1 or BootsProxy2 or BootsProxy3",
-    "Super_Boots": "(BootsProxy1 and BootsProxy2) or (BootsProxy1 and BootsProxy3) or (BootsProxy2 and BootsProxy3)",
-    "Ultra_Boots": "BootsProxy1 and BootsProxy2 and BootsProxy3",
-    "Hammer": "HammerProxy1 or HammerProxy2 or HammerProxy3",
-    "Super_Hammer": "(HammerProxy1 and HammerProxy2) or (HammerProxy1 and HammerProxy3) or (HammerProxy2 and HammerProxy3)",
-    "Ultra_Hammer": "HammerProxy1 and HammerProxy2 and HammerProxy3",
+    "Boots": "(Boots, 1)",
+    "Super_Boots": "(Boots, 2)",
+    "Ultra_Boots": "(Boots, 3)",
+    "Hammer": "(Hammers, 1)",
+    "Super_Hammer": "(Hammers, 2)",
+    "Ultra_Hammer": "(Hammers, 3)",
 
     "can_flip_panels": "Ultra_Hammer or Super_Boots",
 
@@ -24,9 +24,8 @@
     # Parakarry also cannot be used to go forward or back, only left or right
     # If logic requires boots, Parakarry is likely either unable to be used there or requires overly-precise positioning
     "can_climb_steps": "Boots or can_use_ability_parakarry",
-    "saved_all_yoshi_kids": "'RF_SavedYoshiKid1' and 'RF_SavedYoshiKid2' and 'RF_SavedYoshiKid3' and 'RF_SavedYoshiKid4' and 'RF_SavedYoshiKid5'",
+    "saved_all_yoshi_kids": "'RF_SavedYoshiKid_1' and 'RF_SavedYoshiKid_2' and 'RF_SavedYoshiKid_3' and 'RF_SavedYoshiKid_4' and 'RF_SavedYoshiKid_5'",
     "can_reenter_vertical_pipes": "can_use_ability_kooper or Boots or can_use_ability_parakarry",
-
 
     "can_see_hidden_blocks": "can_use_ability_watt or hidden_block_mode == 3",
     "can_reach_star_way": "('STARSPIRIT', star_spirits_required)",

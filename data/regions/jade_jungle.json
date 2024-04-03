@@ -62,7 +62,7 @@
     },
     "locations": {
       "Village Cove Hidden Panel": "can_flip_panels",
-      "Village Cove Village Leader Reward": "saved_all_yoshikids",
+      "Village Cove Village Leader Reward": "saved_all_yoshi_kids",
       "Village Cove In Palm Tree Left": "can_shake_trees",
       "Village Cove In Palm Tree Right": "can_shake_trees"
     },
@@ -82,8 +82,8 @@
       "StarPiece_JAN_8": "True"
     },
     "locations": {
-      "Village Buildings Kolorado Volcano Vase Reward": "saved_all_yoshikids and VolcanoVase and 'MF_Ch5_RescuedStarSpirit'",
-      "Village Buildings Yellow Yoshi Food Reward": "saved_all_yoshikids and 'RF_CanVisitTayceT' and 'RF_CanCook' and 'MF_Ch5_RescuedStarSpirit'",
+      "Village Buildings Kolorado Volcano Vase Reward": "saved_all_yoshi_kids and VolcanoVase and 'MF_Ch5_RescuedStarSpirit'",
+      "Village Buildings Yellow Yoshi Food Reward": "saved_all_yoshi_kids and 'RF_CanVisitTayceT' and 'RF_CanCook' and 'MF_Ch5_RescuedStarSpirit'",
       "Village Buildings Red Yoshi Kid Letter Reward": "'RF_SavedYoshiKid_3' and can_use_ability_parakarry and Letter21",
       "Village Buildings In Palm Tree": "can_shake_trees",
       "Village Buildings Shop Item 1": "can_climb_steps",
