@@ -1,0 +1,41 @@
+[
+  {
+    "region_name": "Fake Peach Hallway",
+    "area_id": "22",
+    "map_id": "20",
+    "map_name": "Fake Peach Hallway",
+    "exits": {
+      "Riding Star Ship Scene": "True",
+      "Guard Door 3": "(Boots or Hammer or can_use_ability_kooper or can_use_ability_bombette)"
+    }
+  },
+  {
+    "region_name": "Guard Door 3",
+    "area_id": "22",
+    "map_id": "28",
+    "map_name": "Guard Door 3",
+    "exits": {
+      "Fake Peach Hallway": "True",
+      "Exit to Peach's Castle": "True"
+    }
+  },
+  {
+    "region_name": "Exit to Peach's Castle",
+    "area_id": "22",
+    "map_id": "46",
+    "map_name": "Exit to Peach's Castle",
+    "exits": {
+      "Guard Door 3": "True",
+      "Hijacked Castle Entrance": "True"
+    }
+  },
+  {
+    "region_name": "Ship Enter/Exit Scenes",
+    "area_id": "22",
+    "map_id": "21",
+    "map_name": "Ship Enter/Exit Scenes",
+    "exits": {
+      "Riding Star Ship Scene": "True"
+    }
+  }
+]

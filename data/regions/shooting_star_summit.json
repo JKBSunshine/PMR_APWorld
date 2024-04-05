@@ -159,7 +159,8 @@
     "map_name": "Riding Star Ship Scene",
     "exits": {
       "Star Sanctuary Starship": "True",
-      "Ship Enter/Exit Scenes": "True"
+      "Ship Enter/Exit Scenes": "bowser_castle_mode < 2",
+      "Fake Peach Hallway": "bowser_castle_mode == 2"
     }
   }
 ]

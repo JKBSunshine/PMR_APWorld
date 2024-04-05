@@ -199,8 +199,6 @@ def generate_output(world, output_dir: str) -> None:
                                                   world.options.enemy_difficulty.value ==
                                                   EnemyDifficulty.option_Progressive_Scaling)
 
-    entrance_list = []
-
     # Coin palette values
     coin_palette_data, coin_palette_targets, coin_palette_crcs = (
         get_randomized_coinpalette(world.options.coin_palette.value))
@@ -237,7 +235,7 @@ def generate_output(world, output_dir: str) -> None:
                 world=world,
                 placed_items=placed_items,
                 placed_blocks=world.placed_blocks,
-                entrance_list=entrance_list,
+                entrance_list=world.entrance_list,
                 enemy_stats=enemy_stats,
                 battle_formations=battle_formations,
                 move_costs=move_costs,

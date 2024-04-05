@@ -8,6 +8,7 @@ from worlds.AutoWorld import World, WebWorld
 from . import Locations, options
 from .data.enum_types import BlockType
 from .data.maparea import MapArea
+from .modules.modify_entrances import get_bowser_rush_pairs, get_bowser_shortened_pairs
 from .modules.random_audio import get_randomized_audio
 from .modules.random_map_mirroring import get_mirrored_map_list
 from .modules.random_movecosts import get_randomized_moves
@@ -27,7 +28,7 @@ from .modules.random_actor_stats import get_shuffled_chapter_difficulty
 from .Rules import set_rules
 from .modules.random_partners import get_rnd_starting_partners
 from .options import (EnemyDifficulty, PaperMarioOptions, ShuffleKootFavors, PartnerUpgradeShuffle, HiddenBlockMode,
-                      ShuffleSuperMultiBlocks, GearShuffleMode, StartingMap)
+                      ShuffleSuperMultiBlocks, GearShuffleMode, StartingMap, BowserCastleMode)
 from .data.node import Node
 from .data.starting_maps import starting_maps
 from .Rom import generate_output
@@ -103,6 +104,7 @@ class PaperMarioWorld(World):
         # For generation
         self.placed_items = []
         self.placed_blocks = {}
+        self.entrance_list = []
 
         self.itempool = []
         self.pre_fill_items = []
@@ -187,6 +189,7 @@ class PaperMarioWorld(World):
                                                      self.options.partner_upgrades.value >=
                                                      PartnerUpgradeShuffle.option_Super_Block_Locations)
 
+
     def create_regions(self) -> None:
         # Create base regions
         menu = PMRegion("Menu", self.player, self.multiworld)
@@ -197,7 +200,16 @@ class PaperMarioWorld(World):
         # Load region json files
         for file in pkg_resources.resource_listdir(__name__, "data/regions"):
             if not pkg_resources.resource_isdir(__name__, "data/regions/" + file):
-                self.load_regions_from_json(data_path("regions", file))
+                readfile = True
+                if file == "bowser's_castle.json":
+                    readfile = self.options.bowser_castle_mode.value == BowserCastleMode.option_Vanilla
+                elif file == "bowser's_castle_shortened.json":
+                    readfile = self.options.bowser_castle_mode.value == BowserCastleMode.option_Shortened
+                elif file == "bowser's_castle_boss_rush.json":
+                    readfile = self.options.bowser_castle_mode.value == BowserCastleMode.option_Boss_Rush
+
+                if readfile:
+                    self.load_regions_from_json(data_path("regions", file))
 
         # Connect start to chosen starting map
         start.connect(self.get_region(starting_maps[self.options.starting_map.value][1]))
@@ -208,6 +220,12 @@ class PaperMarioWorld(World):
         for region in self.regions:
             for exit in region.exits:
                 exit.connect(self.get_region(exit.vanilla_connected_region))
+
+        # handle any changed entrances
+        if self.options.bowser_castle_mode.value == BowserCastleMode.option_Boss_Rush:
+            self.entrance_list = get_bowser_rush_pairs()
+        elif self.options.bowser_castle_mode.value == BowserCastleMode.option_Shortened:
+            self.entrance_list = get_bowser_shortened_pairs()
 
     def create_items(self) -> None:
         # This checks what locations are being included, gets those items, places non-shuffled items,
