@@ -22,8 +22,6 @@ if TYPE_CHECKING:
 def generate_itempool(pm_world):
     world = pm_world.multiworld
     player = pm_world.player
-    global random
-    random = world.random
 
     (pool, placed_items) = get_pool_core(pm_world)
     pm_world.itempool = [pm_world.create_item(item) for item in pool]
@@ -33,7 +31,6 @@ def generate_itempool(pm_world):
 
 
 def get_pool_core(world: "PaperMarioWorld"):
-    global random
 
     pool_misc_progression_items = []
     pool_other_items = []
@@ -45,6 +42,7 @@ def get_pool_core(world: "PaperMarioWorld"):
     placed_items = {}
     magical_seeds = 0
 
+    # Exclude locations that are either missable or are going to be considered not in logic based on settings
     excluded_locations = missable_locations + get_locations_to_exclude(world)
 
     # remove unused items from the pool
@@ -172,7 +170,8 @@ def get_pool_core(world: "PaperMarioWorld"):
             if (location.name == "Jr. Troopa's Playground In Hammer Bush" and
                     (world.options.gear_shuffle_mode.value == GearShuffleMode.option_Gear_Location_Shuffle) and
                     (world.options.starting_hammer.value != StartingHammer.option_Hammerless)):
-                pool_progression_items.append(_get_random_taycet_item())
+                pool_progression_items.append(world.random.choice([x for x in taycet_items
+                                                                   if x not in exclude_from_taycet_placement]))
 
             # progression items are shuffled; include gear and star pieces from rip cheato
             elif (itemdata[1] == Ic.progression or itemdata[0] == "GEAR" or
@@ -273,7 +272,7 @@ def get_pool_core(world: "PaperMarioWorld"):
     # If we have set a badge pool limit and exceed that, remove random badges
     # until that condition is satisfied
     if len(pool_badges) > world.options.badge_pool_limit.value:
-        random.shuffle(pool_badges)
+        world.random.shuffle(pool_badges)
         while len(pool_badges) > world.options.badge_pool_limit.value:
             pool_badges.pop()
 
@@ -289,12 +288,13 @@ def get_pool_core(world: "PaperMarioWorld"):
 
     # add random tayce t items if we need to add items for some reason
     while target_itempool_size > cur_itempool_size:
-        pool_illogical_consumables.append(_get_random_taycet_item())
+        pool_illogical_consumables.append(world.random.choice([x for x in taycet_items
+                                                               if x not in exclude_from_taycet_placement]))
         cur_itempool_size += 1
 
     # remove coins first, then consumables if we need to keep going
     if target_itempool_size < cur_itempool_size:
-        random.shuffle(pool_illogical_consumables)
+        world.random.shuffle(pool_illogical_consumables)
         while target_itempool_size < cur_itempool_size:
             if len(pool_coins_only) > 20:
                 trashable_items = pool_coins_only
@@ -334,14 +334,6 @@ def get_pool_core(world: "PaperMarioWorld"):
     pool.extend(pool_misc_progression_items)
 
     return pool, placed_items
-
-
-def _get_random_taycet_item():
-    """
-    Randomly pick a Tayce T. item object chosen out of all allowed Tayce T.
-    items.
-    """
-    return random.choice([x for x in taycet_items if x not in exclude_from_taycet_placement])
 
 
 def get_items_to_exclude(world: "PaperMarioWorld") -> list:
