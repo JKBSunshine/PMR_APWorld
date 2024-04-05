@@ -83,7 +83,8 @@ class PaperMarioClient(BizHawkClient):
                     item_id = (next_item.item - item_id_prefix) << 16
                     await bizhawk.guarded_write(ctx.bizhawk_ctx,
                                                 [(KEY_RECV_BUFFER, item_id.to_bytes(4, "big"), "RDRAM")],
-                                                [(KEY_RECV_BUFFER, [0x00], "RDRAM")])
+                                                [(KEY_RECV_BUFFER, [0x00], "RDRAM"),
+                                                 (ITM_RCV_SEQ, read_state[3], "RDRAM")])
 
                 # SEND ITEMS
                 mf_bytes = bytearray(mod_flags)
