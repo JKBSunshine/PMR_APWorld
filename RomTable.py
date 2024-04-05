@@ -5,6 +5,7 @@ from .modules.random_blocks import get_block_key
 from .options import (EnemyDamage, PaperMarioOptions, PartnerUpgradeShuffle, ShuffleKootFavors, ShuffleLetters,
                       BowserCastleMode)
 from .data.MysteryOptions import MysteryOptions
+from .data.starting_maps import starting_maps
 
 
 class RomTable:
@@ -220,9 +221,6 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions) -> li
         case 6:
             menu_color_a, menu_color_b = 0xC0C0C0FF, 0x404040FF
 
-    # starting map
-    starting_map = 0x00010104
-
     for rom_option, ap_option in ap_to_rom_option_table.items():
         option_key = get_db_key(rom_option)
         option_value = -1
@@ -281,7 +279,7 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions) -> li
                                        options.starting_fp.value / 5 +
                                        options.starting_bp.value / 3) - 3
                 case "StartingMap":
-                    option_value = starting_map
+                    option_value = starting_maps[options.starting_map.value][0]
 
         else:
             option_value = getattr(options, ap_option).value

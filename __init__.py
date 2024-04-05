@@ -27,8 +27,9 @@ from .modules.random_actor_stats import get_shuffled_chapter_difficulty
 from .Rules import set_rules
 from .modules.random_partners import get_rnd_starting_partners
 from .options import (EnemyDifficulty, PaperMarioOptions, ShuffleKootFavors, PartnerUpgradeShuffle, HiddenBlockMode,
-                      ShuffleSuperMultiBlocks, GearShuffleMode)
+                      ShuffleSuperMultiBlocks, GearShuffleMode, StartingMap)
 from .data.node import Node
+from .data.starting_maps import starting_maps
 from .Rom import generate_output
 from Fill import fill_restrictive
 from .modules.random_blocks import get_block_placement
@@ -197,7 +198,9 @@ class PaperMarioWorld(World):
         for file in pkg_resources.resource_listdir(__name__, "data/regions"):
             if not pkg_resources.resource_isdir(__name__, "data/regions/" + file):
                 self.load_regions_from_json(data_path("regions", file))
-        start.connect(self.get_region("Gate District Mario's House Pipe"))  # TODO Set based on setting
+
+        # Connect start to chosen starting map
+        start.connect(self.get_region(starting_maps[self.options.starting_map.value][1]))
 
         self.parser.create_delayed_rules()
 
