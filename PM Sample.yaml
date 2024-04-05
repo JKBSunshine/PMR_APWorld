@@ -94,7 +94,7 @@ Paper Mario:
     badge_pool_limit: 79                    # Other options: 0-128
 
     # World Settings
-    starting_map: Toad_Town                 # Other options: goomba_village (NYI), dry_dry_outpost (NYI), yoshi_village (NYI)
+    starting_map: Toad_Town                 # Other options: goomba_village, dry_dry_outpost, yoshi_village
     open_prologue: False                    # Other options: True
     open_mt_rugged: False                   # Other options: True
     open_forest: False                      # Other options: True
@@ -103,8 +103,8 @@ Paper Mario:
     open_whale: False                       # Other options: True
     open_blue_house: False                  # Other options: True
     ch7_bridge_visible: False               # Other options: True
-    mirror_mode: Off                        # Other options: always_on (NLA), random_on_every_load (NLA), static_random (NLA)
-    bowser_castle_mode: vanilla             # Other options: shortened (NYI), boss_rush (NYI)
+    mirror_mode: Off                        # Other options: always_on (NLA), random_on_every_load (NLA), static_random (NYI)
+    bowser_castle_mode: vanilla             # Other options: shortened, boss_rush
     shuffle_dungeon_entrances: False        # Other options: True (NYI)
     power_star_hunt: False                  # Other options: True (NYI)
     star_hunt_skips_ch8: False              # Other options: True (NYI)
