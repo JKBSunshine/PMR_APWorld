@@ -26,7 +26,9 @@ Follow [the general Archipelago instructions](https://archipelago.gg/tutorial/Ar
 
 ## Connecting to an Archipelago Server
 1. Obtain your .appm64 file from whoever is hosting the game. These files will not upload to the website even if it is hosted there, so you will have to send/receive them elsewhere.
-2. Once you have obtained your .appm64 patch file, simply double click it or open it. If this is your first time opening the patch file, you will be prompted to locate your vanilla ROM. You will also be prompted to locate your BizHawk client, which is named EmuHawk.exe in your BizHawk install. A patched .z64 file will be created in the same place as the patch file.
+2. Once you have obtained your .appm64 patch file, open up ArchipelagoLauncher.exe from the base Archipelago folder and click "Open Patch". In the prompt that comes up, choose your .appm64 file. If this is your first time opening the patch file, you will be prompted to locate your vanilla ROM. You will also be prompted to locate your BizHawk client, which is named EmuHawk.exe in your BizHawk install. A patched .z64 file will be created in the same place as the patch file.
 3. Once the patch file has been created, BizHawk should start up automatically with the patched ROM. The Generic BizHawk Client for Archipelago will also open, as well as a Lua Console window. At this point all you need to do to connect is enter your room's address and port (e.g. archipelago.gg:38281) into the top text field of the client and click Connect.
 
 You should now be able to receive and send items. You'll need to do these steps every time you want to reconnect. It is perfectly safe to make progress offline; everything will re-sync when you reconnect.
+
+Note: After the first time you open an .appm64 file through the Archipelago Launcher, it should associate that file type with the launcher and all you should have to do is double click them.
