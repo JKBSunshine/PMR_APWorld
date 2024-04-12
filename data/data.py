@@ -50,19 +50,14 @@ def get_mb_address(name):
     return hex(MB_START_ADDRESS + name)
 
 
-def get_flag_value(flag_type, flag_id, flag_bytes) -> bool:
-    byte_start = 0
+def get_flag_value(flag_id, flag_bytes) -> bool:
     flag_offset = int(flag_id / 32) * 4
     flag_remainder = flag_id % 32
 
     byte_index = 3 - int(flag_remainder / 8)
     value = 2 ** (flag_remainder % 8)
 
-    match flag_type:
-        case "GF":
-            byte_start = flag_offset + byte_index
-        case "MF":
-            byte_start = flag_offset + byte_index
+    byte_start = flag_offset + byte_index
 
     for index, byte in enumerate(flag_bytes):
         if index == byte_start:

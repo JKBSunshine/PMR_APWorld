@@ -60,7 +60,7 @@ class PaperMarioClient(BizHawkClient):
         try:
 
             read_state = await bizhawk.read(ctx.bizhawk_ctx, [(MODE_ADDRESS, 1, "RDRAM"),
-                                                              (MF_START_ADDRESS, 0x221, "RDRAM"),
+                                                              (MF_START_ADDRESS, 0x224, "RDRAM"),
                                                               (GF_START_ADDRESS, 0x107, "RDRAM"),
                                                               (ITM_RCV_SEQ, 2, "RDRAM"),
                                                               (AREA_ADDRESS, 1, "RDRAM"),
@@ -117,9 +117,9 @@ class PaperMarioClient(BizHawkClient):
 
                     # these flags are weird and require a helper function to do funny math, refer to doc linked in data
                     if data[0] == "MF":
-                        loc_val = get_flag_value(data[0], data[1], mf_bytes)
+                        loc_val = get_flag_value(data[1], mf_bytes)
                     elif data[0] == "GF":
-                        loc_val = get_flag_value(data[0], data[1], gf_bytes)
+                        loc_val = get_flag_value(data[1], gf_bytes)
 
                     if loc_val and loc_id in ctx.server_locations:
                         locs_to_send.add(loc_id)
@@ -158,7 +158,7 @@ class PaperMarioClient(BizHawkClient):
                 self.autohint_locations.update(hints)
 
                 # GOAL CHECKING
-                if not ctx.finished_game and (get_flag_value("GF", GOAL_FLAG, gf_bytes)):
+                if not ctx.finished_game and (get_flag_value(GOAL_FLAG, mf_bytes)):
                     await ctx.send_msgs([{"cmd": "StatusUpdate", "status": ClientStatus.CLIENT_GOAL}])
 
         except bizhawk.RequestFailedError:
