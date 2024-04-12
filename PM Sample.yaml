@@ -105,10 +105,10 @@ Paper Mario:
     mirror_mode: Off                        # Other options: always_on (NLA), random_on_every_load (NLA), static_random (NYI)
     bowser_castle_mode: vanilla             # Other options: shortened, boss_rush
     shuffle_dungeon_entrances: False        # Other options: True (NYI)
-    power_star_hunt: False                  # Other options: True (NYI)
-    star_hunt_skips_ch8: False              # Other options: True (NYI)
-    required_power_stars: 50                # Other options: 0-120 (NYI)
-    total_power_stars: 70                   # Other options: 0-120 (NYI)
+    power_star_hunt: False                  # Other options: True
+    star_hunt_skips_ch8: False              # Other options: True
+    required_power_stars: 50                # Other options: 0-120
+    total_power_stars: 70                   # Other options: 0-120
 
     # Quality of Life Settings
     hidden_block_mode: Always_Visible       # Other options: vanilla, watt_out, watt_obtained, always_visible
