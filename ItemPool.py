@@ -391,15 +391,17 @@ def get_items_to_exclude(world: "PaperMarioWorld") -> list:
         for item_name in exclude_due_to_settings.get("do_progressive_badges"):
             excluded_items.append(item_name)
 
-    if world.options.gear_shuffle_mode.value >= GearShuffleMode.option_Gear_Location_Shuffle:
-        if world.options.starting_hammer.value == StartingHammer.option_Ultra:
-            excluded_items.append("Progressive Hammer")
-        if world.options.starting_hammer.value >= StartingHammer.option_Super:
-            excluded_items.append("Progressive Hammer")
-        if world.options.starting_boots.value == StartingBoots.option_Ultra:
-            excluded_items.append("Progressive Boots")
-        if world.options.starting_boots.value >= StartingBoots.option_Super:
-            excluded_items.append("Progressive Boots")
+    if world.options.starting_hammer.value == StartingHammer.option_Ultra:
+        excluded_items.append("Progressive Hammer")
+    if world.options.starting_hammer.value >= StartingHammer.option_Super:
+        excluded_items.append("Progressive Hammer")
+    if (world.options.starting_hammer.value >= StartingHammer.option_Normal and
+            world.options.gear_shuffle_mode.value != GearShuffleMode.option_Gear_Location_Shuffle):
+        excluded_items.append("Progressive Hammer")
+    if world.options.starting_boots.value == StartingBoots.option_Ultra:
+        excluded_items.append("Progressive Boots")
+    if world.options.starting_boots.value >= StartingBoots.option_Super:
+        excluded_items.append("Progressive Boots")
 
     if world.options.partner_upgrades.value:
         for item_name in exclude_due_to_settings.get("partner_upgrade_shuffle"):
