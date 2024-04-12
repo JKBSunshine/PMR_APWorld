@@ -116,10 +116,10 @@ def get_pool_core(world: "PaperMarioWorld"):
 
             else:
                 shuffle_item = (world.options.letter_rewards.value != ShuffleLetters.option_Vanilla)
-                location.show_in_spoiler = False
 
             if not shuffle_item:
                 location.disabled = True
+                location.show_in_spoiler = False
 
         if location.name in location_groups["RadioTradeEvent"]:
             shuffle_item = world.options.trading_events.value
