@@ -21,7 +21,7 @@ from .data.MysteryOptions import MysteryOptions
 from .modules.random_puzzles_minigames import get_puzzles_minigames
 from .modules.random_quizzes import get_randomized_quizzes
 from .options import EnemyDifficulty
-from .data.ItemList import item_table
+from .data.ItemList import item_table, item_groups
 from .data.node import Node
 from .Locations import PMLocation
 from .data.maparea import MapArea
@@ -251,6 +251,7 @@ def generate_output(world, output_dir: str) -> None:
                 mystery_opts=mystery_opts)
 
 
+# Paper Mario Rando operates off of a node list with item IDs and prices
 def get_filled_node_list(world):
     placed_items = []
     mw_keys = 0
@@ -278,13 +279,17 @@ def get_filled_node_list(world):
         if pm_loc.item.player == world.player:
             cur_node.current_item = pm_loc.item
         else:
+            # Multiworld items in replenishable locations get IDs that cause them to stop spawning after being obtained
             if cur_node.identifier in replenishing_itemlocations:
                 mw_key_name = "MultiWorldKey" + f"{mw_keys:02x}".upper()
                 cur_node.current_item = PMItem("MultiWorldItem", world.player, item_table[mw_key_name], False)
                 mw_keys += 1
+
+            # The rest can get the generic id
             else:
                 cur_node.current_item = PMItem("MultiWorldItem", world.player, item_table["MultiWorldGeneric"], False)
 
+        # set prices for items in shops
         if "Shop" in cur_node.identifier:
             cur_node.current_item.base_price = get_shop_price(pm_loc,
                                                               cur_node.current_item,

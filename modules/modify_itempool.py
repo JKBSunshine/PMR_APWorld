@@ -100,7 +100,7 @@ def get_randomized_itempool(itempool: list, consumable_mode: int, quality: int, 
             available_items = item_scores
         else:
             available_items = [
-                item for item in item_scores if item["name"] not in ["HustleDrink", "InsecticideHerb"]
+                item for item in item_scores if item["name"] not in ["Hustle Drink", "Insecticide Herb"]
             ]
 
         # Generate fully random pool
@@ -206,7 +206,7 @@ def get_trapped_itempool(itempool: list,
             fakeable_items.append(item)
     else:
         for x in range(0, 9):
-            fakeable_items.extend("UltraStone")
+            fakeable_items.extend("Ultra Stone")
 
     cnt_traps = 0
     shuffled_pool = itempool.copy()

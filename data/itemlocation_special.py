@@ -293,77 +293,71 @@ limited_by_item_areas = {
     # Chapter 1 Koopa Bros Fortress
     "TRD": {
         "keys": [
-            "KoopaFortressKeyA",
-            "KoopaFortressKeyB",
-            "KoopaFortressKeyC",
-            "KoopaFortressKeyD",
+            "Koopa Fortress Key",
+            "Koopa Fortress Key",
+            "Koopa Fortress Key",
+            "Koopa Fortress Key",
         ]
     },
     # Chapter 2 Dry Dry Ruins
     "ISK": {
         "keys": [
-            "RuinsKeyA",
-            "RuinsKeyB",
-            "RuinsKeyC",
-            "RuinsKeyD",
-            "PyramidStone",
-            "LunarStone",
-            "DiamondStone",
+            "Ruins Key",
+            "Ruins Key",
+            "Ruins Key",
+            "Ruins Key",
+            "Pyramid Stone",
+            "Lunar Stone",
+            "Diamond Stone",
         ]
     },
     # Chapter 3 Tubba Blubba's Castle
     "DGB": {
         "keys": [
-            "TubbaCastleKeyA",
-            "TubbaCastleKeyB",
-            "TubbaCastleKeyC",
+            "Tubba Castle Key",
+            "Tubba Castle Key",
+            "Tubba Castle Key",
         ]
     },
     # Chapter 4 Shy Guy's Toybox
     "OMO": {
         "keys": [
-            "FryingPan",
-            "ToyTrain",
+            "Frying Pan",
+            "Toy Train",
             "Dictionary",
-            "MysteryNote"
+            "Mystery Note"
         ],
         "misc": [
-            "CakeMix",
+            "Cake Mix",
         ]
     },
     # Chapter 5 Mt. Lavalava
     # Chapter 6 Flower Fields
     "FLO": {
         "keys": [
-            "MagicalBean",
-            "FertileSoil",
-            "MiracleWater",
-            "CrystalBerry",
-            "WaterStone",
-        ],
-        "misc": [
-            "BubbleBerry",
-            "RedBerry",
-            "BlueBerry",
-            "YellowBerry"
+            "Magical Bean",
+            "Fertile Soil",
+            "Miracle Water",
+            "Crystal Berry",
+            "Water Stone",
         ]
     },
     # Chapter 7 Crystal Palace
     "PRA": {
         "keys": [
-            "BlueKey",
-            "RedKey",
-            "CrystalPalaceKey",
+            "Blue Key",
+            "Red Key",
+            "Crystal Palace Key",
         ]
     },
     # Chapter 8 Bowser's Castle
     "KPA": {
         "keys": [
-            "BowserCastleKeyA",
-            "BowserCastleKeyB",
-            "BowserCastleKeyC",
-            "BowserCastleKeyD",
-            "BowserCastleKeyE",
+            "Bowser Castle Key",
+            "Bowser Castle Key",
+            "Bowser Castle Key",
+            "Bowser Castle Key",
+            "Bowser Castle Key",
         ]
     },
 }

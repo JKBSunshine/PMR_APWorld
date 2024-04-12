@@ -20,7 +20,7 @@ from .Utils import data_path, load_json_data
 from .Locations import PMLocation, location_factory, location_name_to_id
 from .ItemPool import generate_itempool
 from .items import PMItem, pm_is_item_of_type, pm_data_to_ap_id
-from .data.ItemList import item_table, item_groups, progression_miscitems
+from .data.ItemList import item_table, item_groups, progression_miscitems, item_multiples_ids
 from .data.itemlocation_special import limited_by_item_areas
 from .data.itemlocation_replenish import replenishing_itemlocations
 from .data.LocationsList import location_table, location_groups
@@ -236,10 +236,10 @@ class PaperMarioWorld(World):
         # Starting inventory
         # Gear
         for boots in range(1, self.options.starting_boots.value + 2):
-            self.multiworld.push_precollected(self.create_item(f"BootsProxy{boots}"))
+            self.multiworld.push_precollected(self.create_item("Progressive Boots"))
 
         for hammer in range(1, self.options.starting_hammer.value + 2):
-            self.multiworld.push_precollected(self.create_item(f"HammerProxy{hammer}"))
+            self.multiworld.push_precollected(self.create_item("Progressive Hammer"))
 
         # Partners
         if self.options.start_with_goombario.value:
@@ -281,7 +281,7 @@ class PaperMarioWorld(World):
             loc.parent_region.locations.remove(loc)
 
         if self.options.open_forest.value:
-            loc = self.multiworld.get_location("Southern District Fice T. Forest Pass", self.player)
+            loc = self.multiworld.get_location("TT Southern District Fice T. Forest Pass", self.player)
             loc.parent_region.locations.remove(loc)
 
     def load_regions_from_json(self, file_path):
@@ -371,7 +371,6 @@ class PaperMarioWorld(World):
             for dungeon in limited_by_item_areas:
                 for itemlist in limited_by_item_areas[dungeon].values():
                     for item in itemlist:
-                        assert item not in dungeon_restricted_items
                         dungeon_restricted_items[item] = dungeon
                         prefill_item_names.append(item)
 
@@ -381,7 +380,7 @@ class PaperMarioWorld(World):
                 if item.name in item_groups["Gear"]:
                     prefill_item_names.append(item.name)
 
-        # upgrades shuffled among super blocks
+        # upgrades shuffled among super blocks, two of each
         if self.options.partner_upgrades.value == PartnerUpgradeShuffle.option_Super_Block_Locations:
             for item in self.itempool:
                 if item.name in item_groups["PartnerUpgrade"]:
@@ -396,12 +395,19 @@ class PaperMarioWorld(World):
             else:
                 # check if this item gets kept local or not
                 # sets extra copies of consumable progression items to be filler so that they aren't considered in logic
-                keep_consumable_local = False
+                keep_local = False
                 if item.type == "ITEM":
                     item.classification = ic.filler
-                    keep_consumable_local = self.random.randint(0, 100) <= local_consumable_chance
+                    keep_local = self.random.randint(0, 100) <= local_consumable_chance
+                elif item.type == "PARTNERUPGRADE":
+                    keep_local = (self.options.partner_upgrades.value ==
+                                  PartnerUpgradeShuffle.option_Super_Block_Locations)
+                elif item.name in prefill_item_names and item.type == "KEYITEM":
+                    keep_local = (self.options.keysanity.value == self.options.keysanity.option_false)
+                elif item.name in prefill_item_names and item.type == "GEAR":
+                    keep_local = (self.options.gear_shuffle_mode.value <= self.options.gear_shuffle_mode.option_Full_Shuffle)
 
-                if keep_consumable_local:
+                if keep_local:
                     prefill_items.append(item)
                 else:
                     main_items.append(item)
@@ -487,8 +493,8 @@ class PaperMarioWorld(World):
                 dungeon_locations = [name for name, data in location_table.items() if data[0][:3] == dungeon]
 
                 # remove edge case location since it isn't actually in the dungeon
-                if "Fortress Exterior Chest On Ledge" in dungeon_locations:
-                    dungeon_locations.remove("Fortress Exterior Chest On Ledge")
+                if "KBF Fortress Exterior Chest On Ledge" in dungeon_locations:
+                    dungeon_locations.remove("KBF Fortress Exterior Chest On Ledge")
 
                 locations = list(filter(lambda location: location.name in dungeon_locations,
                                         self.multiworld.get_unfilled_locations(player=self.player)))

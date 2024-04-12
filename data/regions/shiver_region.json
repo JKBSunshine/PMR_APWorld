@@ -1,6 +1,6 @@
 [
   {
-    "region_name": "Shiver City Mayor Area",
+    "region_name": "SR Shiver City Mayor Area",
     "area_id": "20",
     "map_id": "0",
     "map_name": "Shiver City Mayor Area",
@@ -11,17 +11,17 @@
       "StarPiece_SAM_8": "True"
     },
     "locations": {
-      "Shiver City Mayor Area Hidden Panel": "can_flip_panels and 'RF_Ch7_MurderMysterySolved'",
-      "Shiver City Mayor Area Mayor Penguin Gift": "'RF_Ch7_MurderMysterySolved' and 'RF_Ch7_GotSnowmanScarf'",
-      "Shiver City Mayor Area Mayor Penguin Letter Reward": "can_use_ability_parakarry and Letter05",
-      "Shiver City Mayor Area Chest In House": "Boots"
+      "SR Shiver City Mayor Area Hidden Panel": "can_flip_panels and 'RF_Ch7_MurderMysterySolved'",
+      "SR Shiver City Mayor Area Mayor Penguin Gift": "'RF_Ch7_MurderMysterySolved' and 'RF_Ch7_GotSnowmanScarf'",
+      "SR Shiver City Mayor Area Mayor Penguin Letter Reward": "can_use_ability_parakarry and Letter_to_Mayor_Penguin",
+      "SR Shiver City Mayor Area Chest In House": "Boots"
     },
     "exits": {
-      "Shiver City Center": "True"
+      "SR Shiver City Center": "True"
     }
   },
   {
-    "region_name": "Shiver City Center",
+    "region_name": "SR Shiver City Center",
     "area_id": "20",
     "map_id": "1",
     "map_name": "Shiver City Center",
@@ -30,92 +30,92 @@
       "StarPiece_SAM_8": "True"
     },
     "locations": {
-      "Shiver City Center Toad House Breakfast": "True",
-      "Shiver City Center Snowmen Gift 1": "'MF_SAM_04_UnlockedShiverMountain'",
-      "Shiver City Center Snowmen Gift 2": "'MF_SAM_04_UnlockedShiverMountain'",
-      "Shiver City Center Snowmen Gift 3": "'MF_SAM_04_UnlockedShiverMountain'",
-      "Shiver City Center Snowmen Gift 4": "'MF_SAM_04_UnlockedShiverMountain'",
-      "Shiver City Center Snowmen Gift 5": "'MF_SAM_04_UnlockedShiverMountain'",
-      "Shiver City Center Shop Item 1": "'RF_Ch7_MurderMysterySolved'",
-      "Shiver City Center Shop Item 2": "'RF_Ch7_MurderMysterySolved'",
-      "Shiver City Center Shop Item 3": "'RF_Ch7_MurderMysterySolved'",
-      "Shiver City Center Shop Item 4": "'RF_Ch7_MurderMysterySolved'",
-      "Shiver City Center Shop Item 5": "'RF_Ch7_MurderMysterySolved'",
-      "Shiver City Center Shop Item 6": "'RF_Ch7_MurderMysterySolved'"
+      "SR Shiver City Center Toad House Breakfast": "True",
+      "SR Shiver City Center Snowmen Gift 1": "'MF_SAM_04_UnlockedShiverMountain'",
+      "SR Shiver City Center Snowmen Gift 2": "'MF_SAM_04_UnlockedShiverMountain'",
+      "SR Shiver City Center Snowmen Gift 3": "'MF_SAM_04_UnlockedShiverMountain'",
+      "SR Shiver City Center Snowmen Gift 4": "'MF_SAM_04_UnlockedShiverMountain'",
+      "SR Shiver City Center Snowmen Gift 5": "'MF_SAM_04_UnlockedShiverMountain'",
+      "SR Shiver City Center Shop Item 1": "'RF_Ch7_MurderMysterySolved'",
+      "SR Shiver City Center Shop Item 2": "'RF_Ch7_MurderMysterySolved'",
+      "SR Shiver City Center Shop Item 3": "'RF_Ch7_MurderMysterySolved'",
+      "SR Shiver City Center Shop Item 4": "'RF_Ch7_MurderMysterySolved'",
+      "SR Shiver City Center Shop Item 5": "'RF_Ch7_MurderMysterySolved'",
+      "SR Shiver City Center Shop Item 6": "'RF_Ch7_MurderMysterySolved'"
     },
     "exits": {
-      "Shiver City Mayor Area": "True",
-      "Shiver City Pond Area": "True",
-      "Shiver City Center Pipe": "can_climb_steps"
+      "SR Shiver City Mayor Area": "True",
+      "SR Shiver City Pond Area": "True",
+      "SR Shiver City Center Pipe": "can_climb_steps"
     }
   },
   {
-    "region_name": "Shiver City Center Pipe",
+    "region_name": "SR Shiver City Center Pipe",
     "area_id": "20",
     "map_id": "1",
     "map_name": "Shiver City Center",
     "exits": {
-      "Frozen Room (B3) East Pipe": "can_reenter_vertical_pipes",
-      "Shiver City Center": "True"
+      "TTT Frozen Room (B3) East Pipe": "can_reenter_vertical_pipes",
+      "SR Shiver City Center": "True"
     }
   },
   {
-    "region_name": "Road to Shiver Snowfield",
+    "region_name": "SR Road to Shiver Snowfield",
     "area_id": "20",
     "map_id": "2",
     "map_name": "Road to Shiver Snowfield",
     "exits": {
-      "Shiver City Pond Area": "True",
-      "Shiver Snowfield": "True"
+      "SR Shiver City Pond Area": "True",
+      "SR Shiver Snowfield": "True"
     }
   },
   {
-    "region_name": "Shiver Snowfield",
+    "region_name": "SR Shiver Snowfield",
     "area_id": "20",
     "map_id": "3",
     "map_name": "Shiver Snowfield",
     "events": {
-      "MF_SAM_04_UnlockedShiverMountain": "SnowmanBucket and SnowmanScarf"
+      "MF_SAM_04_UnlockedShiverMountain": "Snowman_Bucket and Snowman_Scarf"
     },
     "locations": {
-      "Shiver Snowfield Hidden Panel": "can_flip_panels",
-      "Shiver Snowfield In Tree Left": "Hammer",
-      "Shiver Snowfield Behind Tree Right": "True"
+      "SR Shiver Snowfield Hidden Panel": "can_flip_panels",
+      "SR Shiver Snowfield In Tree Left": "Hammer",
+      "SR Shiver Snowfield Behind Tree Right": "True"
     },
     "exits": {
-      "Road to Shiver Snowfield": "True",
-      "Path to Starborn Valley West": "True",
-      "Shiver Mountain Passage West": "'MF_SAM_04_UnlockedShiverMountain'"
+      "SR Road to Shiver Snowfield": "True",
+      "SR Path to Starborn Valley West": "True",
+      "SR Shiver Mountain Passage West": "'MF_SAM_04_UnlockedShiverMountain'"
     }
   },
   {
-    "region_name": "Path to Starborn Valley West",
+    "region_name": "SR Path to Starborn Valley West",
     "area_id": "20",
     "map_id": "4",
     "map_name": "Path to Starborn Valley",
     "locations": {
-      "Path to Starborn Valley Behind Icicle": "True"
+      "SR Path to Starborn Valley Behind Icicle": "True"
     },
     "exits": {
-      "Shiver Snowfield": "True",
-      "Path to Starborn Valley East": "can_climb_steps"
+      "SR Shiver Snowfield": "True",
+      "SR Path to Starborn Valley East": "can_climb_steps"
     }
   },
   {
-    "region_name": "Path to Starborn Valley East",
+    "region_name": "SR Path to Starborn Valley East",
     "area_id": "20",
     "map_id": "4",
     "map_name": "Path to Starborn Valley",
     "locations": {
-      "Path to Starborn Valley Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks"
+      "SR Path to Starborn Valley Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks"
     },
     "exits": {
-      "Starborn Valley": "True",
-      "Path to Starborn Valley West": "True"
+      "SR Starborn Valley": "True",
+      "SR Path to Starborn Valley West": "True"
     }
   },
   {
-    "region_name": "Starborn Valley",
+    "region_name": "SR Starborn Valley",
     "area_id": "20",
     "map_id": "5",
     "map_name": "Starborn Valley",
@@ -123,38 +123,38 @@
       "RF_Ch7_GotSnowmanScarf": "can_climb_steps"
     },
     "locations": {
-      "Starborn Valley Merle Gift": "can_climb_steps",
-      "Starborn Valley Frost T. Letter Reward": "can_use_ability_parakarry and Letter23"
+      "SR Starborn Valley Merle Gift": "can_climb_steps",
+      "SR Starborn Valley Frost T. Letter Reward": "can_use_ability_parakarry and Letter_to_Frost_T"
     },
     "exits": {
-      "Path to Starborn Valley East": "True"
+      "SR Path to Starborn Valley East": "True"
     }
   },
   {
-    "region_name": "Shiver Mountain Passage West",
+    "region_name": "SR Shiver Mountain Passage West",
     "area_id": "20",
     "map_id": "6",
     "map_name": "Shiver Mountain Passage",
     "exits": {
-      "Shiver Snowfield": "True",
-      "Shiver Mountain Passage East": "Super_Boots"
+      "SR Shiver Snowfield": "True",
+      "SR Shiver Mountain Passage East": "Super_Boots"
     }
   },
   {
-    "region_name": "Shiver Mountain Passage East",
+    "region_name": "SR Shiver Mountain Passage East",
     "area_id": "20",
     "map_id": "6",
     "map_name": "Shiver Mountain Passage",
     "locations": {
-      "Shiver Mountain Passage Hidden Block": "can_see_hidden_blocks and Ultra_Boots"
+      "SR Shiver Mountain Passage Hidden Block": "can_see_hidden_blocks and Ultra_Boots"
     },
     "exits": {
-      "Shiver Mountain Hills West": "True",
-      "Shiver Mountain Passage West": "Super_Boots"
+      "SR Shiver Mountain Hills West": "True",
+      "SR Shiver Mountain Passage West": "Super_Boots"
     }
   },
   {
-    "region_name": "Shiver Mountain Hills West",
+    "region_name": "SR Shiver Mountain Hills West",
     "area_id": "20",
     "map_id": "7",
     "map_name": "Shiver Mountain Hills",
@@ -162,15 +162,15 @@
       "RF_DefeatedFirstDuplighost": "can_use_ability_kooper and Hammer"
     },
     "locations": {
-      "Shiver Mountain Hills Bottom Path": "can_climb_steps"
+      "SR Shiver Mountain Hills Bottom Path": "can_climb_steps"
     },
     "exits": {
-      "Shiver Mountain Passage East": "True",
-      "Shiver Mountain Hills East": "'RF_DefeatedFirstDuplighost' and can_climb_steps"
+      "SR Shiver Mountain Passage East": "True",
+      "SR Shiver Mountain Hills East": "'RF_DefeatedFirstDuplighost' and can_climb_steps"
     }
   },
   {
-    "region_name": "Shiver Mountain Hills East",
+    "region_name": "SR Shiver Mountain Hills East",
     "area_id": "20",
     "map_id": "7",
     "map_name": "Shiver Mountain Hills",
@@ -178,81 +178,81 @@
       "RF_DefeatedFirstDuplighost": "Hammer"
     },
     "locations": {
-      "Shiver Mountain Hills In SuperBlock": "can_climb_steps and can_hit_floating_blocks"
+      "SR Shiver Mountain Hills In SuperBlock": "can_climb_steps and can_hit_floating_blocks"
     },
     "exits": {
-      "Shiver Mountain Tunnel": "True",
-      "Shiver Mountain Hills West": "('RF_DefeatedFirstDuplighost' or can_climb_steps)"
+      "SR Shiver Mountain Tunnel": "True",
+      "SR Shiver Mountain Hills West": "('RF_DefeatedFirstDuplighost' or can_climb_steps)"
     }
   },
   {
-    "region_name": "Shiver Mountain Tunnel",
+    "region_name": "SR Shiver Mountain Tunnel",
     "area_id": "20",
     "map_id": "8",
     "map_name": "Shiver Mountain Tunnel",
     "locations": {
-      "Shiver Mountain Tunnel Socket 1": "True",
-      "Shiver Mountain Tunnel Socket 2": "True",
-      "Shiver Mountain Tunnel Socket 3": "True"
+      "SR Shiver Mountain Tunnel Socket 1": "True",
+      "SR Shiver Mountain Tunnel Socket 2": "True",
+      "SR Shiver Mountain Tunnel Socket 3": "True"
     },
     "exits": {
-      "Shiver Mountain Hills East": "True",
-      "Shiver Mountain Peaks Bottom": "True"
+      "SR Shiver Mountain Hills East": "True",
+      "SR Shiver Mountain Peaks Bottom": "True"
     }
   },
   {
-    "region_name": "Shiver Mountain Peaks Bottom",
+    "region_name": "SR Shiver Mountain Peaks Bottom",
     "area_id": "20",
     "map_id": "9",
     "map_name": "Shiver Mountain Peaks",
     "exits": {
-      "Shiver Mountain Tunnel": "True",
-      "Shiver Mountain Peaks": "StarStone and can_climb_steps",
-      "Merlar's Sanctuary": "can_use_ability_bombette"
+      "SR Shiver Mountain Tunnel": "True",
+      "SR Shiver Mountain Peaks": "Star_Stone and can_climb_steps",
+      "SR Merlar's Sanctuary": "can_use_ability_bombette"
     }
   },
   {
-    "region_name": "Shiver Mountain Peaks",
+    "region_name": "SR Shiver Mountain Peaks",
     "area_id": "20",
     "map_id": "9",
     "map_name": "Shiver Mountain Peaks",
     "locations": {
-      "Shiver Mountain Peaks Red Block": "can_hit_floating_blocks",
-      "Shiver Mountain Peaks Left Ledge": "True"
+      "SR Shiver Mountain Peaks Red Block": "can_hit_floating_blocks",
+      "SR Shiver Mountain Peaks Left Ledge": "True"
     },
     "exits": {
-      "Palace Entrance South": "True",
-      "Shiver Mountain Peaks Bottom": "True"
+      "CP Palace Entrance South": "True",
+      "SR Shiver Mountain Peaks Bottom": "True"
     }
   },
   {
-    "region_name": "Shiver City Pond Area",
+    "region_name": "SR Shiver City Pond Area",
     "area_id": "20",
     "map_id": "10",
     "map_name": "Shiver City Pond Area",
     "events": {
-      "RF_Ch7_SpokeWithHerringway": "'RF_Ch7_MurderMysteryStarted' and WarehouseKey and Boots",
+      "RF_Ch7_SpokeWithHerringway": "'RF_Ch7_MurderMysteryStarted' and Warehouse_Key and Boots",
       "StarPiece_SAM_1": "True",
       "StarPiece_SAM_8": "True"
     },
     "locations": {
-      "Shiver City Pond Area In Frozen Pond": "(can_use_ability_bombette or Super_Boots) and can_use_ability_sushie and 'RF_Ch7_MurderMysteryStarted'"
+      "SR Shiver City Pond Area In Frozen Pond": "(can_use_ability_bombette or Super_Boots) and can_use_ability_sushie and 'RF_Ch7_MurderMysteryStarted'"
     },
     "exits": {
-      "Shiver City Center": "True",
-      "Road to Shiver Snowfield": "'RF_Ch7_MurderMysterySolved'"
+      "SR Shiver City Center": "True",
+      "SR Road to Shiver Snowfield": "'RF_Ch7_MurderMysterySolved'"
     }
   },
   {
-    "region_name": "Merlar's Sanctuary",
+    "region_name": "SR Merlar's Sanctuary",
     "area_id": "20",
     "map_id": "11",
     "map_name": "Merlar's Sanctuary",
     "locations": {
-      "Merlar's Sanctuary On Pedestal": "can_climb_steps"
+      "SR Merlar's Sanctuary On Pedestal": "can_climb_steps"
     },
     "exits": {
-      "Shiver Mountain Peaks Bottom": "True"
+      "SR Shiver Mountain Peaks Bottom": "True"
     }
   }
 ]

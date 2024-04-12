@@ -1,16 +1,16 @@
 [
   {
-    "region_name": "Whale Mouth",
+    "region_name": "ITW Whale Mouth",
     "area_id": "3",
     "map_id": "0",
     "map_name": "Whale Mouth",
     "exits": {
-      "Port District": "True",
-      "Whale Stomach": "True"
+      "TT Port District": "True",
+      "ITW Whale Stomach": "True"
     }
   },
   {
-    "region_name": "Whale Stomach",
+    "region_name": "ITW Whale Stomach",
     "area_id": "3",
     "map_id": "1",
     "map_name": "Whale Stomach",
@@ -18,8 +18,8 @@
       "RF_CanRideWhale": "can_use_ability_watt"
     },
     "exits": {
-      "Whale Mouth": "True",
-      "Port District": "'RF_CanRideWhale'"
+      "ITW Whale Mouth": "True",
+      "TT Port District": "'RF_CanRideWhale'"
     }
   }
 ]

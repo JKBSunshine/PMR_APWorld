@@ -1,10 +1,10 @@
 {
-    "Boots": "(Boots, 1)",
-    "Super_Boots": "(Boots, 2)",
-    "Ultra_Boots": "(Boots, 3)",
-    "Hammer": "(Hammers, 1)",
-    "Super_Hammer": "(Hammers, 2)",
-    "Ultra_Hammer": "(Hammers, 3)",
+    "Boots": "(Progressive_Boots, 1)",
+    "Super_Boots": "(Progressive_Boots, 2)",
+    "Ultra_Boots": "(Progressive_Boots, 3)",
+    "Hammer": "(Progressive_Hammer, 1)",
+    "Super_Hammer": "(Progressive_Hammer, 2)",
+    "Ultra_Hammer": "(Progressive_Hammer, 3)",
 
     "can_flip_panels": "Ultra_Hammer or Super_Boots",
 

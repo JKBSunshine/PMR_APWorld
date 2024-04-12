@@ -7,77 +7,77 @@ during certain randomizer settings.
 
 exclude_due_to_settings = {
     "startwith_bluehouse_open": [
-        "OddKey"
+        "Odd Key"
     ],
     "startwith_forest_open": [
-        "ForestPass"
+        "Forest Pass"
     ],
     "magical_seeds_required": {
         0: [
-            "MagicalSeed1",
-            "MagicalSeed2",
-            "MagicalSeed3",
-            "MagicalSeed4",
+            "Magical Seed",
+            "Magical Seed",
+            "Magical Seed",
+            "Magical Seed",
         ],
         1: [
-            "MagicalSeed1",
-            "MagicalSeed2",
-            "MagicalSeed3",
+            "Magical Seed",
+            "Magical Seed",
+            "Magical Seed",
         ],
         2: [
-            "MagicalSeed1",
-            "MagicalSeed2",
+            "Magical Seed",
+            "Magical Seed",
         ],
         3: [
-            "MagicalSeed1",
+            "Magical Seed",
         ],
     },
     "shorten_bowsers_castle": [
-        "BowserCastleKeyA",
-        "BowserCastleKeyB",
-        "BowserCastleKeyC",
-        "BowserCastleKeyD",
-        "BowserCastleKeyE",
+        "Bowser Castle Key",
+        "Bowser Castle Key",
+        "Bowser Castle Key",
+        "Bowser Castle Key",
+        "Bowser Castle Key",
     ],
     "boss_rush": [
-        "PrisonKeyA",
-        "PrisonKeyB",
+        "Prison Key",
+        "Prison Key",
     ],
     "always_speedyspin": [
-        "SpeedySpin",
+        "Speedy Spin",
     ],
     "always_ispy": [
-        "ISpy",
+        "I Spy",
     ],
     "always_peekaboo": [
         "Peekaboo",
     ],
     "do_randomize_dojo": [
-        "FirstDegreeCard",
-        "SecondDegreeCard",
-        "ThirdDegreeCard",
-        "FourthDegreeCard",
+        "First Degree Card",
+        "Second Degree Card",
+        "Third Degree Card",
+        "Fourth Degree Card",
         "Diploma",
     ],
     "do_progressive_badges": [
-        "SmashCharge0",
-        "SmashCharge",
-        "SSmashChg",
-        "JumpCharge0",
-        "JumpCharge",
-        "SJumpChg",
-        "PowerJump",
-        "SuperJump",
-        "MegaJump",
-        "PowerSmash1",
-        "SuperSmash",
-        "MegaSmash",
-        "QuakeHammer",
-        "PowerQuake",
-        "MegaQuake"
+        "Mini Smash Charge",
+        "Smash Charge",
+        "Super Smash Charge",
+        "Mini Jump Charge",
+        "Jump Charge",
+        "Super Jump Chg",
+        "Power Jump",
+        "Super Jump",
+        "Mega Jump",
+        "Power Smash",
+        "Super Smash",
+        "Mega Smash",
+        "Quake Hammer",
+        "Power Quake",
+        "Mega Quake"
     ],
     "partner_upgrade_shuffle": [
-        "UltraStone",
+        "Ultra Stone",
         "Nothing",  # Goombario 1
         "Nothing",  # Goombario 2
         "Nothing",  # Kooper 1
@@ -101,7 +101,7 @@ exclude_from_taycet_placement = [
     "Koopasta",  # 0x0B5
     "Cake",  # 0x0C1
     "Mistake",  # 0x0C2
-    "KoopaTea",  # 0x0C3
-    "KookyCookie",  # 0x0D3
-    "NuttyCake",  # 0x0D6
+    "Koopa Tea",  # 0x0C3
+    "Kooky Cookie",  # 0x0D3
+    "Nutty Cake",  # 0x0D6
 ]

@@ -1,173 +1,173 @@
 [
   {
-    "region_name": "Outside Tubbas Castle",
+    "region_name": "TC Outside Tubbas Castle",
     "area_id": "15",
     "map_id": "0",
     "map_name": "Outside Tubbas Castle",
     "exits": {
-      "Wasteland Ascent 2 East": "True",
-      "Great Hall 1F": "True"
+      "GG Wasteland Ascent 2 East": "True",
+      "TC Great Hall 1F": "True"
     }
   },
   {
-    "region_name": "Great Hall 1F",
+    "region_name": "TC Great Hall 1F",
     "area_id": "15",
     "map_id": "1",
     "map_name": "Great Hall",
     "exits": {
-      "Outside Tubbas Castle": "True",
-      "West Hall (1F)": "can_use_ability_bow",
-      "East Hall (1/2F) 1F": "can_use_ability_bow and (TubbaKeys, 1)"
+      "TC Outside Tubbas Castle": "True",
+      "TC West Hall (1F)": "can_use_ability_bow",
+      "TC East Hall (1/2F) 1F": "can_use_ability_bow and (Tubba_Castle_Key, 1)"
     }
   },
   {
-    "region_name": "Great Hall 2F",
+    "region_name": "TC Great Hall 2F",
     "area_id": "15",
     "map_id": "1",
     "map_name": "Great Hall",
     "exits": {
-      "West Hall (2F)": "True",
-      "East Hall (1/2F) 2F": "True"
+      "TC West Hall (2F)": "True",
+      "TC East Hall (1/2F) 2F": "True"
     }
   },
   {
-    "region_name": "Great Hall 3F",
+    "region_name": "TC Great Hall 3F",
     "area_id": "15",
     "map_id": "1",
     "map_name": "Great Hall",
     "exits": {
-      "Save Room (3F)": "True",
-      "Master Bedroom (3F)": "True"
+      "TC Save Room (3F)": "True",
+      "TC Master Bedroom (3F)": "True"
     }
   },
   {
-    "region_name": "West Hall (1F)",
+    "region_name": "TC West Hall (1F)",
     "area_id": "15",
     "map_id": "2",
     "map_name": "West Hall (1F)",
     "exits": {
-      "Table/Clock Room (1/2F) 1F": "True",
-      "Great Hall 1F": "True",
-      "Study (1F)": "True",
-      "Covered Tables Room (1F)": "True"
+      "TC Table/Clock Room (1/2F) 1F": "True",
+      "TC Great Hall 1F": "True",
+      "TC Study (1F)": "True",
+      "TC Covered Tables Room (1F)": "True"
     }
   },
   {
-    "region_name": "Table/Clock Room (1/2F) 1F",
+    "region_name": "TC Table/Clock Room (1/2F) 1F",
     "area_id": "15",
     "map_id": "3",
     "map_name": "Table/Clock Room (1/2F)",
     "exits": {
-      "Stairs to Basement": "True",
-      "West Hall (1F)": "True",
-      "Stairs Above Basement": "True"
+      "TC Stairs to Basement": "True",
+      "TC West Hall (1F)": "True",
+      "TC Stairs Above Basement": "True"
     }
   },
   {
-    "region_name": "Table/Clock Room (1/2F) 2F",
+    "region_name": "TC Table/Clock Room (1/2F) 2F",
     "area_id": "15",
     "map_id": "3",
     "map_name": "Table/Clock Room (1/2F)",
     "locations": {
-      "Table/Clock Room (1/2F) On Table": "True"
+      "TC Table/Clock Room (1/2F) On Table": "True"
     },
     "exits": {
-      "Stairs to Third Floor": "(TubbaKeys, 2)",
-      "Table/Clock Room (1/2F) 1F": "True",
-      "West Hall (2F)": "True",
-      "Hidden Bedroom (2F)": "True"
+      "TC Stairs to Third Floor": "(Tubba_Castle_Key, 2)",
+      "TC Table/Clock Room (1/2F) 1F": "True",
+      "TC West Hall (2F)": "True",
+      "TC Hidden Bedroom (2F)": "True"
     }
   },
   {
-    "region_name": "Stairs to Basement",
+    "region_name": "TC Stairs to Basement",
     "area_id": "15",
     "map_id": "4",
     "map_name": "Stairs to Basement",
     "locations": {
-      "Stairs to Basement In SuperBlock": "can_hit_floating_blocks"
+      "TC Stairs to Basement In SuperBlock": "can_hit_floating_blocks"
     },
     "exits": {
-      "Table/Clock Room (1/2F) 1F": "True",
-      "Tubba Basement Lower": "True"
+      "TC Table/Clock Room (1/2F) 1F": "True",
+      "TC Tubba Basement Lower": "True"
     }
   },
   {
-    "region_name": "Stairs Above Basement",
+    "region_name": "TC Stairs Above Basement",
     "area_id": "15",
     "map_id": "5",
     "map_name": "Stairs Above Basement",
     "exits": {
-      "Table/Clock Room (1/2F) 1F": "True",
-      "Tubba Basement Upper": "Super_Boots"
+      "TC Table/Clock Room (1/2F) 1F": "True",
+      "TC Tubba Basement Upper": "Super_Boots"
     }
   },
   {
-    "region_name": "Tubba Basement Upper",
+    "region_name": "TC Tubba Basement Upper",
     "area_id": "15",
     "map_id": "6",
     "map_name": "Basement",
     "locations": {
-      "Basement In Chest": "True"
+      "TC Basement In Chest": "True"
     },
     "exits": {
-      "Tubba Basement Lower": "True"
+      "TC Tubba Basement Lower": "True"
     }
   },
   {
-    "region_name": "Tubba Basement Lower",
+    "region_name": "TC Tubba Basement Lower",
     "area_id": "15",
     "map_id": "6",
     "map_name": "Basement",
     "exits": {
-      "Stairs to Basement": "True"
+      "TC Stairs to Basement": "True"
     }
   },
   {
-    "region_name": "Study (1F)",
+    "region_name": "TC Study (1F)",
     "area_id": "15",
     "map_id": "7",
     "map_name": "Study (1F)",
     "locations": {
-      "Study (1F) On Table": "Boots"
+      "TC Study (1F) On Table": "Boots"
     },
     "exits": {
-      "West Hall (1F)": "True"
+      "TC West Hall (1F)": "True"
     }
   },
   {
-    "region_name": "East Hall (1/2F) 2F",
+    "region_name": "TC East Hall (1/2F) 2F",
     "area_id": "15",
     "map_id": "8",
     "map_name": "East Hall (1/2F)",
     "exits": {
-      "Great Hall 2F": "True",
-      "East Hall (1/2F) 1F": "can_use_ability_bow"
+      "TC Great Hall 2F": "True",
+      "TC East Hall (1/2F) 1F": "can_use_ability_bow"
     }
   },
   {
-    "region_name": "East Hall (1/2F) 1F",
+    "region_name": "TC East Hall (1/2F) 1F",
     "area_id": "15",
     "map_id": "8",
     "map_name": "East Hall (1/2F)",
     "exits": {
-      "Great Hall 1F": "True",
-      "East Hall (1/2F) 2F": "can_use_ability_bow"
+      "TC Great Hall 1F": "True",
+      "TC East Hall (1/2F) 2F": "can_use_ability_bow"
     }
   },
   {
-    "region_name": "West Hall (2F)",
+    "region_name": "TC West Hall (2F)",
     "area_id": "15",
     "map_id": "9",
     "map_name": "West Hall (2F)",
     "exits": {
-      "Table/Clock Room (1/2F) 2F": "True",
-      "Great Hall 2F": "True",
-      "Spike Trap Room (2F)": "True",
-      "Sealed Room (2F)": "can_use_ability_bombette"
+      "TC Table/Clock Room (1/2F) 2F": "True",
+      "TC Great Hall 2F": "True",
+      "TC Spike Trap Room (2F)": "True",
+      "TC Sealed Room (2F)": "can_use_ability_bombette"
     }
   },
   {
-    "region_name": "Sealed Room (2F)",
+    "region_name": "TC Sealed Room (2F)",
     "area_id": "15",
     "map_id": "10",
     "map_name": "Sealed Room (2F)",
@@ -175,112 +175,112 @@
       "GF_DGB10_BoardedFloor3": "Super_Boots"
     },
     "exits": {
-      "West Hall (2F)": "True",
-      "Covered Tables Room (1F)": "Super_Boots",
-      "Covered Tables Room (1F) On Table": "Super_Boots"
+      "TC West Hall (2F)": "True",
+      "TC Covered Tables Room (1F)": "Super_Boots",
+      "TC Covered Tables Room (1F) On Table": "Super_Boots"
     }
   },
   {
-    "region_name": "Covered Tables Room (1F)",
+    "region_name": "TC Covered Tables Room (1F)",
     "area_id": "15",
     "map_id": "11",
     "map_name": "Covered Tables Room (1F)",
     "exits": {
-      "West Hall (1F)": "True",
-      "Sealed Room (2F)": "'GF_DGB10_BoardedFloor3' and Boots"
+      "TC West Hall (1F)": "True",
+      "TC Sealed Room (2F)": "'GF_DGB10_BoardedFloor3' and Boots"
     }
   },
   {
-    "region_name": "Covered Tables Room (1F) On Table",
+    "region_name": "TC Covered Tables Room (1F) On Table",
     "area_id": "15",
     "map_id": "11",
     "map_name": "Covered Tables Room (1F)",
     "locations": {
-      "Covered Tables Room (1F) On Table": "can_use_ability_parakarry"
+      "TC Covered Tables Room (1F) On Table": "can_use_ability_parakarry"
     },
     "exits": {
-      "Covered Tables Room (1F)": "True",
-      "Sealed Room (2F)": "'GF_DGB10_BoardedFloor3'"
+      "TC Covered Tables Room (1F)": "True",
+      "TC Sealed Room (2F)": "'GF_DGB10_BoardedFloor3'"
     }
   },
   {
-    "region_name": "Spike Trap Room (2F)",
+    "region_name": "TC Spike Trap Room (2F)",
     "area_id": "15",
     "map_id": "12",
     "map_name": "Spike Trap Room (2F)",
     "locations": {
-      "Spike Trap Room (2F) In Chest": "(can_use_ability_bow or can_use_ability_lakilester)"
+      "TC Spike Trap Room (2F) In Chest": "(can_use_ability_bow or can_use_ability_lakilester)"
     },
     "exits": {
-      "West Hall (2F)": "True"
+      "TC West Hall (2F)": "True"
     }
   },
   {
-    "region_name": "Hidden Bedroom (2F)",
+    "region_name": "TC Hidden Bedroom (2F)",
     "area_id": "15",
     "map_id": "13",
     "map_name": "Hidden Bedroom (2F)",
     "locations": {
-      "Hidden Bedroom (2F) In Hidden Room": "Boots and can_use_ability_parakarry",
-      "Hidden Bedroom (2F) On Bed 1": "Boots and can_use_ability_parakarry",
-      "Hidden Bedroom (2F) On Bed 2": "Boots and can_use_ability_parakarry",
-      "Hidden Bedroom (2F) On Bed 3": "Boots and can_use_ability_parakarry",
-      "Hidden Bedroom (2F) On Bed 4": "Boots and can_use_ability_parakarry",
-      "Hidden Bedroom (2F) On Bed 5": "Boots and can_use_ability_parakarry",
-      "Hidden Bedroom (2F) On Bed 6": "Boots and can_use_ability_parakarry"
+      "TC Hidden Bedroom (2F) In Hidden Room": "Boots and can_use_ability_parakarry",
+      "TC Hidden Bedroom (2F) On Bed 1": "Boots and can_use_ability_parakarry",
+      "TC Hidden Bedroom (2F) On Bed 2": "Boots and can_use_ability_parakarry",
+      "TC Hidden Bedroom (2F) On Bed 3": "Boots and can_use_ability_parakarry",
+      "TC Hidden Bedroom (2F) On Bed 4": "Boots and can_use_ability_parakarry",
+      "TC Hidden Bedroom (2F) On Bed 5": "Boots and can_use_ability_parakarry",
+      "TC Hidden Bedroom (2F) On Bed 6": "Boots and can_use_ability_parakarry"
     },
     "exits": {
-      "Table/Clock Room (1/2F) 2F": "True"
+      "TC Table/Clock Room (1/2F) 2F": "True"
     }
   },
   {
-    "region_name": "Stairs to Third Floor",
+    "region_name": "TC Stairs to Third Floor",
     "area_id": "15",
     "map_id": "14",
     "map_name": "Stairs to Third Floor",
     "locations": {
-      "Stairs to Third Floor Yellow Block": "True"
+      "TC Stairs to Third Floor Yellow Block": "True"
     },
     "exits": {
-      "Table/Clock Room (1/2F) 2F": "True",
-      "West Hall (3F)": "True"
+      "TC Table/Clock Room (1/2F) 2F": "True",
+      "TC West Hall (3F)": "True"
     }
   },
   {
-    "region_name": "West Hall (3F)",
+    "region_name": "TC West Hall (3F)",
     "area_id": "15",
     "map_id": "15",
     "map_name": "West Hall (3F)",
     "exits": {
-      "Stairs to Third Floor": "True",
-      "Save Room (3F)": "(TubbaKeys, 3)",
-      "Sleeping Clubbas Room (3F)": "True"
+      "TC Stairs to Third Floor": "True",
+      "TC Save Room (3F)": "(Tubba_Castle_Key, 3)",
+      "TC Sleeping Clubbas Room (3F)": "True"
     }
   },
   {
-    "region_name": "Sleeping Clubbas Room (3F)",
+    "region_name": "TC Sleeping Clubbas Room (3F)",
     "area_id": "15",
     "map_id": "16",
     "map_name": "Sleeping Clubbas Room (3F)",
     "locations": {
-      "Sleeping Clubbas Room (3F) On Pedestal": "can_climb_steps"
+      "TC Sleeping Clubbas Room (3F) On Pedestal": "can_climb_steps"
     },
     "exits": {
-      "West Hall (3F)": "True"
+      "TC West Hall (3F)": "True"
     }
   },
   {
-    "region_name": "Save Room (3F)",
+    "region_name": "TC Save Room (3F)",
     "area_id": "15",
     "map_id": "17",
     "map_name": "Save Room (3F)",
     "exits": {
-      "West Hall (3F)": "True",
-      "Great Hall 3F": "True"
+      "TC West Hall (3F)": "True",
+      "TC Great Hall 3F": "True"
     }
   },
   {
-    "region_name": "Master Bedroom (3F)",
+    "region_name": "TC Master Bedroom (3F)",
     "area_id": "15",
     "map_id": "18",
     "map_name": "Master Bedroom (3F)",
@@ -288,7 +288,7 @@
       "MysticalKey": "True"
     },
     "exits": {
-      "Great Hall 3F": "True"
+      "TC Great Hall 3F": "True"
     }
   }
 ]

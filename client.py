@@ -4,6 +4,7 @@ import base64
 from NetUtils import ClientStatus
 import worlds._bizhawk as bizhawk
 from worlds._bizhawk.client import BizHawkClient
+from .data.ItemList import item_multiples_ids
 from .data.data import *
 from .Locations import location_name_to_id
 from .items import item_id_prefix
@@ -23,6 +24,7 @@ class PaperMarioClient(BizHawkClient):
         super().__init__()
         self.local_checked_locations = set()
         self.autohint_locations = set()
+        self.repeat_items = {}
 
     async def validate_rom(self, ctx: "BizHawkClientContext") -> bool:
         from CommonClient import logger
@@ -46,7 +48,7 @@ class PaperMarioClient(BizHawkClient):
         ctx.game = self.game
         ctx.items_handling = 0b001
         ctx.want_slot_data = False
-        ctx.watcher_timeout = 0.125
+        ctx.watcher_timeout = 1
         return True
 
     async def set_auth(self, ctx: "BizHawkClientContext") -> None:
@@ -63,7 +65,8 @@ class PaperMarioClient(BizHawkClient):
                                                               (ITM_RCV_SEQ, 2, "RDRAM"),
                                                               (AREA_ADDRESS, 1, "RDRAM"),
                                                               (MAP_ADDRESS, 1, "RDRAM"),
-                                                              (STAR_SPIRITS_COUNT, 1, "RDRAM")])
+                                                              (STAR_SPIRITS_COUNT, 1, "RDRAM"),
+                                                              (UIR_START_ADDRESS, len(item_table), "RDRAM")])
 
             # check for current state before sending or receiving anything
             game_mode = int.from_bytes(read_state[0], "big")
@@ -75,15 +78,31 @@ class PaperMarioClient(BizHawkClient):
                 current_location = (int.from_bytes(bytearray(read_state[4]), "big"),
                                     int.from_bytes(bytearray(read_state[5]), "big"))
                 star_spirits = int.from_bytes(bytearray(read_state[6]), "big")
+                uir_flags = read_state[7]
 
                 # RECEIVE ITEMS
                 # Add item to buffer as u16 int
                 if received_items < len(ctx.items_received):
                     next_item = ctx.items_received[received_items]
-                    item_id = (next_item.item - item_id_prefix) << 16
+
+                    # check what id actually needs sent to the game, as some items have multiples
+                    # items in the player's game will have the biggest available ID,
+                    # when receiving we give the smallest
+                    item_id = next_item.item - item_id_prefix
+                    if item_id in item_multiples_ids.keys():
+                        if item_id not in self.repeat_items.keys():
+                            self.repeat_items[item_id] = 0
+
+                        base_item_id = item_id
+                        item_id = item_multiples_ids[base_item_id][self.repeat_items[base_item_id]]
+                        while self.repeat_items[base_item_id] < len(item_multiples_ids[base_item_id]) and uir_flags[item_id]:
+                            item_id = item_multiples_ids[base_item_id][self.repeat_items[base_item_id]]
+                            self.repeat_items[base_item_id] += 1
+
+                    item_id = item_id << 16
                     await bizhawk.guarded_write(ctx.bizhawk_ctx,
                                                 [(KEY_RECV_BUFFER, item_id.to_bytes(4, "big"), "RDRAM")],
-                                                [(KEY_RECV_BUFFER, [0x00], "RDRAM"),
+                                                [(KEY_RECV_BUFFER, (0).to_bytes(4, "big"), "RDRAM"),
                                                  (ITM_RCV_SEQ, read_state[3], "RDRAM")])
 
                 # SEND ITEMS
@@ -121,7 +140,8 @@ class PaperMarioClient(BizHawkClient):
                         if current_location == (location_table[loc][2], location_table[loc][3]):
                             # don't hint Rowf items you can't see/buy yet
                             if (location_table[loc][2], location_table[loc][3]) == (1, 2):
-                                rowf_set = int(loc[31])
+                                # grab the set number from the location name
+                                rowf_set = int(loc[len("TT Plaza District Rowf's Shop Set ")])
                                 if rowf_set <= star_spirits + 1:
                                     hints.append(loc)
                             else:

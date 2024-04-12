@@ -1,11 +1,11 @@
 [
   {
-    "region_name": "Playroom Lobby",
+    "region_name": "MGM Playroom Lobby",
     "area_id": "25",
     "map_id": "0",
     "map_name": "Playroom Lobby",
     "exits": {
-      "Station District Pipe": "True"
+      "TT Station District Pipe": "True"
     }
   }
 ]

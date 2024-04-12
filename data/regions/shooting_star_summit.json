@@ -1,98 +1,98 @@
 [
   {
-    "region_name": "Shooting Star Path",
+    "region_name": "SSS Shooting Star Path",
     "area_id": "5",
     "map_id": "0",
     "map_name": "Shooting Star Path",
     "locations": {
-      "Shooting Star Path Hidden Panel": "can_flip_panels"
+      "SSS Shooting Star Path Hidden Panel": "can_flip_panels"
     },
     "exits": {
-      "Ruined Castle Grounds": "True",
-      "Merluvlee's House": "True",
-      "Shooting Star Path East Upper Exit": "can_climb_steps"
+      "PCG Ruined Castle Grounds": "True",
+      "SSS Merluvlee's House": "True",
+      "SSS Shooting Star Path East Upper Exit": "can_climb_steps"
     }
   },
   {
-    "region_name": "Shooting Star Path East Upper Exit",
+    "region_name": "SSS Shooting Star Path East Upper Exit",
     "area_id": "5",
     "map_id": "0",
     "map_name": "Shooting Star Path",
     "exits": {
-      "Shooting Star Summit": "True",
-      "Shooting Star Path": "True"
+      "SSS Shooting Star Summit": "True",
+      "SSS Shooting Star Path": "True"
     }
   },
   {
-    "region_name": "Shooting Star Summit Base",
+    "region_name": "SSS Shooting Star Summit Base",
     "area_id": "5",
     "map_id": "1",
     "map_name": "Shooting Star Summit",
     "locations": {
-      "Shooting Star Summit Behind The Summit": "True"
+      "SSS Shooting Star Summit Behind The Summit": "True"
     },
     "exits": {
-      "Shooting Star Path East Upper Exit": "True",
-      "Shooting Star Summit": "can_climb_steps"
+      "SSS Shooting Star Path East Upper Exit": "True",
+      "SSS Shooting Star Summit": "can_climb_steps"
     }
   },
   {
-    "region_name": "Shooting Star Summit",
+    "region_name": "SSS Shooting Star Summit",
     "area_id": "5",
     "map_id": "1",
     "map_name": "Shooting Star Summit",
     "locations": {
-      "Shooting Star Summit Hidden Panel": "can_flip_panels and can_climb_steps"
+      "SSS Shooting Star Summit Hidden Panel": "can_flip_panels and can_climb_steps"
     },
     "exits": {
-      "Star Way": "can_reach_star_way",
-      "Shooting Star Summit Base": "True"
+      "SSS Star Way": "can_reach_star_way",
+      "SSS Shooting Star Summit Base": "True"
     }
   },
   {
-    "region_name": "Star Way",
+    "region_name": "SSS Star Way",
     "area_id": "5",
     "map_id": "2",
     "map_name": "Star Way",
     "exits": {
-      "Shooting Star Summit": "True",
-      "Star Haven": "True"
+      "SSS Shooting Star Summit": "True",
+      "SSS Star Haven": "True"
     }
   },
   {
-    "region_name": "Star Haven",
+    "region_name": "SSS Star Haven",
     "area_id": "5",
     "map_id": "3",
     "map_name": "Star Haven",
     "events": {
-      "StarPiece_HOS_1": "True",
-      "StarPiece_HOS_8": "True"
+      "Star_Piece_HOS_1": "True",
+      "Star_Piece_HOS_8": "True"
     },
     "locations": {
-      "Star Haven Shop Item 1": "Boots",
-      "Star Haven Shop Item 2": "Boots",
-      "Star Haven Shop Item 3": "Boots",
-      "Star Haven Shop Item 4": "Boots",
-      "Star Haven Shop Item 5": "Boots",
-      "Star Haven Shop Item 6": "Boots"
+      "SSS Star Haven Shop Item 1": "Boots",
+      "SSS Star Haven Shop Item 2": "Boots",
+      "SSS Star Haven Shop Item 3": "Boots",
+      "SSS Star Haven Shop Item 4": "Boots",
+      "SSS Star Haven Shop Item 5": "Boots",
+      "SSS Star Haven Shop Item 6": "Boots"
     },
     "exits": {
-      "Star Way": "True",
-      "Outside the Sanctuary": "True"
+      "SSS Star Way": "True",
+      "SSS Outside the Sanctuary": "True"
     }
   },
   {
-    "region_name": "Outside the Sanctuary",
+    "region_name": "SSS Outside the Sanctuary",
     "area_id": "5",
     "map_id": "4",
     "map_name": "Outside the Sanctuary",
     "exits": {
-      "Star Haven": "True",
-      "Star Sanctuary": "True"
+      "SSS Star Haven": "True",
+      "SSS Star Sanctuary": "True"
     }
   },
   {
-    "region_name": "Star Sanctuary",
+    "region_name": "SSS Star Sanctuary",
     "area_id": "5",
     "map_id": "5",
     "map_name": "Star Sanctuary",
@@ -100,22 +100,22 @@
       "RF_HasStarbeam": "can_climb_steps"
     },
     "exits": {
-      "Outside the Sanctuary": "True",
-      "Star Sanctuary Starship": "can_climb_steps"
+      "SSS Outside the Sanctuary": "True",
+      "SSS Star Sanctuary Starship": "can_climb_steps"
     }
   },
   {
-    "region_name": "Star Sanctuary Starship",
+    "region_name": "SSS Star Sanctuary Starship",
     "area_id": "5",
     "map_id": "5",
     "map_name": "Star Sanctuary",
     "exits": {
-      "Riding Star Ship Scene": "True",
-      "Star Sanctuary": "True"
+      "SSS Riding Star Ship Scene": "True",
+      "SSS Star Sanctuary": "True"
     }
   },
   {
-    "region_name": "Merluvlee's House",
+    "region_name": "SSS Merluvlee's House",
     "area_id": "5",
     "map_id": "6",
     "map_name": "Merluvlee's House",
@@ -123,44 +123,44 @@
       "GF_HOS06_MerluvleeRequestedCrystalBall": "'FAVOR_3_03_active'"
     },
     "locations": {
-      "Merluvlee's House Hidden Panel": "can_flip_panels",
-      "Merluvlee's House Merluvlee Koopa Koot Favor": "'FAVOR_3_03_active' and CrystalBall",
-      "Merluvlee's House Merlow Letter Reward": "can_use_ability_parakarry and Letter06",
-      "Merluvlee's House Merlow's Badges 1": "(StarPiece, 84)",
-      "Merluvlee's House Merlow's Badges 2": "(StarPiece, 84)",
-      "Merluvlee's House Merlow's Badges 3": "(StarPiece, 84)",
-      "Merluvlee's House Merlow's Badges 4": "(StarPiece, 84)",
-      "Merluvlee's House Merlow's Badges 5": "(StarPiece, 84)",
-      "Merluvlee's House Merlow's Badges 6": "(StarPiece, 84)",
-      "Merluvlee's House Merlow's Badges 7": "(StarPiece, 84)",
-      "Merluvlee's House Merlow's Badges 8": "(StarPiece, 84)",
-      "Merluvlee's House Merlow's Badges 9": "(StarPiece, 84)",
-      "Merluvlee's House Merlow's Badges 10": "(StarPiece, 84)",
-      "Merluvlee's House Merlow's Badges 11": "(StarPiece, 84)",
-      "Merluvlee's House Merlow's Badges 12": "(StarPiece, 84)",
-      "Merluvlee's House Merlow's Badges 13": "(StarPiece, 84)",
-      "Merluvlee's House Merlow's Badges 14": "(StarPiece, 84)",
-      "Merluvlee's House Merlow's Badges 15": "(StarPiece, 84)",
-      "Merluvlee's House Merlow's Rewards 1": "(StarPiece, 10) and can_climb_steps",
-      "Merluvlee's House Merlow's Rewards 2": "(StarPiece, 23) and can_climb_steps",
-      "Merluvlee's House Merlow's Rewards 3": "(StarPiece, 35) and can_climb_steps",
-      "Merluvlee's House Merlow's Rewards 4": "(StarPiece, 47) and can_climb_steps",
-      "Merluvlee's House Merlow's Rewards 5": "(StarPiece, 57) and can_climb_steps",
-      "Merluvlee's House Merlow's Rewards 6": "(StarPiece, 68) and can_climb_steps"
+      "SSS Merluvlee's House Hidden Panel": "can_flip_panels",
+      "SSS Merluvlee's House Merluvlee Koopa Koot Favor": "'FAVOR_3_03_active' and Crystal_Ball",
+      "SSS Merluvlee's House Merlow Letter Reward": "can_use_ability_parakarry and Letter_to_Merlow",
+      "SSS Merluvlee's House Merlow's Badges 1": "(Star_Piece, 81)",
+      "SSS Merluvlee's House Merlow's Badges 2": "(Star_Piece, 81)",
+      "SSS Merluvlee's House Merlow's Badges 3": "(Star_Piece, 81)",
+      "SSS Merluvlee's House Merlow's Badges 4": "(Star_Piece, 81)",
+      "SSS Merluvlee's House Merlow's Badges 5": "(Star_Piece, 81)",
+      "SSS Merluvlee's House Merlow's Badges 6": "(Star_Piece, 81)",
+      "SSS Merluvlee's House Merlow's Badges 7": "(Star_Piece, 81)",
+      "SSS Merluvlee's House Merlow's Badges 8": "(Star_Piece, 81)",
+      "SSS Merluvlee's House Merlow's Badges 9": "(Star_Piece, 81)",
+      "SSS Merluvlee's House Merlow's Badges 10": "(Star_Piece, 81)",
+      "SSS Merluvlee's House Merlow's Badges 11": "(Star_Piece, 81)",
+      "SSS Merluvlee's House Merlow's Badges 12": "(Star_Piece, 81)",
+      "SSS Merluvlee's House Merlow's Badges 13": "(Star_Piece, 81)",
+      "SSS Merluvlee's House Merlow's Badges 14": "(Star_Piece, 81)",
+      "SSS Merluvlee's House Merlow's Badges 15": "(Star_Piece, 81)",
+      "SSS Merluvlee's House Merlow's Rewards 1": "(Star_Piece, 10) and can_climb_steps",
+      "SSS Merluvlee's House Merlow's Rewards 2": "(Star_Piece, 23) and can_climb_steps",
+      "SSS Merluvlee's House Merlow's Rewards 3": "(Star_Piece, 35) and can_climb_steps",
+      "SSS Merluvlee's House Merlow's Rewards 4": "(Star_Piece, 47) and can_climb_steps",
+      "SSS Merluvlee's House Merlow's Rewards 5": "(Star_Piece, 57) and can_climb_steps",
+      "SSS Merluvlee's House Merlow's Rewards 6": "(Star_Piece, 68) and can_climb_steps"
     },
     "exits": {
-      "Shooting Star Path": "True"
+      "SSS Shooting Star Path": "True"
     }
   },
   {
-    "region_name": "Riding Star Ship Scene",
+    "region_name": "SSS Riding Star Ship Scene",
     "area_id": "5",
     "map_id": "8",
     "map_name": "Riding Star Ship Scene",
     "exits": {
-      "Star Sanctuary Starship": "True",
-      "Ship Enter/Exit Scenes": "bowser_castle_mode < 2",
-      "Fake Peach Hallway": "bowser_castle_mode == 2"
+      "SSS Star Sanctuary Starship": "True",
+      "BC Ship Enter/Exit Scenes": "bowser_castle_mode < 2",
+      "BC Fake Peach Hallway": "bowser_castle_mode == 2"
     }
   }
 ]

@@ -1,71 +1,71 @@
 [
   {
-    "region_name": "Palace Entrance South",
+    "region_name": "CP Palace Entrance South",
     "area_id": "21",
     "map_id": "0",
     "map_name": "Entrance",
     "exits": {
-      "Shiver Mountain Peaks": "True",
-      "Entry Hall South": "True"
+      "SR Shiver Mountain Peaks": "True",
+      "CP Entry Hall South": "True"
     }
   },
   {
-    "region_name": "Palace Entrance North",
+    "region_name": "CP Palace Entrance North",
     "area_id": "21",
     "map_id": "0",
     "map_name": "Entrance",
     "exits": {
-      "Entry Hall North": "True",
-      "Star Piece Cave": "True"
+      "CP Entry Hall North": "True",
+      "CP Star Piece Cave": "True"
     }
   },
   {
-    "region_name": "Entry Hall South",
+    "region_name": "CP Entry Hall South",
     "area_id": "21",
     "map_id": "1",
     "map_name": "Entry Hall",
     "exits": {
-      "Palace Entrance South": "True",
-      "Palace Save Room Upper": "True",
-      "Blue Mirror Hall 1 South": "BlueKey and Super_Boots",
-      "Red Mirror Hall": "RedKey"
+      "CP Palace Entrance South": "True",
+      "CP Palace Save Room Upper": "True",
+      "CP Blue Mirror Hall 1 South": "Blue_Key and Super_Boots",
+      "CP Red Mirror Hall": "Red_Key"
     }
   },
   {
-    "region_name": "Entry Hall North",
+    "region_name": "CP Entry Hall North",
     "area_id": "21",
     "map_id": "1",
     "map_name": "Entry Hall",
     "exits": {
-      "Blue Mirror Hall 1 North": "BlueKey and Super_Boots",
-      "Red Mirror Hall": "RedKey",
-      "Reflected Save Room Upper": "True",
-      "Palace Entrance North": "True"
+      "CP Blue Mirror Hall 1 North": "Blue_Key and Super_Boots",
+      "CP Red Mirror Hall": "RedKey",
+      "CP Reflected Save Room Upper": "True",
+      "CP Palace Entrance North": "True"
     }
   },
   {
-    "region_name": "Palace Save Room Upper",
+    "region_name": "CP Palace Save Room Upper",
     "area_id": "21",
     "map_id": "2",
     "map_name": "Save Room",
     "exits": {
-      "Entry Hall South": "True",
-      "Blue Key Hall": "True",
-      "Palace Save Room Lower": "'GF_PRA04_BoardedFloor'"
+      "CP Entry Hall South": "True",
+      "CP Blue Key Hall": "True",
+      "CP Palace Save Room Lower": "'GF_PRA04_BoardedFloor'"
     }
   },
   {
-    "region_name": "Palace Save Room Lower",
+    "region_name": "CP Palace Save Room Lower",
     "area_id": "21",
     "map_id": "2",
     "map_name": "Save Room",
     "exits": {
-      "Red Key Hall": "True",
-      "Palace Save Room Upper": "can_climb_steps"
+      "CP Red Key Hall": "True",
+      "CP Palace Save Room Upper": "can_climb_steps"
     }
   },
   {
-    "region_name": "Reflected Save Room Upper",
+    "region_name": "CP Reflected Save Room Upper",
     "area_id": "21",
     "map_id": "3",
     "map_name": "Reflected Save Room",
@@ -73,152 +73,152 @@
       "GF_PRA04_BoardedFloor": "Super_Boots"
     },
     "locations": {
-      "Reflected Save Room Yellow Block": "can_hit_floating_blocks"
+      "CP Reflected Save Room Yellow Block": "can_hit_floating_blocks"
     },
     "exits": {
-      "Entry Hall North": "True",
-      "Shooting Star Hall": "True",
-      "Reflected Save Room Lower": "Super_Boots"
+      "CP Entry Hall North": "True",
+      "CP Shooting Star Hall": "True",
+      "CP Reflected Save Room Lower": "Super_Boots"
     }
   },
   {
-    "region_name": "Reflected Save Room Lower",
+    "region_name": "CP Reflected Save Room Lower",
     "area_id": "21",
     "map_id": "3",
     "map_name": "Reflected Save Room",
     "exits": {
-      "P-Down, D-Up Hall": "True",
-      "Reflected Save Room Upper": "can_climb_steps"
+      "CP P-Down, D-Up Hall": "True",
+      "CP Reflected Save Room Upper": "can_climb_steps"
     }
   },
   {
-    "region_name": "Blue Key Room",
+    "region_name": "CP Blue Key Room",
     "area_id": "21",
     "map_id": "4",
     "map_name": "Blue Key Room",
     "locations": {
-      "Blue Key Room In Chest": "can_climb_steps"
+      "CP Blue Key Room In Chest": "can_climb_steps"
     },
     "exits": {
-      "Blue Key Hall": "True"
+      "CP Blue Key Hall": "True"
     }
   },
   {
-    "region_name": "Shooting Star Room",
+    "region_name": "CP Shooting Star Room",
     "area_id": "21",
     "map_id": "5",
     "map_name": "Shooting Star Room",
     "locations": {
-      "Shooting Star Room On The Ground": "can_climb_steps"
+      "CP Shooting Star Room On The Ground": "can_climb_steps"
     },
     "exits": {
-      "Shooting Star Hall": "True"
+      "CP Shooting Star Hall": "True"
     }
   },
   {
-    "region_name": "Red Key Hall",
+    "region_name": "CP Red Key Hall",
     "area_id": "21",
     "map_id": "6",
     "map_name": "Red Key Hall",
     "exits": {
-      "Palace Save Room Lower": "Hammer",
-      "Red Key Room": "can_use_ability_bombette and Hammer"
+      "CP Palace Save Room Lower": "Hammer",
+      "CP Red Key Room": "can_use_ability_bombette and Hammer"
     }
   },
   {
-    "region_name": "P-Down, D-Up Hall",
+    "region_name": "CP P-Down, D-Up Hall",
     "area_id": "21",
     "map_id": "7",
     "map_name": "P-Down, D-Up Hall",
     "exits": {
-      "Reflected Save Room Lower": "True",
-      "P-Down, D-Up Room": "True"
+      "CP Reflected Save Room Lower": "True",
+      "CP P-Down, D-Up Room": "True"
     }
   },
   {
-    "region_name": "Red Key Room",
+    "region_name": "CP Red Key Room",
     "area_id": "21",
     "map_id": "8",
     "map_name": "Red Key Room",
     "locations": {
-      "Red Key Room In Chest": "can_climb_steps"
+      "CP Red Key Room In Chest": "can_climb_steps"
     },
     "exits": {
-      "Red Key Hall": "True"
+      "CP Red Key Hall": "True"
     }
   },
   {
-    "region_name": "P-Down, D-Up Room",
+    "region_name": "CP P-Down, D-Up Room",
     "area_id": "21",
     "map_id": "9",
     "map_name": "P-Down, D-Up Room",
     "locations": {
-      "P-Down, D-Up Room In Chest": "can_climb_steps"
+      "CP P-Down, D-Up Room In Chest": "can_climb_steps"
     },
     "exits": {
-      "P-Down, D-Up Hall": "True"
+      "CP P-Down, D-Up Hall": "True"
     }
   },
   {
-    "region_name": "Blue Mirror Hall 1 South",
+    "region_name": "CP Blue Mirror Hall 1 South",
     "area_id": "21",
     "map_id": "10",
     "map_name": "Blue Mirror Hall 1",
     "exits": {
-      "Entry Hall South": "True",
-      "Blue Mirror Hall 2": "can_use_ability_bombette"
+      "CP Entry Hall South": "True",
+      "CP Blue Mirror Hall 2": "can_use_ability_bombette"
     }
   },
   {
-    "region_name": "Blue Mirror Hall 1 North",
+    "region_name": "CP Blue Mirror Hall 1 North",
     "area_id": "21",
     "map_id": "10",
     "map_name": "Blue Mirror Hall 1",
     "exits": {
-      "Blue Mirror Hall 2": "can_use_ability_bombette",
-      "Entry Hall North": "True"
+      "CP Blue Mirror Hall 2": "can_use_ability_bombette",
+      "CP Entry Hall North": "True"
     }
   },
   {
-    "region_name": "Blue Mirror Hall 2",
+    "region_name": "CP Blue Mirror Hall 2",
     "area_id": "21",
     "map_id": "11",
     "map_name": "Blue Mirror Hall 2",
     "locations": {
-      "Blue Mirror Hall 2 In MultiCoinBlock Front": "can_see_hidden_blocks",
-      "Blue Mirror Hall 2 In MultiCoinBlock Back": "can_see_hidden_blocks"
+      "CP Blue Mirror Hall 2 In MultiCoinBlock Front": "can_see_hidden_blocks",
+      "CP Blue Mirror Hall 2 In MultiCoinBlock Back": "can_see_hidden_blocks"
     },
     "exits": {
-      "Blue Mirror Hall 1 North": "can_use_ability_bombette",
-      "Blue Mirror Hall 1 South": "can_use_ability_bombette"
+      "CP Blue Mirror Hall 1 North": "can_use_ability_bombette",
+      "CP Blue Mirror Hall 1 South": "can_use_ability_bombette"
     }
   },
   {
-    "region_name": "Star Piece Cave",
+    "region_name": "CP Star Piece Cave",
     "area_id": "21",
     "map_id": "12",
     "map_name": "Star Piece Cave",
     "locations": {
-      "Star Piece Cave On The Ground": "True"
+      "CP Star Piece Cave On The Ground": "True"
     },
     "exits": {
-      "Palace Entrance North": "True"
+      "CP Palace Entrance North": "True"
     }
   },
   {
-    "region_name": "Red Mirror Hall",
+    "region_name": "CP Red Mirror Hall",
     "area_id": "21",
     "map_id": "13",
     "map_name": "Red Mirror Hall",
     "exits": {
-      "Entry Hall North": "True",
-      "Bridge Mirror Hall North": "True",
-      "Bridge Mirror Hall South": "True",
-      "Entry Hall South": "True"
+      "CP Entry Hall North": "True",
+      "CP Bridge Mirror Hall North": "True",
+      "CP Bridge Mirror Hall South": "True",
+      "CP Entry Hall South": "True"
     }
   },
   {
-    "region_name": "Bridge Mirror Hall South",
+    "region_name": "CP Bridge Mirror Hall South",
     "area_id": "21",
     "map_id": "14",
     "map_name": "Bridge Mirror Hall",
@@ -226,76 +226,76 @@
       "MF_PRA_18_DefeatedClubbas": "True"
     },
     "exits": {
-      "Red Mirror Hall": "True"
+      "CP Red Mirror Hall": "True"
     }
   },
   {
-    "region_name": "Bridge Mirror Hall North",
+    "region_name": "CP Bridge Mirror Hall North",
     "area_id": "21",
     "map_id": "14",
     "map_name": "Bridge Mirror Hall",
     "exits": {
-      "Turnstyle Room North": "'MF_PRA_18_DefeatedClubbas'",
-      "Red Mirror Hall": "True"
+      "CP Turnstyle Room North": "'MF_PRA_18_DefeatedClubbas'",
+      "CP Red Mirror Hall": "True"
     }
   },
   {
-    "region_name": "Reflection Mimic Room",
+    "region_name": "CP Reflection Mimic Room",
     "area_id": "21",
     "map_id": "15",
     "map_name": "Reflection Mimic Room",
     "exits": {
-      "Triple Dip Room South": "Hammer",
-      "Mirrored Door Room South": "can_use_ability_kooper and Hammer"
+      "CP Triple Dip Room South": "Hammer",
+      "CP Mirrored Door Room South": "can_use_ability_kooper and Hammer"
     }
   },
   {
-    "region_name": "Mirrored Door Room South",
+    "region_name": "CP Mirrored Door Room South",
     "area_id": "21",
     "map_id": "16",
     "map_name": "Mirrored Door Room",
     "exits": {
-      "Reflection Mimic Room": "True",
-      "Huge Statue Room Upper": "True",
-      "Hidden Bridge Room South West": "True"
+      "CP Reflection Mimic Room": "True",
+      "CP Huge Statue Room Upper": "True",
+      "CP Hidden Bridge Room South West": "True"
     }
   },
   {
-    "region_name": "Mirrored Door Room North",
+    "region_name": "CP Mirrored Door Room North",
     "area_id": "21",
     "map_id": "16",
     "map_name": "Mirrored Door Room",
     "exits": {
-      "Hidden Bridge Room North West": "True",
-      "Small Statue Room Upper": "True"
+      "CP Hidden Bridge Room North West": "True",
+      "CP Small Statue Room Upper": "True"
     }
   },
   {
-    "region_name": "Huge Statue Room Upper",
+    "region_name": "CP Huge Statue Room Upper",
     "area_id": "21",
     "map_id": "17",
     "map_name": "Huge Statue Room",
     "locations": {
-      "Huge Statue Room Hidden Panel": "can_flip_panels",
-      "Huge Statue Room Yellow Block": "Ultra_Boots"
+      "CP Huge Statue Room Hidden Panel": "can_flip_panels",
+      "CP Huge Statue Room Yellow Block": "Ultra_Boots"
     },
     "exits": {
-      "Mirrored Door Room South": "True",
-      "Huge Statue Room Lower": "'MF_PRA_22_FoundHiddenRoomUnderStatue'"
+      "CP Mirrored Door Room South": "True",
+      "CP Huge Statue Room Lower": "'MF_PRA_22_FoundHiddenRoomUnderStatue'"
     }
   },
   {
-    "region_name": "Huge Statue Room Lower",
+    "region_name": "CP Huge Statue Room Lower",
     "area_id": "21",
     "map_id": "17",
     "map_name": "Huge Statue Room",
     "exits": {
-      "Palace Key Hall": "True",
-      "Huge Statue Room Upper": "can_climb_steps"
+      "CP Palace Key Hall": "True",
+      "CP Huge Statue Room Upper": "can_climb_steps"
     }
   },
   {
-    "region_name": "Small Statue Room Upper",
+    "region_name": "CP Small Statue Room Upper",
     "area_id": "21",
     "map_id": "18",
     "map_name": "Small Statue Room",
@@ -303,50 +303,50 @@
       "MF_PRA_22_FoundHiddenRoomUnderStatue": "True"
     },
     "locations": {
-      "Small Statue Room Hidden Panel": "can_flip_panels",
-      "Small Statue Room Hidden Block": "Ultra_Boots and can_see_hidden_blocks"
+      "CP Small Statue Room Hidden Panel": "can_flip_panels",
+      "CP Small Statue Room Hidden Block": "Ultra_Boots and can_see_hidden_blocks"
     },
     "exits": {
-      "Mirrored Door Room North": "True",
-      "Small Statue Room Lower": "True"
+      "CP Mirrored Door Room North": "True",
+      "CP Small Statue Room Lower": "True"
     }
   },
   {
-    "region_name": "Small Statue Room Lower",
+    "region_name": "CP Small Statue Room Lower",
     "area_id": "21",
     "map_id": "18",
     "map_name": "Small Statue Room",
     "exits": {
-      "P-Up, D-Down Hall": "True",
-      "Small Statue Room Upper": "can_climb_steps"
+      "CP P-Up, D-Down Hall": "True",
+      "CP Small Statue Room Upper": "can_climb_steps"
     }
   },
   {
-    "region_name": "Palace Key Room",
+    "region_name": "CP Palace Key Room",
     "area_id": "21",
     "map_id": "19",
     "map_name": "Palace Key Room",
     "locations": {
-      "Palace Key Room In Chest": "can_climb_steps"
+      "CP Palace Key Room In Chest": "can_climb_steps"
     },
     "exits": {
-      "Palace Key Hall": "True"
+      "CP Palace Key Hall": "True"
     }
   },
   {
-    "region_name": "P-Up, D-Down Room",
+    "region_name": "CP P-Up, D-Down Room",
     "area_id": "21",
     "map_id": "20",
     "map_name": "P-Up, D-Down Room",
     "locations": {
-      "P-Up, D-Down Room In Chest": "can_climb_steps"
+      "CP P-Up, D-Down Room In Chest": "can_climb_steps"
     },
     "exits": {
-      "P-Up, D-Down Hall": "True"
+      "CP P-Up, D-Down Hall": "True"
     }
   },
   {
-    "region_name": "Hidden Bridge Room South West",
+    "region_name": "CP Hidden Bridge Room South West",
     "area_id": "21",
     "map_id": "21",
     "map_name": "Hidden Bridge Room",
@@ -354,12 +354,12 @@
       "RF_PRA_29_ExtendedBridge": "('RF_PRA_29_ExtendedBridge' or can_use_ability_kooper)"
     },
     "exits": {
-      "Mirrored Door Room South": "True",
-      "Hidden Bridge Room South East": "'RF_PRA_29_ExtendedBridge'"
+      "CP Mirrored Door Room South": "True",
+      "CP Hidden Bridge Room South East": "'RF_PRA_29_ExtendedBridge'"
     }
   },
   {
-    "region_name": "Hidden Bridge Room South East",
+    "region_name": "CP Hidden Bridge Room South East",
     "area_id": "21",
     "map_id": "21",
     "map_name": "Hidden Bridge Room",
@@ -367,12 +367,12 @@
       "RF_PRA_29_ExtendedBridge": "('RF_PRA_29_ExtendedBridge' or can_hit_grounded_switches)"
     },
     "exits": {
-      "Mirror Hole Room": "True",
-      "Hidden Bridge Room South West": "'RF_PRA_29_ExtendedBridge'"
+      "CP Mirror Hole Room": "True",
+      "CP Hidden Bridge Room South West": "'RF_PRA_29_ExtendedBridge'"
     }
   },
   {
-    "region_name": "Hidden Bridge Room North East",
+    "region_name": "CP Hidden Bridge Room North East",
     "area_id": "21",
     "map_id": "21",
     "map_name": "Hidden Bridge Room",
@@ -380,12 +380,12 @@
       "RF_PRA_29_ExtendedBridge": "('RF_PRA_29_ExtendedBridge' or can_hit_grounded_switches)"
     },
     "exits": {
-      "Mirror Hole Room": "True",
-      "Hidden Bridge Room North West": "True"
+      "CP Mirror Hole Room": "True",
+      "CP Hidden Bridge Room North West": "True"
     }
   },
   {
-    "region_name": "Hidden Bridge Room North West",
+    "region_name": "CP Hidden Bridge Room North West",
     "area_id": "21",
     "map_id": "21",
     "map_name": "Hidden Bridge Room",
@@ -393,22 +393,22 @@
       "RF_PRA_29_ExtendedBridge": "('RF_PRA_29_ExtendedBridge' or can_use_ability_kooper)"
     },
     "exits": {
-      "Mirrored Door Room North": "True",
-      "Hidden Bridge Room North East": "'RF_PRA_29_ExtendedBridge'"
+      "CP Mirrored Door Room North": "True",
+      "CP Hidden Bridge Room North East": "'RF_PRA_29_ExtendedBridge'"
     }
   },
   {
-    "region_name": "Dino Puzzle Room",
+    "region_name": "CP Dino Puzzle Room",
     "area_id": "21",
     "map_id": "22",
     "map_name": "Dino Puzzle Room",
     "exits": {
-      "Palace Boss Antechamber": "True",
-      "Mirror Hole Room": "True"
+      "CP Palace Boss Antechamber": "True",
+      "CP Mirror Hole Room": "True"
     }
   },
   {
-    "region_name": "Crystal Summit",
+    "region_name": "CP Crystal Summit",
     "area_id": "21",
     "map_id": "23",
     "map_name": "Crystal Summit",
@@ -417,110 +417,110 @@
       "STARSPIRIT": "True"
     },
     "exits": {
-      "Palace Boss Antechamber": "True"
+      "CP Palace Boss Antechamber": "True"
     }
   },
   {
-    "region_name": "Turnstyle Room North",
+    "region_name": "CP Turnstyle Room North",
     "area_id": "21",
     "map_id": "24",
     "map_name": "Turnstyle Room",
     "exits": {
-      "Triple Dip Room North": "True",
-      "Turnstyle Room South": "can_use_ability_bombette"
+      "CP Triple Dip Room North": "True",
+      "CP Turnstyle Room South": "can_use_ability_bombette"
     }
   },
   {
-    "region_name": "Turnstyle Room South",
+    "region_name": "CP Turnstyle Room South",
     "area_id": "21",
     "map_id": "24",
     "map_name": "Turnstyle Room",
     "exits": {
-      "Triple Dip Room South": "can_use_ability_bombette",
-      "Turnstyle Room North": "can_use_ability_bombette"
+      "CP Triple Dip Room South": "can_use_ability_bombette",
+      "CP Turnstyle Room North": "can_use_ability_bombette"
     }
   },
   {
-    "region_name": "Mirror Hole Room",
+    "region_name": "CP Mirror Hole Room",
     "area_id": "21",
     "map_id": "25",
     "map_name": "Mirror Hole Room",
     "exits": {
-      "Hidden Bridge Room North East": "True",
-      "Dino Puzzle Room": "CrystalPalaceKey",
-      "Hidden Bridge Room South East": "True"
+      "CP Hidden Bridge Room North East": "True",
+      "CP Dino Puzzle Room": "Crystal_Palace_Key",
+      "CP Hidden Bridge Room South East": "True"
     }
   },
   {
-    "region_name": "Triple Dip Room North",
+    "region_name": "CP Triple Dip Room North",
     "area_id": "21",
     "map_id": "26",
     "map_name": "Triple Dip Room",
     "locations": {
-      "Triple Dip Room In Chest": "True"
+      "CP Triple Dip Room In Chest": "True"
     },
     "exits": {
-      "Turnstyle Room North": "True"
+      "CP Turnstyle Room North": "True"
     }
   },
   {
-    "region_name": "Triple Dip Room South",
+    "region_name": "CP Triple Dip Room South",
     "area_id": "21",
     "map_id": "26",
     "map_name": "Triple Dip Room",
     "exits": {
-      "Turnstyle Room South": "True",
-      "Reflection Mimic Room": "True"
+      "CP Turnstyle Room South": "True",
+      "CP Reflection Mimic Room": "True"
     }
   },
   {
-    "region_name": "Palace Key Hall",
+    "region_name": "CP Palace Key Hall",
     "area_id": "21",
     "map_id": "27",
     "map_name": "Palace Key Hall",
     "exits": {
-      "Huge Statue Room Lower": "True",
-      "Palace Key Room": "True"
+      "CP Huge Statue Room Lower": "True",
+      "CP Palace Key Room": "True"
     }
   },
   {
-    "region_name": "P-Up, D-Down Hall",
+    "region_name": "CP P-Up, D-Down Hall",
     "area_id": "21",
     "map_id": "28",
     "map_name": "P-Up, D-Down Hall",
     "exits": {
-      "Small Statue Room Lower": "True",
-      "P-Up, D-Down Room": "True"
+      "CP Small Statue Room Lower": "True",
+      "CP P-Up, D-Down Room": "True"
     }
   },
   {
-    "region_name": "Blue Key Hall",
+    "region_name": "CP Blue Key Hall",
     "area_id": "21",
     "map_id": "29",
     "map_name": "Blue Key Hall",
     "exits": {
-      "Palace Save Room Upper": "True",
-      "Blue Key Room": "True"
+      "CP Palace Save Room Upper": "True",
+      "CP Blue Key Room": "True"
     }
   },
   {
-    "region_name": "Shooting Star Hall",
+    "region_name": "CP Shooting Star Hall",
     "area_id": "21",
     "map_id": "30",
     "map_name": "Shooting Star Hall",
     "exits": {
-      "Reflected Save Room Upper": "True",
-      "Shooting Star Room": "True"
+      "CP Reflected Save Room Upper": "True",
+      "CP Shooting Star Room": "True"
     }
   },
   {
-    "region_name": "Palace Boss Antechamber",
+    "region_name": "CP Palace Boss Antechamber",
     "area_id": "21",
     "map_id": "31",
     "map_name": "Boss Antechamber",
     "exits": {
-      "Dino Puzzle Room": "True",
-      "Crystal Summit": "True"
+      "CP Dino Puzzle Room": "True",
+      "CP Crystal Summit": "True"
     }
   }
 ]

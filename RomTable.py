@@ -6,6 +6,9 @@ from .options import (EnemyDamage, PaperMarioOptions, PartnerUpgradeShuffle, Shu
                       BowserCastleMode)
 from .data.MysteryOptions import MysteryOptions
 from .data.starting_maps import starting_maps
+from .data.node import Node
+from .items import PMItem
+from .data.ItemList import item_groups, item_multiples_ids
 
 
 class RomTable:
@@ -23,7 +26,7 @@ class RomTable:
     def __getitem__(self, key):
         return self.db[key]
 
-    def generate_pairs(self,  options: PaperMarioOptions, placed_items: list, placed_blocks: dict, entrances: list,
+    def generate_pairs(self,  options: PaperMarioOptions, placed_items: list[Node], placed_blocks: dict, entrances: list,
                        actor_attributes: list, move_costs: list, palettes: list, quizzes: list,
                        music_list: list, mapmirror_list: list, puzzle_list: list, mystery_opts: MysteryOptions):
         table_data = []
@@ -55,12 +58,22 @@ class RomTable:
             })
 
         # Items
+        repeat_items = {}
         for node in placed_items:
             if node.key_name_item is not None and node.current_item is not None:
+                item_id = node.current_item.id
+                # Progressive items default to their highest ids for in-game placement
+                # When received, we receive the lowest IDs
+                if item_id in item_multiples_ids.keys():
+                    if item_id not in repeat_items.keys():
+                        repeat_items[item_id] = len(item_multiples_ids[item_id]) - 1
+
+                    item_id = item_multiples_ids[item_id][repeat_items[item_id]]
+                    repeat_items[node.current_item.id] -= 1
 
                 table_data.append({
                     "key": node.get_item_key(),
-                    "value": node.current_item.id,
+                    "value": item_id,
                 })
 
             # Item Prices

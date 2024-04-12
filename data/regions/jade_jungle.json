@@ -1,57 +1,57 @@
 [
   {
-    "region_name": "Whale Cove",
+    "region_name": "JJ Whale Cove",
     "area_id": "17",
     "map_id": "0",
     "map_name": "Whale Cove",
     "locations": {
-      "Whale Cove Over Flower 1": "can_climb_steps",
-      "Whale Cove Over Flower 2": "can_climb_steps",
-      "Whale Cove Behind Bush": "True",
-      "Whale Cove In Palm Tree": "can_shake_trees"
+      "JJ Whale Cove Over Flower 1": "can_climb_steps",
+      "JJ Whale Cove Over Flower 2": "can_climb_steps",
+      "JJ Whale Cove Behind Bush": "True",
+      "JJ Whale Cove In Palm Tree": "can_shake_trees"
     },
     "exits": {
-      "Riding the Whale": "True",
-      "Beach": "True",
-      "Whale Cove NE Exit": "can_climb_steps"
+      "TT Riding the Whale": "True",
+      "JJ Beach": "True",
+      "JJ Whale Cove NE Exit": "can_climb_steps"
     }
   },
   {
-    "region_name": "Whale Cove NE Exit",
+    "region_name": "JJ Whale Cove NE Exit",
     "area_id": "17",
     "map_id": "0",
     "map_name": "Whale Cove",
     "exits": {
-      "SW Jungle (Super Block) SW": "True",
-      "Whale Cove": "can_climb_steps"
+      "JJ SW Jungle (Super Block) SW": "True",
+      "JJ Whale Cove": "can_climb_steps"
     }
   },
   {
-    "region_name": "Beach",
+    "region_name": "JJ Beach",
     "area_id": "17",
     "map_id": "1",
     "map_name": "Beach",
     "locations": {
-      "Beach On The Rocks": "can_climb_steps",
-      "Beach Over Flower 1": "can_climb_steps",
-      "Beach Over Flower 2": "can_climb_steps",
-      "Beach Hidden Block Left": "can_see_hidden_blocks and can_hit_floating_blocks",
-      "Beach Hidden Block Right": "can_see_hidden_blocks and can_hit_floating_blocks",
-      "Beach In Palm Tree 1": "can_shake_trees",
-      "Beach In Palm Tree 2": "can_shake_trees",
-      "Beach In Palm Tree 3": "can_shake_trees",
-      "Beach In Palm Tree 4": "can_shake_trees",
-      "Beach In Palm Tree 5": "can_shake_trees",
-      "Beach In Palm Tree 6": "can_shake_trees",
-      "Beach In Palm Tree 6 2": "can_shake_trees"
+      "JJ Beach On The Rocks": "can_climb_steps",
+      "JJ Beach Over Flower 1": "can_climb_steps",
+      "JJ Beach Over Flower 2": "can_climb_steps",
+      "JJ Beach Hidden Block Left": "can_see_hidden_blocks and can_hit_floating_blocks",
+      "JJ Beach Hidden Block Right": "can_see_hidden_blocks and can_hit_floating_blocks",
+      "JJ Beach In Palm Tree 1": "can_shake_trees",
+      "JJ Beach In Palm Tree 2": "can_shake_trees",
+      "JJ Beach In Palm Tree 3": "can_shake_trees",
+      "JJ Beach In Palm Tree 4": "can_shake_trees",
+      "JJ Beach In Palm Tree 5": "can_shake_trees",
+      "JJ Beach In Palm Tree 6": "can_shake_trees",
+      "JJ Beach In Palm Tree 6 2": "can_shake_trees"
     },
     "exits": {
-      "Whale Cove": "True",
-      "Village Cove": "True"
+      "JJ Whale Cove": "True",
+      "JJ Village Cove": "True"
     }
   },
   {
-    "region_name": "Village Cove",
+    "region_name": "JJ Village Cove",
     "area_id": "17",
     "map_id": "2",
     "map_name": "Village Cove",
@@ -61,18 +61,18 @@
       "StarPiece_JAN_8": "True"
     },
     "locations": {
-      "Village Cove Hidden Panel": "can_flip_panels",
-      "Village Cove Village Leader Reward": "saved_all_yoshi_kids",
-      "Village Cove In Palm Tree Left": "can_shake_trees",
-      "Village Cove In Palm Tree Right": "can_shake_trees"
+      "JJ Village Cove Hidden Panel": "can_flip_panels",
+      "JJ Village Cove Village Leader Reward": "saved_all_yoshi_kids",
+      "JJ Village Cove In Palm Tree Left": "can_shake_trees",
+      "JJ Village Cove In Palm Tree Right": "can_shake_trees"
     },
     "exits": {
-      "Beach": "True",
-      "Village Buildings": "True"
+      "JJ Beach": "True",
+      "JJ Village Buildings": "True"
     }
   },
   {
-    "region_name": "Village Buildings",
+    "region_name": "JJ Village Buildings",
     "area_id": "17",
     "map_id": "3",
     "map_name": "Village Buildings",
@@ -82,68 +82,68 @@
       "StarPiece_JAN_8": "True"
     },
     "locations": {
-      "Village Buildings Kolorado Volcano Vase Reward": "saved_all_yoshi_kids and VolcanoVase and 'MF_Ch5_RescuedStarSpirit'",
-      "Village Buildings Yellow Yoshi Food Reward": "saved_all_yoshi_kids and 'RF_CanVisitTayceT' and 'RF_CanCook' and 'MF_Ch5_RescuedStarSpirit'",
-      "Village Buildings Red Yoshi Kid Letter Reward": "'RF_SavedYoshiKid_3' and can_use_ability_parakarry and Letter21",
-      "Village Buildings In Palm Tree": "can_shake_trees",
-      "Village Buildings Shop Item 1": "can_climb_steps",
-      "Village Buildings Shop Item 2": "can_climb_steps",
-      "Village Buildings Shop Item 3": "can_climb_steps",
-      "Village Buildings Shop Item 4": "can_climb_steps",
-      "Village Buildings Shop Item 5": "can_climb_steps",
-      "Village Buildings Shop Item 6": "can_climb_steps"
+      "JJ Village Buildings Kolorado Volcano Vase Reward": "saved_all_yoshi_kids and VolcanoVase and 'MF_Ch5_RescuedStarSpirit'",
+      "JJ Village Buildings Yellow Yoshi Food Reward": "saved_all_yoshi_kids and 'RF_CanVisitTayceT' and 'RF_CanCook' and 'MF_Ch5_RescuedStarSpirit'",
+      "JJ Village Buildings Red Yoshi Kid Letter Reward": "'RF_SavedYoshiKid_3' and can_use_ability_parakarry and Letter_to_Red_Yoshi_Kid",
+      "JJ Village Buildings In Palm Tree": "can_shake_trees",
+      "JJ Village Buildings Shop Item 1": "can_climb_steps",
+      "JJ Village Buildings Shop Item 2": "can_climb_steps",
+      "JJ Village Buildings Shop Item 3": "can_climb_steps",
+      "JJ Village Buildings Shop Item 4": "can_climb_steps",
+      "JJ Village Buildings Shop Item 5": "can_climb_steps",
+      "JJ Village Buildings Shop Item 6": "can_climb_steps"
     },
     "exits": {
-      "Village Cove": "True",
-      "SE Jungle (Quake Hammer) East": "True",
-      "Path to the Volcano": "True",
-      "Village Buildings Pipe": "'GF_TIK08_WarpPipe' and Boots"
+      "JJ Village Cove": "True",
+      "JJ SE Jungle (Quake Hammer) East": "True",
+      "JJ Path to the Volcano": "True",
+      "JJ Village Buildings Pipe": "'GF_TIK08_WarpPipe' and Boots"
     }
   },
   {
-    "region_name": "Village Buildings Pipe",
+    "region_name": "JJ Village Buildings Pipe",
     "area_id": "17",
     "map_id": "3",
     "map_name": "Village Buildings",
     "exits": {
-      "Second Level Entry (B2) Blue Pipe": "can_reenter_vertical_pipes",
-      "Village Buildings": "True"
+      "TTT Second Level Entry (B2) Blue Pipe": "can_reenter_vertical_pipes",
+      "JJ Village Buildings": "True"
     }
   },
   {
-    "region_name": "Sushi Tree",
+    "region_name": "JJ Sushi Tree",
     "area_id": "17",
     "map_id": "4",
     "map_name": "Sushi Tree",
     "locations": {
-      "Sushi Tree In Volcano Chest": "'MF_Ch5_RescuedStarSpirit'",
-      "Sushi Tree On Island": "can_use_ability_sushie",
-      "Sushi Tree In Island Tree": "can_shake_trees and can_use_ability_sushie",
-      "Sushi Tree Sushie Partner": "can_shake_trees"
+      "JJ Sushi Tree In Volcano Chest": "'MF_Ch5_RescuedStarSpirit'",
+      "JJ Sushi Tree On Island": "can_use_ability_sushie",
+      "JJ Sushi Tree In Island Tree": "can_shake_trees and can_use_ability_sushie",
+      "JJ Sushi Tree Sushie Partner": "can_shake_trees"
     },
     "exits": {
-      "SE Jungle (Quake Hammer) East": "True"
+      "JJ SE Jungle (Quake Hammer) East": "True"
     }
   },
   {
-    "region_name": "SE Jungle (Quake Hammer) East",
+    "region_name": "JJ SE Jungle (Quake Hammer) East",
     "area_id": "17",
     "map_id": "5",
     "map_name": "SE Jungle (Quake Hammer)",
     "locations": {
-      "SE Jungle (Quake Hammer) Red Block": "can_use_ability_sushie and can_hit_floating_blocks",
-      "SE Jungle (Quake Hammer) Bush (Bottom Right)": "True",
-      "SE Jungle (Quake Hammer) In Tree (Right)": "can_shake_trees"
+      "JJ SE Jungle (Quake Hammer) Red Block": "can_use_ability_sushie and can_hit_floating_blocks",
+      "JJ SE Jungle (Quake Hammer) Bush (Bottom Right)": "True",
+      "JJ SE Jungle (Quake Hammer) In Tree (Right)": "can_shake_trees"
     },
     "exits": {
-      "Village Buildings": "True",
-      "Sushi Tree": "True",
-      "SW Jungle (Super Block) SW": "can_use_ability_sushie",
-      "SE Jungle (Quake Hammer) West": "'GF_JAN05_CreateLogBridge'"
+      "JJ Village Buildings": "True",
+      "JJ Sushi Tree": "True",
+      "JJ SW Jungle (Super Block) SW": "can_use_ability_sushie",
+      "JJ SE Jungle (Quake Hammer) West": "'GF_JAN05_CreateLogBridge'"
     }
   },
   {
-    "region_name": "SE Jungle (Quake Hammer) West",
+    "region_name": "JJ SE Jungle (Quake Hammer) West",
     "area_id": "17",
     "map_id": "5",
     "map_name": "SE Jungle (Quake Hammer)",
@@ -152,53 +152,53 @@
       "RF_SavedYoshiKid_1": "'RF_YoshiKidsMissing' and Hammer"
     },
     "locations": {
-      "SE Jungle (Quake Hammer) Bush (Bottom Left)": "True"
+      "JJ SE Jungle (Quake Hammer) Bush (Bottom Left)": "True"
     },
     "exits": {
-      "NE Jungle (Raven Statue) South": "True",
-      "SE Jungle (Quake Hammer) East": "'GF_JAN05_CreateLogBridge'"
+      "JJ NE Jungle (Raven Statue) South": "True",
+      "JJ SE Jungle (Quake Hammer) East": "'GF_JAN05_CreateLogBridge'"
     }
   },
   {
-    "region_name": "NE Jungle (Raven Statue) South",
+    "region_name": "JJ NE Jungle (Raven Statue) South",
     "area_id": "17",
     "map_id": "6",
     "map_name": "NE Jungle (Raven Statue)",
     "exits": {
-      "SE Jungle (Quake Hammer) West": "True",
-      "NE Jungle (Raven Statue) East": "can_use_ability_sushie",
-      "NE Jungle (Raven Statue) North": "can_use_ability_sushie"
+      "JJ SE Jungle (Quake Hammer) West": "True",
+      "JJ NE Jungle (Raven Statue) East": "can_use_ability_sushie",
+      "JJ NE Jungle (Raven Statue) North": "can_use_ability_sushie"
     }
   },
   {
-    "region_name": "NE Jungle (Raven Statue) East",
+    "region_name": "JJ NE Jungle (Raven Statue) East",
     "area_id": "17",
     "map_id": "6",
     "map_name": "NE Jungle (Raven Statue)",
     "exits": {
-      "Small Jungle Ledge": "True",
-      "NE Jungle (Raven Statue) South": "can_use_ability_sushie",
-      "NE Jungle (Raven Statue) North": "can_use_ability_sushie",
-      "NE Jungle (Raven Statue) West": "'GF_JAN06_CreateLogBridge'"
+      "JJ Small Jungle Ledge": "True",
+      "JJ NE Jungle (Raven Statue) South": "can_use_ability_sushie",
+      "JJ NE Jungle (Raven Statue) North": "can_use_ability_sushie",
+      "JJ NE Jungle (Raven Statue) West": "'GF_JAN06_CreateLogBridge'"
     }
   },
   {
-    "region_name": "NE Jungle (Raven Statue) North",
+    "region_name": "JJ NE Jungle (Raven Statue) North",
     "area_id": "17",
     "map_id": "6",
     "map_name": "NE Jungle (Raven Statue)",
     "locations": {
-      "NE Jungle (Raven Statue) In Tree (Top Left)": "can_shake_trees",
-      "NE Jungle (Raven Statue) Underwater": "can_use_ability_sushie"
+      "JJ NE Jungle (Raven Statue) In Tree (Top Left)": "can_shake_trees",
+      "JJ NE Jungle (Raven Statue) Underwater": "can_use_ability_sushie"
     },
     "exits": {
-      "Deep Jungle 1": "JadeRaven",
-      "NE Jungle (Raven Statue) East": "can_use_ability_sushie",
-      "NE Jungle (Raven Statue) South": "can_use_ability_sushie"
+      "JJ Deep Jungle 1": "Jade_Raven",
+      "JJ NE Jungle (Raven Statue) East": "can_use_ability_sushie",
+      "JJ NE Jungle (Raven Statue) South": "can_use_ability_sushie"
     }
   },
   {
-    "region_name": "NE Jungle (Raven Statue) West",
+    "region_name": "JJ NE Jungle (Raven Statue) West",
     "area_id": "17",
     "map_id": "6",
     "map_name": "NE Jungle (Raven Statue)",
@@ -206,12 +206,12 @@
       "GF_JAN06_CreateLogBridge": "Hammer"
     },
     "exits": {
-      "NW Jungle (Large Ledge) SE": "True",
-      "NE Jungle (Raven Statue) East": "'GF_JAN06_CreateLogBridge'"
+      "JJ NW Jungle (Large Ledge) SE": "True",
+      "JJ NE Jungle (Raven Statue) East": "'GF_JAN06_CreateLogBridge'"
     }
   },
   {
-    "region_name": "Small Jungle Ledge",
+    "region_name": "JJ Small Jungle Ledge",
     "area_id": "17",
     "map_id": "7",
     "map_name": "Small Jungle Ledge",
@@ -219,14 +219,14 @@
       "RF_SavedYoshiKid_2": "'RF_YoshiKidsMissing'"
     },
     "locations": {
-      "Small Jungle Ledge In Tree": "can_shake_trees"
+      "JJ Small Jungle Ledge In Tree": "can_shake_trees"
     },
     "exits": {
-      "NE Jungle (Raven Statue) East": "True"
+      "JJ NE Jungle (Raven Statue) East": "True"
     }
   },
   {
-    "region_name": "SW Jungle (Super Block) SW",
+    "region_name": "JJ SW Jungle (Super Block) SW",
     "area_id": "17",
     "map_id": "8",
     "map_name": "SW Jungle (Super Block)",
@@ -234,86 +234,86 @@
       "RF_SavedYoshiKid_3": "'RF_YoshiKidsMissing'"
     },
     "locations": {
-      "SW Jungle (Super Block) Bush (Bottom Left)": "True"
+      "JJ SW Jungle (Super Block) Bush (Bottom Left)": "True"
     },
     "exits": {
-      "Whale Cove NE Exit": "True",
-      "SW Jungle (Super Block) NE": "can_use_ability_sushie"
+      "JJ Whale Cove NE Exit": "True",
+      "JJ SW Jungle (Super Block) NE": "can_use_ability_sushie"
     }
   },
   {
-    "region_name": "SW Jungle (Super Block) NE",
+    "region_name": "JJ SW Jungle (Super Block) NE",
     "area_id": "17",
     "map_id": "8",
     "map_name": "SW Jungle (Super Block)",
     "locations": {
-      "SW Jungle (Super Block) Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks",
-      "SW Jungle (Super Block) Bush (Top Right)": "True",
-      "SW Jungle (Super Block) In Tree (Top)": "can_shake_trees",
-      "SW Jungle (Super Block) In Tree (Right)": "can_shake_trees",
-      "SW Jungle (Super Block) Underwater 1": "can_use_ability_sushie",
-      "SW Jungle (Super Block) Underwater 2": "can_use_ability_sushie",
-      "SW Jungle (Super Block) Underwater 3": "can_use_ability_sushie",
-      "SW Jungle (Super Block) In SuperBlock": "can_hit_floating_blocks"
+      "JJ SW Jungle (Super Block) Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks",
+      "JJ SW Jungle (Super Block) Bush (Top Right)": "True",
+      "JJ SW Jungle (Super Block) In Tree (Top)": "can_shake_trees",
+      "JJ SW Jungle (Super Block) In Tree (Right)": "can_shake_trees",
+      "JJ SW Jungle (Super Block) Underwater 1": "can_use_ability_sushie",
+      "JJ SW Jungle (Super Block) Underwater 2": "can_use_ability_sushie",
+      "JJ SW Jungle (Super Block) Underwater 3": "can_use_ability_sushie",
+      "JJ SW Jungle (Super Block) In SuperBlock": "can_hit_floating_blocks"
     },
     "exits": {
-      "NW Jungle (Large Ledge) SE": "True",
-      "SW Jungle (Super Block) SW": "can_use_ability_sushie"
+      "JJ NW Jungle (Large Ledge) SE": "True",
+      "JJ SW Jungle (Super Block) SW": "can_use_ability_sushie"
     }
   },
   {
-    "region_name": "NW Jungle (Large Ledge) SE",
+    "region_name": "JJ NW Jungle (Large Ledge) SE",
     "area_id": "17",
     "map_id": "9",
     "map_name": "NW Jungle (Large Ledge)",
     "locations": {
-      "NW Jungle (Large Ledge) Bush 1": "True",
-      "NW Jungle (Large Ledge) Bush 2": "True",
-      "NW Jungle (Large Ledge) In Tree Right": "can_shake_trees"
+      "JJ NW Jungle (Large Ledge) Bush 1": "True",
+      "JJ NW Jungle (Large Ledge) Bush 2": "True",
+      "JJ NW Jungle (Large Ledge) In Tree Right": "can_shake_trees"
     },
     "exits": {
-      "SW Jungle (Super Block) NE": "True",
-      "NE Jungle (Raven Statue) West": "True",
-      "NW Jungle (Large Ledge) NW": "can_use_ability_sushie",
-      "Western Dead End": "can_use_ability_sushie"
+      "JJ SW Jungle (Super Block) NE": "True",
+      "JJ NE Jungle (Raven Statue) West": "True",
+      "JJ NW Jungle (Large Ledge) NW": "can_use_ability_sushie",
+      "JJ Western Dead End": "can_use_ability_sushie"
     }
   },
   {
-    "region_name": "NW Jungle (Large Ledge) NW",
+    "region_name": "JJ NW Jungle (Large Ledge) NW",
     "area_id": "17",
     "map_id": "9",
     "map_name": "NW Jungle (Large Ledge)",
     "exits": {
-      "Western Dead End": "can_use_ability_sushie",
-      "NW Jungle (Large Ledge) SE": "can_use_ability_sushie",
-      "NW Jungle (Large Ledge) Ledge": "can_climb_steps"
+      "JJ Western Dead End": "can_use_ability_sushie",
+      "JJ NW Jungle (Large Ledge) SE": "can_use_ability_sushie",
+      "JJ NW Jungle (Large Ledge) Ledge": "can_climb_steps"
     }
   },
   {
-    "region_name": "NW Jungle (Large Ledge) Ledge",
+    "region_name": "JJ NW Jungle (Large Ledge) Ledge",
     "area_id": "17",
     "map_id": "9",
     "map_name": "NW Jungle (Large Ledge)",
     "locations": {
-      "NW Jungle (Large Ledge) In Tree On Ledge": "can_shake_trees"
+      "JJ NW Jungle (Large Ledge) In Tree On Ledge": "can_shake_trees"
     },
     "exits": {
-      "NW Jungle (Large Ledge) Pipe": "Boots",
-      "NW Jungle (Large Ledge) NW": "True"
+      "JJ NW Jungle (Large Ledge) Pipe": "Boots",
+      "JJ NW Jungle (Large Ledge) NW": "True"
     }
   },
   {
-    "region_name": "NW Jungle (Large Ledge) Pipe",
+    "region_name": "JJ NW Jungle (Large Ledge) Pipe",
     "area_id": "17",
     "map_id": "9",
     "map_name": "NW Jungle (Large Ledge)",
     "exits": {
-      "Root Cavern": "can_reenter_vertical_pipes",
-      "NW Jungle (Large Ledge) Ledge": "True"
+      "JJ Root Cavern": "can_reenter_vertical_pipes",
+      "JJ NW Jungle (Large Ledge) Ledge": "True"
     }
   },
   {
-    "region_name": "Western Dead End",
+    "region_name": "JJ Western Dead End",
     "area_id": "17",
     "map_id": "10",
     "map_name": "Western Dead End",
@@ -321,15 +321,15 @@
       "RF_SavedYoshiKid_4": "'RF_YoshiKidsMissing' and can_use_ability_sushie and Hammer"
     },
     "locations": {
-      "Western Dead End Underwater": "can_use_ability_sushie"
+      "JJ Western Dead End Underwater": "can_use_ability_sushie"
     },
     "exits": {
-      "NW Jungle (Large Ledge) SE": "can_use_ability_sushie",
-      "NW Jungle (Large Ledge) NW": "can_use_ability_sushie"
+      "JJ NW Jungle (Large Ledge) SE": "can_use_ability_sushie",
+      "JJ NW Jungle (Large Ledge) NW": "can_use_ability_sushie"
     }
   },
   {
-    "region_name": "Root Cavern",
+    "region_name": "JJ Root Cavern",
     "area_id": "17",
     "map_id": "11",
     "map_name": "Root Cavern",
@@ -337,68 +337,68 @@
       "RF_SavedYoshiKid_5": "'RF_YoshiKidsMissing' and can_use_ability_watt and Boots"
     },
     "exits": {
-      "NW Jungle (Large Ledge) Pipe": "True"
+      "JJ NW Jungle (Large Ledge) Pipe": "True"
     }
   },
   {
-    "region_name": "Deep Jungle 1",
+    "region_name": "JJ Deep Jungle 1",
     "area_id": "17",
     "map_id": "12",
     "map_name": "Deep Jungle 1",
     "locations": {
-      "Deep Jungle 1 In Tree (Vine)": "Boots",
-      "Deep Jungle 1 In Tree (Hit)": "can_climb_steps and can_shake_trees",
-      "Deep Jungle 1 Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks and can_climb_steps"
+      "JJ Deep Jungle 1 In Tree (Vine)": "Boots",
+      "JJ Deep Jungle 1 In Tree (Hit)": "can_climb_steps and can_shake_trees",
+      "JJ Deep Jungle 1 Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks and can_climb_steps"
     },
     "exits": {
-      "NE Jungle (Raven Statue) North": "True",
-      "Deep Jungle 2 (Block Puzzle)": "True"
+      "JJ NE Jungle (Raven Statue) North": "True",
+      "JJ Deep Jungle 2 (Block Puzzle)": "True"
     }
   },
   {
-    "region_name": "Deep Jungle 2 (Block Puzzle)",
+    "region_name": "JJ Deep Jungle 2 (Block Puzzle)",
     "area_id": "17",
     "map_id": "13",
     "map_name": "Deep Jungle 2 (Block Puzzle)",
     "locations": {
-      "Deep Jungle 2 (Block Puzzle) Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks and can_climb_steps",
-      "Deep Jungle 2 (Block Puzzle) In Tree (Left)": "can_shake_trees"
+      "JJ Deep Jungle 2 (Block Puzzle) Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks and can_climb_steps",
+      "JJ Deep Jungle 2 (Block Puzzle) In Tree (Left)": "can_shake_trees"
     },
     "exits": {
-      "Deep Jungle 1": "True",
-      "Deep Jungle 3": "True"
+      "JJ Deep Jungle 1": "True",
+      "JJ Deep Jungle 3": "True"
     }
   },
   {
-    "region_name": "Deep Jungle 3",
+    "region_name": "JJ Deep Jungle 3",
     "area_id": "17",
     "map_id": "14",
     "map_name": "Deep Jungle 3",
     "locations": {
-      "Deep Jungle 3 Tree Vine Second Left": "Boots",
-      "Deep Jungle 3 Tree Vine Far Right": "Boots"
+      "JJ Deep Jungle 3 Tree Vine Second Left": "Boots",
+      "JJ Deep Jungle 3 Tree Vine Far Right": "Boots"
     },
     "exits": {
-      "Deep Jungle 2 (Block Puzzle)": "True",
-      "Deep Jungle 4 (Ambush)": "Boots"
+      "JJ Deep Jungle 2 (Block Puzzle)": "True",
+      "JJ Deep Jungle 4 (Ambush)": "Boots"
     }
   },
   {
-    "region_name": "Deep Jungle 4 (Ambush)",
+    "region_name": "JJ Deep Jungle 4 (Ambush)",
     "area_id": "17",
     "map_id": "15",
     "map_name": "Deep Jungle 4 (Ambush)",
     "locations": {
-      "Deep Jungle 4 (Ambush) In Tree (Right)": "can_shake_trees",
-      "Deep Jungle 4 (Ambush) Hidden Panel": "can_flip_panels"
+      "JJ Deep Jungle 4 (Ambush) In Tree (Right)": "can_shake_trees",
+      "JJ Deep Jungle 4 (Ambush) Hidden Panel": "can_flip_panels"
     },
     "exits": {
-      "Deep Jungle 3": "True",
-      "Base of Great Tree West": "True"
+      "JJ Deep Jungle 3": "True",
+      "JJ Base of Great Tree West": "True"
     }
   },
   {
-    "region_name": "Base of Great Tree West",
+    "region_name": "JJ Base of Great Tree West",
     "area_id": "17",
     "map_id": "16",
     "map_name": "Base of Great Tree",
@@ -406,76 +406,76 @@
       "MF_Ch5_RafaelMovedRoot": "'MF_Ch5_TalkedToRafael'"
     },
     "exits": {
-      "Deep Jungle 4 (Ambush)": "True",
-      "Lower Great Tree Interior Bottom Door": "True",
-      "Base of Great Tree East": "'MF_Ch5_TalkedToRafael'"
+      "JJ Deep Jungle 4 (Ambush)": "True",
+      "JJ Lower Great Tree Interior Bottom Door": "True",
+      "JJ Base of Great Tree East": "'MF_Ch5_TalkedToRafael'"
     }
   },
   {
-    "region_name": "Base of Great Tree East",
+    "region_name": "JJ Base of Great Tree East",
     "area_id": "17",
     "map_id": "16",
     "map_name": "Base of Great Tree",
     "exits": {
-      "Path to the Volcano": "True",
-      "Base of Great Tree West": "True"
+      "JJ Path to the Volcano": "True",
+      "JJ Base of Great Tree West": "True"
     }
   },
   {
-    "region_name": "Lower Great Tree Interior Bottom Door",
+    "region_name": "JJ Lower Great Tree Interior Bottom Door",
     "area_id": "17",
     "map_id": "17",
     "map_name": "Lower Great Tree Interior",
     "exits": {
-      "Base of Great Tree West": "True",
-      "Lower Great Tree Interior Upper Door": "can_climb_steps"
+      "JJ Base of Great Tree West": "True",
+      "JJ Lower Great Tree Interior Upper Door": "can_climb_steps"
     }
   },
   {
-    "region_name": "Lower Great Tree Interior Upper Door",
+    "region_name": "JJ Lower Great Tree Interior Upper Door",
     "area_id": "17",
     "map_id": "17",
     "map_name": "Lower Great Tree Interior",
     "exits": {
-      "Great Tree Vine Ascent": "True",
-      "Lower Great Tree Interior Bottom Door": "True"
+      "JJ Great Tree Vine Ascent": "True",
+      "JJ Lower Great Tree Interior Bottom Door": "True"
     }
   },
   {
-    "region_name": "Great Tree Vine Ascent",
+    "region_name": "JJ Great Tree Vine Ascent",
     "area_id": "17",
     "map_id": "18",
     "map_name": "Great Tree Vine Ascent",
     "locations": {
-      "Great Tree Vine Ascent End Of Vine": "True"
+      "JJ Great Tree Vine Ascent End Of Vine": "True"
     },
     "exits": {
-      "Lower Great Tree Interior Upper Door": "True",
-      "Upper Great Tree Interior Lower Door": "True"
+      "JJ Lower Great Tree Interior Upper Door": "True",
+      "JJ Upper Great Tree Interior Lower Door": "True"
     }
   },
   {
-    "region_name": "Upper Great Tree Interior Lower Door",
+    "region_name": "JJ Upper Great Tree Interior Lower Door",
     "area_id": "17",
     "map_id": "19",
     "map_name": "Upper Great Tree Interior",
     "exits": {
-      "Great Tree Vine Ascent": "True",
-      "Upper Great Tree Interior Upper Door": "can_climb_steps"
+      "JJ Great Tree Vine Ascent": "True",
+      "JJ Upper Great Tree Interior Upper Door": "can_climb_steps"
     }
   },
   {
-    "region_name": "Upper Great Tree Interior Upper Door",
+    "region_name": "JJ Upper Great Tree Interior Upper Door",
     "area_id": "17",
     "map_id": "19",
     "map_name": "Upper Great Tree Interior",
     "exits": {
-      "Great Treetop Roost": "True",
-      "Upper Great Tree Interior Lower Door": "True"
+      "JJ Great Treetop Roost": "True",
+      "JJ Upper Great Tree Interior Lower Door": "True"
     }
   },
   {
-    "region_name": "Path to the Volcano",
+    "region_name": "JJ Path to the Volcano",
     "area_id": "17",
     "map_id": "20",
     "map_name": "Path to the Volcano",
@@ -486,27 +486,27 @@
       "MF_Ch5_RescuedStarSpirit": "'MF_Ch5_FoundEscapeRoute'"
     },
     "locations": {
-      "Path to the Volcano Raphael Gift": "'MF_Ch5_RafaelMovedRoot'",
-      "Path to the Volcano Behind Tree": "True"
+      "JJ Path to the Volcano Raphael Gift": "'MF_Ch5_RafaelMovedRoot'",
+      "JJ Path to the Volcano Behind Tree": "True"
     },
     "exits": {
-      "Village Buildings": "True",
-      "Base of Great Tree East": "'MF_Ch5_RafaelMovedRoot'",
-      "Path to the Volcano Entrance": "'MF_Ch5_ZiplineBuilt' and can_climb_steps"
+      "JJ Village Buildings": "True",
+      "JJ Base of Great Tree East": "'MF_Ch5_RafaelMovedRoot'",
+      "JJ Path to the Volcano Entrance": "'MF_Ch5_ZiplineBuilt' and can_climb_steps"
     }
   },
   {
-    "region_name": "Path to the Volcano Entrance",
+    "region_name": "JJ Path to the Volcano Entrance",
     "area_id": "17",
     "map_id": "20",
     "map_name": "Path to the Volcano",
     "exits": {
-      "Volcano Entrance": "True",
-      "Path to the Volcano": "'MF_Ch5_ZiplineBuilt'"
+      "MLL Volcano Entrance": "True",
+      "JJ Path to the Volcano": "'MF_Ch5_ZiplineBuilt'"
     }
   },
   {
-    "region_name": "Great Treetop Roost",
+    "region_name": "JJ Great Treetop Roost",
     "area_id": "17",
     "map_id": "21",
     "map_name": "Great Treetop Roost",
@@ -514,8 +514,8 @@
       "MF_Ch5_TalkedToRafael": "True"
     },
     "exits": {
-      "Upper Great Tree Interior Upper Door": "True",
-      "Base of Great Tree West": "True"
+      "JJ Upper Great Tree Interior Upper Door": "True",
+      "JJ Base of Great Tree West": "True"
     }
   }
 ]

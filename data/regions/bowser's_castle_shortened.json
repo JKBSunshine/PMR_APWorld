@@ -1,334 +1,334 @@
 [
   {
-    "region_name": "Ultra Shroom Timing Puzzle West Door",
+    "region_name": "BC Ultra Shroom Timing Puzzle West Door",
     "area_id": "22",
     "map_id": "4",
     "map_name": "Ultra Shroom Timing Puzzle",
     "exits": {
-      "Ultra Shroom Room": "True",
-      "Ultra Shroom Timing Puzzle": "True"
+      "BC Ultra Shroom Room": "True",
+      "BC Ultra Shroom Timing Puzzle": "True"
     }
   },
   {
-    "region_name": "Ultra Shroom Timing Puzzle",
+    "region_name": "BC Ultra Shroom Timing Puzzle",
     "area_id": "22",
     "map_id": "4",
     "map_name": "Ultra Shroom Timing Puzzle",
     "exits": {
-      "Upper Grand Hall Upper": "True",
-      "Ultra Shroom Timing Puzzle West Door": "can_use_ability_bombette and Boots"
+      "BC Upper Grand Hall Upper": "True",
+      "BC Ultra Shroom Timing Puzzle West Door": "can_use_ability_bombette and Boots"
     }
   },
   {
-    "region_name": "Outside Lower Jail West",
+    "region_name": "BC Outside Lower Jail West",
     "area_id": "22",
     "map_id": "6",
     "map_name": "Outside Lower Jail",
     "locations": {
-      "Outside Lower Jail Defeat Koopatrol Reward": "True"
+      "BC Outside Lower Jail Defeat Koopatrol Reward": "True"
     },
     "exits": {
-      "Front Door Exterior": "True"
+      "BC Front Door Exterior": "True"
     }
   },
   {
-    "region_name": "Lower Grand Hall Lower",
+    "region_name": "BC Lower Grand Hall Lower",
     "area_id": "22",
     "map_id": "13",
     "map_name": "Lower Grand Hall",
     "exits": {
-      "Guard Door 2": "True",
-      "Stairs to East Upper Jail": "True",
-      "Lower Grand Hall Upper": "Boots"
+      "BC Guard Door 2": "True",
+      "BC Stairs to East Upper Jail": "True",
+      "BC Lower Grand Hall Upper": "Boots"
     }
   },
   {
-    "region_name": "Lower Grand Hall Upper",
+    "region_name": "BC Lower Grand Hall Upper",
     "area_id": "22",
     "map_id": "13",
     "map_name": "Lower Grand Hall",
     "exits": {
-      "Hall to Water Puzzle": "True",
-      "Castle Item Shop": "True",
-      "Lower Grand Hall Lower": "True"
+      "BC Hall to Water Puzzle": "True",
+      "BC Castle Item Shop": "True",
+      "BC Lower Grand Hall Lower": "True"
     }
   },
   {
-    "region_name": "Upper Grand Hall Lower",
+    "region_name": "BC Upper Grand Hall Lower",
     "area_id": "22",
     "map_id": "14",
     "map_name": "Upper Grand Hall",
     "exits": {
-      "Stairs to West Upper Jail": "True",
-      "Castle Battlement Upper Door": "True",
-      "Upper Grand Hall Upper": "Boots"
+      "BC Stairs to West Upper Jail": "True",
+      "BC Castle Battlement Upper Door": "True",
+      "BC Upper Grand Hall Upper": "Boots"
     }
   },
   {
-    "region_name": "Upper Grand Hall Upper",
+    "region_name": "BC Upper Grand Hall Upper",
     "area_id": "22",
     "map_id": "14",
     "map_name": "Upper Grand Hall",
     "exits": {
-      "Blue Fire Bridge": "True",
-      "Ultra Shroom Timing Puzzle": "True",
-      "Upper Grand Hall Lower": "True"
+      "BC Blue Fire Bridge": "True",
+      "BC Ultra Shroom Timing Puzzle": "True",
+      "BC Upper Grand Hall Lower": "True"
     }
   },
   {
-    "region_name": "Hall to Guard Door 1",
+    "region_name": "BC Hall to Guard Door 1",
     "area_id": "22",
     "map_id": "17",
     "map_name": "Hall to Guard Door 1",
     "exits": {
-      "Entry Lava Hall": "True",
-      "Guard Door 2": "True"
+      "BC Entry Lava Hall": "True",
+      "BC Guard Door 2": "True"
     }
   },
   {
-    "region_name": "Hall to Water Puzzle",
+    "region_name": "BC Hall to Water Puzzle",
     "area_id": "22",
     "map_id": "18",
     "map_name": "Hall to Water Puzzle",
     "exits": {
-      "Lower Grand Hall Upper": "True",
-      "Bill Blaster Hall Lower": "True"
+      "BC Lower Grand Hall Upper": "True",
+      "BC Bill Blaster Hall Lower": "True"
     }
   },
   {
-    "region_name": "Fake Peach Hallway",
+    "region_name": "BC Fake Peach Hallway",
     "area_id": "22",
     "map_id": "20",
     "map_name": "Fake Peach Hallway",
     "exits": {
-      "Blue Fire Bridge": "True",
-      "Guard Door 3": "(Boots or Hammer or can_use_ability_kooper or can_use_ability_bombette)"
+      "BC Blue Fire Bridge": "True",
+      "BC Guard Door 3": "(Boots or Hammer or can_use_ability_kooper or can_use_ability_bombette)"
     }
   },
   {
-    "region_name": "Ship Enter/Exit Scenes",
+    "region_name": "BC Ship Enter/Exit Scenes",
     "area_id": "22",
     "map_id": "21",
     "map_name": "Ship Enter/Exit Scenes",
     "exits": {
-      "Riding Star Ship Scene": "True",
-      "Hangar": "True"
+      "SSS Riding Star Ship Scene": "True",
+      "BC Hangar": "True"
     }
   },
   {
-    "region_name": "Castle Battlement Lower Door",
+    "region_name": "BC Castle Battlement Lower Door",
     "area_id": "22",
     "map_id": "22",
     "map_name": "Battlement",
     "locations": {
-      "Battlement Yellow Block Left": "can_hit_floating_blocks",
-      "Battlement Yellow Block Center": "can_hit_floating_blocks",
-      "Battlement Yellow Block Right": "can_hit_floating_blocks"
+      "BC Battlement Yellow Block Left": "can_hit_floating_blocks",
+      "BC Battlement Yellow Block Center": "can_hit_floating_blocks",
+      "BC Battlement Yellow Block Right": "can_hit_floating_blocks"
     },
     "exits": {
-      "Bill Blaster Hall Upper": "True",
-      "Castle Battlement Upper Door": "can_climb_steps"
+      "BC Bill Blaster Hall Upper": "True",
+      "BC Castle Battlement Upper Door": "can_climb_steps"
     }
   },
   {
-    "region_name": "Castle Battlement Upper Door",
+    "region_name": "BC Castle Battlement Upper Door",
     "area_id": "22",
     "map_id": "22",
     "map_name": "Battlement",
     "locations": {
-      "Battlement On Ledge": "True"
+      "BC Battlement On Ledge": "True"
     },
     "exits": {
-      "Upper Grand Hall Lower": "True",
-      "Castle Battlement Lower Door": "True"
+      "BC Upper Grand Hall Lower": "True",
+      "BC Castle Battlement Lower Door": "True"
     }
   },
   {
-    "region_name": "Front Door Exterior",
+    "region_name": "BC Front Door Exterior",
     "area_id": "22",
     "map_id": "23",
     "map_name": "Front Door Exterior",
     "exits": {
-      "Entry Lava Hall": "True",
-      "Outside Lower Jail West": "True",
-      "Hangar": "True"
+      "BC Entry Lava Hall": "True",
+      "BC Outside Lower Jail West": "True",
+      "BC Hangar": "True"
     }
   },
   {
-    "region_name": "Hangar",
+    "region_name": "BC Hangar",
     "area_id": "22",
     "map_id": "24",
     "map_name": "Hangar",
     "exits": {
-      "Front Door Exterior": "True",
-      "Ship Enter/Exit Scenes": "True"
+      "BC Front Door Exterior": "True",
+      "BC Ship Enter/Exit Scenes": "True"
     }
   },
   {
-    "region_name": "Entry Lava Hall",
+    "region_name": "BC Entry Lava Hall",
     "area_id": "22",
     "map_id": "25",
     "map_name": "Entry Lava Hall",
     "exits": {
-      "Front Door Exterior": "True",
-      "Hall to Guard Door 1": "True"
+      "BC Front Door Exterior": "True",
+      "BC Hall to Guard Door 1": "True"
     }
   },
   {
-    "region_name": "Guard Door 2",
+    "region_name": "BC Guard Door 2",
     "area_id": "22",
     "map_id": "27",
     "map_name": "Guard Door 2",
     "exits": {
-      "Hall to Guard Door 1": "True",
-      "Castle Battlement Lower Door": "True"
+      "BC Hall to Guard Door 1": "True",
+      "BC Castle Battlement Lower Door": "True"
     }
   },
   {
-    "region_name": "Guard Door 3",
+    "region_name": "BC Guard Door 3",
     "area_id": "22",
     "map_id": "28",
     "map_name": "Guard Door 3",
     "exits": {
-      "Fake Peach Hallway": "True",
-      "Exit to Peach's Castle": "True"
+      "BC Fake Peach Hallway": "True",
+      "BC Exit to Peach's Castle": "True"
     }
   },
   {
-    "region_name": "Stairs to East Upper Jail",
+    "region_name": "BC Stairs to East Upper Jail",
     "area_id": "22",
     "map_id": "29",
     "map_name": "Stairs to East Upper Jail",
     "exits": {
-      "Lower Grand Hall Lower": "True",
-      "East Upper Jail": "True"
+      "BC Lower Grand Hall Lower": "True",
+      "BC East Upper Jail": "True"
     }
   },
   {
-    "region_name": "East Upper Jail",
+    "region_name": "BC East Upper Jail",
     "area_id": "22",
     "map_id": "30",
     "map_name": "East Upper Jail",
     "locations": {
-      "East Upper Jail Defeat Koopatrol Reward": "True"
+      "BC East Upper Jail Defeat Koopatrol Reward": "True"
     },
     "exits": {
-      "Stairs to East Upper Jail": "True"
+      "BC Stairs to East Upper Jail": "True"
     }
   },
   {
-    "region_name": "Stairs to West Upper Jail",
+    "region_name": "BC Stairs to West Upper Jail",
     "area_id": "22",
     "map_id": "31",
     "map_name": "Stairs to West Upper Jail",
     "exits": {
-      "West Upper Jail": "True",
-      "Upper Grand Hall Lower": "True"
+      "BC West Upper Jail": "True",
+      "BC Upper Grand Hall Lower": "True"
     }
   },
   {
-    "region_name": "West Upper Jail",
+    "region_name": "BC West Upper Jail",
     "area_id": "22",
     "map_id": "32",
     "map_name": "West Upper Jail",
     "locations": {
-      "West Upper Jail Defeat Koopatrol Reward": "True"
+      "BC West Upper Jail Defeat Koopatrol Reward": "True"
     },
     "exits": {
-      "Stairs to West Upper Jail": "True"
+      "BC Stairs to West Upper Jail": "True"
     }
   },
   {
-    "region_name": "Castle Item Shop",
+    "region_name": "BC Castle Item Shop",
     "area_id": "22",
     "map_id": "33",
     "map_name": "Item Shop",
     "locations": {
-      "Item Shop Shop Item 1": "True",
-      "Item Shop Shop Item 2": "True",
-      "Item Shop Shop Item 3": "True",
-      "Item Shop Shop Item 4": "True",
-      "Item Shop Shop Item 5": "True",
-      "Item Shop Shop Item 6": "True"
+      "BC Item Shop Shop Item 1": "True",
+      "BC Item Shop Shop Item 2": "True",
+      "BC Item Shop Shop Item 3": "True",
+      "BC Item Shop Shop Item 4": "True",
+      "BC Item Shop Shop Item 5": "True",
+      "BC Item Shop Shop Item 6": "True"
     },
     "exits": {
-      "Lower Grand Hall Upper": "True"
+      "BC Lower Grand Hall Upper": "True"
     }
   },
   {
-    "region_name": "Ultra Shroom Room",
+    "region_name": "BC Ultra Shroom Room",
     "area_id": "22",
     "map_id": "35",
     "map_name": "Ultra Shroom Room",
     "locations": {
-      "Ultra Shroom Room On The Ground": "can_climb_steps"
+      "BC Ultra Shroom Room On The Ground": "can_climb_steps"
     },
     "exits": {
-      "Ultra Shroom Timing Puzzle": "True"
+      "BC Ultra Shroom Timing Puzzle": "True"
     }
   },
   {
-    "region_name": "Blue Fire Bridge",
+    "region_name": "BC Blue Fire Bridge",
     "area_id": "22",
     "map_id": "36",
     "map_name": "Blue Fire Bridge",
     "exits": {
-      "Upper Grand Hall Upper": "True",
-      "Fake Peach Hallway": "True"
+      "BC Upper Grand Hall Upper": "True",
+      "BC Fake Peach Hallway": "True"
     }
   },
   {
-    "region_name": "Room with Hidden Door 1",
+    "region_name": "BC Room with Hidden Door 1",
     "area_id": "22",
     "map_id": "37",
     "map_name": "Room with Hidden Door 1",
     "locations": {
-      "Room with Hidden Door 1 Yellow Block": "can_hit_floating_blocks",
-      "Room with Hidden Door 1 Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks"
+      "BC Room with Hidden Door 1 Yellow Block": "can_hit_floating_blocks",
+      "BC Room with Hidden Door 1 Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks"
     },
     "exits": {
-      "Bill Blaster Hall Upper": "True",
-      "Hidden Passage 1": "True"
+      "BC Bill Blaster Hall Upper": "True",
+      "BC Hidden Passage 1": "True"
     }
   },
   {
-    "region_name": "Hidden Passage 1",
+    "region_name": "BC Hidden Passage 1",
     "area_id": "22",
     "map_id": "38",
     "map_name": "Hidden Passage 1",
     "exits": {
-      "Room with Hidden Door 1": "True",
-      "Castle Battlement Lower Door": "True"
+      "BC Room with Hidden Door 1": "True",
+      "BC Castle Battlement Lower Door": "True"
     }
   },
   {
-    "region_name": "Exit to Peach's Castle",
+    "region_name": "BC Exit to Peach's Castle",
     "area_id": "22",
     "map_id": "46",
     "map_name": "Exit to Peach's Castle",
     "exits": {
-      "Guard Door 3": "True",
-      "Hijacked Castle Entrance": "True"
+      "BC Guard Door 3": "True",
+      "PCG Hijacked Castle Entrance": "True"
     }
   },
   {
-    "region_name": "Bill Blaster Hall Lower",
+    "region_name": "BC Bill Blaster Hall Lower",
     "area_id": "22",
     "map_id": "47",
     "map_name": "Bill Blaster Hall",
     "exits": {
-      "Hall to Water Puzzle": "True",
-      "Bill Blaster Hall Upper": "Boots"
+      "BC Hall to Water Puzzle": "True",
+      "BC Bill Blaster Hall Upper": "Boots"
     }
   },
   {
-    "region_name": "Bill Blaster Hall Upper",
+    "region_name": "BC Bill Blaster Hall Upper",
     "area_id": "22",
     "map_id": "47",
     "map_name": "Bill Blaster Hall",
     "exits": {
-      "Room with Hidden Door 1": "True",
-      "Bill Blaster Hall Lower": "True"
+      "BC Room with Hidden Door 1": "True",
+      "BC Bill Blaster Hall Lower": "True"
     }
   }
 ]

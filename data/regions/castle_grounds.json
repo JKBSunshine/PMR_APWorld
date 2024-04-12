@@ -1,28 +1,28 @@
 [
   {
-    "region_name": "Ruined Castle Grounds",
+    "region_name": "PCG Ruined Castle Grounds",
     "area_id": "23",
     "map_id": "1",
     "map_name": "Ruined Castle Grounds",
     "locations": {
-      "Ruined Castle Grounds Muss T. Letter Reward": "can_use_ability_parakarry and Letter13"
+      "PCG Ruined Castle Grounds Muss T. Letter Reward": "can_use_ability_parakarry and Letter_to_Muss_T"
     },
     "exits": {
-      "Plaza District": "True",
-      "Shooting Star Path": "True"
+      "TT Plaza District": "True",
+      "SSS Shooting Star Path": "True"
     }
   },
   {
-    "region_name": "Hijacked Castle Entrance",
+    "region_name": "PCG Hijacked Castle Entrance",
     "area_id": "23",
     "map_id": "2",
     "map_name": "Hijacked Castle Entrance",
     "locations": {
-      "Hijacked Castle Entrance Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks"
+      "PCG Hijacked Castle Entrance Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks"
     },
     "exits": {
-      "Exit to Peach's Castle": "True",
-      "Entry Hall (1F)": "True"
+      "BC Exit to Peach's Castle": "True",
+      "PC Entry Hall (1F)": "True"
     }
   }
 ]

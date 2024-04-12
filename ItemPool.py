@@ -4,7 +4,7 @@
 from collections import namedtuple
 from itertools import chain
 from .items import PMItem
-from .data.ItemList import taycet_items, item_table, progression_miscitems, item_groups
+from .data.ItemList import taycet_items, item_table, progression_miscitems, item_groups, item_multiples_base_name
 from .data.LocationsList import location_groups, location_table, missable_locations
 from decimal import Decimal, ROUND_HALF_UP
 from .options import *
@@ -40,7 +40,6 @@ def get_pool_core(world: "PaperMarioWorld"):
     pool_badges = []
     pool = []
     placed_items = {}
-    magical_seeds = 0
 
     # Exclude locations that are either missable or are going to be considered not in logic based on settings
     excluded_locations = missable_locations + get_locations_to_exclude(world)
@@ -108,7 +107,7 @@ def get_pool_core(world: "PaperMarioWorld"):
                 location.disabled = True
 
         if location.name in location_groups["LetterReward"]:
-            if location.name == "Goomba Village Goompapa Letter Reward 2":
+            if location.name == "GR Goomba Village Goompapa Letter Reward 2":
                 shuffle_item = (world.options.letter_rewards.value in [ShuffleLetters.option_Final_Letter_Chain_Reward,
                                                                        ShuffleLetters.option_Full_Shuffle])
             elif location.name in location_groups["LetterChain"]:
@@ -131,7 +130,7 @@ def get_pool_core(world: "PaperMarioWorld"):
             if not shuffle_item:
                 location.disabled = True
 
-        if location.vanilla_item == "ForestPass":
+        if location.vanilla_item == "Forest Pass":
             shuffle_item = (not world.options.open_forest.value)
             if not shuffle_item:
                 location.disabled = True
@@ -143,7 +142,7 @@ def get_pool_core(world: "PaperMarioWorld"):
 
         if location.name in location_groups["Gear"]:
             # hammer 1 bush is special in that it is made to not be empty even if starting with hammer
-            if location.name == "Jr. Troopa's Playground In Hammer Bush":
+            if location.name == "GR Jr. Troopa's Playground In Hammer Bush":
                 shuffle_item = ((world.options.gear_shuffle_mode.value != GearShuffleMode.option_Vanilla) or
                                 (world.options.starting_hammer.value == StartingHammer.option_Hammerless))
             else:
@@ -167,7 +166,7 @@ def get_pool_core(world: "PaperMarioWorld"):
         # add it to the proper pool, or place the item
         if shuffle_item:
             # hammer bush gets shuffled as a Tayce T item if shuffling gear locations and not hammerless
-            if (location.name == "Jr. Troopa's Playground In Hammer Bush" and
+            if (location.name == "GR Jr. Troopa's Playground In Hammer Bush" and
                     (world.options.gear_shuffle_mode.value == GearShuffleMode.option_Gear_Location_Shuffle) and
                     (world.options.starting_hammer.value != StartingHammer.option_Hammerless)):
                 pool_progression_items.append(world.random.choice([x for x in taycet_items
@@ -176,7 +175,7 @@ def get_pool_core(world: "PaperMarioWorld"):
             # progression items are shuffled; include gear and star pieces from rip cheato
             elif (itemdata[1] == Ic.progression or itemdata[0] == "GEAR" or
                   (location.name in location_groups["ShopItem"] and
-                   world.options.include_shops.value and "StarPiece" in item)):
+                   world.options.include_shops.value and "Star Piece" in item)):
                 pool_progression_items.append(item)
 
             # some progression items need to be in replenishable locations, we only need one of each
@@ -210,46 +209,43 @@ def get_pool_core(world: "PaperMarioWorld"):
     )
 
     # add power stars
-    if world.options.power_star_hunt.value and world.total_power_stars.value > 0:
-        stars_added = 0
-        for name, data in item_table.items:
-            if name.contains("PowerStar"):
-                if stars_added >= world.total_power_stars:
-                    break
-                else:
-                    stars_added += 1
-                    pool_progression_items.append(name)
+    if world.options.power_star_hunt.value and world.options.total_power_stars.value > 0:
+        for i in range(0, world.options.total_power_stars.value):
+            pool_progression_items.append("Power Star")
 
-    # add item pouches
+    # add 5 item pouches
     if world.options.item_pouches.value:
-        pool_other_items.extend(["PouchA", "PouchB", "PouchC", "PouchD", "PouchE"])
-
-    # add unused badge dupes
-    if world.options.unused_badge_dupes.value:
-        for name, data in item_table.items():
-            if data[5] and not data[6]:
-                pool_badges.append(name)
+        for i in range(0, 5):
+            pool_other_items.append("Pouch Upgrade")
 
     # add beta items
     if world.options.beta_items.value:
-        for name, data in item_table.items():
-            if data[4] and not data[6] and name not in pool_badges:
-                pool_badges.append(name)
+        pool_other_items.extend(item_groups["ItemBeta"])
+        for badge in item_groups["BadgeBeta"]:
+            pool_badges.append(get_item_multiples_base_name(badge))
+
+    # add unused badge dupes
+    if world.options.unused_badge_dupes.value:
+        for badge in item_groups["BadgeDupe"]:
+            if not (world.options.beta_items.value and badge in item_groups["BadgeBeta"]):
+                pool_badges.append(get_item_multiples_base_name(badge))
 
     # add progressive badges
     if world.options.progressive_badges.value:
-        for name in item_groups["ProxyBadge"]:
-            pool_badges.append(name)
+        # 3 copies of each progressive badge
+        for name in item_groups["ProgBadge"]:
+            for i in range(0, 3):
+                pool_badges.append(name)
 
     # add normal boots
     if world.options.starting_boots.value == StartingBoots.option_Jumpless:
-        pool_progression_items.append("BootsProxy1")
+        pool_progression_items.append("Progressive Boots")
 
-    # add partner upgrade items, taking care not to add unplaceable ones (goompa upgrades)
+    # add two of each partner upgrade item, taking care not to add unplaceable ones (goompa upgrades)
     if world.options.partner_upgrades.value != PartnerUpgradeShuffle.option_Vanilla:
-        for name, data in item_table.items():
-            if data[0] == "PARTNERUPGRADE" and not data[6]:
-                pool_other_items.append(name)
+        for i in range(0, 2):
+            pool_other_items.extend(item_groups["PartnerUpgrade"])
+
 
     # adjust item pools based on settings
     items_to_remove_from_pools = get_items_to_exclude(world)
@@ -397,17 +393,13 @@ def get_items_to_exclude(world: "PaperMarioWorld") -> list:
 
     if world.options.gear_shuffle_mode.value >= GearShuffleMode.option_Gear_Location_Shuffle:
         if world.options.starting_hammer.value == StartingHammer.option_Ultra:
-            excluded_items.append("HammerProxy3")
+            excluded_items.append("Progressive Hammer")
         if world.options.starting_hammer.value >= StartingHammer.option_Super:
-            excluded_items.append("HammerProxy2")
-        if world.options.starting_hammer.value >= StartingHammer.option_Normal:
-            excluded_items.append("HammerProxy1")
+            excluded_items.append("Progressive Hammer")
         if world.options.starting_boots.value == StartingBoots.option_Ultra:
-            excluded_items.append("BootsProxy3")
+            excluded_items.append("Progressive Boots")
         if world.options.starting_boots.value >= StartingBoots.option_Super:
-            excluded_items.append("BootsProxy2")
-        if world.options.starting_boots.value >= StartingBoots.option_Normal:
-            excluded_items.append("BootsProxy1")
+            excluded_items.append("Progressive Boots")
 
     if world.options.partner_upgrades.value:
         for item_name in exclude_due_to_settings.get("partner_upgrade_shuffle"):
@@ -433,3 +425,7 @@ def get_locations_to_exclude(world: "PaperMarioWorld") -> list:
     return excluded_locations
 
 
+def get_item_multiples_base_name(item_name: str) -> str:
+    if item_name in item_multiples_base_name.keys():
+        return item_multiples_base_name[item_name]
+    return item_name
