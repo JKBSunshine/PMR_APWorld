@@ -304,12 +304,11 @@ class OneHitKO(Toggle):
 
 
 class XPMultiplier(Range):
-    """Increase or decrease the star points gained from enemies. The entered number / 2 is the multiplier
-    Example: For double XP, set this to 4"""
+    """Increase or decrease the star points gained from enemies."""
     display_name = "XP Multiplier"
     range_start = 0
-    range_end = 4
-    default = 2
+    range_end = 2
+    default = 1
 
 
 class CapEnemyXP(Toggle):
@@ -563,8 +562,7 @@ class OpenWhale(Toggle):
 
 
 class MagicalSeedsRequired(Range):
-    """When enabled, you can ride the whale to Lavalava Island from the start.
-    When disabled, you will have to use Watt to catch and defeat Fuzzipede in order to ride the whale."""
+    """The amount of Magical Seeds required to open the gate to Flower Fields"""
     display_name = "Magical Seeds Required"
     range_start = 0
     range_end = 4

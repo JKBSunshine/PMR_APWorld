@@ -12,7 +12,7 @@ Paper Mario:
     
 
     # Items
-    keysanity: True                         # Other options: False
+    keysanity: True                         # Other options: False (NYI)
     shuffle_hidden_panels: False            # Other options: True
     gear_shuffle_mode: full_shuffle         # Other options: gear_location_shuffle, vanilla
     trading_events: False                   # Other options: True
@@ -57,15 +57,15 @@ Paper Mario:
 
     # General Difficulty
     enemy_difficulty: progressive_scaling   # Other options: shuffle_chapter_difficulty (NYI), progressive_scaling
-    enemy_damage: Normal                    # Other options: double_pain, quadruple_pain
+    enemy_damage: Normal                    # Other options: double_pain, quadruple_pain (NLA)
     cap_enemy_xp: False                     # Other options: True (NLA)
-    enemy_xp_multiplier: 2                  # Other options: 0-4 (entered multiplier is divided by 2 for the actual value in game)
-    no_save_blocks: False                   # Other options: True
-    no_heart_blocks: False                  # Other options: True
-    no_healing_items: False                 # Other options: True
-    one_hit_ko: False                       # Other options: True
-    drop_star_points: False                 # Other options: True
-    badge_synergy: False                    # Other options: True
+    enemy_xp_multiplier: 2                  # Other options: 0-2
+    no_save_blocks: False                   # Other options: True (NLA)
+    no_heart_blocks: False                  # Other options: True (NLA)
+    no_healing_items: False                 # Other options: True (NLA)
+    one_hit_ko: False                       # Other options: True (NLA)
+    drop_star_points: False                 # Other options: True (NLA)
+    badge_synergy: False                    # Other options: True (NLA)
     merlow_rewards_pricing: vanilla         # Other options: cheap
     star_spirits_required: 7                # Other options: 0-7
     require_specific_spirits: False         # Other options: True (NYI)
@@ -74,7 +74,7 @@ Paper Mario:
     # Stats and Gear
     starting_boots: Normal                  # Other options: jumpless, super, ultra
     starting_hammer: Normal                 # Other options: hammerless, super, ultra
-    starting_coins: 100                     # Other options: 0-999; keep in mind you will usually need 50 coins to get past Kent C Koopa east of Toad Town near the start of the game
+    starting_coins: 100                     # Other options: 0-999
     starting_hp: 10                         # Other options: 10-50
     starting_bp: 3                          # Other options: 3-30
     starting_fp: 5                          # Other options: 5-50
@@ -91,20 +91,20 @@ Paper Mario:
     unused_badge_dupes: False               # Other options: True
     beta_items: False                       # Other options: True
     progressive_badges: False               # Other options: True
-    badge_pool_limit: 79                    # Other options: 0-128
+    badge_pool_limit: 128                   # Other options: 0-128 (NYI)
 
     # World Settings
-    starting_map: Toad_Town                 # Other options: goomba_village, dry_dry_outpost, yoshi_village
-    open_prologue: False                    # Other options: True
-    open_mt_rugged: False                   # Other options: True
-    open_forest: False                      # Other options: True
-    magical_seeds: 4                        # Other options: 0-4
-    open_toybox: False                      # Other options: True
-    open_whale: False                       # Other options: True
-    open_blue_house: False                  # Other options: True
-    ch7_bridge_visible: False               # Other options: True
-    mirror_mode: Off                        # Other options: always_on (NLA), random_on_every_load (NLA), static_random (NYI)
-    bowser_castle_mode: vanilla             # Other options: shortened, boss_rush
+    starting_map: Toad_Town                 # Other options: goomba_village (NYI), dry_dry_outpost (NYI), yoshi_village (NYI)
+    open_prologue: False                    # Other options: True (NYI)
+    open_mt_rugged: False                   # Other options: True (NYI)
+    open_forest: False                      # Other options: True (NYI)
+    magical_seeds: 4                        # Other options: 0-4 (NYI)
+    open_toybox: False                      # Other options: True (NYI)
+    open_whale: False                       # Other options: True (NYI)
+    open_blue_house: False                  # Other options: True (NYI)
+    ch7_bridge_visible: False               # Other options: True (NYI)
+    mirror_mode: Off                        # Other options: always_on (NLA), random_on_every_load (NLA), static_random (NLA)
+    bowser_castle_mode: vanilla             # Other options: shortened (NYI), boss_rush (NYI)
     shuffle_dungeon_entrances: False        # Other options: True (NYI)
     power_star_hunt: False                  # Other options: True (NYI)
     star_hunt_skips_ch8: False              # Other options: True (NYI)
@@ -141,17 +141,17 @@ Paper Mario:
     hammer_palette: Default                 # Other options: random_pick (NLA), random_pick_no_vanilla, random_on_every_load (NLA)
     status_menu_palette: Default            # Other options: [A lot of 'em] (NYI)
     coin_palette: Default                   # Other options: [A lot of 'em] (NYI)
-    random_text: False                      # Other options: True
-    roman_numerals: False                   # Other options: True
+    random_text: False                      # Other options: True (NLA)
+    roman_numerals: False                   # Other options: True (NLA)
 
     # Audio
-    shuffle_music: Off                      # Other options: shuffle_by_mood (NLA), shuffle_by_type (NLA), full_shuffle
-    shuffle_jingles: False                  # Other options: True
-    random_pitch: False                     # Other options: True
-    mute_danger_beeps: True                 # Other options: False
+    shuffle_music: Off                      # Other options: shuffle_by_mood (NLA), shuffle_by_type (NLA), full_shuffle (NLA)
+    shuffle_jingles: False                  # Other options: True (NLA)
+    random_pitch: False                     # Other options: True (NLA)
+    mute_danger_beeps: True                 # Other options: False (NLA)
 
     death_link: False
-    local_items: ["Coin"]          # Keep this included to prevent crashes
+    local_items: ["Badge", "Coin"]          # Keep these included to prevent crashes
 description: Sample Paper Mario AP World YAML
 game: Paper Mario
 name: JKB

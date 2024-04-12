@@ -248,7 +248,7 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions) -> li
                 case "ChallengeMode" | "ShuffleDungeonRooms" | "ShuffleEntrancesByAll" | "MatchEntranceTypes" \
                      | "Widescreen" | "PawnsEnabled":
                     option_value = 0
-                # NYI, giving dungeon keys temporarily until that logic is fixed
+                # NYI
                 case "StartingItem0" | "StartingItem1" | "StartingItem2" | "StartingItem3" | "StartingItem4":
                     option_value = 0
                 case "StartingItem5" | "StartingItem6" | "StartingItem7" | "StartingItem8" | "StartingItem9":
@@ -258,7 +258,7 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions) -> li
                 case "StartingItemF":
                     option_value = 0
                 case "XPMultiplier":
-                    option_value = int(options.enemy_xp_multiplier.value)
+                    option_value = int(options.enemy_xp_multiplier.value * 2)  # value is halved by the game
                 # One setting on the front end, but two separate flags for the mod
                 case "DoubleDamage":
                     option_value = options.enemy_damage.value == EnemyDamage.option_Double_Pain
