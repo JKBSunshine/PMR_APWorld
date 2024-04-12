@@ -453,6 +453,9 @@
     "area_id": "22",
     "map_id": "23",
     "map_name": "Front Door Exterior",
+    "locations": {
+      "Front Door Exterior Red Block": "(can_use_ability_lakilester or 'GF_KPA16_ShutOffLava') and can_climb_steps and can_hit_floating_blocks"
+    },
     "exits": {
       "Outside Lower Jail Lava": "True"
     }
