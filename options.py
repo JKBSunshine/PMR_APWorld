@@ -153,18 +153,10 @@ class StartRandomPartners(DefaultOnToggle):
     display_name = "Start With Random Partners"
 
 
-class MinStartPartners(Range):
-    """Minimum number of partners you start with"""
-    display_name = "Minimum Starting Partners"
-    range_start = 0
-    range_end = 8
-    default = 1
-
-
-class MaxStartPartners(Range):
-    """Maximum number of partners you start with, must be greater than or equal to the minimum"""
-    display_name = "Maximum Starting Partners"
-    range_start = 0
+class StartPartners(Range):
+    """Number of partners you start with, from 1 to 8"""
+    display_name = "Number of Starting Partners"
+    range_start = 1
     range_end = 8
     default = 1
 
@@ -965,8 +957,7 @@ class PaperMarioOptions(PerGameCommonOptions):
     partners: ShufflePartners
     partners_always_usable: PartnersAlwaysUsable
     start_random_partners: StartRandomPartners
-    min_start_partners: MinStartPartners
-    max_start_partners: MaxStartPartners
+    start_partners: StartPartners
     start_with_goombario: StartWithGoombario
     start_with_kooper: StartWithKooper
     start_with_bombette: StartWithBombette

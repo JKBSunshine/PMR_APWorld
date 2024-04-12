@@ -35,8 +35,7 @@ Paper Mario:
     partners: True                          # Other options: False
     partners_always_usable: False           # Other options: True
     start_random_partners: False            # Other options: True
-    min_start_partners: 1                   # Other options: 1-8
-    max_start_partners: 1                   # Other options: 1-8
+    start_partners: 1                       # Other options: 1-8; for random, use random-low, random-high, or random-range-#-#
     start_with_goombario: True              # Other options: False
     start_with_kooper: False                # Other options: True
     start_with_bombette: False              # Other options: True

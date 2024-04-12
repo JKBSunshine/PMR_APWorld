@@ -6,17 +6,14 @@ import random
 from ..data.partners_meta import all_partners as all_partners_imp
 
 
-def get_rnd_starting_partners(min_partners, max_partners) -> list:
+def get_rnd_starting_partners(partners: int) -> list:
     """
-    Returns a list of randomly chosen partners according to the parameters.
+    Returns a list of randomly chosen partners.
     """
     starting_partners = []
     all_partners = all_partners_imp.copy()
 
-    non_guaranteed_partners = max_partners - min_partners
-    randomly_added_partners = random.randint(0, non_guaranteed_partners)
-
-    while len(starting_partners) < (min_partners + randomly_added_partners):
+    while len(starting_partners) < partners:
         new_partner = random.choice(all_partners)
         all_partners.remove(new_partner)
         starting_partners.append(new_partner)

@@ -147,18 +147,12 @@ class PaperMarioWorld(World):
                             f"starting partner and will be given one at random.")
             self.options.start_random_partners.value = True
 
-        # swap mins and maxes so the min isn't bigger than the max
-        self.options.min_start_partners.value, self.options.max_start_partners.value = (
-            min([self.options.min_start_partners.value, self.options.max_start_partners.value]),
-            max(self.options.min_start_partners.value, self.options.max_start_partners.value))
-
         self.options.min_start_items.value, self.options.max_start_items.value = (
             min([self.options.min_start_items.value, self.options.max_start_items.value]),
             max(self.options.min_start_items.value, self.options.max_start_items.value))
 
         if self.options.start_random_partners.value:
-            starting_partners = get_rnd_starting_partners(self.options.min_start_partners.value,
-                                                          self.options.max_start_partners.value)
+            starting_partners = get_rnd_starting_partners(self.options.start_partners.value)
 
             for partner in starting_partners:
                 if partner == "Goombario":
