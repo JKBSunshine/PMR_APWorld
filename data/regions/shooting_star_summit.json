@@ -41,6 +41,9 @@
     "area_id": "5",
     "map_id": "1",
     "map_name": "Shooting Star Summit",
+    "events": {
+      "BOWSERDEFEATED": "star_way_power_stars and star_hunt_skips_ch8"
+    },
     "locations": {
       "SSS Shooting Star Summit Hidden Panel": "can_flip_panels and can_climb_steps"
     },
