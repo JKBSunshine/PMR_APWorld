@@ -16,7 +16,7 @@ from .modules.random_palettes import get_randomized_palettes
 from .Regions import PMRegion
 from .RuleParser import Rule_AST_Transformer
 from .Entrance import PMEntrance
-from .Utils import data_path, load_json_data
+from .Utils import load_json_data
 from .Locations import PMLocation, location_factory, location_name_to_id
 from .ItemPool import generate_itempool
 from .items import PMItem, pm_is_item_of_type, pm_data_to_ap_id
@@ -203,7 +203,7 @@ class PaperMarioWorld(World):
                     readfile = self.options.bowser_castle_mode.value == BowserCastleMode.option_Boss_Rush
 
                 if readfile:
-                    self.load_regions_from_json(data_path("regions", file))
+                    self.load_regions_from_json("regions/" + file)
 
         # Connect start to chosen starting map
         start.connect(self.get_region(starting_maps[self.options.starting_map.value][1]))

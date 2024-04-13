@@ -10,7 +10,7 @@ import re
 from .data.ItemList import item_table, item_groups
 from BaseClasses import CollectionState
 from .Locations import PMLocation
-from .Utils import data_path, load_json_data
+from .Utils import load_json_data
 
 from worlds.generic.Rules import set_rule
 
@@ -26,7 +26,7 @@ nonaliases = set()
 
 
 def load_aliases():
-    j = load_json_data(data_path('LogicHelpers.json'))
+    j = load_json_data("LogicHelpers.json")
     for s, repl in j.items():
         if '(' in s:
             rule, args = s[:-1].split('(', 1)
