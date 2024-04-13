@@ -24,7 +24,6 @@ class PaperMarioClient(BizHawkClient):
         super().__init__()
         self.local_checked_locations = set()
         self.autohint_locations = set()
-        self.repeat_items = {}
 
     async def validate_rom(self, ctx: "BizHawkClientContext") -> bool:
         from CommonClient import logger
@@ -90,14 +89,13 @@ class PaperMarioClient(BizHawkClient):
                     # when receiving we give the smallest
                     item_id = next_item.item - item_id_prefix
                     if item_id in item_multiples_ids.keys():
-                        if item_id not in self.repeat_items.keys():
-                            self.repeat_items[item_id] = 0
+                        repeat_id = 0
 
                         base_item_id = item_id
-                        item_id = item_multiples_ids[base_item_id][self.repeat_items[base_item_id]]
-                        while self.repeat_items[base_item_id] < len(item_multiples_ids[base_item_id]) and uir_flags[item_id]:
-                            item_id = item_multiples_ids[base_item_id][self.repeat_items[base_item_id]]
-                            self.repeat_items[base_item_id] += 1
+                        item_id = item_multiples_ids[base_item_id][repeat_id]
+                        while repeat_id < len(item_multiples_ids[base_item_id]) and uir_flags[item_id]:
+                            item_id = item_multiples_ids[base_item_id][repeat_id]
+                            repeat_id += 1
 
                     item_id = item_id << 16
                     await bizhawk.guarded_write(ctx.bizhawk_ctx,
