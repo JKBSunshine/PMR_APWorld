@@ -727,7 +727,7 @@ location_groups = {
     "BlockCoin": [name for (name, data) in location_table.items() if data[1] in ("Item Block", "Hidden Block") and data[6] == "Coin"],
     "FoliageCoin": [name for (name, data) in location_table.items() if data[1] in ("Bush", "Tree") and data[6] == "Coin"],
     "FavorCoin": [name for (name, data) in location_table.items() if data[7].startswith("KootGift") and data[6] == "Coin"],
-    "FavorItem": [name for (name, data) in location_table.items() if "Koot" in data[6] or data[6] == "Crystal Ball"],
+    "FavorItem": [name for (name, data) in location_table.items() if "Koot" in data[6] or data[6] in ("Crystal Ball", "Luigi Autograph", "Merluvlee Autograph")],
     "FavorReward": [name for (name, data) in location_table.items() if data[7].startswith("KootGift") or data[6] in ("Gold Credit", "Silver Credit")],
     "LetterReward": [name for (name, data) in location_table.items() if "Letter Reward" in name],
     "LetterChain": [name for (name, data) in location_table.items() if "Letter Reward" in name and data[6].startswith("Letter")],
