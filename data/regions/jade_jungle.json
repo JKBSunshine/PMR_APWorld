@@ -82,7 +82,7 @@
       "StarPiece_JAN_8": "True"
     },
     "locations": {
-      "JJ Village Buildings Kolorado Volcano Vase Reward": "saved_all_yoshi_kids and VolcanoVase and 'MF_Ch5_RescuedStarSpirit'",
+      "JJ Village Buildings Kolorado Volcano Vase Reward": "saved_all_yoshi_kids and Volcano_Vase and 'MF_Ch5_RescuedStarSpirit'",
       "JJ Village Buildings Yellow Yoshi Food Reward": "saved_all_yoshi_kids and 'RF_CanVisitTayceT' and 'RF_CanCook' and 'MF_Ch5_RescuedStarSpirit'",
       "JJ Village Buildings Red Yoshi Kid Letter Reward": "'RF_SavedYoshiKid_3' and can_use_ability_parakarry and Letter_to_Red_Yoshi_Kid",
       "JJ Village Buildings In Palm Tree": "can_shake_trees",
