@@ -23,7 +23,8 @@ class PaperMarioClient(BizHawkClient):
     def __init__(self) -> None:
         super().__init__()
         self.local_checked_locations = set()
-        self.autohint_locations = set()
+        self.autohint_stored = set()
+        self.autohint_released = set()
 
     async def validate_rom(self, ctx: "BizHawkClientContext") -> bool:
         from CommonClient import logger
@@ -130,11 +131,10 @@ class PaperMarioClient(BizHawkClient):
                         await ctx.send_msgs([{"cmd": "LocationChecks", "locations": list(locs_to_send)}])
 
                 # AUTO HINTING
-                # Auto hint shop items so people know what they're paying for
+                # Build list of items to scout
                 hints = []
                 for loc in location_groups["AutoHint"]:
-                    if loc not in self.autohint_locations:
-                        # hint anything in the current map, area coordinates
+                    if loc not in self.autohint_released.union(self.autohint_stored):
                         if current_location == (location_table[loc][2], location_table[loc][3]):
                             # don't hint Rowf items you can't see/buy yet
                             if (location_table[loc][2], location_table[loc][3]) == (1, 2):
@@ -145,15 +145,25 @@ class PaperMarioClient(BizHawkClient):
                             else:
                                 hints.append(loc)
 
-                # make sure we aren't hinting anything that's already been checked
+                # make sure we aren't scouting anything that's already been checked
                 hints = [location_name_to_id[loc] for loc in hints if
                          location_name_to_id[loc] in ctx.missing_locations and
                          location_name_to_id[loc] not in ctx.locations_checked]
 
-                # send request for hints
+                # scout the auto hint locations in the current area and store what we have scouted but not hinted
                 if hints:
-                    await ctx.send_msgs([{"cmd": "LocationScouts", "locations": hints, "create_as_hint": 2}])
-                self.autohint_locations.update(hints)
+                    await ctx.send_msgs([{"cmd": "LocationScouts", "locations": hints, "create_as_hint": 0}])
+                    self.autohint_stored = hints
+
+                # send the hints for the unsent progression items in the stored locations
+                # these will have already been scouted
+                if self.autohint_stored:
+                    await ctx.send_msgs([{
+                        "cmd": "LocationScouts",
+                        "locations": [loc for loc, n_item in ctx.locations_info.items() if n_item.flags & 0b001],
+                        "create_as_hint": 2}])
+                    self.autohint_released.update(self.autohint_stored)
+                    self.autohint_stored = hints
 
                 # GOAL CHECKING
                 if not ctx.finished_game and (get_flag_value(GOAL_FLAG, mf_bytes)):
