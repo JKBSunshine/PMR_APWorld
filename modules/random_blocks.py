@@ -27,7 +27,7 @@ def get_block_placement(
     for block, data in block_table.items():
         block_names.append(block)
         if data[4] == BlockType.SUPER and supers_are_yellow:
-            block_values.append(BlockType.YELLOW)
+            block_values.append(2)  # BlockType.YELLOW
         else:
             block_values.append(data[4])
 
