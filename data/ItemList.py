@@ -246,7 +246,7 @@ item_table = {
     "Pretty Lucky":             ("BADGE",          Ic.filler,                     241,    100,    False,  False,  False),
     "Feeling Fine":             ("BADGE",          Ic.filler,                     242,    100,    False,  False,  False),
     "Attack FX A":              ("BADGE",          Ic.filler,                     243,    30,     False,  False,  False),
-    "All or Nothing":           ("BADGE",          Ic.filler,                     244,    100,    False,  False,  False),
+    "All or Nothing":           ("BADGE",          Ic.useful,                     244,    100,    False,  False,  False),
     "HP Drain":                 ("BADGE",          Ic.filler,                     245,    50,     False,  False,  False),
     "Mini Jump Charge":         ("BADGE",          Ic.filler,                     246,    30,     True,   False,  False),
     "Slow Go":                  ("BADGE",          Ic.filler,                     247,    10,     False,  False,  False),
