@@ -50,7 +50,7 @@ Paper Mario:
     badge_fp_shuffle: vanilla               # Other options: balanced_random, shuffled, fully_random
     partner_fp_shuffle: vanilla             # Other options: balanced_random, shuffled, fully_random
     sp_shuffle: vanilla                     # Other options: balanced_random, shuffled, fully_random
-    mystery_shuffle: vanilla                # Other options: random_pick (NYI), random_per_use (NYI)
+    mystery_shuffle: vanilla                # Other options: random_pick, random_per_use
     formation_shuffle: False                # Other options: True (NYI)
     random_puzzles: False                   # Other options: True (NYI)
 
@@ -67,8 +67,8 @@ Paper Mario:
     badge_synergy: False                    # Other options: True
     merlow_rewards_pricing: vanilla         # Other options: cheap
     star_spirits_required: 7                # Other options: 0-7
-    require_specific_spirits: False         # Other options: True (NYI)
-    limit_chapter_logic: False              # Other options: True (NYI)
+    require_specific_spirits: False         # Other options: True
+    limit_chapter_logic: False              # Other options: True
 
     # Stats and Gear
     starting_boots: Normal                  # Other options: jumpless, super, ultra
@@ -93,7 +93,7 @@ Paper Mario:
     badge_pool_limit: 79                    # Other options: 0-128 (NYI)
 
     # World Settings
-    starting_map: Toad_Town                 # Other options: goomba_village (NYI), dry_dry_outpost (NYI), yoshi_village (NYI)
+    starting_map: Toad_Town                 # Other options: goomba_village, dry_dry_outpost, yoshi_village
     open_prologue: False                    # Other options: True
     open_mt_rugged: False                   # Other options: True
     open_forest: False                      # Other options: True
@@ -138,8 +138,8 @@ Paper Mario:
     npc_palette: Default                    # Other options: random_pick, random_pick_no_vanilla, random_on_every_load
     enemy_palette: Default                  # Other options: random_pick, random_pick_no_vanilla, random_on_every_load
     hammer_palette: Default                 # Other options: random_pick, random_pick_no_vanilla, random_on_every_load
-    status_menu_palette: Default            # Other options: [A lot of 'em] (NYI)
-    coin_palette: Default                   # Other options: [A lot of 'em] (NYI)
+    status_menu_palette: Default            # Other options: blue, green, teal, brown, purple, grey, random_pick, animated
+    coin_palette: Default                   # Other options: red, blue, purple, silver
     random_text: False                      # Other options: True
     roman_numerals: False                   # Other options: True
 
