@@ -16,6 +16,7 @@ from .modules.random_audio import get_randomized_audio
 from .modules.random_formations import get_random_formations
 from .modules.random_map_mirroring import get_mirrored_map_list
 from .modules.random_movecosts import get_randomized_moves
+from .modules.random_mystery import get_random_mystery
 from .modules.random_palettes import get_randomized_palettes, get_randomized_coinpalette
 from .data.MysteryOptions import MysteryOptions
 from .modules.random_puzzles_minigames import get_puzzles_minigames
@@ -210,7 +211,7 @@ def generate_output(world, output_dir: str) -> None:
     puzzle_list, spoilerlog_puzzles = get_puzzles_minigames(False, world)
 
     # Default mystery options for now
-    mystery_opts = MysteryOptions()
+    mystery_opts = get_random_mystery(world.options.mystery_shuffle.value)
 
     # Non-coin palettes
     palette_data = get_randomized_palettes(world)

@@ -7,7 +7,7 @@ from ..data.ItemList import item_table
 from ..data.MysteryOptions import MysteryOptions
 
 
-def get_random_mystery(mystery_option: MysteryShuffle) -> MysteryOptions:
+def get_random_mystery(mystery_option: int) -> MysteryOptions:
     mystery_settings = MysteryOptions()
 
     # If Random Choice is on, then none of the other settings matter
@@ -22,26 +22,26 @@ def get_random_mystery(mystery_option: MysteryShuffle) -> MysteryOptions:
         mystery_itemid = item_table["Mystery"][2]
 
         possible_items.extend(4 * [item_table["Mushroom"][2]])
-        possible_items.extend(2 * [item_table["SuperShroom"][2]])
-        possible_items.extend(1 * [item_table["UltraShroom"][2]])
-        possible_items.extend(4 * [item_table["HoneySyrup"][2]])
-        possible_items.extend(2 * [item_table["MapleSyrup"][2]])
-        possible_items.extend(1 * [item_table["JamminJelly"][2]])
-        possible_items.extend(2 * [item_table["POWBlock"][2]])
-        possible_items.extend(2 * [item_table["FireFlower"][2]])
-        possible_items.extend(2 * [item_table["SnowmanDoll"][2]])
-        possible_items.extend(2 * [item_table["ThunderRage"][2]])
-        possible_items.extend(2 * [item_table["ShootingStar"][2]])
+        possible_items.extend(2 * [item_table["Super Shroom"][2]])
+        possible_items.extend(1 * [item_table["Ultra Shroom"][2]])
+        possible_items.extend(4 * [item_table["Honey Syrup"][2]])
+        possible_items.extend(2 * [item_table["Maple Syrup"][2]])
+        possible_items.extend(1 * [item_table["Jammin Jelly"][2]])
+        possible_items.extend(2 * [item_table["POW Block"][2]])
+        possible_items.extend(2 * [item_table["Fire Flower"][2]])
+        possible_items.extend(2 * [item_table["Snowman Doll"][2]])
+        possible_items.extend(2 * [item_table["Thunder Rage"][2]])
+        possible_items.extend(2 * [item_table["Shooting Star"][2]])
         possible_items.extend(2 * [item_table["Pebble"][2]])
         possible_items.extend(2 * [item_table["Coconut"][2]])
-        possible_items.extend(2 * [item_table["ThunderBolt"][2]])
-        possible_items.extend(2 * [item_table["EggMissile"][2]])
-        possible_items.extend(2 * [item_table["SleepySheep"][2]])
-        possible_items.extend(2 * [item_table["DizzyDial"][2]])
-        possible_items.extend(2 * [item_table["StopWatch"][2]])
-        possible_items.extend(2 * [item_table["VoltShroom"][2]])
-        possible_items.extend(2 * [item_table["StoneCap"][2]])
-        possible_items.extend(1 * [item_table["RepelGel"][2]])
+        possible_items.extend(2 * [item_table["Thunder Bolt"][2]])
+        possible_items.extend(2 * [item_table["Egg Missile"][2]])
+        possible_items.extend(2 * [item_table["Sleepy Sheep"][2]])
+        possible_items.extend(2 * [item_table["Dizzy Dial"][2]])
+        possible_items.extend(2 * [item_table["Stop Watch"][2]])
+        possible_items.extend(2 * [item_table["Volt Shroom"][2]])
+        possible_items.extend(2 * [item_table["Stone Cap"][2]])
+        possible_items.extend(1 * [item_table["Repel Gel"][2]])
         possible_items.extend(4 * [mystery_itemid])
 
         # We have 7 item slots to fill, with the first one having a hardcoded
@@ -64,11 +64,11 @@ def get_random_mystery(mystery_option: MysteryShuffle) -> MysteryOptions:
     else:
         # Set vanilla
         mystery_settings.mystery_itemA = item_table["Mushroom"][2]
-        mystery_settings.mystery_itemB = item_table["SuperShroom"][2]
-        mystery_settings.mystery_itemC = item_table["FireFlower"][2]
-        mystery_settings.mystery_itemD = item_table["StoneCap"][2]
-        mystery_settings.mystery_itemE = item_table["DizzyDial"][2]
-        mystery_settings.mystery_itemF = item_table["ThunderRage"][2]
+        mystery_settings.mystery_itemB = item_table["Super Shroom"][2]
+        mystery_settings.mystery_itemC = item_table["Fire Flower"][2]
+        mystery_settings.mystery_itemD = item_table["Stone Cap"][2]
+        mystery_settings.mystery_itemE = item_table["Dizzy Dial"][2]
+        mystery_settings.mystery_itemF = item_table["Thunder Rage"][2]
         mystery_settings.mystery_itemG = item_table["Pebble"][2]
 
     return mystery_settings
