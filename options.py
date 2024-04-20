@@ -891,7 +891,6 @@ class CoinColorPalette(Choice):
     option_Blue = 2
     option_Purple = 3
     option_Silver = 4
-    option_Random_Pick = 5
 
 
 class RandomText(Toggle):

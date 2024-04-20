@@ -142,14 +142,7 @@ def get_randomized_coinpalette(color_id: int):
         ]
     }
 
-    if color_id == 5:
-        # Choose random coin palette, ignoring given color id
-        coin_color_keys = [color_id for color_id in coin_color_palettes.keys()]
-        chosen_color_id = random.choice(coin_color_keys)
-    else:
-        chosen_color_id = color_id
-
-    return coin_color_palettes.get(chosen_color_id), target_rom_locations, None
+    return coin_color_palettes.get(color_id), target_rom_locations, None
 
 
 def get_randomized_palettes(world) -> list:
