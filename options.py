@@ -880,6 +880,7 @@ class StatusMenuColorPalette(Choice):
     option_Purple = 5
     option_Grey = 6
     option_Random_Pick = 10
+    option_Animated = 11
 
 
 class CoinColorPalette(Choice):

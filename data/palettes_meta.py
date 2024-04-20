@@ -208,5 +208,6 @@ MENU_COLORS = {
     StatusMenuColorPalette.option_Brown: (0, 0xD7BF74FF, 0x844632FF),
     StatusMenuColorPalette.option_Purple: (0, 0xB797B7FF, 0x62379AFF),
     StatusMenuColorPalette.option_Grey: (0, 0xC0C0C0FF, 0x404040FF),
-    StatusMenuColorPalette.option_Random_Pick: (1, 0xEBE677FF, 0x8E5A25FF)
+    StatusMenuColorPalette.option_Random_Pick: (1, 0xEBE677FF, 0x8E5A25FF),
+    StatusMenuColorPalette.option_Animated: (2, 0xEBE677FF, 0x8E5A25FF)
 }
