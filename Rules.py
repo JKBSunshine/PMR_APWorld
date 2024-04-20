@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 def set_rules(world: "PaperMarioWorld") -> None:
 
-    world.multiworld.completion_condition[world.player] = lambda state: state.has("BOWSERDEFEATED", world.player)
+    world.multiworld.completion_condition[world.player] = lambda state: state.has("STARROD", world.player)
 
     def can_flip_panels(state: "CollectionState") -> bool:
         return state.has("Ultra_Hammer", world.player) or state.has("Super_Boots", world.player)
