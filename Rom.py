@@ -257,7 +257,11 @@ def generate_output(world, output_dir: str) -> None:
 def get_filled_node_list(world):
     placed_items = []
     mw_keys = 0
-    for location in world.multiworld.get_locations(world.player):
+
+    all_locations = [location for location in world.multiworld.get_locations(world.player)]
+    all_locations.extend(world.ch_excluded_locations)
+
+    for location in all_locations:
 
         if location.keyname is None:
             continue

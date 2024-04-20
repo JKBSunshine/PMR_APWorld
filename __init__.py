@@ -3,9 +3,10 @@ import typing
 import os
 import logging
 from typing import Dict, Any
-from BaseClasses import (Tutorial, CollectionState, MultiWorld, ItemClassification as ic)
+from BaseClasses import (Tutorial, CollectionState, MultiWorld, ItemClassification as ic, LocationProgressType)
 from worlds.AutoWorld import World, WebWorld
 from . import Locations, options
+from .data.chapter_logic import areas_by_chapter, get_chapter_excluded_location_names
 from .data.enum_types import BlockType
 from .data.maparea import MapArea
 from .modules.modify_entrances import get_bowser_rush_pairs, get_bowser_shortened_pairs
@@ -28,11 +29,11 @@ from .modules.random_actor_stats import get_shuffled_chapter_difficulty
 from .Rules import set_rules
 from .modules.random_partners import get_rnd_starting_partners
 from .options import (EnemyDifficulty, PaperMarioOptions, ShuffleKootFavors, PartnerUpgradeShuffle, HiddenBlockMode,
-                      ShuffleSuperMultiBlocks, GearShuffleMode, StartingMap, BowserCastleMode)
+                      ShuffleSuperMultiBlocks, GearShuffleMode, StartingMap, BowserCastleMode, ShuffleLetters)
 from .data.node import Node
 from .data.starting_maps import starting_maps
 from .Rom import generate_output
-from Fill import fill_restrictive
+from Fill import fill_restrictive, fast_fill
 from .modules.random_blocks import get_block_placement
 import pkg_resources
 from .client import PaperMarioClient  # unused but required for generic client to hook onto
@@ -105,7 +106,12 @@ class PaperMarioWorld(World):
         self.placed_items = []
         self.placed_blocks = {}
         self.entrance_list = []
+
         self.required_spirits = []
+        self.excluded_spirits = []
+        self.excluded_areas = []
+        self.ch_excluded_locations = []
+        self.ch_excluded_location_names = []
 
         self.itempool = []
         self.pre_fill_items = []
@@ -123,6 +129,39 @@ class PaperMarioWorld(World):
 
     # Do some housekeeping before generating, namely fixing some options that might be incompatible with each other
     def generate_early(self) -> None:
+
+        # Unclear which type of game is desired, raise error and have the player choose
+        if self.options.require_specific_spirits.value and self.options.power_star_hunt.value:
+            raise ValueError(f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) has power star "
+                             "hunt and require specific spirits enabled. One or both options must be disabled.")
+
+        # LCL is not compatible with several options
+        # Rather than generate with drastically different settings, compile list of incompatible settings
+        if self.options.require_specific_spirits.value and self.options.limit_chapter_logic.value:
+            lcl_warnings = ""
+            if self.options.koot_favors.value != ShuffleKootFavors.option_Vanilla:
+                lcl_warnings += "\n'koot_favors' must be set to vanilla"
+            if self.options.letter_rewards.value == ShuffleLetters.option_Final_Letter_Chain_Reward:
+                lcl_warnings += "\n'letter_rewards' cannot be set to Final_Letter_Chain_Reward"
+            if self.options.gear_shuffle_mode.value != GearShuffleMode.option_Full_Shuffle:
+                lcl_warnings += "\n'gear_shuffle_mode' must be set to full_shuffle"
+            if not self.options.keysanity.value:
+                lcl_warnings += "\n'keysanity' must be set to True"
+            if self.options.merlow_items.value:
+                lcl_warnings += "\n'merlow_items' must be set to False"
+            if not self.options.partners.value:
+                lcl_warnings += "\n'partners' must be set to True"
+
+            if lcl_warnings:
+                lcl_warnings = (f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) has limit "
+                                "chapter logic set to true, but the following settings are incompatible with limiting "
+                                "chapter logic: ") + lcl_warnings
+                raise ValueError(lcl_warnings)
+        elif self.options.limit_chapter_logic.value:
+            raise ValueError(f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) has limit "
+                             "chapter logic set to true. Specific star spirits must also be set to true if you wish to "
+                             "limit chapter logic")
+
 
         # Make sure it doesn't try to shuffle Koot coins if rewards aren't shuffled
         if self.options.koot_favors.value == ShuffleKootFavors.option_Vanilla:
@@ -177,16 +216,26 @@ class PaperMarioWorld(World):
         if not self.options.require_specific_spirits.value:
             self.options.limit_chapter_logic.value = False
             self.required_spirits = []
+            self.excluded_spirits = []
         else:
             # determine which star spirits are needed
-            all_spirits = [i for i in range(1, 8)]
+            remaining_spirits = [i for i in range(1, 8)]
             chosen_spirits = []
 
             for _ in range(self.options.star_spirits_required.value):
-                rnd_spirit = self.random.randint(0, len(all_spirits) - 1)
-                chosen_spirits.append(all_spirits.pop(rnd_spirit))
+                rnd_spirit = self.random.randint(0, len(remaining_spirits) - 1)
+                chosen_spirits.append(remaining_spirits.pop(rnd_spirit))
 
             self.required_spirits = chosen_spirits
+
+            if self.options.limit_chapter_logic.value:
+                self.excluded_spirits = remaining_spirits
+
+                for chapter in remaining_spirits:
+                    self.excluded_areas.extend(areas_by_chapter[chapter])
+
+                self.ch_excluded_location_names = get_chapter_excluded_location_names(self.excluded_spirits,
+                                                                self.options.letter_rewards.value)
 
         # determine what blocks are what, shuffling if needed and setting them up to be used as locations
         if not self.placed_blocks:
@@ -291,9 +340,9 @@ class PaperMarioWorld(World):
 
     def load_regions_from_json(self, file_path):
         region_json = load_json_data(file_path)
-
         region: Dict[str, Any]
         for region in region_json:
+            region_prefix = region['region_name'][:3]
             new_region = PMRegion(region['region_name'], self.player, self.multiworld)
             if 'map_id' in region:
                 new_region.map_id = region['map_id']
@@ -301,18 +350,19 @@ class PaperMarioWorld(World):
                 new_region.font_color = region['area_id']
             if 'map_name' in region:
                 new_region.scene = region['map_name']
-            if 'locations' in region:
+            if 'locations' in region and region_prefix not in self.excluded_areas:
                 for location, rule in region['locations'].items():
-                    new_location = location_factory(location, self.player)
-                    new_location.parent_region = new_region
-                    new_location.rule_string = rule
-                    self.parser.parse_spot_rule(new_location)
-                    if new_location.never:
-                        # We still need to fill the location even if ALR is off.
-                        logger.debug('Unreachable location: %s', new_location.name)
-                    new_location.player = self.player
-                    new_region.locations.append(new_location)
-            if 'events' in region:
+                    if location not in self.ch_excluded_location_names:
+                        new_location = location_factory(location, self.player)
+                        new_location.parent_region = new_region
+                        new_location.rule_string = rule
+                        self.parser.parse_spot_rule(new_location)
+                        if new_location.never:
+                            # We still need to fill the location even if ALR is off.
+                            logger.debug('Unreachable location: %s', new_location.name)
+                        new_location.player = self.player
+                        new_region.locations.append(new_location)
+            if 'events' in region and region_prefix not in self.excluded_areas:
                 for event, rule in region['events'].items():
                     # Allow duplicate placement of events
                     lname = '%s from %s' % (event, new_region.name)
@@ -511,10 +561,20 @@ class PaperMarioWorld(World):
                                      single_player_placement=True, lock=True, allow_excluded=True)
 
         # Anything remaining in pre fill items is a consumable that got selected randomly to be kept local
+        # LCL can really skew the item pool, so fill up the excluded locations to prevent generation errors
+        if self.options.limit_chapter_logic.value:
+            locations = list(filter(lambda location: location.progress_type == LocationProgressType.EXCLUDED,
+                                    self.multiworld.get_unfilled_locations(player=self.player)))
+            self.random.shuffle(self.pre_fill_items)
+            items_for_excluded = []
+            for _ in locations:
+                items_for_excluded.append(self.pre_fill_items.pop())
+            fast_fill(self.multiworld, items_for_excluded, locations)
+
+        # Now throw the rest wherever
         locations = self.multiworld.get_unfilled_locations(player=self.player)
         self.multiworld.random.shuffle(locations)
-        fill_restrictive(self.multiworld, prefill_state(state), locations, self.pre_fill_items,
-                         single_player_placement=True, lock=True, allow_excluded=True)
+        fast_fill(self.multiworld, self.pre_fill_items, locations)
 
         # Locations with unrandomized junk should be changed to events
         for loc in self.get_locations():
