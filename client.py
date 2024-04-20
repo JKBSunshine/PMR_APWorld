@@ -47,7 +47,7 @@ class PaperMarioClient(BizHawkClient):
 
         ctx.game = self.game
         ctx.items_handling = 0b001
-        ctx.want_slot_data = False
+        ctx.want_slot_data = True
         ctx.watcher_timeout = 1
         return True
 
@@ -91,6 +91,10 @@ class PaperMarioClient(BizHawkClient):
                     item_id = next_item.item - item_id_prefix
                     if item_id in item_multiples_ids.keys():
                         repeat_id = 0
+
+                        # magical seeds need to skip seed 1 if only 3 seeds required, 1 and 2 if 2 seeds required, etc
+                        if item_id == item_table["Magical Seed"][2]:
+                            repeat_id = min(4 - ctx.slot_data["magical_seeds"], 3)  # maximum of 3 in case command used
 
                         base_item_id = item_id
                         item_id = item_multiples_ids[base_item_id][repeat_id]
