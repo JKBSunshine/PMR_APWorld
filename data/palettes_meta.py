@@ -1,4 +1,8 @@
 # below from PMR palettes table in sqlite db; more info at https://github.com/icebound777/PMR-SeedGenerator/tree/main/db
+# Also pulled menu color dictionary from
+# https://github.com/Pronyo-Chan/paper-mario-randomizer-web-app/blob/master/app/src/app/utilities/constants.ts
+from ..options import StatusMenuColorPalette
+
 
 #   sprite                  id       dbkey            palette_count
 palette_table = {
@@ -194,3 +198,15 @@ special_vanilla_palette_ids = [
     "93_2_Dryite",
     "93_3_Dryite",
 ]
+
+#               option                     mode  colorA      colorB
+MENU_COLORS = {
+    StatusMenuColorPalette.option_Default: (0, 0xEBE677FF, 0x8E5A25FF),
+    StatusMenuColorPalette.option_Blue: (0, 0x8D8FFFFF, 0x2B4566FF),
+    StatusMenuColorPalette.option_Green: (0, 0xAAD080FF, 0x477B53FF),
+    StatusMenuColorPalette.option_Teal: (0, 0x8ED4ECFF, 0x436245FF),
+    StatusMenuColorPalette.option_Brown: (0, 0xD7BF74FF, 0x844632FF),
+    StatusMenuColorPalette.option_Purple: (0, 0xB797B7FF, 0x62379AFF),
+    StatusMenuColorPalette.option_Grey: (0, 0xC0C0C0FF, 0x404040FF),
+    StatusMenuColorPalette.option_Random_Pick: (1, 0xEBE677FF, 0x8E5A25FF)
+}

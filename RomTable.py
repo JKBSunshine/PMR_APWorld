@@ -1,9 +1,10 @@
 # from https://github.com/icebound777/PMR-SeedGenerator/blob/main/table.py
 
 from .data.RomOptionList import rom_option_table, ap_to_rom_option_table
+from .data.palettes_meta import MENU_COLORS
 from .modules.random_blocks import get_block_key
 from .options import (EnemyDamage, PaperMarioOptions, PartnerUpgradeShuffle, ShuffleKootFavors, ShuffleLetters,
-                      BowserCastleMode)
+                      BowserCastleMode, StatusMenuColorPalette)
 from .data.MysteryOptions import MysteryOptions
 from .data.starting_maps import starting_maps
 from .data.node import Node
@@ -216,23 +217,8 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions) -> li
     if options.bowser_castle_mode.value <= BowserCastleMode.option_Shortened:
         map_tracker_shop_bits += 0x8
 
-    # status menu palette bits
-    menu_color_a, menu_color_b = 0xEBE677FF, 0x8E5A25FF
-    match options.status_menu_palette.value:
-        case 0:
-            menu_color_a, menu_color_b = 0xEBE677FF, 0x8E5A25FF
-        case 1:
-            menu_color_a, menu_color_b = 0x8D8FFFFF, 0x2B4566FF
-        case 2:
-            menu_color_a, menu_color_b = 0xAAD080FF, 0x477B53FF
-        case 3:
-            menu_color_a, menu_color_b = 0x8ED4ECFF, 0x436245FF
-        case 4:
-            menu_color_a, menu_color_b = 0xD7BF74FF, 0x844632FF
-        case 5:
-            menu_color_a, menu_color_b = 0xB797B7FF, 0x62379AFF
-        case 6:
-            menu_color_a, menu_color_b = 0xC0C0C0FF, 0x404040FF
+    # status menu palette comes from multiple settings
+    color_mode, menu_color_a, menu_color_b = MENU_COLORS[options.status_menu_palette.value]
 
     for rom_option, ap_option in ap_to_rom_option_table.items():
         option_key = get_db_key(rom_option)
@@ -268,6 +254,8 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions) -> li
                     option_value = map_tracker_check_bits
                 case "EnabledShopBits":
                     option_value = map_tracker_shop_bits
+                case "ColorMode":
+                    option_value = color_mode
                 case "Box5ColorA":
                     option_value = menu_color_a
                 case "Box5ColorB":

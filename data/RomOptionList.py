@@ -246,7 +246,7 @@ ap_to_rom_option_table = {
     "MultiworldEnabled": "",
 
     # Cosmetics
-    "ColorMode": "status_menu_palette",
+    "ColorMode": "",
     "Box5ColorA": "",
     "Box5ColorB": "",
     "CoinColor": "coin_palette",
