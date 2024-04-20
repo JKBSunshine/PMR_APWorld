@@ -65,7 +65,7 @@ exclude_due_to_settings = {
         "Super Smash Charge",
         "Mini Jump Charge",
         "Jump Charge",
-        "Super Jump Chg",
+        "Super Jump Charge",
         "Power Jump",
         "Super Jump",
         "Mega Jump",
