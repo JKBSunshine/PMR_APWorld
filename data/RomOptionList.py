@@ -223,7 +223,7 @@ ap_to_rom_option_table = {
 
     # Goal Settings
     "StarWaySpiritsNeededCnt": "star_spirits_required",
-    "StarWaySpiritsNeededEnc": "require_specific_spirits",
+    "StarWaySpiritsNeededEnc": "",
     "BowsersCastleMode": "bowser_castle_mode",
     "StarHunt": "power_star_hunt",
     "StarHuntRequired": "required_power_stars",

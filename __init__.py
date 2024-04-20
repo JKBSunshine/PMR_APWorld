@@ -105,6 +105,7 @@ class PaperMarioWorld(World):
         self.placed_items = []
         self.placed_blocks = {}
         self.entrance_list = []
+        self.required_spirits = []
 
         self.itempool = []
         self.pre_fill_items = []
@@ -175,6 +176,17 @@ class PaperMarioWorld(World):
         # limit chapter logic only applies when using the specific star spirits setting
         if not self.options.require_specific_spirits.value:
             self.options.limit_chapter_logic.value = False
+            self.required_spirits = []
+        else:
+            # determine which star spirits are needed
+            all_spirits = [i for i in range(1, 8)]
+            chosen_spirits = []
+
+            for _ in range(self.options.star_spirits_required.value):
+                rnd_spirit = self.random.randint(0, len(all_spirits) - 1)
+                chosen_spirits.append(all_spirits.pop(rnd_spirit))
+
+            self.required_spirits = chosen_spirits
 
         # determine what blocks are what, shuffling if needed and setting them up to be used as locations
         if not self.placed_blocks:
@@ -182,7 +194,6 @@ class PaperMarioWorld(World):
                                                      ShuffleSuperMultiBlocks.option_true,
                                                      self.options.partner_upgrades.value >=
                                                      PartnerUpgradeShuffle.option_Super_Block_Locations)
-
 
     def create_regions(self) -> None:
         # Create base regions

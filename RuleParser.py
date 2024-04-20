@@ -80,6 +80,8 @@ class Rule_AST_Transformer(ast.NodeTransformer):
         elif node.id in self.multiworld.options.__dict__:
             # Settings are constant
             return ast.parse('%r' % self.multiworld.options.__dict__[node.id].value, mode='eval').body
+        elif node.id in self.multiworld.__dict__:
+            return ast.parse('%r' % self.multiworld.__dict__[node.id], mode='eval').body
         elif node.id in CollectionState.__dict__:
             return self.make_call(node, node.id, [], [])
         elif node.id in self.kwarg_defaults or node.id in allowed_globals:

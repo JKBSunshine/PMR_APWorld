@@ -96,7 +96,8 @@ def write_patch(
         music_list=music_list,
         mapmirror_list=mapmirror_list,
         puzzle_list=puzzle_list,
-        mystery_opts=mystery_opts
+        mystery_opts=mystery_opts,
+        required_spirits=world.required_spirits
     )
 
     # Update table info with variable data

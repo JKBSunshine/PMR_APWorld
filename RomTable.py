@@ -28,12 +28,12 @@ class RomTable:
         return self.db[key]
 
     def generate_pairs(self,  options: PaperMarioOptions, placed_items: list[Node], placed_blocks: dict, entrances: list,
-                       actor_attributes: list, move_costs: list, palettes: list, quizzes: list,
-                       music_list: list, mapmirror_list: list, puzzle_list: list, mystery_opts: MysteryOptions):
+                       actor_attributes: list, move_costs: list, palettes: list, quizzes: list, music_list: list,
+                       mapmirror_list: list, puzzle_list: list, mystery_opts: MysteryOptions, required_spirits: list):
         table_data = []
 
         # Options
-        option_dbtuples = get_dbtuples(options, mystery_opts)
+        option_dbtuples = get_dbtuples(options, mystery_opts, required_spirits)
 
         for option_data in option_dbtuples:
             option_key = option_data[0]
@@ -177,7 +177,7 @@ def generate_table_pairs(value_set):
     return table_data
 
 
-def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions) -> list:
+def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions, required_spirits: list) -> list:
     dbtuples = []
 
     # map tracker check and shop bits
@@ -219,6 +219,11 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions) -> li
 
     # status menu palette comes from multiple settings
     color_mode, menu_color_a, menu_color_b = MENU_COLORS[options.status_menu_palette.value]
+
+    # if specific star spirits are required they need to be encoded
+    encoded_spirits = 0
+    for spirit in required_spirits:
+        encoded_spirits = encoded_spirits | (1 << (spirit - 1))
 
     for rom_option, ap_option in ap_to_rom_option_table.items():
         option_key = get_db_key(rom_option)
@@ -281,6 +286,8 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions) -> li
                                        options.starting_bp.value / 3) - 3
                 case "StartingMap":
                     option_value = starting_maps[options.starting_map.value][0]
+                case "StarWaySpiritsNeededEnc":
+                    option_value = encoded_spirits
 
         else:
             option_value = getattr(options, ap_option).value
