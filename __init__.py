@@ -147,8 +147,8 @@ class PaperMarioWorld(World):
                 lcl_warnings += "\n'gear_shuffle_mode' must be set to full_shuffle"
             if not self.options.keysanity.value:
                 lcl_warnings += "\n'keysanity' must be set to True"
-            if self.options.merlow_items.value:
-                lcl_warnings += "\n'merlow_items' must be set to False"
+            # if self.options.merlow_items.value:
+            #     lcl_warnings += "\n'merlow_items' must be set to False"
             if not self.options.partners.value:
                 lcl_warnings += "\n'partners' must be set to True"
 
@@ -161,7 +161,6 @@ class PaperMarioWorld(World):
             raise ValueError(f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) has limit "
                              "chapter logic set to true. Specific star spirits must also be set to true if you wish to "
                              "limit chapter logic")
-
 
         # Make sure it doesn't try to shuffle Koot coins if rewards aren't shuffled
         if self.options.koot_favors.value == ShuffleKootFavors.option_Vanilla:
@@ -585,6 +584,15 @@ class PaperMarioWorld(World):
 
     def generate_output(self, output_directory: str):
         generate_output(self, output_directory)
+
+    # handle star pieces from quizmo, triple star piece items
+    def collect(self, state: CollectionState, item: PMItem) -> bool:
+        if item.name == "3x Star Pieces":
+            state.prog_items[self.player]["Star Piece"] += 3
+        # Quizmo star pieces are events that can exist in multiple places, format "StarPiece_MAC_1"
+        elif item.name.startswith("StarPiece_") and state.prog_items[self.player][item.name] == 1:
+            state.prog_items[self.player]["Star Piece"] += 1
+        return super().collect(state, item)
 
     def get_locations(self):
         return self.multiworld.get_locations(self.player)
