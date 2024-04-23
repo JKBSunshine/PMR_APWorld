@@ -14,7 +14,7 @@ class ShuffleKeys(DefaultOnToggle):
 
 class ShuffleTradeEvents(Toggle):
     """Adds the 3 rewards obtained for doing the Trading Toad quests (started via Koopa Village's radio) in the item
-    pool. These are available with 0, 2, and 5 star spirits saved."""
+    pool. These are available with 1, 3, and 5 star spirits saved."""
     display_name = "Include Trading Event Rewards"
 
 
