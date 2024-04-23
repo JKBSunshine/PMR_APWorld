@@ -18,7 +18,7 @@ item_table = {
     "Third Degree Card":        ("KEYITEM",        Ic.filler,                     12,     50,     False,  False,  False),
     "Fourth Degree Card":       ("KEYITEM",        Ic.filler,                     13,     50,     False,  False,  False),
     "Diploma":                  ("KEYITEM",        Ic.filler,                     14,     50,     False,  False,  False),
-    "Ultra Stone":              ("KEYITEM",        Ic.filler,                     15,     50,     False,  False,  False),
+    "Ultra Stone":              ("KEYITEM",        Ic.useful,                     15,     50,     False,  False,  False),
     "Koopa Fortress Key":       ("KEYITEM",        Ic.progression,                16,     50,     False,  False,  False),
     "Ruins Key":                ("KEYITEM",        Ic.progression,                17,     50,     False,  False,  False),
     "Pulse Stone":              ("KEYITEM",        Ic.progression,                18,     50,     False,  False,  False),
