@@ -471,15 +471,63 @@ def get_items_to_exclude(world: "PaperMarioWorld") -> list:
 def get_locations_to_exclude(world: "PaperMarioWorld") -> list:
     excluded_locations = []
 
-    # remove merlow rewards
+    # exclude locations which require more star spirits than are expected to be needed to beat the seed
+    if not world.options.power_star_hunt.value:
+        if world.options.star_spirits_required.value < 6:
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 20")
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 19")
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 18")
+        if world.options.star_spirits_required.value < 5:
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 17")
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 16")
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 15")
+            excluded_locations.append("TT Gate District Dojo: Master 3")
+            excluded_locations.append("TT Port District Radio Trade Event 3 Reward")
+        if world.options.star_spirits_required.value < 4:
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 14")
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 13")
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 12")
+            excluded_locations.append("TT Plaza District Rowf's Shop Set 5 - 3")
+            excluded_locations.append("TT Plaza District Rowf's Shop Set 5 - 2")
+            excluded_locations.append("TT Plaza District Rowf's Shop Set 5 - 1")
+            excluded_locations.append("TT Gate District Dojo: Master 2")
+        if world.options.star_spirits_required.value < 3:
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 11")
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 10")
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 9")
+            excluded_locations.append("TT Plaza District Rowf's Shop Set 4 - 3")
+            excluded_locations.append("TT Plaza District Rowf's Shop Set 4 - 2")
+            excluded_locations.append("TT Plaza District Rowf's Shop Set 4 - 1")
+            excluded_locations.append("TT Gate District Dojo: Master 1")
+            excluded_locations.append("TT Port District Radio Trade Event 2 Reward")
+        if world.options.star_spirits_required.value < 2:
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 8")
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 7")
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 6")
+            excluded_locations.append("TT Plaza District Rowf's Shop Set 3 - 3")
+            excluded_locations.append("TT Plaza District Rowf's Shop Set 3 - 2")
+            excluded_locations.append("TT Plaza District Rowf's Shop Set 3 - 1")
+        if world.options.star_spirits_required.value < 1:
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 5")
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 4")
+            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 3")
+            excluded_locations.append("TT Plaza District Rowf's Shop Set 2 - 3")
+            excluded_locations.append("TT Plaza District Rowf's Shop Set 2 - 2")
+            excluded_locations.append("TT Plaza District Rowf's Shop Set 2 - 1")
+            excluded_locations.append("TT Gate District Dojo: Lee")
+            excluded_locations.append("TT Port District Radio Trade Event 1 Reward")
+
+    # exclude merlow rewards
     if not world.options.merlow_items.value:
         excluded_locations.extend(location_groups["MerlowReward"])
 
-    # remove rowf item locations
+    # exclude rowf item locations
     if not world.options.rowf_items.value:
-        excluded_locations.extend(location_groups["RowfShop"])
+        for location in location_groups["RowfShop"]:
+            if location not in excluded_locations:
+                excluded_locations.append(location)
 
-    # remove rip cheato locations
+    # exclude rip cheato locations
     for i in range(0, 11):
         location_name = location_groups["RipCheato"][i]
         if location_table[location_name][5] >= world.options.cheato_items.value:
