@@ -518,7 +518,7 @@ class StartingMap(Choice):
     option_Toad_Town = 0
     option_Goomba_Village = 1
     option_Dry_Dry_Outpost = 2
-    option_Yoshi_Village = 3
+    option_Yoshi_Village = 5
 
 
 class OpenPrologue(Toggle):
