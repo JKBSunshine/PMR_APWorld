@@ -133,17 +133,17 @@ class PaperMarioWorld(World):
 
         # fail generation if attempting to use options that are not fully implemented yet
         nyi_warnings = ""
-        if self.options.local_consumables.value != 100:
+        if self.options.local_consumables.value != 100:  # not possible with current base mod
             nyi_warnings += "\n'local_consumables' must be set to 100"
-        if self.options.random_puzzles.value:
+        if self.options.random_puzzles.value:  # NYI
             nyi_warnings += "\n'random_puzzles' must be set to False"
-        if self.options.item_traps.value != ItemTraps.option_No_Traps:
+        if self.options.item_traps.value != ItemTraps.option_No_Traps:  # not possible with current base mod
             nyi_warnings += "\n'item_traps' must be set to No_Traps"
-        if self.options.shuffle_dungeon_entrances.value:
+        if self.options.shuffle_dungeon_entrances.value:  # NYI
             nyi_warnings += "\n'shuffle_dungeon_entrances' must be set to False"
-        if self.options.mirror_mode.value == MirrorMode.option_Static_Random:
+        if self.options.mirror_mode.value == MirrorMode.option_Static_Random:  # NYI
             nyi_warnings += "\n'mirror_mode' cannot be set to Static_Random"
-        if self.options.start_with_random_items.value:
+        if self.options.start_with_random_items.value:  # to be handled through AP, just remove probably
             nyi_warnings += "\n'start_with_random_items' must be set to False"
 
         if nyi_warnings:
