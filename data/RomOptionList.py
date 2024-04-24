@@ -134,7 +134,7 @@ ap_to_rom_option_table = {
     "MuteDangerBeeps": "mute_danger_beeps",
 
     # Difficulty and enemies
-    "ProgressiveScaling": "enemy_difficulty",
+    "ProgressiveScaling": "",
     "ChallengeMode": "",  # NYI, always false
     "CapEnemyXP": "cap_enemy_xp",
     "XPMultiplier": "",
