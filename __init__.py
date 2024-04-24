@@ -29,7 +29,8 @@ from .modules.random_actor_stats import get_shuffled_chapter_difficulty
 from .Rules import set_rules
 from .modules.random_partners import get_rnd_starting_partners
 from .options import (EnemyDifficulty, PaperMarioOptions, ShuffleKootFavors, PartnerUpgradeShuffle, HiddenBlockMode,
-                      ShuffleSuperMultiBlocks, GearShuffleMode, StartingMap, BowserCastleMode, ShuffleLetters)
+                      ShuffleSuperMultiBlocks, GearShuffleMode, StartingMap, BowserCastleMode, ShuffleLetters,
+                      ItemTraps, MirrorMode)
 from .data.node import Node
 from .data.starting_maps import starting_maps
 from .Rom import generate_output
@@ -130,6 +131,27 @@ class PaperMarioWorld(World):
     # Do some housekeeping before generating, namely fixing some options that might be incompatible with each other
     def generate_early(self) -> None:
 
+        # fail generation if attempting to use options that are not fully implemented yet
+        nyi_warnings = ""
+        if self.options.local_consumables.value != 100:
+            nyi_warnings += "\n'local_consumables' must be set to 100"
+        if self.options.random_puzzles.value:
+            nyi_warnings += "\n'random_puzzles' must be set to False"
+        if self.options.item_traps.value != ItemTraps.option_No_Traps:
+            nyi_warnings += "\n'item_traps' must be set to No_Traps"
+        if self.options.shuffle_dungeon_entrances.value:
+            nyi_warnings += "\n'shuffle_dungeon_entrances' must be set to False"
+        if self.options.mirror_mode.value == MirrorMode.option_Static_Random:
+            nyi_warnings += "\n'mirror_mode' cannot be set to Static_Random"
+        if self.options.start_with_random_items.value:
+            nyi_warnings += "\n'start_with_random_items' must be set to False"
+
+        if nyi_warnings:
+            nyi_warnings = ((f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) has settings "
+                             "are not yet implemented in the .apworld being used for generation. "
+                             "Please check for a newer release and/or adjust the settings below : ") + nyi_warnings)
+            raise ValueError(nyi_warnings)
+
         # Unclear which type of game is desired, raise error and have the player choose
         if self.options.require_specific_spirits.value and self.options.power_star_hunt.value:
             raise ValueError(f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) has power star "
@@ -147,8 +169,6 @@ class PaperMarioWorld(World):
                 lcl_warnings += "\n'gear_shuffle_mode' must be set to full_shuffle"
             if not self.options.keysanity.value:
                 lcl_warnings += "\n'keysanity' must be set to True"
-            if self.options.merlow_items.value:
-                lcl_warnings += "\n'merlow_items' must be set to False"
             if not self.options.partners.value:
                 lcl_warnings += "\n'partners' must be set to True"
 
@@ -161,7 +181,6 @@ class PaperMarioWorld(World):
             raise ValueError(f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) has limit "
                              "chapter logic set to true. Specific star spirits must also be set to true if you wish to "
                              "limit chapter logic")
-
 
         # Make sure it doesn't try to shuffle Koot coins if rewards aren't shuffled
         if self.options.koot_favors.value == ShuffleKootFavors.option_Vanilla:
@@ -585,6 +604,15 @@ class PaperMarioWorld(World):
 
     def generate_output(self, output_directory: str):
         generate_output(self, output_directory)
+
+    # handle star pieces from quizmo, triple star piece items
+    def collect(self, state: CollectionState, item: PMItem) -> bool:
+        if item.name == "3x Star Pieces":
+            state.prog_items[self.player]["Star Piece"] += 3
+        # Quizmo star pieces are events that can exist in multiple places, format "StarPiece_MAC_1"
+        elif item.name.startswith("StarPiece_") and state.prog_items[self.player][item.name] == 1:
+            state.prog_items[self.player]["Star Piece"] += 1
+        return super().collect(state, item)
 
     def get_locations(self):
         return self.multiworld.get_locations(self.player)

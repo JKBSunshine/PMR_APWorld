@@ -4,7 +4,7 @@ from .data.RomOptionList import rom_option_table, ap_to_rom_option_table
 from .data.palettes_meta import MENU_COLORS
 from .modules.random_blocks import get_block_key
 from .options import (EnemyDamage, PaperMarioOptions, PartnerUpgradeShuffle, ShuffleKootFavors, ShuffleLetters,
-                      BowserCastleMode, StatusMenuColorPalette)
+                      BowserCastleMode, StatusMenuColorPalette, EnemyDifficulty)
 from .data.MysteryOptions import MysteryOptions
 from .data.starting_maps import starting_maps
 from .data.node import Node
@@ -27,7 +27,7 @@ class RomTable:
     def __getitem__(self, key):
         return self.db[key]
 
-    def generate_pairs(self,  options: PaperMarioOptions, placed_items: list[Node], placed_blocks: dict, entrances: list,
+    def generate_pairs(self, options: PaperMarioOptions, placed_items: list[Node], placed_blocks: dict, entrances: list,
                        actor_attributes: list, move_costs: list, palettes: list, quizzes: list, music_list: list,
                        mapmirror_list: list, puzzle_list: list, mystery_opts: MysteryOptions, required_spirits: list):
         table_data = []
@@ -255,6 +255,8 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions, requi
                     option_value = options.enemy_damage.value == EnemyDamage.option_Double_Pain
                 case "QuadrupleDamage":
                     option_value = options.enemy_damage.value == EnemyDamage.option_Quadruple_Pain
+                case "ProgressiveScaling":
+                    option_value = options.enemy_difficulty.value == EnemyDifficulty.option_Progressive_Scaling
                 case "EnabledCheckBits":
                     option_value = map_tracker_check_bits
                 case "EnabledShopBits":

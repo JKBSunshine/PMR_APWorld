@@ -41,17 +41,6 @@ def get_shuffled_chapter_difficulty(
         all_enemy_stats[actor_name]["NativeChapter"] = actor_native_chapter
         all_enemy_stats[actor_name][actor_stat_name] = actor_stat_values
 
-    # Random chance for enemy promotion: 20%
-    for actor_name in all_enemy_stats:
-        if not shuffle_chapter_difficulty:
-            all_enemy_stats[actor_name]["Promoted"] = False
-        else:
-            all_enemy_stats[actor_name]["Promoted"] = False
-
-    for actor_name in all_enemy_stats:
-        if all_enemy_stats[actor_name]["Promoted"]:
-            print(f"Promoted {actor_name}")
-
     # Randomize chapter order
     chapters_to_shuffle = [1, 2, 3, 4, 5, 6, 7]
     if shuffle_chapter_difficulty:
@@ -91,8 +80,6 @@ def get_shuffled_chapter_difficulty(
                 # Special case for Dojo / Kent
                 native_chapter = 1
             value = int(all_enemy_stats[actor_name][actor_stat_name][chapter_dict.get(native_chapter) - 1])
-            if all_enemy_stats[actor_name]["Promoted"]:
-                value = int(all_enemy_stats[actor_name][actor_stat_name][chapter_dict.get(native_chapter) + 1])
 
         new_enemy_stats.append((dbkey, value))
 
