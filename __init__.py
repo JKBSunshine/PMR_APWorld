@@ -29,7 +29,8 @@ from .modules.random_actor_stats import get_shuffled_chapter_difficulty
 from .Rules import set_rules
 from .modules.random_partners import get_rnd_starting_partners
 from .options import (EnemyDifficulty, PaperMarioOptions, ShuffleKootFavors, PartnerUpgradeShuffle, HiddenBlockMode,
-                      ShuffleSuperMultiBlocks, GearShuffleMode, StartingMap, BowserCastleMode, ShuffleLetters)
+                      ShuffleSuperMultiBlocks, GearShuffleMode, StartingMap, BowserCastleMode, ShuffleLetters,
+                      ItemTraps, MirrorMode)
 from .data.node import Node
 from .data.starting_maps import starting_maps
 from .Rom import generate_output
@@ -129,6 +130,27 @@ class PaperMarioWorld(World):
 
     # Do some housekeeping before generating, namely fixing some options that might be incompatible with each other
     def generate_early(self) -> None:
+
+        # fail generation if attempting to use options that are not fully implemented yet
+        nyi_warnings = ""
+        if self.options.local_consumables.value != 100:
+            nyi_warnings += "\n'local_consumables' must be set to 100"
+        if self.options.random_puzzles.value:
+            nyi_warnings += "\n'random_puzzles' must be set to False"
+        if self.options.item_traps.value != ItemTraps.option_No_Traps:
+            nyi_warnings += "\n'item_traps' must be set to No_Traps"
+        if self.options.shuffle_dungeon_entrances.value:
+            nyi_warnings += "\n'shuffle_dungeon_entrances' must be set to False"
+        if self.options.mirror_mode.value == MirrorMode.option_Static_Random:
+            nyi_warnings += "\n'mirror_mode' cannot be set to Static_Random"
+        if self.options.start_with_random_items.value:
+            nyi_warnings += "\n'start_with_random_items' must be set to False"
+
+        if nyi_warnings:
+            nyi_warnings = ((f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) has settings "
+                             "are not yet implemented in the .apworld being used for generation. "
+                             "Please check for a newer release and/or adjust the settings below : ") + nyi_warnings)
+            raise ValueError(nyi_warnings)
 
         # Unclear which type of game is desired, raise error and have the player choose
         if self.options.require_specific_spirits.value and self.options.power_star_hunt.value:
