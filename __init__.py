@@ -147,8 +147,6 @@ class PaperMarioWorld(World):
                 lcl_warnings += "\n'gear_shuffle_mode' must be set to full_shuffle"
             if not self.options.keysanity.value:
                 lcl_warnings += "\n'keysanity' must be set to True"
-            # if self.options.merlow_items.value:
-            #     lcl_warnings += "\n'merlow_items' must be set to False"
             if not self.options.partners.value:
                 lcl_warnings += "\n'partners' must be set to True"
 
