@@ -52,7 +52,7 @@ Paper Mario:
     partner_fp_shuffle: vanilla             # Other options: balanced_random, shuffled, fully_random
     sp_shuffle: vanilla                     # Other options: balanced_random, shuffled, fully_random
     mystery_shuffle: vanilla                # Other options: random_pick, random_per_use
-    formation_shuffle: False                # Other options: True (NYI)
+    formation_shuffle: False                # Other options: True
     random_puzzles: False                   # Other options: True (NYI)
 
     # General Difficulty
