@@ -5,11 +5,11 @@
     "map_id": "0",
     "map_name": "Warp Zone 1 (B1)",
     "events": {
-      "GF_TIK01_WarpPipes": "can_hit_grounded_switches"
+      "GF_TIK01_WarpPipes": "can_beat_all_bloopers and can_hit_grounded_switches"
     },
     "exits": {
       "TTT Sewer Entrance (B1)": "True",
-      "TTT Short Elevator Room (B1)": "Super_Hammer",
+      "TTT Short Elevator Room (B1)": "Super_Hammer and can_beat_all_bloopers",
       "TTT Warp Zone 1 (B1) Goomba Village Pipe": "'GF_TIK01_WarpPipes' and Boots",
       "TTT Warp Zone 1 (B1) Koopa Village Pipe": "'GF_TIK01_WarpPipes' and Boots",
       "TTT Warp Zone 1 (B1) Outpost Pipe": "'GF_TIK01_WarpPipes' and Boots"
@@ -55,7 +55,7 @@
     "map_id": "1",
     "map_name": "Blooper Boss 1 (B1)",
     "locations": {
-      "TTT Blooper Boss 1 (B1) Blooper Fight Reward": "True"
+      "TTT Blooper Boss 1 (B1) Blooper Fight Reward": "can_beat_all_bloopers"
     },
     "exits": {
       "TTT Hall to Blooper 1 (B1)": "True"
@@ -205,7 +205,7 @@
     "exits": {
       "TTT Warp Zone 2 (B2)": "True",
       "TTT Sewer Entrance (B1) Tall Pipe": "True",
-      "TTT Second Level Entry (B2) East": "can_use_ability_sushie"
+      "TTT Second Level Entry (B2) East": "can_use_ability_sushie and can_beat_all_bloopers"
     }
   },
   {
@@ -214,11 +214,11 @@
     "map_id": "7",
     "map_name": "Second Level Entry (B2)",
     "events": {
-      "GF_TIK08_WarpPipe": "can_hit_grounded_switches"
+      "GF_TIK08_WarpPipe": "can_beat_all_bloopers and can_hit_grounded_switches"
     },
     "exits": {
       "TTT Room with Spikes (B2)": "True",
-      "TTT Second Level Entry (B2) West": "can_use_ability_sushie",
+      "TTT Second Level Entry (B2) West": "can_use_ability_sushie and can_beat_all_bloopers",
       "TTT Second Level Entry (B2) Blue Pipe": "'GF_TIK08_WarpPipe' and Boots"
     }
   },

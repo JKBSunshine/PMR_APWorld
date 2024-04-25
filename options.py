@@ -270,6 +270,22 @@ class RandomPuzzles(Toggle):
     display_name = "Randomize Puzzles"
 
 
+class BlooperDamageRequirements(Choice):
+    """There are 3 Blooper fights. Regardless of what order you visit the fight locations, you always fight Blooper,
+    then Electro Blooper, then Super Blooper. This setting can add logic such that you are able to deal enough damage
+    per turn with jump and partner attacks to comfortably defeat all 3 Bloopers before needing to defeat any of them.
+    Note that damage is calculated only by partners and boot upgrades, not badges or partner upgrades/abilities.
+    None: No logical requirements to defeat Bloopers
+    Low: 3 damage per turn required
+    Medium: 6 damage per turn required
+    High: 9 damage per turn required"""
+    display_name = "Blooper Damage Requirements"
+    option_None = 0
+    option_Low = 1
+    option_Medium = 2
+    option_High = 3
+
+
 # Difficulty settings
 class EnemyDifficulty(Choice):
     """Vanilla: Original enemy stats.
@@ -962,6 +978,7 @@ class PaperMarioOptions(PerGameCommonOptions):
     mystery_shuffle: MysteryShuffle
     formation_shuffle: ShuffleBattleFormations
     random_puzzles: RandomPuzzles
+    blooper_damage_requirements: BlooperDamageRequirements
 
     # General Difficulty
     enemy_difficulty: EnemyDifficulty
