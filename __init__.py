@@ -117,6 +117,7 @@ class PaperMarioWorld(World):
         self.itempool = []
         self.pre_fill_items = []
         self.dungeon_restricted_items = {}
+        self.remove_from_start_inventory = []  # some items we start with are baked into the rom
 
         self._regions_cache = {}
         self.parser = Rule_AST_Transformer(self, self.player)
@@ -310,32 +311,53 @@ class PaperMarioWorld(World):
         # Gear
         for boots in range(1, self.options.starting_boots.value + 2):
             self.multiworld.push_precollected(self.create_item("Progressive Boots"))
+            self.remove_from_start_inventory.append("Progressive Boots")
 
         for hammer in range(1, self.options.starting_hammer.value + 2):
             self.multiworld.push_precollected(self.create_item("Progressive Hammer"))
+            self.remove_from_start_inventory.append("Progressive Hammer")
 
         # Partners
         if self.options.start_with_goombario.value:
             self.multiworld.push_precollected(self.create_item("Goombario"))
+            self.remove_from_start_inventory.append("Goombario")
         if self.options.start_with_kooper.value:
             self.multiworld.push_precollected(self.create_item("Kooper"))
+            self.remove_from_start_inventory.append("Kooper")
         if self.options.start_with_bombette.value:
             self.multiworld.push_precollected(self.create_item("Bombette"))
+            self.remove_from_start_inventory.append("Bombette")
         if self.options.start_with_parakarry.value:
             self.multiworld.push_precollected(self.create_item("Parakarry"))
+            self.remove_from_start_inventory.append("Parakarry")
         if self.options.start_with_bow.value:
             self.multiworld.push_precollected(self.create_item("Bow"))
+            self.remove_from_start_inventory.append("Bow")
         if self.options.start_with_watt.value:
             self.multiworld.push_precollected(self.create_item("Watt"))
+            self.remove_from_start_inventory.append("Watt")
         if self.options.start_with_sushie.value:
             self.multiworld.push_precollected(self.create_item("Sushie"))
+            self.remove_from_start_inventory.append("Sushie")
         if self.options.start_with_lakilester.value:
             self.multiworld.push_precollected(self.create_item("Lakilester"))
+            self.remove_from_start_inventory.append("Lakilester")
+
+        # handle start inventory AP option
+        removed_items = []
+        for item in self.multiworld.precollected_items[self.player]:
+            if item.name in self.remove_from_start_inventory:
+                self.remove_from_start_inventory.remove(item.name)
+                removed_items.append(item.name)
+            elif item in self.itempool:
+                self.itempool.remove(item)
+                self.itempool.append(self.create_item(self.get_filler_item_name()))
 
         # remove prefill items from item pool to be randomized
         self.itempool, self.pre_fill_items, self.dungeon_restricted_items = self.divide_itempools()
 
         self.multiworld.itempool.extend(self.itempool)
+        self.remove_from_start_inventory.extend(removed_items)
 
     def set_rules(self) -> None:
         set_rules(self)
@@ -698,6 +720,13 @@ class PaperMarioWorld(World):
         # Replace connect name
         multidata['connect_names'][base64.b64encode(self.auth).decode("ascii")] = multidata['connect_names'][
             self.multiworld.player_name[self.player]]
+
+        # Remove items from start_inventory if they are already being given by other settings
+        for item_name in self.remove_from_start_inventory:
+            item_id = self.item_name_to_id.get(item_name, None)
+            if item_id is None:
+                continue
+            multidata['precollected_items'][self.player].remove(item_id)
 
     def get_filler_item_name(self) -> str:
         return "Super Shroom"
