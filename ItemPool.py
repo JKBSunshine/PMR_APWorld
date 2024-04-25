@@ -4,7 +4,7 @@
 from collections import namedtuple
 from itertools import chain
 
-from .data.chapter_logic import get_bowser_castle_removed_locations
+from .data.chapter_logic import get_bowser_castle_removed_locations, areas_by_chapter
 from .data.ItemList import taycet_items, item_table, progression_miscitems, item_groups, item_multiples_base_name
 from .data.LocationsList import location_groups, location_table, missable_locations
 from .options import *
@@ -62,7 +62,7 @@ def get_pool_core(world: "PaperMarioWorld"):
         ch_excluded_items = get_chapter_excluded_item_names(world.excluded_spirits)
 
     # Exclude locations that are either missable or are going to be considered not in logic based on settings
-    excluded_locations = missable_locations + get_locations_to_exclude(world)
+    excluded_locations = missable_locations + get_locations_to_exclude(world, bc_removed_locations)
 
     # remove unused items from the pool
 
@@ -468,7 +468,7 @@ def get_items_to_exclude(world: "PaperMarioWorld") -> list:
     return excluded_items
 
 
-def get_locations_to_exclude(world: "PaperMarioWorld") -> list:
+def get_locations_to_exclude(world: "PaperMarioWorld", bc_removed_locations: list) -> list:
     excluded_locations = []
 
     # exclude locations which require more star spirits than are expected to be needed to beat the seed
@@ -517,6 +517,25 @@ def get_locations_to_exclude(world: "PaperMarioWorld") -> list:
             excluded_locations.append("TT Gate District Dojo: Lee")
             excluded_locations.append("TT Port District Radio Trade Event 1 Reward")
 
+    # exclude some amount of chapter 8 locations depending upon access requirements
+    late_game_locations = []
+    for prefix in areas_by_chapter[8]:
+        late_game_locations.extend([name for (name, data) in location_table.items() if name.startswith(prefix)
+                                    and name not in bc_removed_locations])
+    late_game_locations.append("PCG Hijacked Castle Entrance Hidden Block")
+    late_game_locations.append("SSS Star Haven Shop Item 1")
+    late_game_locations.append("SSS Star Haven Shop Item 2")
+    late_game_locations.append("SSS Star Haven Shop Item 3")
+    late_game_locations.append("SSS Star Haven Shop Item 4")
+    late_game_locations.append("SSS Star Haven Shop Item 5")
+    late_game_locations.append("SSS Star Haven Shop Item 6")
+
+    late_game_exclude_rate = get_star_haven_access_ratio(world.options) * 100
+
+    for location in late_game_locations:
+        if world.random.randint(1, 100) <= late_game_exclude_rate:
+            excluded_locations.append(location)
+
     # exclude merlow rewards
     if not world.options.merlow_items.value:
         excluded_locations.extend(location_groups["MerlowReward"])
@@ -540,3 +559,15 @@ def get_item_multiples_base_name(item_name: str) -> str:
     if item_name in item_multiples_base_name.keys():
         return item_multiples_base_name[item_name]
     return item_name
+
+
+def get_star_haven_access_ratio(options: PaperMarioOptions):
+    if options.power_star_hunt.value:
+        if options.star_hunt_skips_ch8.value:
+            return 1
+        else:
+            return options.required_power_stars.value / options.total_power_stars.value
+
+    else:
+        return options.star_spirits_required.value / 7
+
