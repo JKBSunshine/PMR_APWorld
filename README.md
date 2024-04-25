@@ -9,9 +9,10 @@ View the setup guide [here.](https://github.com/JKBSunshine/PMR_APWorld/blob/mai
 
 ## Quick Notes
 
-- Consumables, coins, and some other items are unable to be received from other players
+- Consumables are unable to be received from other players (or more accurately, there is no handling for receiving consumables if your inventory is full; keeping them local avoids that problem)
 - Receiving items does not have any animation; items will simply appear in your inventory.
-- Off-world items that are in replenishable locations (shops, trees, bushes, etc) can be collected over and over again, but will only actually send once. Do not buy them from shops repeatedly, unless you are aiming to tip the shopkeeper.
+- Off-world items do not clarify what the item is or who it belongs to in game; you will have to look at your client to see what you have sent and to who.
+- Off-world items in shops and Merlow's rewards will be automatically hinted if they are progression items so that you know what is and isn't necessary to buy. Other off-world items could still be important (or unimportant), but if it isn't hinted, don't feel too bad for skipping it.
 - Refer to the [PMR Wiki](https://github.com/icebound777/PMR-SeedGenerator/wiki) for help for Paper Mario Randomizer, such as commonly missed locations, general tips, and more.
   
 ## TO DO from PMR
