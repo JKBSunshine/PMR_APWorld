@@ -424,26 +424,13 @@ class StartingSP(Range):
     default = 0
 
 
-# Difficulty Starting Items TODO
-class StartWithRandomItems(Toggle):
-    """Start the game with a random or specific number of random items"""
-    display_name = "Start With Random Items"
-
-
-class MinStartItems(Range):
-    """Minimum number of items you start with"""
-    display_name = "Minimum Starting Items"
+# Difficulty Starting Items
+class RandomStartItems(Range):
+    """Number of random items you start with"""
+    display_name = "Random Starting Items"
     range_start = 0
     range_end = 16
     default = 0
-
-
-class MaxStartItems(Range):
-    """Maximum number of items you start with, must be greater than or equal to the minimum"""
-    display_name = "Maximum Starting Items"
-    range_start = 0
-    range_end = 16
-    default = 16
 
 
 # Difficulty Item Pool
@@ -1000,9 +987,7 @@ class PaperMarioOptions(PerGameCommonOptions):
     starting_bp: StartingBP
     starting_fp: StartingFP
     starting_sp: StartingSP
-    start_with_random_items: StartWithRandomItems
-    min_start_items: MinStartItems
-    max_start_items: MaxStartItems
+    random_start_items: RandomStartItems
 
     # Item Pool
     consumable_item_pool: ConsumableItemPool

@@ -144,8 +144,6 @@ class PaperMarioWorld(World):
             nyi_warnings += "\n'shuffle_dungeon_entrances' must be set to False"
         if self.options.mirror_mode.value == MirrorMode.option_Static_Random:  # NYI
             nyi_warnings += "\n'mirror_mode' cannot be set to Static_Random"
-        if self.options.start_with_random_items.value:  # to be handled through AP, just remove probably
-            nyi_warnings += "\n'start_with_random_items' must be set to False"
 
         if nyi_warnings:
             nyi_warnings = ((f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) has settings "
@@ -206,10 +204,6 @@ class PaperMarioWorld(World):
             logging.warning(f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) did not select a "
                             f"starting partner and will be given one at random.")
             self.options.start_random_partners.value = True
-
-        self.options.min_start_items.value, self.options.max_start_items.value = (
-            min([self.options.min_start_items.value, self.options.max_start_items.value]),
-            max(self.options.min_start_items.value, self.options.max_start_items.value))
 
         if self.options.start_random_partners.value:
             starting_partners = get_rnd_starting_partners(self.options.start_partners.value)
@@ -343,7 +337,32 @@ class PaperMarioWorld(World):
             self.multiworld.push_precollected(self.create_item("Lakilester"))
             self.remove_from_start_inventory.append("Lakilester")
 
-        # handle start inventory AP option
+        # Randomly start with up to 16 items
+        if self.options.random_start_items.value:
+            self.random.shuffle(self.itempool)
+
+            # Mario can only hold 10 consumables, so disallow more than 10 from being sent to his inventory
+            popped_consumables = []
+            starting_items = []
+            consumable_count = 0
+            while len(starting_items) < self.options.random_start_items.value:
+                item_to_add = self.itempool.pop()
+                if item_to_add.type == "ITEM" and consumable_count == 10:
+                    popped_consumables.append(item_to_add)
+                else:
+                    starting_items.append(item_to_add)
+                    if item_to_add.type == "ITEM":
+                        consumable_count += 1
+
+            for item in starting_items:
+                self.multiworld.push_precollected(item)
+
+            # add items back to itempool regardless of if they were in starting_items or not
+            # removed items are handled in next block
+            self.itempool.extend(starting_items)
+            self.itempool.extend(popped_consumables)
+
+        # handle start inventory, be it from the AP option or from
         removed_items = []
         for item in self.multiworld.precollected_items[self.player]:
             if item.name in self.remove_from_start_inventory:
