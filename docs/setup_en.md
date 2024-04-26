@@ -4,7 +4,7 @@
 - [Archipelago](https://github.com/ArchipelagoMW/Archipelago/releases) v0.4.4 or higher. Make sure to install the
   Generator. You will not be able to generate games with Paper Mario on the Archipelago site, only locally.
 - [The Paper Mario AP World](https://github.com/JKBSunshine/PMR_APWorld/tree/main). To download it, go to the [latest release](https://github.com/JKBSunshine/PMR_APWorld/releases) and download the papermario.apworld file.
-- A legally obtained, vanilla Paper Mario ROM.
+- A legally obtained US 1.0 Paper Mario ROM.
 - [BizHawk](https://tasvideos.org/BizHawk/ReleaseHistory) 2.7 or later
 
 ## Add the Paper Mario AP World to your Archipelago install
@@ -14,7 +14,7 @@ This is generally found at C:\ProgramData\Archipelago\lib\worlds.
 ## Creating a YAML file
 - Option A: Run ArchipelagoLauncher.exe (found in the base Archipelago folder) and click Generate Template Settings to generate a 
 template YAML file. It will open the folder of template files which you can then edit to your liking.
-- Option B (recommended): Use the PM Sample.yaml file [here.](https://github.com/JKBSunshine/PMR_APWorld/blob/main/PM%20Sample.yaml) You may edit it to your liking. It will also tell you what settings there are and what is/isn't implemented.
+- Option B (recommended): Use the PM Sample.yaml file [here.](https://github.com/JKBSunshine/PMR_APWorld/blob/main/PM%20Sample.yaml) You may edit it to your liking. It will also tell you what options there are and what is/isn't implemented.
 
 Note that since some settings are not yet implemented fully, not all of them will result in a successful generation. [PM Sample.YAML](https://github.com/JKBSunshine/PMR_APWorld/blob/main/PM%20Sample.yaml) can be referred to to see what options are and are not implemented.
 
