@@ -25,7 +25,7 @@ the descriptions that you would see on the site, you can check out [options.py,]
 or check out option C...
 
 ### Option C: Use the PMR website to get a setting string 
-Want a GUI with buttons, sliders, descriptions, and cute styling? 
+Want a GUI with buttons, sliders, descriptions, and cute styling? Grab the PMR Settings String.yaml file [here.](https://github.com/JKBSunshine/PMR_APWorld/blob/main/docs/PMR%20Settings%20String.yaml)
 Visit [the Paper Mario Randomizer site](https://pm64randomizer.com/) and select your settings. When you're 
 ready, go to the top of the page and click the Export button. This will update the Settings String field with the 
 settings you've selected. Copy that string and put it in your YAML as the value for `pmr_settings_string`. It'll look 
