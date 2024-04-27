@@ -312,11 +312,12 @@ class OneHitKO(Toggle):
 
 
 class XPMultiplier(Range):
-    """Increase or decrease the star points gained from enemies."""
+    """Increase or decrease the star points gained from enemies. Double the desired value for this setting.
+    ex: if you want double XP, set this to 4; for vanilla XP, set this to 2"""
     display_name = "XP Multiplier"
     range_start = 0
-    range_end = 2
-    default = 1
+    range_end = 4
+    default = 2
 
 
 class CapEnemyXP(Toggle):

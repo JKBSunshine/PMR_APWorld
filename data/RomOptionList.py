@@ -137,7 +137,7 @@ ap_to_rom_option_table = {
     "ProgressiveScaling": "",
     "ChallengeMode": "",  # NYI, always false
     "CapEnemyXP": "cap_enemy_xp",
-    "XPMultiplier": "",
+    "XPMultiplier": "enemy_xp_multiplier",
     "DoubleDamage": "",  # damage multiplier == 2
     "QuadrupleDamage": "",  # damage multiplier == 4
     "OHKO": "one_hit_ko",

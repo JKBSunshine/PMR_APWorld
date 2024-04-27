@@ -60,7 +60,7 @@ Paper Mario:
     enemy_difficulty: progressive_scaling   # Other options: shuffle_chapter_difficulty, progressive_scaling
     enemy_damage: Normal                    # Other options: double_pain, quadruple_pain
     cap_enemy_xp: False                     # Other options: True
-    enemy_xp_multiplier: 2                  # Other options: 0-2
+    enemy_xp_multiplier: 2                  # Other options: 0-4, set this to double the desired multiplier; ex: for double xp, set this to 4
     no_save_blocks: False                   # Other options: True
     no_heart_blocks: False                  # Other options: True
     no_healing_items: False                 # Other options: True
