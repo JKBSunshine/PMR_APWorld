@@ -31,7 +31,7 @@ This is not necessarily a strict roadmap, nor is it exhaustive of everything tha
 
 ### Late Alpha - Early Beta
 - ~~Prevent Chapter 8 locations from holding too many progression items (OoT does similar with Ganon's Castle)~~
-- Create yaml file using PMR settings string
+- ~~Create yaml file using PMR settings string~~
 - Offworld consumables
 - Item get animations
 - Offworld item sprite
