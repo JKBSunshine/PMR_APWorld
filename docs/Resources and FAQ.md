@@ -3,7 +3,7 @@
 ## AP World
 
 - [AP PMR Release Page](https://github.com/JKBSunshine/PMR_APWorld/releases)
-- [Sample YAML,](https://github.com/JKBSunshine/PMR_APWorld/blob/main/PM%20Sample.yaml) which has notes for what settings are and aren't implemented
+- [Sample YAML,](https://github.com/JKBSunshine/PMR_APWorld/blob/main/docs/PM%20Sample.yaml) which has notes for what settings are and aren't implemented
 - [Options Syntax and Explanations](https://github.com/JKBSunshine/PMR_APWorld/blob/main/options.py)
 ## Paper Mario Randomizer
 
