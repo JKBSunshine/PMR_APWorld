@@ -1,0 +1,26 @@
+Paper Mario:
+    progression_balancing: 50
+    accessibility: items
+
+    # To get the settings string, go to https://pm64randomizer.com/
+    # 1. Choose your settings
+    # 2. At the top of the page, click Export
+    # 3. Copy the text in the "Settings string" field
+    # 4. Paste it below where it says SettingString
+    pmr_settings_string: SettingsString
+
+    # The below option(s) are AP only and do not exist on the PMR site.
+
+    local_consumables: 100
+    # This option should not be changed, as the base mod does not support receiving consumables with a full inventory.
+
+    blooper_damage_requirements: None
+    # Other options: Low, Medium, High
+    # This can add logic to blooper fights to ensure you're well-equipped enough with boots and partners to beat them.
+
+    death_link: False
+    # death link is not yet implemented, leave this False
+
+description: Paper Mario YAML using PMR Setting String
+game: Paper Mario
+name: JKB 1

@@ -12,11 +12,29 @@ Place the .apworld file in the worlds folder in your Archipelago install.
 This is generally found at C:\ProgramData\Archipelago\lib\worlds.
 
 ## Creating a YAML file
-- Option A: Run ArchipelagoLauncher.exe (found in the base Archipelago folder) and click Generate Template Settings to generate a 
-template YAML file. It will open the folder of template files which you can then edit to your liking.
-- Option B (recommended): Use the PM Sample.yaml file [here.](https://github.com/JKBSunshine/PMR_APWorld/blob/main/PM%20Sample.yaml) You may edit it to your liking. It will also tell you what options there are and what is/isn't implemented.
 
-Note that since some settings are not yet implemented fully, not all of them will result in a successful generation. [PM Sample.YAML](https://github.com/JKBSunshine/PMR_APWorld/blob/main/PM%20Sample.yaml) can be referred to to see what options are and are not implemented.
+### Option A: Generate a template YAML using Archipelago and edit it.
+Want the typical Archipelago experience? Run ArchipelagoLauncher.exe (found in the base Archipelago folder) and click 
+Generate Template Settings to generate a template YAML file. It will open the folder of template files which you can 
+then edit to your liking.
+
+### Option B: Use the PM Sample.yaml file and edit it to your liking.
+Want a YAML that looks like what you'd get when exporting it from the site? Grab the PM Sample.yaml file [here.](https://github.com/JKBSunshine/PMR_APWorld/blob/main/PM%20Sample.yaml) 
+It has all the settings and shows options for each setting as well as what is/isn't implemented. If you want to see 
+the descriptions that you would see on the site, you can check out [options.py,](https://github.com/JKBSunshine/PMR_APWorld/blob/main/options.py) 
+or check out option C...
+
+### Option C: Use the PMR website to get a setting string 
+Want a GUI with buttons, sliders, descriptions, and cute styling? 
+Visit [the Paper Mario Randomizer site](https://pm64randomizer.com/) and select your settings. When you're 
+ready, go to the top of the page and click the Export button. This will update the Settings String field with the 
+settings you've selected. Copy that string and put it in your YAML as the value for `pmr_settings_string`. It'll look 
+similar to this:  
+`pmr_settings_string: (iIvejnSpf0Kdl0rbg2u0a6Om)(gb1f1p1s0Rzm2)(pSaRn1x1(pGktpbwsl))(qh3SiPZgc2ELt7DQFVO)(dd1ca1.5m1kshzw4EFlvyp0b)(xq100r0t0xubpl128)(mc150h10f5b3s0j0a0irn4x16Q)(om2btwcrFPs65796o2dz0x?50!70Y)(cm7p20g20k20o20a20b20w20s20l20x2n2e2y2c5trhdu-1j)g)`
+
+Note that since some settings are not yet implemented fully, not all of them will result in a successful generation. 
+[PM Sample.YAML](https://github.com/JKBSunshine/PMR_APWorld/blob/main/PM%20Sample.yaml) can be referred to to see what options are and are not implemented, regardless of how you choose 
+to create your YAML.
 
 ## Generating a Game
 Follow [the general Archipelago instructions](https://archipelago.gg/tutorial/Archipelago/setup/en#generating-a-game) for generating a game, specifically on your local installation. You cannot generate games using the Paper Mario AP World on the website.
