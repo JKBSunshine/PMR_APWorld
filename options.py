@@ -3,7 +3,7 @@ Option definitions for Paper Mario 64
 """
 
 from typing import Dict
-from Options import Option, Choice, Range, DeathLink, Toggle, DefaultOnToggle, StartInventoryPool, PerGameCommonOptions
+from Options import Choice, Range, DeathLink, Toggle, DefaultOnToggle, FreeText, PerGameCommonOptions
 from dataclasses import dataclass
 
 
@@ -270,6 +270,22 @@ class RandomPuzzles(Toggle):
     display_name = "Randomize Puzzles"
 
 
+class BlooperDamageRequirements(Choice):
+    """There are 3 Blooper fights. Regardless of what order you visit the fight locations, you always fight Blooper,
+    then Electro Blooper, then Super Blooper. This setting can add logic such that you are able to deal enough damage
+    per turn with jump and partner attacks to comfortably defeat all 3 Bloopers before needing to defeat any of them.
+    Note that damage is calculated only by partners and boot upgrades, not badges or partner upgrades/abilities.
+    None: No logical requirements to defeat Bloopers
+    Low: 3 damage per turn required
+    Medium: 6 damage per turn required
+    High: 9 damage per turn required"""
+    display_name = "Blooper Damage Requirements"
+    option_None = 0
+    option_Low = 1
+    option_Medium = 2
+    option_High = 3
+
+
 # Difficulty settings
 class EnemyDifficulty(Choice):
     """Vanilla: Original enemy stats.
@@ -296,11 +312,12 @@ class OneHitKO(Toggle):
 
 
 class XPMultiplier(Range):
-    """Increase or decrease the star points gained from enemies."""
+    """Increase or decrease the star points gained from enemies. Double the desired value for this setting.
+    ex: if you want double XP, set this to 4; for vanilla XP, set this to 2"""
     display_name = "XP Multiplier"
     range_start = 0
-    range_end = 2
-    default = 1
+    range_end = 4
+    default = 2
 
 
 class CapEnemyXP(Toggle):
@@ -424,26 +441,13 @@ class StartingSP(Range):
     default = 0
 
 
-# Difficulty Starting Items TODO
-class StartWithRandomItems(Toggle):
-    """Start the game with a random or specific number of random items"""
-    display_name = "Start With Random Items"
-
-
-class MinStartItems(Range):
-    """Minimum number of items you start with"""
-    display_name = "Minimum Starting Items"
+# Difficulty Starting Items
+class RandomStartItems(Range):
+    """Number of random items you start with"""
+    display_name = "Random Starting Items"
     range_start = 0
     range_end = 16
     default = 0
-
-
-class MaxStartItems(Range):
-    """Maximum number of items you start with, must be greater than or equal to the minimum"""
-    display_name = "Maximum Starting Items"
-    range_start = 0
-    range_end = 16
-    default = 16
 
 
 # Difficulty Item Pool
@@ -837,36 +841,36 @@ class BossColorPalette(Choice):
     """Changes the way the sprites look in-game."""
     display_name = "Bosses Color Palettes"
     option_Default = 0
-    option_Random_Pick = 10
-    option_Random_Pick_No_Vanilla = 11
-    option_Random_On_Every_Load = 12
+    option_Random_Pick = 2
+    option_Random_Pick_No_Vanilla = 3
+    option_Random_On_Every_Load = 4
 
 
 class NPCColorPalette(Choice):
     """Changes the way the sprites look in-game."""
     display_name = "NPC Color Palettes"
     option_Default = 0
-    option_Random_Pick = 10
-    option_Random_Pick_No_Vanilla = 11
-    option_Random_On_Every_Load = 12
+    option_Random_Pick = 2
+    option_Random_Pick_No_Vanilla = 3
+    option_Random_On_Every_Load = 4
 
 
 class EnemyColorPalette(Choice):
     """Changes the way the sprites look in-game."""
     display_name = "Enemy Color Palettes"
     option_Default = 0
-    option_Random_Pick = 10
-    option_Random_Pick_No_Vanilla = 11
-    option_Random_On_Every_Load = 12
+    option_Random_Pick = 2
+    option_Random_Pick_No_Vanilla = 3
+    option_Random_On_Every_Load = 4
 
 
 class HammerColorPalette(Choice):
     """Changes the way the sprite looks in-game."""
     display_name = "Hammer Color Palette"
     option_Default = 0
-    option_Random_Pick = 10
-    option_Random_Pick_No_Vanilla = 11
-    option_Random_On_Every_Load = 12
+    option_Random_Pick = 2
+    option_Random_Pick_No_Vanilla = 3
+    option_Random_On_Every_Load = 4
 
 
 class StatusMenuColorPalette(Choice):
@@ -879,8 +883,8 @@ class StatusMenuColorPalette(Choice):
     option_Brown = 4
     option_Purple = 5
     option_Grey = 6
-    option_Random_Pick = 10
-    option_Animated = 11
+    option_Random_Pick = 7
+    option_Animated = 8
 
 
 class CoinColorPalette(Choice):
@@ -931,6 +935,12 @@ class MuteDangerBeeps(Toggle):
     display_name = "Mute Danger Beeps"
 
 
+class PMRSiteSettingsString(FreeText):
+    """Put a value for this if grabbing the settings string from https://pm64randomizer.com/. Keep in mind not to use
+    settings specific to base PMR, and that AP-specific settings not on the site will be keep their default values."""
+    display_name = "PMR Settings String"
+
+
 @dataclass
 class PaperMarioOptions(PerGameCommonOptions):
     # Items
@@ -975,6 +985,7 @@ class PaperMarioOptions(PerGameCommonOptions):
     mystery_shuffle: MysteryShuffle
     formation_shuffle: ShuffleBattleFormations
     random_puzzles: RandomPuzzles
+    blooper_damage_requirements: BlooperDamageRequirements
 
     # General Difficulty
     enemy_difficulty: EnemyDifficulty
@@ -1000,9 +1011,7 @@ class PaperMarioOptions(PerGameCommonOptions):
     starting_bp: StartingBP
     starting_fp: StartingFP
     starting_sp: StartingSP
-    start_with_random_items: StartWithRandomItems
-    min_start_items: MinStartItems
-    max_start_items: MaxStartItems
+    random_start_items: RandomStartItems
 
     # Item Pool
     consumable_item_pool: ConsumableItemPool
@@ -1070,5 +1079,7 @@ class PaperMarioOptions(PerGameCommonOptions):
     shuffle_jingles: ShuffleJingles
     random_pitch: RandomPitch
     mute_danger_beeps: MuteDangerBeeps
+
+    pmr_settings_string: PMRSiteSettingsString
 
     death_link: DeathLink

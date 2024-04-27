@@ -248,8 +248,6 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions, requi
                     option_value = 0
                 case "StartingItemF":
                     option_value = 0
-                case "XPMultiplier":
-                    option_value = int(options.enemy_xp_multiplier.value * 2)  # value is halved by the game
                 # One setting on the front end, but two separate flags for the mod
                 case "DoubleDamage":
                     option_value = options.enemy_damage.value == EnemyDamage.option_Double_Pain

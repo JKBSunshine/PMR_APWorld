@@ -54,12 +54,13 @@ Paper Mario:
     mystery_shuffle: vanilla                # Other options: random_pick, random_per_use
     formation_shuffle: False                # Other options: True
     random_puzzles: False                   # Other options: True (NYI)
+    blooper_damage_requirements: None       # Other options: Low, Medium, High
 
     # General Difficulty
     enemy_difficulty: progressive_scaling   # Other options: shuffle_chapter_difficulty, progressive_scaling
     enemy_damage: Normal                    # Other options: double_pain, quadruple_pain
     cap_enemy_xp: False                     # Other options: True
-    enemy_xp_multiplier: 2                  # Other options: 0-2
+    enemy_xp_multiplier: 2                  # Other options: 0-4, set this to double the desired multiplier; ex: for double xp, set this to 4
     no_save_blocks: False                   # Other options: True
     no_heart_blocks: False                  # Other options: True
     no_healing_items: False                 # Other options: True
@@ -79,9 +80,7 @@ Paper Mario:
     starting_bp: 3                          # Other options: 3-30
     starting_fp: 5                          # Other options: 5-50
     starting_sp: 0                          # Other options: 0-7
-    start_with_random_items: False          # Other options: True (NYI)
-    min_start_items: 0                      # Other options: 0-10 (NYI)
-    max_start_items: 0                      # Other options: 0-10 (NYI)
+    random_start_items: 0                   # Other options: 0-16
 
     # Item Pool
     consumable_item_pool: vanilla           # Other options: fully_random, balanced_random, mystery_only

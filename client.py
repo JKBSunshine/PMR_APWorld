@@ -46,9 +46,9 @@ class PaperMarioClient(BizHawkClient):
             return False  # Should verify on the next pass
 
         ctx.game = self.game
-        ctx.items_handling = 0b001
-        ctx.want_slot_data = True
-        ctx.watcher_timeout = 1
+        ctx.items_handling = 0b101  # get start inventory from server, do not get local items from server
+        ctx.want_slot_data = True   # get slot data
+        ctx.watcher_timeout = 1     # loop watcher every second
         return True
 
     async def set_auth(self, ctx: "BizHawkClientContext") -> None:

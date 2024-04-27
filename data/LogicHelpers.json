@@ -18,6 +18,14 @@
     "saved_all_yoshi_kids": "'RF_SavedYoshiKid_1' and 'RF_SavedYoshiKid_2' and 'RF_SavedYoshiKid_3' and 'RF_SavedYoshiKid_4' and 'RF_SavedYoshiKid_5'",
     "can_reenter_vertical_pipes": "can_use_ability_kooper or Boots or can_use_ability_parakarry",
 
+    "has_strong_aerial_partner": "Bow or Watt or Sushie or Lakilester",
+    "has_weak_aerial_partner": "Goombario or Parakarry",
+
+    "can_beat_all_bloopers": "(can_beat_blooper and can_beat_electro_blooper and can_beat_super_blooper)",
+    "can_beat_blooper": "(Super_Boots or (Boots and has_weak_aerial_partner) or has_strong_aerial_partner) or blooper_damage_requirements < 1",
+    "can_beat_electro_blooper": "(Ultra_Boots or (Super_Boots and (has_strong_aerial_partner or has_weak_aerial_partner))) or blooper_damage_requirements < 2",
+    "can_beat_super_blooper": "(Ultra_Boots and has_strong_aerial_partner) or blooper_damage_requirements < 3",
+
     "can_see_hidden_blocks": "can_use_ability_watt or hidden_block_mode == 3",
 
     "has_required_spirits": "('STARSPIRIT_1' or 1 not in required_spirits) and ('STARSPIRIT_2' or 2 not in required_spirits) and ('STARSPIRIT_3' or 3 not in required_spirits) and ('STARSPIRIT_4' or 4 not in required_spirits) and ('STARSPIRIT_5' or 5 not in required_spirits) and ('STARSPIRIT_6' or 6 not in required_spirits) and ('STARSPIRIT_7' or 7 not in required_spirits)",
