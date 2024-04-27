@@ -3,7 +3,7 @@ Option definitions for Paper Mario 64
 """
 
 from typing import Dict
-from Options import Option, Choice, Range, DeathLink, Toggle, DefaultOnToggle, StartInventoryPool, PerGameCommonOptions
+from Options import Choice, Range, DeathLink, Toggle, DefaultOnToggle, FreeText, PerGameCommonOptions
 from dataclasses import dataclass
 
 
@@ -841,36 +841,36 @@ class BossColorPalette(Choice):
     """Changes the way the sprites look in-game."""
     display_name = "Bosses Color Palettes"
     option_Default = 0
-    option_Random_Pick = 10
-    option_Random_Pick_No_Vanilla = 11
-    option_Random_On_Every_Load = 12
+    option_Random_Pick = 2
+    option_Random_Pick_No_Vanilla = 3
+    option_Random_On_Every_Load = 4
 
 
 class NPCColorPalette(Choice):
     """Changes the way the sprites look in-game."""
     display_name = "NPC Color Palettes"
     option_Default = 0
-    option_Random_Pick = 10
-    option_Random_Pick_No_Vanilla = 11
-    option_Random_On_Every_Load = 12
+    option_Random_Pick = 2
+    option_Random_Pick_No_Vanilla = 3
+    option_Random_On_Every_Load = 4
 
 
 class EnemyColorPalette(Choice):
     """Changes the way the sprites look in-game."""
     display_name = "Enemy Color Palettes"
     option_Default = 0
-    option_Random_Pick = 10
-    option_Random_Pick_No_Vanilla = 11
-    option_Random_On_Every_Load = 12
+    option_Random_Pick = 2
+    option_Random_Pick_No_Vanilla = 3
+    option_Random_On_Every_Load = 4
 
 
 class HammerColorPalette(Choice):
     """Changes the way the sprite looks in-game."""
     display_name = "Hammer Color Palette"
     option_Default = 0
-    option_Random_Pick = 10
-    option_Random_Pick_No_Vanilla = 11
-    option_Random_On_Every_Load = 12
+    option_Random_Pick = 2
+    option_Random_Pick_No_Vanilla = 3
+    option_Random_On_Every_Load = 4
 
 
 class StatusMenuColorPalette(Choice):
@@ -883,8 +883,8 @@ class StatusMenuColorPalette(Choice):
     option_Brown = 4
     option_Purple = 5
     option_Grey = 6
-    option_Random_Pick = 10
-    option_Animated = 11
+    option_Random_Pick = 7
+    option_Animated = 8
 
 
 class CoinColorPalette(Choice):
@@ -933,6 +933,12 @@ class RandomPitch(Toggle):
 class MuteDangerBeeps(Toggle):
     """When enabled, mutes the sound effect that plays when Mario is in danger."""
     display_name = "Mute Danger Beeps"
+
+
+class PMRSiteSettingsString(FreeText):
+    """Put a value for this if grabbing the settings string from https://pm64randomizer.com/. Keep in mind not to use
+    settings specific to base PMR, and that AP-specific settings not on the site will be keep their default values."""
+    display_name = "PMR Settings String"
 
 
 @dataclass
@@ -1073,5 +1079,7 @@ class PaperMarioOptions(PerGameCommonOptions):
     shuffle_jingles: ShuffleJingles
     random_pitch: RandomPitch
     mute_danger_beeps: MuteDangerBeeps
+
+    pmr_settings_string: PMRSiteSettingsString
 
     death_link: DeathLink

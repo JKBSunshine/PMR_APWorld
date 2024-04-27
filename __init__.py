@@ -4,6 +4,7 @@ import os
 import logging
 from typing import Dict, Any
 from BaseClasses import (Tutorial, CollectionState, MultiWorld, ItemClassification as ic, LocationProgressType)
+from .SettingsString import load_settings_from_site_string
 from worlds.AutoWorld import World, WebWorld
 from . import Locations, options
 from .data.chapter_logic import areas_by_chapter, get_chapter_excluded_location_names
@@ -131,6 +132,10 @@ class PaperMarioWorld(World):
 
     # Do some housekeeping before generating, namely fixing some options that might be incompatible with each other
     def generate_early(self) -> None:
+
+        # load settings from pmr string before anything else, since almost all settings can be loaded this way
+        if self.options.pmr_settings_string.value:
+            load_settings_from_site_string(self)
 
         # fail generation if attempting to use options that are not fully implemented yet
         nyi_warnings = ""
