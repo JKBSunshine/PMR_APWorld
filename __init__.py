@@ -624,7 +624,7 @@ class PaperMarioWorld(World):
                         self.pre_fill_items.remove(item)
                     self.multiworld.random.shuffle(locations)
                     fill_restrictive(self.multiworld, prefill_state(state), locations, key_items,
-                                     single_player_placement=True, lock=True, allow_excluded=True)
+                                     single_player_placement=True, lock=True, allow_excluded=False)
 
         # Anything remaining in pre fill items is a consumable that got selected randomly to be kept local
         # LCL can really skew the item pool, so fill up the excluded locations to prevent generation errors
@@ -635,16 +635,15 @@ class PaperMarioWorld(World):
             items_for_excluded = []
             for _ in locations:
                 items_for_excluded.append(self.pre_fill_items.pop())
-
             fill_restrictive(self.multiworld, prefill_state(state), locations, items_for_excluded,
-                             single_player_placement=True, lock=True, allow_excluded=False)
+                             single_player_placement=True, lock=True, allow_excluded=True)
 
         # Now throw the rest wherever
         locations = list(filter(lambda location: location.progress_type != LocationProgressType.PRIORITY,
                                 self.multiworld.get_unfilled_locations(player=self.player)))
         self.multiworld.random.shuffle(locations)
         fill_restrictive(self.multiworld, prefill_state(state), locations, self.pre_fill_items,
-                         single_player_placement=True, lock=True, allow_excluded=False)
+                         single_player_placement=True, lock=True, allow_excluded=True)
 
         # Locations with unrandomized junk should be changed to events
         for loc in self.get_locations():
