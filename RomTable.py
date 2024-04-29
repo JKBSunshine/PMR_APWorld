@@ -237,17 +237,14 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions, requi
                     option_value = 1
                 # Always turned off
                 case "ChallengeMode" | "ShuffleDungeonRooms" | "ShuffleEntrancesByAll" | "MatchEntranceTypes" \
-                     | "Widescreen" | "PawnsEnabled":
+                     | "Widescreen" | "PawnsEnabled" | "StartingItem0" | "StartingItem1" | "StartingItem2" \
+                     | "StartingItem3" | "StartingItem4" | "StartingItem5" | "StartingItem6" | "StartingItem7" \
+                     | "StartingItem8" | "StartingItem9" | "StartingItemA" | "StartingItemB" | "StartingItemC" \
+                     | "StartingItemD" | "StartingItemE" | "StartingItemF":
                     option_value = 0
-                # NYI
-                case "StartingItem0" | "StartingItem1" | "StartingItem2" | "StartingItem3" | "StartingItem4":
-                    option_value = 0
-                case "StartingItem5" | "StartingItem6" | "StartingItem7" | "StartingItem8" | "StartingItem9":
-                    option_value = 0
-                case "StartingItemA" | "StartingItemB" | "StartingItemC" | "StartingItemD" | "StartingItemE":
-                    option_value = 0
-                case "StartingItemF":
-                    option_value = 0
+                # Hammer and boots get received by the server, so we set the rom to jumpless/hammerless to start
+                case "StartingBoots" | "StartingHammer":
+                    option_value = -1
                 # One setting on the front end, but two separate flags for the mod
                 case "DoubleDamage":
                     option_value = options.enemy_damage.value == EnemyDamage.option_Double_Pain

@@ -747,12 +747,5 @@ class PaperMarioWorld(World):
         multidata['connect_names'][base64.b64encode(self.auth).decode("ascii")] = multidata['connect_names'][
             self.multiworld.player_name[self.player]]
 
-        # Remove items from start_inventory if they are already being given by other settings
-        for item_name in self.remove_from_start_inventory:
-            item_id = self.item_name_to_id.get(item_name, None)
-            if item_id is None:
-                continue
-            multidata['precollected_items'][self.player].remove(item_id)
-
     def get_filler_item_name(self) -> str:
         return "Super Shroom"

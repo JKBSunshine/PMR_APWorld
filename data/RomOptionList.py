@@ -178,8 +178,8 @@ ap_to_rom_option_table = {
     "StartingMaxFP": "starting_fp",
     "StartingMaxBP": "starting_bp",
     "StartingStarPower": "starting_sp",
-    "StartingBoots": "starting_boots",
-    "StartingHammer": "starting_hammer",
+    "StartingBoots": "",
+    "StartingHammer": "",
     "StartingCoins": "starting_coins",
 
     "StartingItem0": "",  # not currently doable?
