@@ -118,7 +118,7 @@ ap_to_rom_option_table = {
     # General
     "BlocksMatchContent": "",  # always true
     "HiddenBlockMode": "hidden_block_mode",
-    "AllowPhysicsGlitches": "prevent_ooblzs",
+    "AllowPhysicsGlitches": "",
     "BadgeSynergy": "badge_synergy",
 
     # QOL

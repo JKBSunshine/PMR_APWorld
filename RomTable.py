@@ -285,6 +285,8 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions, requi
                     option_value = starting_maps[options.starting_map.value][0]
                 case "StarWaySpiritsNeededEnc":
                     option_value = encoded_spirits
+                case "AllowPhysicsGlitches":
+                    option_value = not options.prevent_ooblzs.value
 
         else:
             option_value = getattr(options, ap_option).value
