@@ -134,7 +134,7 @@ class PaperMarioWorld(World):
     def generate_early(self) -> None:
 
         # load settings from pmr string before anything else, since almost all settings can be loaded this way
-        if self.options.pmr_settings_string.value:
+        if self.options.pmr_settings_string.value != "None":
             load_settings_from_site_string(self)
 
         # fail generation if attempting to use options that are not fully implemented yet

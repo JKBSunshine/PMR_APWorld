@@ -266,7 +266,7 @@ class ShuffleBattleFormations(Toggle):
 
 
 class RandomPuzzles(Toggle):
-    """Randomizes most of the games puzzles."""
+    """Randomizes most of the games puzzles. This is not yet implemented, and will fail to generate if set to True."""
     display_name = "Randomize Puzzles"
 
 
@@ -601,7 +601,8 @@ class BowserCastleMode(Choice):
 
 
 class ShuffleDungeonEntrances(Toggle):
-    """Shuffles the main entrance of every chapter dungeon."""
+    """Shuffles the main entrance of every chapter dungeon.
+    This is not yet implemented, and will fail to generate if set to True."""
     display_name = "Shuffle Dungeon Entrances"
 
 
@@ -937,8 +938,10 @@ class MuteDangerBeeps(Toggle):
 
 class PMRSiteSettingsString(FreeText):
     """Put a value for this if grabbing the settings string from https://pm64randomizer.com/. Keep in mind not to use
-    settings specific to base PMR, and that AP-specific settings not on the site will be keep their default values."""
+    settings specific to base PMR, and that AP-specific settings not on the site will be keep their default values.
+    If you aren't doing that, leave this as 'None'."""
     display_name = "PMR Settings String"
+    default = "None"
 
 
 @dataclass
