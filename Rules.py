@@ -13,17 +13,17 @@ def set_rules(world: "PaperMarioWorld") -> None:
 
     # Coin gets glitchy graphic on the sign for some reason
     add_item_rule(world.multiworld.get_location("GR Goomba Road 2 On the Sign", world.player),
-                  lambda item: item.player == world.player and item.name != "Coin")
+                  lambda item: item.player != world.player or item.name != "Coin")
 
     # Items in the storeroom in the second Toad Town shop can cause a crash when entering the screen
     # This is caused by the game attempting to spawn a local item that has already been collected
-    # While this shouldn't normally be possible, we're going to safeguard this from occurring
+    # While this shouldn't normally be possible, we're going to safeguard this from occurring+
 
     add_item_rule(world.multiworld.get_location("TT Residental District Storeroom Item 1", world.player),
-                  lambda item: item.player == world.player and item.id not in item_multiples_ids.keys())
+                  lambda item: item.player != world.player or item.id not in item_multiples_ids.keys())
     add_item_rule(world.multiworld.get_location("TT Residental District Storeroom Item 2", world.player),
-                  lambda item: item.player == world.player and item.id not in item_multiples_ids.keys())
+                  lambda item: item.player != world.player or item.id not in item_multiples_ids.keys())
     add_item_rule(world.multiworld.get_location("TT Residental District Storeroom Item 3", world.player),
-                  lambda item: item.player == world.player and item.id not in item_multiples_ids.keys())
+                  lambda item: item.player != world.player or item.id not in item_multiples_ids.keys())
     add_item_rule(world.multiworld.get_location("TT Residental District Storeroom Item 4", world.player),
-                  lambda item: item.player == world.player and item.id not in item_multiples_ids.keys())
+                  lambda item: item.player != world.player or item.id not in item_multiples_ids.keys())
