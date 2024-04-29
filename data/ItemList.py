@@ -307,7 +307,7 @@ item_table = {
     "D-Down Jump":              ("BADGE",          Ic.useful,                     302,    100,    False,  False,  False),
     "Shrink Stomp":             ("BADGE",          Ic.filler,                     303,    75,     False,  False,  False),
     "Damage Dodge":             ("BADGE",          Ic.useful,                     304,    150,    False,  False,  False),
-    "Earthquake Jump":          ("BADGE",          Ic.useful,                     305,    100,    True,   False,  False),
+    "Quake Bounce":             ("BADGE",          Ic.useful,                     305,    100,    True,   False,  False),
     "DeepFocus2":               ("BADGE",          Ic.filler,                     306,    50,     False,  False,  False),
     "DeepFocus3":               ("BADGE",          Ic.filler,                     307,    50,     False,  False,  False),
     "HPPlusB":                  ("BADGE",          Ic.useful,                     308,    150,    False,  False,  False),
