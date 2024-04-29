@@ -654,17 +654,17 @@ class PreventOOBLZS(Toggle):
     display_name = "Prevent OOB/LZS Tricks"
 
 
-class SkipQuiz(Toggle):
+class SkipQuiz(DefaultOnToggle):
     """When enabled, quiz rewards will be handed out without having to answer questions."""
     display_name = "Skip Quiz"
 
 
-class QuizmoAlwaysAppears(Toggle):
+class QuizmoAlwaysAppears(DefaultOnToggle):
     """When enabled, Chuck Quizmo always appears somewhere in town until his location questions have been answered."""
     display_name = "Quizmo Always Appears"
 
 
-class VisibleHiddenPanels(Toggle):
+class VisibleHiddenPanels(DefaultOnToggle):
     """When enabled, hidden panels will have an altered appearance to make identifying them easier.
     Recommended for players not familiar with every single hidden panel locations when shuffling hidden panels."""
     display_name = "Visible Hidden Panels"
@@ -678,21 +678,22 @@ class CutsceneMode(Choice):
     option_Vanilla = 0
     option_Shortened = 1
     option_Minimal = 2
+    default = 1
 
 
-class AlwaysSpeedySpin(Toggle):
+class AlwaysSpeedySpin(DefaultOnToggle):
     """When enabled, Mario will always spin fast when pressing Z without needing to equip the Speedy Spin badge.
     The Speedy Spin badge is also removed from the item pool."""
     display_name = "Always Speedy Spin"
 
 
-class AlwaysPeekaboo(Toggle):
+class AlwaysPeekaboo(DefaultOnToggle):
     """When enabled, you will always be able to see enemy's HP bars without needing to equip the Peekaboo badge.
     The Peekaboo badge is also removed from the item pool."""
     display_name = "Always Peekaboo"
 
 
-class AlwaysISpy(Toggle):
+class AlwaysISpy(DefaultOnToggle):
     """When enabled, you will always get an indicator if you enter a room with a hidden panel without needing to equip
     the I Spy badge. The sound effect is removed, so it is only a visual cue.
     The I Spy badge is also removed from the item pool.
@@ -700,7 +701,7 @@ class AlwaysISpy(Toggle):
     display_name = "Always I Spy"
 
 
-class FoliageItemHints(Toggle):
+class FoliageItemHints(DefaultOnToggle):
     """When enabled, bushes and trees will emit a glow when they are hiding something."""
     display_name = "Foliage Item Hints"
 
@@ -711,7 +712,7 @@ class CookWithoutFryingPan(Toggle):
     display_name = "Cook Without Frying Pan"
 
 
-class SkipEpilogue(Toggle):
+class SkipEpilogue(DefaultOnToggle):
     """When enabled, the game will skip directly to credits once you have acquired the Star Rod."""
     display_name = "Skip Epilogue"
 
