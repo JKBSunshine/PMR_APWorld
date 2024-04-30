@@ -215,13 +215,13 @@ def get_randomized_palettes(world) -> list:
         else:  # other NPC settings
             cur_setting = RandomPalettes.get_setting_value(world.options.npc_palette.value)
 
-        if cur_setting == RandomPalettes.RANDOM_PICK:
+        if cur_setting == RandomPalettes.RANDOM_PICK_SETTING:
             palette_count = palette_info[2]
             chosen_palette = random.randrange(0, palette_count)
-        elif cur_setting == RandomPalettes.RANDOM_PICK_NOT_VANILLA:
+        elif cur_setting == RandomPalettes.RANDOM_PICK_NOT_VANILLA_SETTING:
             palette_count = palette_info[2]
             chosen_palette = random.randrange(1, palette_count)
-        elif cur_setting == RandomPalettes.ALWAYS_RANDOM:
+        elif cur_setting == RandomPalettes.ALWAYS_RANDOM_SETTING:
             chosen_palette = PALETTEVALUE_ALWAYS_RANDOM
         else:
             chosen_palette = get_vanilla_palette_id(sprite)
