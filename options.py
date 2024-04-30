@@ -8,24 +8,25 @@ from dataclasses import dataclass
 
 
 class ShuffleKeys(DefaultOnToggle):
-    """If disabled, keys can only be found in their respective dungeons"""
+    """If disabled, keys can only be found in their respective dungeons."""
     display_name = "Keysanity"
 
 
 class ShuffleTradeEvents(Toggle):
     """Adds the 3 rewards obtained for doing the Trading Toad quests (started via Koopa Village's radio) in the item
-    pool. These are available with 1, 3, and 5 star spirits saved."""
+    pool. These checks are available with 1, 3, and 5 star spirits saved."""
     display_name = "Include Trading Event Rewards"
 
 
 class ShuffleHiddenPanels(Toggle):
-    """Hidden panels can have any item; the star pieces normally hidden under them are added to the item pool"""
+    """Hidden panels can have any item; the star pieces normally hidden under them are added to the item pool. To flip
+    hidden panels, you need Super Boots or Ultra Boots."""
     display_name = "Include Hidden Panels"
 
 
 class ShuffleDojoRewards(Toggle):
     """Include Dojo fight rewards in the item pool. The logic can only expect you to do the 2nd fight with 1 star
-    spirit saved. Master fights requirements are 3,4 and 5 star spirits saved."""
+    spirit saved. The three Master fights are only in logic after you have 3, 4, and 5 star spirits saved."""
     display_name = "Include Dojo Rewards"
 
 
@@ -36,7 +37,7 @@ class ShuffleSuperMultiBlocks(Toggle):
 
 class GearShuffleMode(Choice):
     """Boots and Hammers can appear in their Vanilla locations, be shuffled amongst the upgrade chests and the bush in
-    Jr. Troopa's playground, or appear anywhere"""
+    Jr. Troopa's playground, or appear anywhere."""
     display_name = "Gear Shuffle"
     option_Vanilla = 0
     option_Gear_Location_Shuffle = 1
@@ -58,7 +59,9 @@ class ShuffleLetters(Choice):
 
 
 class ShuffleKootFavors(Choice):
-    """Vanilla: Koopa Koot Favor rewards and quest items are unshuffled.
+    """Koopa Koot's Favors unlock after ridding the village of the Fuzzies, and three more are unlocked per star spirit
+    saved up to 6 star spirits.
+    Vanilla: Koopa Koot Favor rewards and quest items are unshuffled.
     Shuffle rewards: Shuffle the favor rewards, but not the key items for his quests.
     Full Shuffle: Shuffle the rewards AND the quest key items."""
     display_name = "Koopa Koot Favors"
@@ -101,7 +104,8 @@ class LogicRowfItems(DefaultOnToggle):
 
 
 class LogicMerlowItems(Toggle):
-    """Determines whether Merlow's Star Piece rewards can be required for progression."""
+    """Determines whether Merlow's Star Piece rewards can be required for progression. The items that you buy directly
+    are never progression items. This is specifically for the rewards which are granted after spending X Star Pieces."""
     display_name = "Merlow Items in Logic"
 
 
@@ -130,7 +134,9 @@ class ShuffleFoliageCoins(Toggle):
 class LocalConsumables(Range):
     """A percentage of consumable items will remain in the player's world instead of being shuffled into the multiworld.
     This can prevent other people from getting too many of your filler items, as well as make it easier to restock your
-    inventory without farming items from enemies or using a potentially limited variety of consumables."""
+    inventory without farming items from enemies or using a potentially limited variety of consumables.
+    Note: It's recommended that this stays at 100. There is currently no handling for receiving consumables with a full
+    inventory. Extra items will disappear into the aether. Change at your own risk."""
     display_name = "Local Consumables Percentage"
     range_start = 0
     range_end = 100
@@ -144,7 +150,7 @@ class ShufflePartners(DefaultOnToggle):
 
 
 class PartnersAlwaysUsable(Toggle):
-    """All partner field abilities are available to use even before you have unlocked them"""
+    """All partner field abilities are available to use even before you have unlocked them."""
     display_name = "Partners Always Usable"
 
 
@@ -154,7 +160,7 @@ class StartRandomPartners(DefaultOnToggle):
 
 
 class StartPartners(Range):
-    """Number of partners you start with, from 1 to 8"""
+    """Number of random partners you start with, from 1 to 8"""
     display_name = "Number of Starting Partners"
     range_start = 1
     range_end = 8
@@ -266,7 +272,8 @@ class ShuffleBattleFormations(Toggle):
 
 
 class RandomPuzzles(Toggle):
-    """Randomizes most of the games puzzles. This is not yet implemented, and will fail to generate if set to True."""
+    """Randomizes most of the game's puzzles.
+    Note: This is not yet implemented and will fail to generate if set to True."""
     display_name = "Randomize Puzzles"
 
 
@@ -374,13 +381,17 @@ class RequireSpecificSpirits(Toggle):
 
 
 class LimitChapterLogic(Toggle):
-    """Progression items will only appear in required chapters, the prologue, and in common areas."""
+    """Progression items will only appear in required chapters, the prologue, and in common areas. You will not need to
+    check the chapters that are out of logic whatsoever, and the checks in those chapters will not grant you
+    hint points. You can still visit them for local items (badges, consumables, etc) if you want or need to."""
     display_name = "Limit Chapter Logic"
 
 
 # Difficulty Stats and Gear
 class StartingBoots(Choice):
-    """Level of the boots that Mario will start the game with"""
+    """Level of the boots that Mario will start the game with.
+    Note: While jumpless, you can still climb up some places with Parakarry.
+    You can also hit floating blocks by using Kooper's ability beneath them."""
     display_name = "Starting Boots"
     option_Jumpless = -1
     option_Normal = 0
@@ -389,7 +400,8 @@ class StartingBoots(Choice):
 
 
 class StartingHammer(Choice):
-    """Level of the hammer that Mario will start the game with"""
+    """Level of the hammer that Mario will start the game with.
+    Note: Without hammer, you can still hit trees and break yellow blocks using Bombette's ability."""
     display_name = "Starting Hammer"
     option_Hammerless = -1
     option_Normal = 0
@@ -398,11 +410,13 @@ class StartingHammer(Choice):
 
 
 class StartingCoins(Range):
-    """Amount of coins Mario will start the game with"""
+    """Amount of coins Mario will start the game with.
+    Note: You will need to pay 50 coins to get past Kent C Koopa on the way to Koopa Village. It's recommended that you
+    don't spend all your coins before paying him off."""
     display_name = "Starting Coins"
     range_start = 0
     range_end = 999
-    default = 100
+    default = 150
 
 
 class StartingBP(Range):
@@ -443,7 +457,7 @@ class StartingSP(Range):
 
 # Difficulty Starting Items
 class RandomStartItems(Range):
-    """Number of random items you start with"""
+    """Number of random items you want to start with."""
     display_name = "Random Starting Items"
     range_start = 0
     range_end = 16
@@ -505,7 +519,8 @@ class BadgePoolLimit(Range):
 
 
 class ItemTraps(Choice):
-    """Replaces some items with fakes that deal 2 damage upon contact."""
+    """Replaces some items with fakes that deal 2 damage upon contact.
+    Note: Traps are not yet implemented, so leave this setting set to No Traps."""
     display_name = "Item Traps"
     option_No_Traps = 0
     option_Sparse = 1
@@ -558,7 +573,8 @@ class OpenWhale(Toggle):
 
 
 class MagicalSeedsRequired(Range):
-    """The amount of Magical Seeds required to open the gate to Flower Fields"""
+    """The amount of Magical Seeds required to open the gate to Flower Fields. Changing this does not remove the
+    Bub-ulb checks."""
     display_name = "Magical Seeds Required"
     range_start = 0
     range_end = 4
@@ -582,7 +598,8 @@ class MirrorMode(Choice):
     """Off: The overworld is never mirrored.
        Always On: The overworld is always mirrored.
        Random On Every Load: Whether the overworld is mirrored or not is random with every screen transition.
-       Static Random: Some overworld screens are mirrored, some are not, but they won't change within a playthrough."""
+       Static Random: Some overworld screens are mirrored, some are not, but they won't change within a playthrough.
+       Note: The Static Random option is not yet implemented and will fail to generate."""
     display_name = "Mirror Mode"
     option_Off = 0
     option_Always_On = 1
@@ -602,13 +619,13 @@ class BowserCastleMode(Choice):
 
 class ShuffleDungeonEntrances(Toggle):
     """Shuffles the main entrance of every chapter dungeon.
-    This is not yet implemented, and will fail to generate if set to True."""
+    Note: This is not yet implemented and will fail to generate if set to True."""
     display_name = "Shuffle Dungeon Entrances"
 
 
 class PowerStarHunt(Toggle):
     """Adds power stars into the item pool. You must collect a certain amount and give them to Eldstar at
-    Shooting Star Summit to open up Star Way."""
+    Shooting Star Summit to open up Star Way. """
     display_name = "Power Star Hunt"
 
 

@@ -12,7 +12,8 @@ Paper Mario:
     # The below option(s) are AP only and do not exist on the PMR site.
 
     local_consumables: 100
-    # This option should not be changed, as the base mod does not support receiving consumables with a full inventory.
+    # It's recommended to leave this alone. The base mod does not support receiving consumables with a full inventory.
+    # Change at your own risk.
 
     blooper_damage_requirements: None
     # Other options: Low, Medium, High

@@ -30,7 +30,7 @@ Paper Mario:
     rowf_items: True                        # Other options: False
     merlow_items: False                     # Other options: True
     cheato_items: 6                         # Other options: 0 to 11
-    local_consumables: 100                  # Other options: 0 to 100 (NYI) Leave this alone, receiving consumables from others not working currently
+    local_consumables: 100                  # Other options: 0 to 100 It's recommended you leave this alone, as receiving consumables from others with a full inventory means the item disappears.
 
     # Partner
     partners: True                          # Other options: False
@@ -90,7 +90,7 @@ Paper Mario:
     unused_badge_dupes: False               # Other options: True
     beta_items: False                       # Other options: True
     progressive_badges: False               # Other options: True
-    badge_pool_limit: 79                    # Other options: 0-128 (NYI)
+    badge_pool_limit: 79                    # Other options: 0-128
 
     # World Settings
     starting_map: Toad_Town                 # Other options: goomba_village, dry_dry_outpost, yoshi_village
@@ -125,15 +125,15 @@ Paper Mario:
     skip_epilogue: True                     # Other options: False
 
     # Cosmetics (see Options.py for settings with too many options to list here
-    mario_palette: Default                  # Other options: [A lot of 'em], random_pick_no_vanilla
-    goombario_palette: Default              # Other options: [A lot of 'em], random_pick_no_vanilla
-    kooper_palette: Default                 # Other options: [A lot of 'em], random_pick_no_vanilla
-    bombette_palette: Default               # Other options: [A lot of 'em], random_pick_no_vanilla
-    parakarry_palette: Default              # Other options: [A lot of 'em], random_pick_no_vanilla
-    bow_palette: Default                    # Other options: [A lot of 'em], random_pick_no_vanilla
-    watt_palette: Default                   # Other options: [A lot of 'em], random_pick_no_vanilla
-    sushie_palette: Default                 # Other options: [A lot of 'em], random_pick_no_vanilla
-    lakilester_palette: Default             # Other options: [A lot of 'em], random_pick_no_vanilla
+    mario_palette: Default                  # Other options: [A lot of 'em], random_pick_no_vanilla, random_on_every_load
+    goombario_palette: Default              # Other options: [A lot of 'em], random_pick_no_vanilla, random_on_every_load
+    kooper_palette: Default                 # Other options: [A lot of 'em], random_pick_no_vanilla, random_on_every_load
+    bombette_palette: Default               # Other options: [A lot of 'em], random_pick_no_vanilla, random_on_every_load
+    parakarry_palette: Default              # Other options: [A lot of 'em], random_pick_no_vanilla, random_on_every_load
+    bow_palette: Default                    # Other options: [A lot of 'em], random_pick_no_vanilla, random_on_every_load
+    watt_palette: Default                   # Other options: [A lot of 'em], random_pick_no_vanilla, random_on_every_load
+    sushie_palette: Default                 # Other options: [A lot of 'em], random_pick_no_vanilla, random_on_every_load
+    lakilester_palette: Default             # Other options: [A lot of 'em], random_pick_no_vanilla, random_on_every_load
     boss_palette: Default                   # Other options: random_pick, random_pick_no_vanilla, random_on_every_load
     npc_palette: Default                    # Other options: random_pick, random_pick_no_vanilla, random_on_every_load
     enemy_palette: Default                  # Other options: random_pick, random_pick_no_vanilla, random_on_every_load
