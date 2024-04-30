@@ -956,8 +956,8 @@ class MuteDangerBeeps(Toggle):
 
 class PMRSiteSettingsString(FreeText):
     """Put a value for this if grabbing the settings string from https://pm64randomizer.com/. Keep in mind not to use
-    settings specific to base PMR, and that AP-specific settings not on the site will be keep their default values.
-    If you aren't doing that, leave this as 'None'."""
+    settings specific to base PMR, and that AP-specific settings not on the site will keep their default values.
+    If you aren't using the site to get your settings, leave this as 'None'."""
     display_name = "PMR Settings String"
     default = "None"
 
