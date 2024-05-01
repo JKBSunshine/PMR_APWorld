@@ -622,7 +622,7 @@ class PaperMarioWorld(World):
                         self.pre_fill_items.remove(item)
                     self.multiworld.random.shuffle(locations)
                     fill_restrictive(self.multiworld, prefill_state(state), locations, key_items,
-                                     single_player_placement=True, lock=True, allow_excluded=False)
+                                     single_player_placement=True, lock=True, allow_excluded=True)
 
         # Anything remaining in pre fill items is a consumable that got selected randomly to be kept local
         # LCL can really skew the item pool, so fill up the excluded locations to prevent generation errors
