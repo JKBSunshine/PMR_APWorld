@@ -19,7 +19,7 @@ Generate Template Settings to generate a template YAML file. It will open the fo
 then edit to your liking.
 
 ### Option B: Use the PM Sample.yaml file and edit it to your liking.
-Want a YAML that looks like what you'd get when exporting it from the site? Grab the PM Sample.yaml file [here.](https://github.com/JKBSunshine/PMR_APWorld/blob/main/PM%20Sample.yaml) 
+Want a YAML that looks like what you'd get when exporting it from the site? Grab the PM Sample.yaml file [here.](https://github.com/JKBSunshine/PMR_APWorld/blob/main/docs/PM%20Sample.yaml) 
 It has all the settings and shows options for each setting as well as what is/isn't implemented. If you want to see 
 the descriptions that you would see on the site, you can check out [options.py,](https://github.com/JKBSunshine/PMR_APWorld/blob/main/options.py) 
 or check out option C...
