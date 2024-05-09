@@ -220,7 +220,7 @@ item_table = {
     "Maple Shroom":             ("ITEM",           Ic.filler,                     215,    25,     False,  False,  False),
     "Boiled Egg":               ("ITEM",           Ic.filler,                     216,    10,     False,  False,  False),
     "Yoshi Cookie":             ("ITEM",           Ic.filler,                     217,    20,     False,  False,  False),
-    "Jelly Shroom1":            ("ITEM",           Ic.filler,                     218,    75,     False,  False,  False),
+    "Jelly Shroom":             ("ITEM",           Ic.filler,                     218,    75,     False,  False,  False),
     "JellyShroom2":             ("ITEM",           Ic.filler,                     219,    75,     False,  False,  True),
     "JellyShroom3":             ("ITEM",           Ic.filler,                     220,    75,     False,  False,  True),
     "JellyShroom4":             ("ITEM",           Ic.filler,                     221,    75,     False,  False,  True),
