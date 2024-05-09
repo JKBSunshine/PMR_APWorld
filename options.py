@@ -8,19 +8,19 @@ from dataclasses import dataclass
 
 
 class ShuffleKeys(DefaultOnToggle):
-    """If disabled, keys can only be found in their respective dungeons."""
+    """If disabled, keys that are used within dungeons can only be found in their respective dungeons."""
     display_name = "Keysanity"
 
 
 class ShuffleTradeEvents(Toggle):
-    """Adds the 3 rewards obtained for doing the Trading Toad quests (started via Koopa Village's radio) in the item
+    """Adds the 3 rewards obtained for doing the Trading Toad quests (started via Koopa Village's radio) into the item
     pool. These checks are available with 1, 3, and 5 star spirits saved."""
     display_name = "Include Trading Event Rewards"
 
 
 class ShuffleHiddenPanels(Toggle):
     """Hidden panels can have any item; the star pieces normally hidden under them are added to the item pool. To flip
-    hidden panels, you need Super Boots or Ultra Boots."""
+    hidden panels, you need Super Boots or Ultra Hammer."""
     display_name = "Include Hidden Panels"
 
 
@@ -36,8 +36,9 @@ class ShuffleSuperMultiBlocks(Toggle):
 
 
 class GearShuffleMode(Choice):
-    """Boots and Hammers can appear in their Vanilla locations, be shuffled amongst the upgrade chests and the bush in
-    Jr. Troopa's playground, or appear anywhere."""
+    """Vanilla: Gear (Boots and Hammers) appear in their vanilla locations
+    Gear Location Shuffle: Gear is shuffled amongst the upgrade chests and the bush in Jr. Troopa's playground
+    Full Shuffle: Gear can be anywhere."""
     display_name = "Gear Shuffle"
     option_Vanilla = 0
     option_Gear_Location_Shuffle = 1
@@ -208,10 +209,10 @@ class StartWithLakilester(Toggle):
 
 
 class BadgeBPShuffle(Choice):
-    """Vanilla: Original BP values.
-    Balanced Random: Random BP values 1-8, but weighted so most are +/-2 from vanilla.
-    Shuffled: Original BP values are shuffled together.
-    Fully Random: Random BP values from 1-6, unweighted."""
+    """Vanilla: Badges have their original Badge Point (BP) costs.
+    Balanced Random: Random BP costs 1-8, but weighted so most are +/-2 from vanilla.
+    Shuffled: Original BP costs are shuffled together.
+    Fully Random: Random BP costs from 1-6, unweighted."""
     display_name = "Badges BP"
     option_Vanilla = 0
     option_Balanced_Random = 1
@@ -220,10 +221,10 @@ class BadgeBPShuffle(Choice):
 
 
 class BadgeFPShuffle(Choice):
-    """Vanilla: Original FP values.
-    Shuffled: Original FP values are shuffled together.
-    Balanced Random: Random FP values 1-7, but weighted so most are +/-2 from vanilla.
-    Fully Random: Random FP values from 1-7, unweighted."""
+    """Vanilla: Abilities granted by badges have their original Flower Point (FP) costs.
+    Shuffled: Original FP costs are shuffled together.
+    Balanced Random: Random FP costs 1-7, but weighted so most are +/-2 from vanilla.
+    Fully Random: Random FP costs from 1-7, unweighted."""
     display_name = "Badges FP"
     option_Vanilla = 0
     option_Balanced_Random = 1
@@ -232,7 +233,7 @@ class BadgeFPShuffle(Choice):
 
 
 class PartnerFPShuffle(Choice):
-    """Vanilla: Original FP values.
+    """Vanilla: Partner special attacks have their original Flower Point (FP) costs.
     Shuffled: Original FP values are shuffled together.
     Balanced Random: Random FP values 1-8, but weighted so most are +/-2 from vanilla.
     Fully Random: Random FP values from 1-8, unweighted."""
@@ -244,10 +245,10 @@ class PartnerFPShuffle(Choice):
 
 
 class SPShuffle(Choice):
-    """Vanilla: Original SP values.
-    Shuffled: Original SP values are shuffled together.
-    Balanced Random: Random SP values 1-3, but weighted so most are +/-1 from vanilla.
-    Fully Random: Random FP values from 1-3, unweighted."""
+    """Vanilla: Star Spirit abilities have their original Star Power (SP) costs.
+    Shuffled: Original SP costs are shuffled together.
+    Balanced Random: Random SP costs 1-3, but weighted so most are +/-1 from vanilla.
+    Fully Random: Random SP costs from 1-3, unweighted."""
     display_name = "Badges FP"
     option_Vanilla = 0
     option_Balanced_Random = 1
@@ -313,6 +314,7 @@ class EnemyDamage(Choice):
     option_Quadruple_Pain = 4
     default = option_Normal
 
+
 class OneHitKO(Toggle):
     """Mario will die instantly from an enemy attack if a block action command is failed"""
     display_name = "One Hit KO"
@@ -349,7 +351,7 @@ class NoSaveBlocks(Toggle):
 
 
 class NoHealingItems(Toggle):
-    """HP/FP items will have no effect."""
+    """HP/FP restoring items will have no effect."""
     display_name = "No Healing Items"
 
 
@@ -447,7 +449,7 @@ class StartingFP(Range):
 
 
 class StartingSP(Range):
-    """Amount of Star Points Mario will start the game with.
+    """Amount of Star Power Mario will start the game with.
     Starting with SP allows Mario to use star powers, which will be cast by Twink until star spirits are saved."""
     display_name = "Starting SP"
     range_start = 0
