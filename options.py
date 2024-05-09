@@ -308,10 +308,10 @@ class EnemyDifficulty(Choice):
 class EnemyDamage(Choice):
     """Increases the damage done by enemy attacks."""
     display_name = "Enemy Difficulty"
-    option_Normal = 0
-    option_Double_Pain = 1
-    option_Quadruple_Pain = 2
-
+    option_Normal = 1
+    option_Double_Pain = 2
+    option_Quadruple_Pain = 4
+    default = option_Normal
 
 class OneHitKO(Toggle):
     """Mario will die instantly from an enemy attack if a block action command is failed"""
