@@ -78,7 +78,7 @@ item_scores = [
     {"name": "Yummy Meal",        "type": "taycet",   "score": 29},
     {"name": "Healthy Juice",     "type": "taycet",   "score": 29},
     {"name": "Shroom Steak",      "type": "taycet",   "score": 29},
-    {"name": "Jelly Shroom1",     "type": "taycet",   "score": 32},
+    {"name": "Jelly Shroom",      "type": "taycet",   "score": 32},
     {"name": "Honey Ultra",       "type": "taycet",   "score": 32},
     {"name": "Jammin Jelly",      "type": "heal",     "score": 32},
     {"name": "Ultra Shroom",      "type": "heal",     "score": 32},

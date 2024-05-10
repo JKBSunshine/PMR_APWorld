@@ -940,7 +940,7 @@ taycet_items = [
     "Maple Shroom",  # 0x0D7
     "Boiled Egg",  # 0x0D8
     "Yoshi Cookie",  # 0x0D9
-    "Jelly Shroom1"  # 0x0DA
+    "Jelly Shroom"  # 0x0DA
 ]
 
 # List of 0xFF items for displaying a seed hash on the save select screen.
