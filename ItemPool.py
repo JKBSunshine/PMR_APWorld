@@ -4,7 +4,8 @@
 from collections import namedtuple
 from itertools import chain
 
-from .data.chapter_logic import get_bowser_castle_removed_locations, areas_by_chapter
+from .data.chapter_logic import get_bowser_castle_removed_locations, areas_by_chapter, \
+    get_locations_beyond_spirit_requirements
 from .data.ItemList import taycet_items, item_table, progression_miscitems, item_groups, item_multiples_base_name
 from .data.LocationsList import location_groups, location_table, missable_locations
 from .options import *
@@ -200,7 +201,6 @@ def get_pool_core(world: "PaperMarioWorld"):
                     (world.options.starting_hammer.value != StartingHammer.option_Hammerless)):
                 pool_progression_items.append(world.random.choice([x for x in taycet_items
                                                                    if x not in exclude_from_taycet_placement]))
-
 
             # some progression items need to be in replenishable locations, we only need one of each
             elif item in progression_miscitems:
@@ -473,49 +473,7 @@ def get_locations_to_exclude(world: "PaperMarioWorld", bc_removed_locations: lis
 
     # exclude locations which require more star spirits than are expected to be needed to beat the seed
     if not world.options.power_star_hunt.value:
-        if world.options.star_spirits_required.value < 6:
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 20")
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 19")
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 18")
-        if world.options.star_spirits_required.value < 5:
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 17")
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 16")
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 15")
-            excluded_locations.append("TT Gate District Dojo: Master 3")
-            excluded_locations.append("TT Port District Radio Trade Event 3 Reward")
-        if world.options.star_spirits_required.value < 4:
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 14")
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 13")
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 12")
-            excluded_locations.append("TT Plaza District Rowf's Shop Set 5 - 3")
-            excluded_locations.append("TT Plaza District Rowf's Shop Set 5 - 2")
-            excluded_locations.append("TT Plaza District Rowf's Shop Set 5 - 1")
-            excluded_locations.append("TT Gate District Dojo: Master 2")
-        if world.options.star_spirits_required.value < 3:
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 11")
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 10")
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 9")
-            excluded_locations.append("TT Plaza District Rowf's Shop Set 4 - 3")
-            excluded_locations.append("TT Plaza District Rowf's Shop Set 4 - 2")
-            excluded_locations.append("TT Plaza District Rowf's Shop Set 4 - 1")
-            excluded_locations.append("TT Gate District Dojo: Master 1")
-            excluded_locations.append("TT Port District Radio Trade Event 2 Reward")
-        if world.options.star_spirits_required.value < 2:
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 8")
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 7")
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 6")
-            excluded_locations.append("TT Plaza District Rowf's Shop Set 3 - 3")
-            excluded_locations.append("TT Plaza District Rowf's Shop Set 3 - 2")
-            excluded_locations.append("TT Plaza District Rowf's Shop Set 3 - 1")
-        if world.options.star_spirits_required.value < 1:
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 5")
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 4")
-            excluded_locations.append("KR Koopa Village 2 Koopa Koot Reward 3")
-            excluded_locations.append("TT Plaza District Rowf's Shop Set 2 - 3")
-            excluded_locations.append("TT Plaza District Rowf's Shop Set 2 - 2")
-            excluded_locations.append("TT Plaza District Rowf's Shop Set 2 - 1")
-            excluded_locations.append("TT Gate District Dojo: Lee")
-            excluded_locations.append("TT Port District Radio Trade Event 1 Reward")
+        excluded_locations.extend(get_locations_beyond_spirit_requirements(world.options.star_spirits_required.value))
 
     # exclude some amount of chapter 8 locations depending upon access requirements
     late_game_locations = []
@@ -551,6 +509,11 @@ def get_locations_to_exclude(world: "PaperMarioWorld", bc_removed_locations: lis
         location_name = location_groups["RipCheato"][i]
         if location_table[location_name][5] >= world.options.cheato_items.value:
             excluded_locations.append(location_groups["RipCheato"][i])
+
+    # remove anything from the list that is already removed for LCL
+    for loc in excluded_locations:
+        if loc in world.ch_excluded_location_names:
+            excluded_locations.remove(loc)
 
     return excluded_locations
 

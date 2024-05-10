@@ -30,6 +30,7 @@ prog_items_by_chapter = {
 
 # chapter excluded locations will be given PM filler items and their key items will be left in their vanilla locations
 def get_chapter_excluded_location_names(excluded_chapters, letter_rewards_option) -> list:
+    # Start with any locations that require more than the set number of spirits
     ch_excluded_locations = []
 
     # Basically, remove any checks that require several chapter regions
@@ -62,6 +63,11 @@ def get_chapter_excluded_location_names(excluded_chapters, letter_rewards_option
             ch_excluded_locations.extend(
                 [name for (name, data) in location_table.items() if name.startswith(prefix)
                  and name not in ch_excluded_locations])
+
+    locs_beyond_spirits_requirements = get_locations_beyond_spirit_requirements(7 - len(excluded_chapters))
+    for loc in locs_beyond_spirits_requirements:
+        if loc not in ch_excluded_locations:
+            ch_excluded_locations.append(loc)
 
     return ch_excluded_locations
 
@@ -110,3 +116,52 @@ def get_bowser_castle_removed_locations(bowser_castle_mode) -> list:
                                   "BC Room with Hidden Door 1 Hidden Block"])
 
     return removed_locations
+
+
+def get_locations_beyond_spirit_requirements(spirits: int) -> list:
+    location_names = []
+    if spirits < 6:
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 20")
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 19")
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 18")
+    if spirits < 5:
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 17")
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 16")
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 15")
+        location_names.append("TT Gate District Dojo: Master 3")
+        location_names.append("TT Port District Radio Trade Event 3 Reward")
+    if spirits < 4:
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 14")
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 13")
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 12")
+        location_names.append("TT Plaza District Rowf's Shop Set 5 - 3")
+        location_names.append("TT Plaza District Rowf's Shop Set 5 - 2")
+        location_names.append("TT Plaza District Rowf's Shop Set 5 - 1")
+        location_names.append("TT Gate District Dojo: Master 2")
+    if spirits < 3:
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 11")
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 10")
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 9")
+        location_names.append("TT Plaza District Rowf's Shop Set 4 - 3")
+        location_names.append("TT Plaza District Rowf's Shop Set 4 - 2")
+        location_names.append("TT Plaza District Rowf's Shop Set 4 - 1")
+        location_names.append("TT Gate District Dojo: Master 1")
+        location_names.append("DDD N3W1 Ruins Entrance Radio Trade Event 2 Reward")
+    if spirits < 2:
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 8")
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 7")
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 6")
+        location_names.append("TT Plaza District Rowf's Shop Set 3 - 3")
+        location_names.append("TT Plaza District Rowf's Shop Set 3 - 2")
+        location_names.append("TT Plaza District Rowf's Shop Set 3 - 1")
+    if spirits < 1:
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 5")
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 4")
+        location_names.append("KR Koopa Village 2 Koopa Koot Reward 3")
+        location_names.append("TT Plaza District Rowf's Shop Set 2 - 3")
+        location_names.append("TT Plaza District Rowf's Shop Set 2 - 2")
+        location_names.append("TT Plaza District Rowf's Shop Set 2 - 1")
+        location_names.append("TT Gate District Dojo: Lee")
+        location_names.append("TT Gate District Radio Trade Event 1 Reward")
+
+    return location_names
