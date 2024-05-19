@@ -155,7 +155,7 @@
       "GR Goomba Road 1 Yellow Block Right": "can_hit_floating_blocks"
     },
     "exits": {
-      "GR Goomba Village": "True",
+      "GR Goomba Village Exit East": "True",
       "GR Goomba Road 2": "True"
     }
   },
