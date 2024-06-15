@@ -513,11 +513,11 @@ class BetaItems(Toggle):
 
 
 class BadgePoolLimit(Range):
-    """Sets the max amount of badges that can be in the item pool. There are 79 badges in vanilla."""
+    """Sets the max amount of badges that can be in the item pool. There are 80 badges in vanilla."""
     display_name = "Badge Pool Limit"
     range_start = 0
     range_end = 128
-    default = 79
+    default = 128
 
 
 class ItemTraps(Choice):
