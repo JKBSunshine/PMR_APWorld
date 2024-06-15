@@ -9,6 +9,11 @@ Paper Mario:
     # 2. At the top of the page, click Export
     # 3. Copy the text in the "Settings string" field
     # 4. Paste it below where it says SettingString
+
+    # Unavailable options:
+    # Shuffle dungeon entrances (must be turned off)
+    # Randomize puzzles (must be turned off)
+    # Mirror mode (cannot be static random)
     pmr_settings_string: SettingsString
 
     # The below option(s) are AP only and do not exist on the PMR site.
