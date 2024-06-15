@@ -109,6 +109,7 @@ def get_pool_core(world: "PaperMarioWorld"):
             shuffle_item = world.options.include_shops.value
             if not shuffle_item:
                 location.disabled = True
+                location.show_in_spoiler = False
 
         if location.name in location_groups["HiddenPanel"]:
             shuffle_item = world.options.shuffle_hidden_panels.value
@@ -126,11 +127,13 @@ def get_pool_core(world: "PaperMarioWorld"):
 
             if not shuffle_item:
                 location.disabled = True
+                location.show_in_spoiler = False
 
         if location.name in location_groups["FavorItem"]:
             shuffle_item = (world.options.koot_favors.value == ShuffleKootFavors.option_Full_Shuffle)
             if not shuffle_item:
                 location.disabled = True
+                location.show_in_spoiler = False
 
         if location.name in location_groups["LetterReward"]:
             if location.name == "GR Goomba Village Goompapa Letter Reward 2":
@@ -150,6 +153,7 @@ def get_pool_core(world: "PaperMarioWorld"):
             shuffle_item = world.options.trading_events.value
             if not shuffle_item:
                 location.disabled = True
+                location.show_in_spoiler = False
 
         if location.name in location_groups["DojoReward"]:
             shuffle_item = world.options.dojo.value
