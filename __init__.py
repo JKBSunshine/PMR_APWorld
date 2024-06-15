@@ -629,12 +629,18 @@ class PaperMarioWorld(World):
         if self.options.limit_chapter_logic.value:
             locations = list(filter(lambda location: location.progress_type == LocationProgressType.EXCLUDED,
                                     self.multiworld.get_unfilled_locations(player=self.player)))
-            self.random.shuffle(self.pre_fill_items)
-            items_for_excluded = []
-            for _ in locations:
-                items_for_excluded.append(self.pre_fill_items.pop())
-            fill_restrictive(self.multiworld, prefill_state(state), locations, items_for_excluded,
-                             single_player_placement=True, lock=True, allow_excluded=True)
+            if len(locations) <= len(self.pre_fill_items):
+                self.random.shuffle(self.pre_fill_items)
+                items_for_excluded = []
+
+                for _ in locations:
+                    items_for_excluded.append(self.pre_fill_items.pop())
+
+                fill_restrictive(self.multiworld, prefill_state(state), locations, items_for_excluded,
+                                 single_player_placement=True, lock=True, allow_excluded=True)
+                for loc in locations:
+                    if loc.item:
+                        loc.locked = True
 
         # Now throw the rest wherever
         locations = list(filter(lambda location: location.progress_type != LocationProgressType.PRIORITY,
