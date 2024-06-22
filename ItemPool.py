@@ -106,7 +106,12 @@ def get_pool_core(world: "PaperMarioWorld"):
                 location.show_in_spoiler = False
 
         if location.name in location_groups["ShopItem"]:
-            shuffle_item = world.options.include_shops.value
+
+            if location.identifier in ["DRO_01/ShopItemB", "DRO_01/ShopItemD", "DRO_01/ShopItemE"]:
+                shuffle_item = world.options.random_puzzles.value and world.options.include_shops.value
+            else:
+                shuffle_item = world.options.include_shops.value
+
             if not shuffle_item:
                 location.disabled = True
                 location.show_in_spoiler = False
@@ -187,12 +192,6 @@ def get_pool_core(world: "PaperMarioWorld"):
                 location.disabled = True
                 location.show_in_spoiler = False
 
-        if location.identifier in ["DRO_01/ShopItemB", "DRO_01/ShopItemD", "DRO_01/ShopItemE"]:
-            shuffle_item = world.options.random_puzzles.value
-
-            if not shuffle_item:
-                location.disabled = True
-
         if location.name in ch_excluded_locations and item in ch_excluded_items:
             shuffle_item = not world.options.limit_chapter_logic.value
 
@@ -228,14 +227,21 @@ def get_pool_core(world: "PaperMarioWorld"):
                 pool_badges.append(item)
             else:
                 pool_other_items.append(item)
-        elif location.name in ch_excluded_locations:
+        elif loc_name in ch_excluded_locations or loc_name in bc_removed_locations:
             # keep out of logic placed items separate, remove the location and item from remaining excluded lists
             placed_items_excluded[location.name] = item
-            ch_excluded_locations.remove(location.name)
 
-            # below only applies to key items in the chapter
-            if item in ch_excluded_items:
-                ch_excluded_items.remove(item)
+            # remove locations with placed items from the respective lists so we can get the item pool count correct
+            if location.name in bc_removed_locations:
+                bc_removed_locations.remove(location.name)
+
+            if location.name in ch_excluded_locations:
+                ch_excluded_locations.remove(location.name)
+
+                # below only applies to key items in the chapter
+                if item in ch_excluded_items:
+                    ch_excluded_items.remove(item)
+
         else:
             placed_items[location.name] = item
 
