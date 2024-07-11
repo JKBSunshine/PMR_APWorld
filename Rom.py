@@ -25,7 +25,6 @@ from .options import EnemyDifficulty
 from .data.ItemList import item_table, item_groups
 from .data.node import Node
 from .Locations import PMLocation
-from .data.maparea import MapArea
 from .modules.random_shop_prices import get_shop_price
 
 from worlds.Files import APDeltaPatch
@@ -74,6 +73,7 @@ def write_patch(
     mapmirror_list: list,
     puzzle_list: list,
     mystery_opts: MysteryOptions,
+    star_beam_area: int,
     seed_id=random.randint(0, 0xFFFFFFFF)
 ):
     base_rom = get_base_rom_as_bytes()
@@ -97,7 +97,8 @@ def write_patch(
         mapmirror_list=mapmirror_list,
         puzzle_list=puzzle_list,
         mystery_opts=mystery_opts,
-        required_spirits=world.required_spirits
+        required_spirits=world.required_spirits,
+        star_beam_area=star_beam_area
     )
 
     # Update table info with variable data
@@ -233,6 +234,8 @@ def generate_output(world, output_dir: str) -> None:
     placed_items = get_filled_node_list(world)
     item_hints = get_itemhints(False, placed_items, world.options)
 
+    star_beam_area = get_star_beam_area(world)
+
     write_patch(output_directory=output_dir,
                 world=world,
                 placed_items=placed_items,
@@ -250,7 +253,8 @@ def generate_output(world, output_dir: str) -> None:
                 music_list=music_list,
                 mapmirror_list=static_map_mirroring,
                 puzzle_list=puzzle_list,
-                mystery_opts=mystery_opts)
+                mystery_opts=mystery_opts,
+                star_beam_area=star_beam_area)
 
 
 # Paper Mario Rando operates off of a node list with item IDs and prices
@@ -271,7 +275,8 @@ def get_filled_node_list(world):
 
         pm_loc: PMLocation = location
         cur_node = Node()
-        cur_node.map_area = MapArea(pm_loc.map_area_id)
+        cur_node.map_id = pm_loc.map_id
+        cur_node.area_id = pm_loc.area_id
         cur_node.key_name_item = pm_loc.keyname
         cur_node.item_source_type = pm_loc.source_type
         cur_node.vanilla_price = pm_loc.vanilla_price
@@ -279,7 +284,7 @@ def get_filled_node_list(world):
         cur_node.price_index = pm_loc.price_index
         cur_node.identifier = pm_loc.identifier
 
-        if pm_loc.price_keyname != "NONE":
+        if pm_loc.price_keyname != "None":
             cur_node.key_name_price = pm_loc.price_keyname
 
         if pm_loc.item.player == world.player:
@@ -305,3 +310,19 @@ def get_filled_node_list(world):
         placed_items.append(cur_node)
 
     return placed_items
+
+
+def get_star_beam_area(world):
+    if world.options.shuffle_star_beam.value:
+        item_locations = world.multiworld.find_item_locations("Star Beam", world.player)
+        if item_locations:
+            location = item_locations[0]
+            # if the location is not in the player's game, the area must be an invalid one so fallback text is used
+            if location.player != world.player:
+                return 28
+            # local star beam gets its area hinted
+            else:
+                loc: PMLocation = location
+                return loc.area_id
+
+    return 28

@@ -192,6 +192,13 @@ def get_pool_core(world: "PaperMarioWorld"):
                 location.disabled = True
                 location.show_in_spoiler = False
 
+        if location.name == "SSS Star Sanctuary Gift of the Stars":
+            shuffle_item = world.options.shuffle_star_beam.value
+
+            if not shuffle_item:
+                location.disabled = True
+                location.show_in_spoiler = False
+
         if location.name in ch_excluded_locations and item in ch_excluded_items:
             shuffle_item = not world.options.limit_chapter_logic.value
 
@@ -483,7 +490,7 @@ def get_locations_to_exclude(world: "PaperMarioWorld", bc_removed_locations: lis
 
     # exclude locations which require more star spirits than are expected to be needed to beat the seed
     if not world.options.power_star_hunt.value:
-        excluded_locations.extend(get_locations_beyond_spirit_requirements(world.options.star_spirits_required.value))
+        excluded_locations.extend(get_locations_beyond_spirit_requirements(world.options.star_way_spirits.value))
 
     # exclude some amount of chapter 8 locations depending upon access requirements
     late_game_locations = []
@@ -517,7 +524,7 @@ def get_locations_to_exclude(world: "PaperMarioWorld", bc_removed_locations: lis
     # exclude rip cheato locations
     for i in range(0, 11):
         location_name = location_groups["RipCheato"][i]
-        if location_table[location_name][5] >= world.options.cheato_items.value:
+        if location_table[location_name][4] >= world.options.cheato_items.value:
             excluded_locations.append(location_groups["RipCheato"][i])
 
     # remove anything from the list that is already removed for LCL
@@ -536,11 +543,11 @@ def get_item_multiples_base_name(item_name: str) -> str:
 
 def get_star_haven_access_ratio(options: PaperMarioOptions):
     if options.power_star_hunt.value:
-        if options.star_hunt_skips_ch8.value:
+        if options.seed_goal.value == SeedGoal.option_Open_Star_Way:
             return 1
         else:
-            return options.required_power_stars.value / options.total_power_stars.value
+            return options.star_way_power_stars.value / options.total_power_stars.value
 
     else:
-        return options.star_spirits_required.value / 7
+        return options.star_way_spirits.value / 7
 

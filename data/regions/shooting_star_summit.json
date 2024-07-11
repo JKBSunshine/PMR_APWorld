@@ -99,8 +99,8 @@
     "area_id": "5",
     "map_id": "5",
     "map_name": "Star Sanctuary",
-    "events": {
-      "RF_HasStarbeam": "can_climb_steps"
+    "locations": {
+      "SSS Star Sanctuary Gift of the Stars": "can_climb_steps and has_star_beam_requirements"
     },
     "exits": {
       "SSS Outside the Sanctuary": "True",

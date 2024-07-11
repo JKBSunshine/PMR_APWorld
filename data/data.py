@@ -291,6 +291,8 @@ checks_table = {
     "SSS Star Haven Shop Item 5":                                 ("MF",   0x1029),
     "SSS Star Haven Shop Item 6":                                 ("MF",   0x102A),
 
+    "SSS Star Sanctuary Gift of the Stars":                       ("MF", 0x81),
+
     # Koopa Region
 
     "KR Pleasant Path Entry Red Block Center":                   ("GF",   0x253),

@@ -164,9 +164,9 @@ def get_trapped_itempool(itempool: list,
     koot_items = {"rewards": [], "keyitems": []}
     for name, data in location_table.items():
         if data[0] in kootfavors_reward_locations:
-            koot_items["rewards"].append(data[6])
+            koot_items["rewards"].append(data[5])
         if data[0] in kootfavors_keyitem_locations:
-            koot_items["keyitems"].append(data[6])
+            koot_items["keyitems"].append(data[5])
 
     trap_flag = 0x2000
     new_itempool = []

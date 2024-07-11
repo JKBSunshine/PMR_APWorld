@@ -16,7 +16,7 @@
     "map_name": "Guard Door 3",
     "exits": {
       "BC Fake Peach Hallway": "True",
-      "BC Exit to Peach's Castle": "True"
+      "BC Exit to Peach's Castle": "can_reach_star_way"
     }
   },
   {

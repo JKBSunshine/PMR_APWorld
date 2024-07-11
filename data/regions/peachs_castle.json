@@ -43,8 +43,8 @@
     "map_id": "7",
     "map_name": "Window Hallway (4F)",
     "exits": {
-      "PC Stairs Hallway (3F)": "True",
-      "PC Double Staircase (4F)": "True"
+      "PC Stairs Hallway (3F)": "Star_Beam",
+      "PC Double Staircase (4F)": "Star_Beam"
     }
   },
   {
@@ -166,7 +166,7 @@
     "map_id": "19",
     "map_name": "Final Boss Arena (6F)",
     "events": {
-      "STARROD": "'RF_HasStarbeam'"
+      "STARROD": "Star_Beam"
     },
     "exits": {
       "PC Tower Staircase (5F)": "True"

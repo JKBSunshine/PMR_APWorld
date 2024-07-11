@@ -1,3 +1,4 @@
+# from https://github.com/Pronyo-Chan/paper-mario-randomizer-web-app/blob/master/app/src/app/services/setting-string-mapping/setting-string-mapping.service.ts
 import numbers
 import random
 
@@ -50,15 +51,24 @@ difficultyMap = [
     SettingModel("s", "no_save_blocks", "bool"),
     SettingModel("a", "enemy_xp_multiplier", "number"),
     SettingModel("k", "one_hit_ko", "bool"),
-    SettingModel("w", "star_spirits_required", "number"),
-    SettingModel("e", "require_specific_spirits", "bool"),
-    SettingModel("f", "limit_chapter_logic", "bool"),
-    SettingModel("z", "randomNumberOfStarSpirits", "bool"),
     SettingModel("l", "no_healing_items", "bool"),
     SettingModel("y", "allowItemHints", "bool"),
     SettingModel("p", "merlow_rewards_pricing", "number"),
     SettingModel("b", "badge_synergy", "bool"),
     SettingModel("v", "drop_star_points", "bool"),
+]
+
+goalsMap = [
+    SettingModel("w", "star_way_spirits", "number"),
+    SettingModel("e", "require_specific_spirits", "bool"),
+    SettingModel("f", "limit_chapter_logic", "bool"),
+    SettingModel("@", "star_beam_spirits", "number"),
+    SettingModel("#", "star_beam_power_stars", "number"),
+    SettingModel("s", "shuffle_star_beam", "bool"),
+    SettingModel("y", "seed_goal", "number"),
+    SettingModel("?", "star_way_power_stars", "number"),
+    SettingModel("!", "total_power_stars", "number"),
+    SettingModel("p", "power_star_hunt", "bool"),
 ]
 
 itemPoolMap = [
@@ -130,10 +140,6 @@ openLocationsMap = [
     SettingModel("o", "bowser_castle_mode", "number"),
     SettingModel("d", "shuffle_dungeon_entrances", "bool"),
     SettingModel("z", "mirror_mode", "number"),
-    SettingModel("x", "power_star_hunt", "bool"),
-    SettingModel("y", "star_hunt_skips_ch8", "bool"),
-    SettingModel("?", "required_power_stars", "number"),
-    SettingModel("!", "total_power_stars", "number")
 ]
 
 startWithPartnersMap = [
@@ -177,6 +183,7 @@ qualityOfLifeMap = [
 settings_map = [
     SettingModel("(c", "cosmetics", "formGroup", cosmeticsMap),
     SettingModel("(d", "difficulty", "formGroup", difficultyMap),
+    SettingModel("(l", "goals", "formGroup", goalsMap),
     SettingModel("(x", "itemPool", "formGroup", itemPoolMap),
     SettingModel("(g", "gameplay", "formGroup", gameplayMap),
     SettingModel("(i", "items", "formGroup", itemsMap),

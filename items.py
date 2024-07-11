@@ -12,7 +12,7 @@ def pm_data_to_ap_id(data, event):
     if event or data[6]:
         return None
     if data[0] in ["KEYITEM", "ITEM", "BADGE", "STARPIECE", "POWERSTAR", "COIN", "GEAR", "PARTNER", "OTHER",
-                   "PARTNERUPGRADE", "NOTHING"]:
+                   "PARTNERUPGRADE", "NOTHING", "STARPOWER"]:
         return item_id_prefix + data[2]
     else:
         raise Exception(f"Unexpected PM item type found: {data[0]}")

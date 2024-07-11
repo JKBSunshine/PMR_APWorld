@@ -25,7 +25,7 @@
     "map_id": "6",
     "map_name": "Outside Lower Jail",
     "locations": {
-      "BC Outside Lower Jail Defeat Koopatrol Reward": "True"
+      "BC Outside Lower Jail Defeat Koopatrol Reward": "can_reach_star_way"
     },
     "exits": {
       "BC Front Door Exterior": "True"
@@ -191,7 +191,7 @@
     "map_name": "Guard Door 3",
     "exits": {
       "BC Fake Peach Hallway": "True",
-      "BC Exit to Peach's Castle": "True"
+      "BC Exit to Peach's Castle": "can_reach_star_way"
     }
   },
   {
@@ -210,7 +210,7 @@
     "map_id": "30",
     "map_name": "East Upper Jail",
     "locations": {
-      "BC East Upper Jail Defeat Koopatrol Reward": "True"
+      "BC East Upper Jail Defeat Koopatrol Reward": "can_reach_star_way"
     },
     "exits": {
       "BC Stairs to East Upper Jail": "True"
@@ -232,7 +232,7 @@
     "map_id": "32",
     "map_name": "West Upper Jail",
     "locations": {
-      "BC West Upper Jail Defeat Koopatrol Reward": "True"
+      "BC West Upper Jail Defeat Koopatrol Reward": "can_reach_star_way"
     },
     "exits": {
       "BC Stairs to West Upper Jail": "True"

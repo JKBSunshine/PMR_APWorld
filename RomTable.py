@@ -29,11 +29,12 @@ class RomTable:
 
     def generate_pairs(self, options: PaperMarioOptions, placed_items: list[Node], placed_blocks: dict, entrances: list,
                        actor_attributes: list, move_costs: list, palettes: list, quizzes: list, music_list: list,
-                       mapmirror_list: list, puzzle_list: list, mystery_opts: MysteryOptions, required_spirits: list):
+                       mapmirror_list: list, puzzle_list: list, mystery_opts: MysteryOptions, required_spirits: list,
+                       star_beam_area: int):
         table_data = []
 
         # Options
-        option_dbtuples = get_dbtuples(options, mystery_opts, required_spirits)
+        option_dbtuples = get_dbtuples(options, mystery_opts, required_spirits, star_beam_area)
 
         for option_data in option_dbtuples:
             option_key = option_data[0]
@@ -177,7 +178,8 @@ def generate_table_pairs(value_set):
     return table_data
 
 
-def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions, required_spirits: list) -> list:
+def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions, required_spirits: list,
+                 star_beam_area: int) -> list:
     dbtuples = []
 
     # map tracker check and shop bits
@@ -287,6 +289,8 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions, requi
                     option_value = encoded_spirits
                 case "AllowPhysicsGlitches":
                     option_value = not options.prevent_ooblzs.value
+                case "StarBeamArea":
+                    option_value = star_beam_area
 
         else:
             option_value = getattr(options, ap_option).value

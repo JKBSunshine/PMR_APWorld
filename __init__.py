@@ -9,7 +9,6 @@ from worlds.AutoWorld import World, WebWorld
 from . import Locations, options
 from .data.chapter_logic import areas_by_chapter, get_chapter_excluded_location_names
 from .data.enum_types import BlockType
-from .data.maparea import MapArea
 from .modules.modify_entrances import get_bowser_rush_pairs, get_bowser_shortened_pairs
 from .modules.random_audio import get_randomized_audio
 from .modules.random_map_mirroring import get_mirrored_map_list
@@ -132,7 +131,6 @@ class PaperMarioWorld(World):
 
     # Do some housekeeping before generating, namely fixing some options that might be incompatible with each other
     def generate_early(self) -> None:
-
         # load settings from pmr string before anything else, since almost all settings can be loaded this way
         if self.options.pmr_settings_string.value != "None":
             load_settings_from_site_string(self)
@@ -239,7 +237,7 @@ class PaperMarioWorld(World):
             remaining_spirits = [i for i in range(1, 8)]
             chosen_spirits = []
 
-            for _ in range(self.options.star_spirits_required.value):
+            for _ in range(self.options.star_way_spirits.value):
                 rnd_spirit = self.random.randint(0, len(remaining_spirits) - 1)
                 chosen_spirits.append(remaining_spirits.pop(rnd_spirit))
 
@@ -253,6 +251,12 @@ class PaperMarioWorld(World):
 
                 self.ch_excluded_location_names = get_chapter_excluded_location_names(self.excluded_spirits,
                                                                 self.options.letter_rewards.value)
+
+        # set power star counts to 0 if option is not being used
+        if not self.options.power_star_hunt.value:
+            self.options.star_way_power_stars.value = 0
+            self.options.star_beam_power_stars.value = 0
+            self.options.total_power_stars.value = 0
 
         # determine what blocks are what, shuffling if needed and setting them up to be used as locations
         if not self.placed_blocks:
@@ -719,7 +723,6 @@ class PaperMarioWorld(World):
             "start_with_sushie": self.options.start_with_sushie.value,
             "start_with_lakilester": self.options.start_with_lakilester.value,
             "enemy_difficulty": self.options.enemy_difficulty.value,
-            "star_spirits_required": self.options.star_spirits_required.value,
             "require_specific_spirits": self.options.require_specific_spirits.value,
             "starting_boots": self.options.starting_boots.value,
             "starting_hammer": self.options.starting_hammer.value,
@@ -734,9 +737,13 @@ class PaperMarioWorld(World):
             "ch7_bridge_visible": self.options.ch7_bridge_visible.value,
             "bowser_castle_mode": self.options.bowser_castle_mode.value,
             "shuffle_dungeon_entrances": self.options.shuffle_dungeon_entrances.value,
+            "seed_goal": self.options.seed_goal.value,
+            "shuffle_star_beam": self.options.shuffle_star_beam.value,
+            "star_way_spirits": self.options.star_way_spirits.value,
+            "star_beam_spirits": self.options.star_beam_spirits.value,
             "power_star_hunt": self.options.power_star_hunt.value,
-            "star_hunt_skips_ch8": self.options.star_hunt_skips_ch8.value,
-            "required_power_stars": self.options.required_power_stars.value,
+            "star_way_power_stars": self.options.star_way_power_stars.value,
+            "star_beam_power_stars": self.options.star_beam_power_stars.value,
             "total_power_stars": self.options.total_power_stars.value,
             "hidden_block_mode": self.options.hidden_block_mode.value,
             "cook_without_frying_pan": self.options.cook_without_frying_pan.value,

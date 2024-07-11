@@ -368,9 +368,24 @@ class MerlowRewardsPricing(Choice):
     option_Vanilla = 1
 
 
-class StarSpiritsRequired(Range):
-    """Number of star spirits required to open up Chapter 8."""
-    display_name = "Star Spirits Required"
+class SeedGoal(Choice):
+    """Defeat Bowser: The game is complete once you've defeated Bowser to take back the Star Rod.
+    Open Star Way: The game is complete once you've fulfilled the requirements to open Star Way"""
+    display_name = "Seed Goal"
+    option_Defeat_Bowser = 0
+    option_Open_Star_Way = 1
+
+
+class PowerStarHunt(Toggle):
+    """Adds power stars into the item pool. You must collect a certain amount and give them to Eldstar at
+    Shooting Star Summit to open up Star Way. """
+    display_name = "Power Star Hunt"
+
+
+class StarWaySpiritsRequired(Range):
+    """Number of star spirits required to open up Star Way and access Chapter 8.
+    Access requirements will also include power stars if Power Star Hunt is turned on."""
+    display_name = "Spirits Required for Star Way"
     range_start = 0
     range_end = 7
     default = 5
@@ -387,6 +402,46 @@ class LimitChapterLogic(Toggle):
     check the chapters that are out of logic whatsoever, and the checks in those chapters will not grant you
     hint points. You can still visit them for local items (badges, consumables, etc) if you want or need to."""
     display_name = "Limit Chapter Logic"
+
+
+class ShuffleStarBeam(Toggle):
+    """Star Beam becomes an item shuffled in the item pool. Another random item will replace Star Beam in Star Haven.
+    Upon reaching the first Bowser fight in Peach's Castle, he will tell you where Star Beam is."""
+    display_name = "Shuffle Star Beam"
+
+
+class StarBeamSpiritsRequired(Range):
+    """Number of star spirits required to obtain the item in the Star Beam location in Star Sanctuary.
+    Forced to 0 when Limit Chapter Logic is active."""
+    display_name = "Spirits Required for Star Beam"
+    range_start = 0
+    range_end = 7
+    default = 0
+
+
+class StarWayPowerStarsRequired(Range):
+    """Number of power stars required to open up Star Way and access Chapter 8."""
+    display_name = "Power Stars Required for Star Way"
+    range_start = 0
+    range_end = 120
+    default = 50
+
+
+class StarBeamPowerStarsRequired(Range):
+    """Number of power stars required to be gifted the Star Beam in Star Sanctuary"""
+    display_name = "Power Stars Required for Star Beam"
+    range_start = 0
+    range_end = 120
+    default = 50
+
+
+class TotalPowerStars(Range):
+    """Number of power stars placed in the game world. Must be more than the "Required Power Stars".
+    It's recommended that this is around 1.5 times the number of required stars."""
+    display_name = "Total Power Stars"
+    range_start = 0
+    range_end = 120
+    default = 70
 
 
 # Difficulty Stats and Gear
@@ -623,34 +678,6 @@ class ShuffleDungeonEntrances(Toggle):
     """Shuffles the main entrance of every chapter dungeon.
     Note: This is not yet implemented and will fail to generate if set to True."""
     display_name = "Shuffle Dungeon Entrances"
-
-
-class PowerStarHunt(Toggle):
-    """Adds power stars into the item pool. You must collect a certain amount and give them to Eldstar at
-    Shooting Star Summit to open up Star Way. """
-    display_name = "Power Star Hunt"
-
-
-class StarHuntSkipsCh8(Toggle):
-    """When enabled, Eldstar will give the Star Rod immediately after completing the star hunt and the game will end."""
-    display_name = "Star Hunt Skips Ch.8"
-
-
-class RequiredPowerStars(Range):
-    """Number of power stars required by Eldstar at Shooting Star Summit"""
-    display_name = "Required Power Stars"
-    range_start = 0
-    range_end = 120
-    default = 50
-
-
-class TotalPowerStars(Range):
-    """Number of power stars placed in the game world. Must be more than the "Required Power Stars".
-    It's recommended that this is around 1.5 times the number of required stars."""
-    display_name = "Total Power Stars"
-    range_start = 0
-    range_end = 120
-    default = 70
 
 
 # QoL settings
@@ -1022,9 +1049,18 @@ class PaperMarioOptions(PerGameCommonOptions):
     drop_star_points: DropStarPoints
     badge_synergy: BadgeSynergy
     merlow_rewards_pricing: MerlowRewardsPricing
-    star_spirits_required: StarSpiritsRequired
+
+    # Goals
+    seed_goal: SeedGoal
+    power_star_hunt: PowerStarHunt
+    star_way_spirits: StarWaySpiritsRequired
     require_specific_spirits: RequireSpecificSpirits
     limit_chapter_logic: LimitChapterLogic
+    star_way_power_stars: StarWayPowerStarsRequired
+    shuffle_star_beam: ShuffleStarBeam
+    star_beam_spirits: StarBeamSpiritsRequired
+    star_beam_power_stars: StarBeamPowerStarsRequired
+    total_power_stars: TotalPowerStars
 
     # Stats and Gear
     starting_boots: StartingBoots
@@ -1059,10 +1095,6 @@ class PaperMarioOptions(PerGameCommonOptions):
     mirror_mode: MirrorMode
     bowser_castle_mode: BowserCastleMode
     shuffle_dungeon_entrances: ShuffleDungeonEntrances
-    power_star_hunt: PowerStarHunt
-    star_hunt_skips_ch8: StarHuntSkipsCh8
-    required_power_stars: RequiredPowerStars
-    total_power_stars: TotalPowerStars
 
     # Quality of Life Settings
     hidden_block_mode: HiddenBlockMode
