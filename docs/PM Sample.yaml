@@ -10,7 +10,7 @@ Paper Mario:
     # Many settings do not affect logic or generation in any way and will only be relevant when an actual file gets created. These will be marked (NLA).
     # Changing these settings is usually fine, just don't be too surprised if they don't work. If you have generation issues or crash issues, leave them as is to ensure they aren't the cause.
     
-    # AP World Version: 0.3.1
+    # AP World Version: 0.4.0
 
     # Items
     keysanity: True                         # Other options: False
@@ -68,9 +68,18 @@ Paper Mario:
     drop_star_points: False                 # Other options: True
     badge_synergy: False                    # Other options: True
     merlow_rewards_pricing: vanilla         # Other options: cheap
-    star_spirits_required: 7                # Other options: 0-7
+
+    # Goals
+    seed_goal: defeat_bowser                # Other options: open_star_way
+    star_way_spirits: 7                     # Other options: 0-7
     require_specific_spirits: False         # Other options: True
     limit_chapter_logic: False              # Other options: True
+    shuffle_star_beam: False                # Other options: True
+    star_beam_spirits: 0                    # Other options: 0-7
+    power_star_hunt: False                  # Other options: True
+    star_way_power_stars: 50                # Other options: 0-120
+    star_beam_power_stars: 0                # Other options: 0-120
+    total_power_stars: 70                   # Other options: 0-120
 
     # Stats and Gear
     starting_boots: Normal                  # Other options: jumpless, super, ultra
@@ -105,10 +114,6 @@ Paper Mario:
     mirror_mode: Off                        # Other options: always_on (NLA), random_on_every_load (NLA), static_random (NYI)
     bowser_castle_mode: vanilla             # Other options: shortened, boss_rush
     shuffle_dungeon_entrances: False        # Other options: True (NYI)
-    power_star_hunt: False                  # Other options: True
-    star_hunt_skips_ch8: False              # Other options: True
-    required_power_stars: 50                # Other options: 0-120
-    total_power_stars: 70                   # Other options: 0-120
 
     # Quality of Life Settings
     hidden_block_mode: Always_Visible       # Other options: vanilla, watt_out, watt_obtained, always_visible
