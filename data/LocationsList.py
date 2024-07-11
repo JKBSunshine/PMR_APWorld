@@ -239,7 +239,7 @@ location_table = OrderedDict([
     ("KR Fuzzy Forest Fuzzy Battle Reward",                         ("NOK_04/GiftA",            "Enemy Drop",   6,      3,      0,      "Kooper Shell",            "GiftA",            "None",          -1,     -1)),
     ("KR Pleasant Path Entry Yellow Block Left",                    ("NOK_11/YBlockA",          "Item Block",   6,      4,      0,      "Coin",                    "YBlockA",          "None",          -1,     -1)),
     ("KR Pleasant Path Entry Red Block Center",                     ("NOK_11/RBlockA",          "Item Block",   6,      4,      1,      "Dizzy Attack",            "RBlockA",          "None",          -1,     -1)),
-    ("KR Pleasant Path Entry Yellow Block Right",                   ("NOK_11/YBlockB",          "Item Block",   6,      5,      2,      "Fright Jar",              "YBlockB",          "None",          -1,     -1)),
+    ("KR Pleasant Path Entry Yellow Block Right",                   ("NOK_11/YBlockB",          "Item Block",   6,      4,      2,      "Fright Jar",              "YBlockB",          "None",          -1,     -1)),
     ("KR Pleasant Path Bridge Yellow Block",                        ("NOK_12/YBlockA",          "Item Block",   6,      5,      0,      "POW Block",               "YBlockA",          "None",          -1,     -1)),
     ("KR Pleasant Path Bridge Kooper Island",                       ("NOK_12/ItemA",            "Freestanding", 6,      5,      1,      "Star Piece",              "ItemA",            "None",          -1,     -1)),
     ("KR Pleasant Path Bridge Behind Fence",                        ("NOK_12/ItemB",            "Freestanding", 6,      5,      2,      "Sleepy Sheep",            "ItemB",            "None",          -1,     -1)),
