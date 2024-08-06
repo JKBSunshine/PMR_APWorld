@@ -33,7 +33,7 @@ from .options import (EnemyDifficulty, PaperMarioOptions, ShuffleKootFavors, Par
                       ItemTraps, MirrorMode)
 from .data.node import Node
 from .data.starting_maps import starting_maps
-from .Rom import generate_output
+from .Rom import generate_output, PaperMarioDeltaPatch
 from Fill import fill_restrictive
 from .modules.random_blocks import get_block_placement
 import pkg_resources
@@ -46,6 +46,7 @@ class PaperMarioSettings(settings.Group):
         """File name of the Paper Mario USA ROM"""
         description = "Paper Mario ROM File"
         copy_to = "Paper Mario (USA).z64"
+        md5s = [PaperMarioDeltaPatch.hash]
 
     class RomStart(str):
         """
