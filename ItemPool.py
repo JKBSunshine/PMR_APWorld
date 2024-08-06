@@ -504,6 +504,7 @@ def get_locations_to_exclude(world: "PaperMarioWorld", bc_removed_locations: lis
     late_game_locations.append("SSS Star Haven Shop Item 4")
     late_game_locations.append("SSS Star Haven Shop Item 5")
     late_game_locations.append("SSS Star Haven Shop Item 6")
+    late_game_locations.append("SSS Star Sanctuary Gift of the Stars")
 
     late_game_exclude_rate = get_star_haven_access_ratio(world.options) * 100
 
