@@ -543,12 +543,12 @@ def get_item_multiples_base_name(item_name: str) -> str:
 
 
 def get_star_haven_access_ratio(options: PaperMarioOptions):
-    if options.power_star_hunt.value:
-        if options.seed_goal.value == SeedGoal.option_Open_Star_Way:
-            return 1
-        else:
-            return options.star_way_power_stars.value / options.total_power_stars.value
-
+    if options.seed_goal.value == SeedGoal.option_Open_Star_Way:
+        return 1
     else:
-        return options.star_way_spirits.value / 7
+        if options.power_star_hunt.value:
+            return (options.star_way_power_stars.value / options.total_power_stars.value + options.star_way_spirits.value / 7) / 2
+        else:
+            return options.star_way_spirits.value / 7
+
 
