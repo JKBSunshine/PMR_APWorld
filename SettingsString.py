@@ -268,10 +268,16 @@ def decompress_form_group(settings_string: str, cur_map: list, options: PaperMar
                                 for option, data in starting_maps.items():
                                     if data[0] == int(value):
                                         options.__dict__[cur_model.key].value = option
+                            # -1 is used as a random value for some settings, 5 was also used at one point
                             case "coin_palette" | "magical_seeds":
                                 option = int(value)
-                                if option == 5:
+                                if option == 5 or option == -1:
                                     option = random.randint(0, 4)
+                                options.__dict__[cur_model.key].value = option
+                            case "star_beam_spirits" | "star_way_spirits":
+                                option = int(value)
+                                if option == -1:
+                                    option = random.randint(0, 7)
                                 options.__dict__[cur_model.key].value = option
                             case _:
                                 options.__dict__[cur_model.key].value = int(value)
