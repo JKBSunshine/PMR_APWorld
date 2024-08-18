@@ -2,7 +2,7 @@ Paper Mario:
     progression_balancing: 50
     accessibility: items
 
-    # AP World Version: 0.4.0
+    # AP World Version: 0.4.1
 
     # To get the settings string, go to https://pm64randomizer.com/
     # 1. Choose your settings
@@ -14,6 +14,7 @@ Paper Mario:
     # Shuffle dungeon entrances (must be turned off)
     # Randomize puzzles (must be turned off)
     # Mirror mode (cannot be static random)
+    # Item traps (must be set to No Traps)
     pmr_settings_string: SettingsString
 
     # The below option(s) are AP only and do not exist on the PMR site.
