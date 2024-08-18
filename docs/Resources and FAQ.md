@@ -12,7 +12,8 @@
 - [Nintendo Power Official Strategy Guide](https://ia801606.us.archive.org/6/items/PaperMarioNintendoPowerOfficialStrategyGuide_20170328/PaperMarioNintendoPowerOfficialStrategyGuide.pdf)
  complete with maps, item locations, recipes, and more.
 ## Trackers
-- [Pop Tracker Pack by Coveleski,](https://github.com/coveleski/ap-pmr-poptracker) ported from Phantom's PMR EmoTracker pack
+- [Emo/Pop Tracker Pack by Phantom](https://github.com/Phantom5800/pmr-emotracker/releases). 
+Emo Tracker packs can be opened and used in Pop Tracker.
 - [Web Tracker by Scatter](https://pmr-tracker.christianlegge.dev/)
 - [Web Tracker by Yami,](https://pm64r-tracker.mryami.com/) with AP integration! Use the Archipelago button in the top left
 - You can view the key item tracker in your in-game inventory and view the map for checks remaining in an area
@@ -27,6 +28,10 @@ If you don't want to read through everything, here are a few highlights:
 - The base mod has built-in trackers in the Maps and Key Item Tracker sections in the pause menu. External trackers can 
 still be quite helpful, but these can be handy for checking what items you have and if any checks remain in an area.
 - It's recommended to use `cutscene_mode: shortened` instead of `minimal` if you don't know puzzle solutions.
+- You need coins to buy items from shops and 50 coins to get past Kent C Koopa  at the start of the game, 
+east of Toad Town. It's _highly_ recommended that you pay him off earlier rather than later, and that you don't waste 
+all your early coins on shop items.  You could potentially softlock yourself at the very beginning by not having the 
+coins to pay him off. If you do use up your coins prior, it's best to restart your file and pay him off first.
 
 ### I can't remember... how does that one thing work?
 - Panels can be flipped using Super Boots or Ultra Hammer.
