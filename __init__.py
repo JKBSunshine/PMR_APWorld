@@ -28,7 +28,7 @@ from .data.LocationsList import location_table, location_groups
 from .modules.random_actor_stats import get_shuffled_chapter_difficulty
 from .Rules import set_rules
 from .modules.random_partners import get_rnd_starting_partners
-from .options import (EnemyDifficulty, PaperMarioOptions, ShuffleKootFavors, PartnerUpgradeShuffle, HiddenBlockMode,
+from .options import (SeedGoal, PaperMarioOptions, ShuffleKootFavors, PartnerUpgradeShuffle, HiddenBlockMode,
                       ShuffleSuperMultiBlocks, GearShuffleMode, StartingMap, BowserCastleMode, ShuffleLetters,
                       ItemTraps, MirrorMode)
 from .data.node import Node
@@ -259,6 +259,15 @@ class PaperMarioWorld(World):
             self.options.star_way_power_stars.value = 0
             self.options.star_beam_power_stars.value = 0
             self.options.total_power_stars.value = 0
+        else:
+            if self.options.total_power_stars < self.options.star_way_power_stars:
+                raise ValueError(
+                    f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]})'s total_power_stars must "
+                    f"be set to more than star_way_power_stars.")
+            if self.options.total_power_stars < self.options.star_beam_power_stars:
+                raise ValueError(
+                    f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]})'s total_power_stars must "
+                    f"be set to more than star_way_power_stars.")
 
         # determine what blocks are what, shuffling if needed and setting them up to be used as locations
         if not self.placed_blocks:
