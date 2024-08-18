@@ -2,6 +2,7 @@
 import numbers
 import random
 
+from .items import item_id_prefix, ap_id_to_pm_data
 from .data.starting_maps import starting_maps
 from .options import *
 
@@ -116,7 +117,7 @@ itemsMap = [
 marioStatsMap = [
     SettingModel("c", "starting_coins", "number"),
     SettingModel("b", "starting_bp", "number"),
-    SettingModel("i", "StartingItems", "number"),
+    SettingModel("i", "StartingItems", "items"),
     SettingModel("f", "starting_fp", "number"),
     SettingModel("h", "starting_hp", "number"),
     SettingModel("s", "starting_sp", "number"),
@@ -198,10 +199,10 @@ settings_map = [
 def load_settings_from_site_string(world) -> None:
     settings_string = world.options.pmr_settings_string.value
 
-    decompress_form_group(settings_string, settings_map, world.options)
+    decompress_form_group(settings_string, settings_map, world)
 
 
-def decompress_form_group(settings_string: str, cur_map: list, options: PaperMarioOptions):
+def decompress_form_group(settings_string: str, cur_map: list, world):
     start_partners_min = -1
 
     start_items_min = -1
@@ -238,12 +239,12 @@ def decompress_form_group(settings_string: str, cur_map: list, options: PaperMar
                     nested_group_substring = settings_string[i:form_group_end_index + 1]
 
                     i += len(nested_group_substring)
-                    decompress_form_group(nested_group_substring, cur_model.map, options)
+                    decompress_form_group(nested_group_substring, cur_model.map, world)
 
                 # boolean settings are uppercase for true, lowercase for false
                 case "bool":
-                    if cur_model.key in options.__dict__:
-                        options.__dict__[cur_model.key].value = (current_substring.upper() == current_substring)
+                    if cur_model.key in world.options.__dict__:
+                        world.options.__dict__[cur_model.key].value = (current_substring.upper() == current_substring)
                     # store start with random items value
                     elif cur_model.key == "startWithRandomItems" or cur_model.key == "startWithRandomItems":
                         start_random_items = current_substring
@@ -259,28 +260,28 @@ def decompress_form_group(settings_string: str, cur_map: list, options: PaperMar
                         value += settings_string[i]
                         i += 1
 
-                    if cur_model.key in options.__dict__:
+                    if cur_model.key in world.options.__dict__:
                         match cur_model.key:
                             # double xp multiplier, settings string may have 1.5 and we can only use integers
                             case "enemy_xp_multiplier":
-                                options.__dict__[cur_model.key].value = int(float(value) * 2)
+                                world.options.__dict__[cur_model.key].value = int(float(value) * 2)
                             case "starting_map":
                                 for option, data in starting_maps.items():
                                     if data[0] == int(value):
-                                        options.__dict__[cur_model.key].value = option
+                                        world.options.__dict__[cur_model.key].value = option
                             # -1 is used as a random value for some settings, 5 was also used at one point
                             case "coin_palette" | "magical_seeds":
                                 option = int(value)
                                 if option == 5 or option == -1:
                                     option = random.randint(0, 4)
-                                options.__dict__[cur_model.key].value = option
+                                world.options.__dict__[cur_model.key].value = option
                             case "star_beam_spirits" | "star_way_spirits":
                                 option = int(value)
                                 if option == -1:
-                                    option = random.randint(0, 7)
-                                options.__dict__[cur_model.key].value = option
+                                    option = world.random.randint(0, 7)
+                                world.options.__dict__[cur_model.key].value = option
                             case _:
-                                options.__dict__[cur_model.key].value = int(value)
+                                world.options.__dict__[cur_model.key].value = int(value)
                     elif cur_model.key.startswith("start_partners_"):
                         if start_partners_min == -1:
                             start_partners_min = int(value)
@@ -288,7 +289,8 @@ def decompress_form_group(settings_string: str, cur_map: list, options: PaperMar
                             start_partners_max = int(value)
                             start_partners_max, start_partners_min = (max(start_partners_max, start_partners_min),
                                                                       min(start_partners_max, start_partners_min))
-                            options.random_start_items.value = random.randint(start_partners_min, start_partners_max)
+                            world.options.random_start_items.value = world.random.randint(start_partners_min,
+                                                                                          start_partners_max)
 
                     elif cur_model.key.startswith("start_items_"):
                         if start_items_min == -1:
@@ -305,16 +307,31 @@ def decompress_form_group(settings_string: str, cur_map: list, options: PaperMar
                     palette = settings_string[i]
                     i += 1
 
-                    if cur_model.key in options.__dict__:
-                        options.__dict__[cur_model.key].value = decode_sprite(setting, palette)
+                    if cur_model.key in world.options.__dict__:
+                        world.options.__dict__[cur_model.key].value = decode_sprite(setting, palette)
+
+                case "items":
+                    i += 1
+                    # starting items
+                    while settings_string[i].isnumeric():
+                        # item id in the string is formatted with a leading 0
+                        item_id = int(settings_string[i:i+4])
+
+                        # 604-697 are multiworld items, which don't exist on the site
+                        if item_id > 603:
+                            item_id += 94
+
+                        item_data = ap_id_to_pm_data(item_id + item_id_prefix)
+                        world.web_start_inventory.append(item_data[0])
+                        i += 4
 
                 # skip glitches for now
-                case "glitches" | "items":
+                case "glitches":
                     i += 1
 
             # Not only do we need to check for the min/max, but that the field is actually set in the first place
             if start_random_items == "R" and start_items_min > 0 and start_items_max > 0:
-                options.random_start_items.value = random.randint(start_items_min, start_items_max)
+                world.options.random_start_items.value = world.random.randint(start_items_min, start_items_max)
                 start_random_items = "r"  # reset this so that we don't roll for item count repeatedly
 
 

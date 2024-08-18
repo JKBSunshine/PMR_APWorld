@@ -20,7 +20,7 @@ from .Entrance import PMEntrance
 from .Utils import load_json_data
 from .Locations import PMLocation, location_factory, location_name_to_id
 from .ItemPool import generate_itempool
-from .items import PMItem, pm_is_item_of_type, pm_data_to_ap_id
+from .items import PMItem, pm_is_item_of_type, pm_data_to_ap_id, ap_id_to_pm_data, item_id_prefix
 from .data.ItemList import item_table, item_groups, progression_miscitems, item_multiples_ids
 from .data.itemlocation_special import limited_by_item_areas
 from .data.itemlocation_replenish import replenishing_itemlocations
@@ -118,7 +118,8 @@ class PaperMarioWorld(World):
         self.itempool = []
         self.pre_fill_items = []
         self.dungeon_restricted_items = {}
-        self.remove_from_start_inventory = []  # some items we start with are baked into the rom
+        self.remove_from_start_inventory = []
+        self.web_start_inventory = []
 
         self._regions_cache = {}
         self.parser = Rule_AST_Transformer(self, self.player)
@@ -345,14 +346,22 @@ class PaperMarioWorld(World):
             self.multiworld.push_precollected(self.create_item("Lakilester"))
             self.remove_from_start_inventory.append("Lakilester")
 
+        starting_items = []
+
+        # Items from setting string or random starting items, but not both
+        if self.web_start_inventory:
+            for item_name in self.web_start_inventory:
+                item_to_add = self.create_item(item_name)
+                starting_items.append(item_to_add)
+
         # Randomly start with up to 16 items
-        if self.options.random_start_items.value:
+        elif self.options.random_start_items.value:
             self.random.shuffle(self.itempool)
 
             # Mario can only hold 10 consumables, so disallow more than 10 from being sent to his inventory
             popped_consumables = []
-            starting_items = []
             consumable_count = 0
+
             while len(starting_items) < self.options.random_start_items.value:
                 item_to_add = self.itempool.pop()
                 if item_to_add.type == "ITEM" and consumable_count == 10:
@@ -362,13 +371,13 @@ class PaperMarioWorld(World):
                     if item_to_add.type == "ITEM":
                         consumable_count += 1
 
-            for item in starting_items:
-                self.multiworld.push_precollected(item)
-
             # add items back to itempool regardless of if they were in starting_items or not
             # removed items are handled in next block
             self.itempool.extend(starting_items)
             self.itempool.extend(popped_consumables)
+
+        for item in starting_items:
+            self.multiworld.push_precollected(item)
 
         # handle start inventory, be it from the AP option or from
         removed_items = []

@@ -21,9 +21,16 @@ def pm_data_to_ap_id(data, event):
 def ap_id_to_pm_data(ap_id):
     val = ap_id - item_id_prefix
     try:
-        return list(filter(lambda d: d[1][0] == 'Item' and d[1][2] == val, item_table.items()))[0]
+        return list(filter(lambda d: d[1][2] == val, item_table.items()))[0]
     except IndexError:
         raise Exception(f"Could not find desired item ID: {ap_id}")
+
+
+def item_id_to_item_name(item_id):
+    try:
+        return list(filter(lambda d: d[1][0] == 'Item' and d[1][2] == item_id, item_table.items()))[0][0]
+    except IndexError:
+        raise Exception(f"Could not find desired item ID: {item_id}")
 
 
 def pm_is_item_of_type(item, item_type):
