@@ -34,10 +34,11 @@
     "star_way_power_stars": "(Power_Star, star_way_power_stars) or not power_star_hunt",
     "star_way_specific_spirits": "has_required_spirits or not require_specific_spirits",
     "can_reach_star_way": "star_way_star_spirits and star_way_power_stars and star_way_specific_spirits",
+    "star_way_goal": "seed_goal == 1",
 
     "star_beam_power_stars": "(Power_Star, star_beam_power_stars) or not power_star_hunt",
     "star_beam_star_spirits": "('STARSPIRIT', star_beam_spirits)",
-    "has_star_beam_requirements": "star_beam_power_stars and star_beam_power_stars",
+    "has_star_beam_requirements": "star_beam_star_spirits and star_beam_power_stars",
 
     "can_use_ability_kooper": "Kooper or partners_always_usable",
     "can_use_ability_bombette": "Bombette or partners_always_usable",
