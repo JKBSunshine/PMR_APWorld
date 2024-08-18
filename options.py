@@ -249,7 +249,7 @@ class SPShuffle(Choice):
     Shuffled: Original SP costs are shuffled together.
     Balanced Random: Random SP costs 1-3, but weighted so most are +/-1 from vanilla.
     Fully Random: Random SP costs from 1-3, unweighted."""
-    display_name = "Badges FP"
+    display_name = "SP Costs"
     option_Vanilla = 0
     option_Balanced_Random = 1
     option_Shuffled = 2
