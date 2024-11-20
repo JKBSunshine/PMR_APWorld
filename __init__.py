@@ -86,7 +86,7 @@ class PaperMarioWorld(World):
     topology_present = True
 
     options_dataclass = PaperMarioOptions
-    options:PaperMarioOptions
+    options: PaperMarioOptions
 
     settings_key = "paper_mario_settings"
     settings: typing.ClassVar[PaperMarioSettings]
@@ -209,7 +209,7 @@ class PaperMarioWorld(World):
             self.options.start_random_partners.value = True
 
         if self.options.start_random_partners.value:
-            starting_partners = get_rnd_starting_partners(self.options.start_partners.value)
+            starting_partners = get_rnd_starting_partners(self.options.start_partners.value, self.random)
 
             for partner in starting_partners:
                 if partner == "Goombario":
@@ -274,7 +274,8 @@ class PaperMarioWorld(World):
             self.placed_blocks = get_block_placement(self.options.super_multi_blocks.value ==
                                                      ShuffleSuperMultiBlocks.option_true,
                                                      self.options.partner_upgrades.value >=
-                                                     PartnerUpgradeShuffle.option_Super_Block_Locations)
+                                                     PartnerUpgradeShuffle.option_Super_Block_Locations,
+                                                     self.random)
 
     def create_regions(self) -> None:
         # Create base regions

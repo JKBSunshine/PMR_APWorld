@@ -1,6 +1,5 @@
 # from https://github.com/icebound777/PMR-SeedGenerator/blob/main/metadata/palettes_meta.py
 """Module for modifying sprite palettes"""
-import random
 
 from ..data.enum_options import RandomPalettes
 from ..data.palettes_meta import mario_n_partner_sprite_names, boss_sprite_names, enemy_sprite_names, \
@@ -192,9 +191,9 @@ def get_randomized_palettes(world) -> list:
         if 0 <= cur_option < palette_count:
             chosen_palette = cur_option
         elif cur_option == RandomPalettes.RANDOM_PICK:
-            chosen_palette = random.randrange(0, palette_count)
+            chosen_palette = world.random.randrange(0, palette_count)
         elif cur_option == RandomPalettes.RANDOM_PICK_NOT_VANILLA:
-            chosen_palette = random.randrange(1, palette_count)
+            chosen_palette = world.random.randrange(1, palette_count)
         elif cur_option == RandomPalettes.ALWAYS_RANDOM:
             chosen_palette = PALETTEVALUE_ALWAYS_RANDOM
         else:
@@ -217,10 +216,10 @@ def get_randomized_palettes(world) -> list:
 
         if cur_setting == RandomPalettes.RANDOM_PICK_SETTING:
             palette_count = palette_info[2]
-            chosen_palette = random.randrange(0, palette_count)
+            chosen_palette = world.random.randrange(0, palette_count)
         elif cur_setting == RandomPalettes.RANDOM_PICK_NOT_VANILLA_SETTING:
             palette_count = palette_info[2]
-            chosen_palette = random.randrange(1, palette_count)
+            chosen_palette = world.random.randrange(1, palette_count)
         elif cur_setting == RandomPalettes.ALWAYS_RANDOM_SETTING:
             chosen_palette = PALETTEVALUE_ALWAYS_RANDOM
         else:

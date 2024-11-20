@@ -3,8 +3,8 @@
 This module is used for modifying the puzzles and minigames in various areas of
 the game.
 """
-import random
 from ..data.puzzle_data import puzzle_data
+
 
 # TODO set up fill to handle DRO Shop puzzles
 def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
@@ -22,32 +22,32 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
     for name, data in puzzle_data.items():
         # Fuzzy Tree Minigame Round 1 hops
         if name == "FuzzyTreesRound1":
-            num_hops = random.randint(10, 13)
+            num_hops = world.random.randint(10, 13)
             puzzle_minigame_list.append((get_puzzle_key(data[0]), num_hops))
 
         # Fuzzy Tree Minigame Round 2 hops
         elif name == "FuzzyTreesRound2":
-            num_hops = random.randint(9, 12)
+            num_hops = world.random.randint(9, 12)
             puzzle_minigame_list.append((get_puzzle_key(data[0]), num_hops))
 
         # Fuzzy Tree Minigame Round 3 hops
         elif name == "FuzzyTreesRound3":
-            num_hops = random.randint(8, 11)
+            num_hops = world.random.randint(8, 11)
             puzzle_minigame_list.append((get_puzzle_key(data[0]), num_hops))
 
         # Super Boots Chest Boo Ring
         elif name == "BooRingOBK04":
-            num_throws = random.randint(6, 10)
+            num_throws = world.random.randint(6, 10)
             puzzle_minigame_list.append((get_puzzle_key(data[0]), num_throws))
 
         # Record Boo Ring: Degrees of rotation until item drop
         elif name == "BooRingOBK08Degrees":
-            degrees = random.randint(180, 540)
+            degrees = world.random.randint(180, 540)
             puzzle_minigame_list.append((get_puzzle_key(data[0]), degrees))
 
         # Record Boo Ring: Delay until main Boo stops
         elif name == "BooRingOBK08Delay":
-            delay = random.randint(360, 380)
+            delay = world.random.randint(360, 380)
             puzzle_minigame_list.append((get_puzzle_key(data[0]), delay))
 
         # Toad Town Tunnels Push Block: Initial position
@@ -79,7 +79,7 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
                     else:
                         return "Middle"
                 blocks = [1, 2, 3]
-                random.shuffle(blocks)
+                world.random.shuffle(blocks)
                 block_order = (
                     (blocks[0] << 8) +
                     (blocks[1] << 4) +
@@ -120,7 +120,7 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
                        or x.item_type == "COIN"
                 ])
                 dro_shop_nonuniques = sorted(list(dict.fromkeys(dro_shop_nonuniques)))
-                random.shuffle(dro_shop_nonuniques)
+                world.random.shuffle(dro_shop_nonuniques)
                 code_item_1 = dro_shop_nonuniques.pop()
                 code_item_2 = dro_shop_nonuniques.pop()
                 pulsestone_item_order_str = f"{code_item_1.item_name}{code_item_2.item_name}"
@@ -156,9 +156,9 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
                     ])
                     dro_shop_nonuniques = sorted(list(dict.fromkeys(dro_shop_nonuniques)))
                     if len(dro_shop_nonuniques) < 4:
-                        dro_shop_nonuniques.append(random.choice(dro_shop_nonuniques))
+                        dro_shop_nonuniques.append(world.random.choice(dro_shop_nonuniques))
                     while True:
-                        random.shuffle(dro_shop_nonuniques)
+                        world.random.shuffle(dro_shop_nonuniques)
                         code_item_1 = dro_shop_nonuniques.pop()
                         code_item_2 = dro_shop_nonuniques.pop()
                         code_item_3 = dro_shop_nonuniques.pop()
@@ -410,7 +410,7 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
     return puzzle_minigame_list, spoilerlog_additions
 
 
-def _albino_dino_puzzle() -> int:
+def _albino_dino_puzzle(random) -> int:
     max_x_coord = 8
     max_z_coord = 2
 
@@ -449,7 +449,8 @@ def _random_pushblock_positions(
     max_x: int,
     min_z: int,
     max_z: int,
-    disallowed_positions: list
+    disallowed_positions: list,
+    random
 ) -> int:
     if (
         not 1 <= num_blocks <= 4
@@ -488,7 +489,8 @@ def _random_pushblock_positions(
 
 def _deepjungle_pushblock_positions(
     puzzle_name: str,
-    already_placed: list
+    already_placed: list,
+    random
 ) -> (int, int):
 
     # Pushblockgrid (x: obstructed, B: boulder, P: push block, %: geyser hole, o: unused hole )
@@ -571,7 +573,7 @@ def _deepjungle_pushblock_positions(
     return positions_encoded, all_block_positions
 
 
-def _lavadam_pushblock_positions() -> int:
+def _lavadam_pushblock_positions(random) -> int:
     block_positions = []
     disallowed_positions = [(9, 0), (10, 0), (11, 0)]
 

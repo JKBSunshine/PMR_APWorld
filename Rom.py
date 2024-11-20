@@ -1,6 +1,5 @@
 # from https://github.com/icebound777/PMR-SeedGenerator/blob/main/randomizer.py, pulled functions for rom-related stuff
 import pkgutil
-import random
 
 import bsdiff4
 
@@ -73,12 +72,12 @@ def write_patch(
     mapmirror_list: list,
     puzzle_list: list,
     mystery_opts: MysteryOptions,
-    star_beam_area: int,
-    seed_id=random.randint(0, 0xFFFFFFFF)
+    star_beam_area: int
 ):
     base_rom = get_base_rom_as_bytes()
     base_patch = pkgutil.get_data(__name__, "data/base_pmr_patch.bsdiff4")
     patched_rom = bytearray(bsdiff4.patch(base_rom, base_patch))
+    seed_id = world.random.randint(0, 0xFFFFFFFF)
 
     # Create the ROM table
     rom_table = RomTable()
@@ -192,7 +191,7 @@ def generate_output(world, output_dir: str) -> None:
 
     # enemy stats
     enemy_stats, chapter_changes = get_shuffled_chapter_difficulty(
-        world.options.enemy_difficulty.value, starting_chapter=world.options.starting_map.value)
+        world.options.enemy_difficulty.value, world.options.starting_map.value, world.random)
 
     battle_formations = []
 
@@ -200,20 +199,21 @@ def generate_output(world, output_dir: str) -> None:
             or world.options.enemy_difficulty.value == EnemyDifficulty.option_Progressive_Scaling):
         battle_formations = get_random_formations(chapter_changes,
                                                   world.options.enemy_difficulty.value ==
-                                                  EnemyDifficulty.option_Progressive_Scaling)
+                                                  EnemyDifficulty.option_Progressive_Scaling,
+                                                  world.random)
 
     # Coin palette values
     coin_palette_data, coin_palette_targets, coin_palette_crcs = (
         get_randomized_coinpalette(world.options.coin_palette.value))
 
     # Quizzes are always randomized
-    quiz_data = get_randomized_quizzes()
+    quiz_data = get_randomized_quizzes(world.random)
 
     # No randomizing puzzles for now
     puzzle_list, spoilerlog_puzzles = get_puzzles_minigames(False, world)
 
     # Default mystery options for now
-    mystery_opts = get_random_mystery(world.options.mystery_shuffle.value)
+    mystery_opts = get_random_mystery(world.options.mystery_shuffle.value, world.random)
 
     # Non-coin palettes
     palette_data = get_randomized_palettes(world)
@@ -222,11 +222,13 @@ def generate_output(world, output_dir: str) -> None:
     move_costs = get_randomized_moves(world.options.badge_bp_shuffle.value,
                                       world.options.badge_fp_shuffle.value,
                                       world.options.partner_fp_shuffle.value,
-                                      world.options.sp_shuffle.value)
+                                      world.options.sp_shuffle.value,
+                                      world.random)
 
     # Randomized music
     music_list = get_randomized_audio(world.options.shuffle_music.value,
-                                      world.options.shuffle_jingles.value)
+                                      world.options.shuffle_jingles.value,
+                                      world.random)
 
     # mirror mode is always off at the moment
     static_map_mirroring = get_mirrored_map_list()
@@ -305,7 +307,8 @@ def get_filled_node_list(world):
             cur_node.current_item.base_price = get_shop_price(pm_loc,
                                                               cur_node.current_item,
                                                               world.options.include_shops.value,
-                                                              world.options.merlow_rewards_pricing.value)
+                                                              world.options.merlow_rewards_pricing.value,
+                                                              world.random)
 
         placed_items.append(cur_node)
 

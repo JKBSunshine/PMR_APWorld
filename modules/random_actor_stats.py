@@ -1,12 +1,12 @@
 # from https://github.com/icebound777/PMR-SeedGenerator/blob/main/rando_modules/random_actor_stats.py
-import random
 from ..data.actor_data import actor_attr_table, actor_param_table, get_actor_attr_key
 from ..options import EnemyDifficulty
 
 
 def get_shuffled_chapter_difficulty(
     enemy_difficulty: int,
-    starting_chapter: int
+    starting_chapter: int,
+    random
 ):
     # Load and reorganize actor param data into different format
     # format example:

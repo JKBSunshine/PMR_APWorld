@@ -367,7 +367,8 @@ def get_pool_core(world: "PaperMarioWorld"):
         pool_other_items,
         world.options.consumable_item_pool.value,
         world.options.consumable_item_quality.value,
-        world.options.beta_items.value
+        world.options.beta_items.value,
+        world.random
     )
 
     # before adding traps, fill up the out of logic locations with items that aren't progression
@@ -395,7 +396,8 @@ def get_pool_core(world: "PaperMarioWorld"):
         world.options.keysanity.value,
         (world.options.power_star_hunt.value and world.options.total_power_stars.value > 0),
         world.options.beta_items.value,
-        world.options.partner_upgrades.value
+        world.options.partner_upgrades.value,
+        world.random
     )
 
     # now we have the full pool

@@ -1,13 +1,11 @@
 # from https://github.com/icebound777/PMR-SeedGenerator/blob/main/rando_modules/random_mystery.py
 # modified slightly to use the item table instead of db
-import random
-
 from ..options import MysteryShuffle
 from ..data.ItemList import item_table
 from ..data.MysteryOptions import MysteryOptions
 
 
-def get_random_mystery(mystery_option: int) -> MysteryOptions:
+def get_random_mystery(mystery_option: int, random) -> MysteryOptions:
     mystery_settings = MysteryOptions()
 
     # If Random Choice is on, then none of the other settings matter

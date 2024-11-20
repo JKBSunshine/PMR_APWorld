@@ -1,6 +1,5 @@
 # from https://github.com/Pronyo-Chan/paper-mario-randomizer-web-app/blob/master/app/src/app/services/setting-string-mapping/setting-string-mapping.service.ts
 import numbers
-import random
 
 from .items import item_id_prefix, ap_id_to_pm_data
 from .data.starting_maps import starting_maps
@@ -273,7 +272,7 @@ def decompress_form_group(settings_string: str, cur_map: list, world):
                             case "coin_palette" | "magical_seeds":
                                 option = int(value)
                                 if option == 5 or option == -1:
-                                    option = random.randint(0, 4)
+                                    option = world.random.randint(0, 4)
                                 world.options.__dict__[cur_model.key].value = option
                             case "star_beam_spirits" | "star_way_spirits":
                                 option = int(value)

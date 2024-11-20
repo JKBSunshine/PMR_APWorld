@@ -1,5 +1,4 @@
 # modified slightly from https://github.com/icebound777/PMR-SeedGenerator/blob/main/rando_modules/random_shop_prices.py
-import random
 
 from .. import PMItem
 from ..Locations import PMLocation
@@ -10,7 +9,8 @@ from BaseClasses import Item
 def get_shop_price(node: PMLocation,
                    item: PMItem,
                    do_randomize_shops: bool,
-                   merlow_cost_setting: int) -> int:
+                   merlow_cost_setting: int,
+                   random) -> int:
     """
     Return the price for an item for offer within a shop (regular or Merlow's).
     Merlow gets special pricing rules as he deals in star pieces; 0 for cheap, 1 for vanilla.

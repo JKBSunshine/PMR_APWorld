@@ -1,4 +1,3 @@
-import random
 from ..data.actor_data import actor_table
 from ..data.formations_meta import (
     front_row_enemies,
@@ -17,7 +16,8 @@ from ..data.formations_meta import (
 
 def _get_random_formationsize(
     chapter_difficulty:int,
-    do_progressive_scaling:bool
+    do_progressive_scaling:bool,
+    random
 ):
     """
     Choose the size of the formation from 1-4. This is a function of
@@ -80,7 +80,8 @@ def _get_new_formation(
     actor_pointers:dict,
     area_id:str,
     formation_id:str,
-    enemylist:list
+    enemylist:list,
+    random
 ):
     formation = []
 
@@ -218,7 +219,8 @@ def _get_new_special_formation(
     formation_id:str,
     chapter_difficulty:int,
     do_progressive_scaling:bool,
-    available_enemies:list
+    available_enemies:list,
+    random
 ):
     special_formation = []
 
@@ -258,7 +260,8 @@ def _get_new_special_formation(
             rnd_number_of_enemies = 2
         rnd_number_of_enemies = _get_random_formationsize(
             chapter_difficulty,
-            do_progressive_scaling
+            do_progressive_scaling,
+            random
         )
         if rnd_number_of_enemies >= base_number_of_enemies:
             break
@@ -271,7 +274,8 @@ def _get_new_special_formation(
         actor_pointers,
         area_id,
         formation_id,
-        cur_enemylist
+        cur_enemylist,
+        random
     )
 
     return special_formation
@@ -279,7 +283,8 @@ def _get_new_special_formation(
 
 def get_random_formations(
     chapter_changes:dict,
-    do_progressive_scaling:bool
+    do_progressive_scaling:bool,
+    random
 ):
     battle_formations = []
 
@@ -331,7 +336,8 @@ def get_random_formations(
             chapter_difficulty = chapter_changes.get(battle_homechapter)
             rnd_number_of_enemies = _get_random_formationsize(
                 chapter_difficulty,
-                do_progressive_scaling
+                do_progressive_scaling,
+                random
             )
 
             available_enemies = [
@@ -380,7 +386,8 @@ def get_random_formations(
                     actor_pointers,
                     area_id,
                     formation_id,
-                    current_enemylist
+                    current_enemylist,
+                    random
                 )
 
                 battle_formations.append(new_formation)
@@ -393,7 +400,8 @@ def get_random_formations(
                     formation_id,
                     chapter_difficulty,
                     do_progressive_scaling,
-                    available_enemies
+                    available_enemies,
+                    random
                 )
 
                 battle_formations.append(new_special_formation)

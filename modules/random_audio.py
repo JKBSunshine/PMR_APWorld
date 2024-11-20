@@ -8,14 +8,13 @@ I.e. to map song 4, variation 1 to song F, variation 2 we'd have
 A7000401 : 000F0002
 """
 from copy import deepcopy
-import random
 
 from ..data.enum_types import SongType
 from ..data.song_data import SongData, song_data_array
 from ..options import ShuffleMusic
 
 
-def get_randomized_audio(randomize_bgm, randomize_jingles) -> list:
+def get_randomized_audio(randomize_bgm, randomize_jingles, random) -> list:
     dbkey_base = 0xA7000000
     db_data = []
 

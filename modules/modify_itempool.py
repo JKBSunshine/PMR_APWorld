@@ -1,5 +1,4 @@
 import math
-import random
 from copy import deepcopy
 
 from ..data.enum_options import IncludeFavorsMode, RandomizeConsumablesMode
@@ -12,7 +11,7 @@ from ..data.LocationsList import location_table, location_groups
 from ..data.ItemList import item_table, item_groups
 
 
-def _get_random_consumables(n: int, available_items: list) -> list:
+def _get_random_consumables(n: int, available_items: list, random) -> list:
     """
     Returns a list of n items, with categories similar to vanilla distribution
     """
@@ -26,7 +25,7 @@ def _get_random_consumables(n: int, available_items: list) -> list:
     return random.choices(available_items, item_weights, k=n)
 
 
-def _balance_consumables(items: list, available_items: list, target_score: int):
+def _balance_consumables(items: list, available_items: list, target_score: int, random):
     """
     Modifies a list of consumables until its score is close enough to the target score
     """
@@ -67,7 +66,7 @@ def _balance_consumables(items: list, available_items: list, target_score: int):
     return new_items
 
 
-def get_randomized_itempool(itempool: list, consumable_mode: int, quality: int, add_unused_items: bool) -> list:
+def get_randomized_itempool(itempool: list, consumable_mode: int, quality: int, add_unused_items: bool, random) -> list:
     """
     Returns a randomized general item pool according to consumable mode
     Balanced random mode creates an item pool that has a value equal
@@ -104,7 +103,7 @@ def get_randomized_itempool(itempool: list, consumable_mode: int, quality: int, 
             ]
 
         # Generate fully random pool
-        new_items = _get_random_consumables(target_count, available_items)
+        new_items = _get_random_consumables(target_count, available_items, random)
 
         # Balance according to quality factor
         if consumable_mode == RandomizeConsumablesMode.BALANCED_RANDOM:
@@ -114,7 +113,7 @@ def get_randomized_itempool(itempool: list, consumable_mode: int, quality: int, 
 
             # Multiply score by the quality factor
             target_score = math.floor(target_score * (quality / 100))
-            new_items = _balance_consumables(new_items, available_items, target_score)
+            new_items = _balance_consumables(new_items, available_items, target_score, random)
 
         # Convert from scored dict entries to proper item_obj list
         new_items = [item["name"] for item in new_items]
@@ -137,7 +136,8 @@ def get_trapped_itempool(itempool: list,
                          keyitems_outside_dungeon: bool,
                          power_star_hunt: bool,
                          add_beta_items: bool,
-                         do_partner_upgrade_shuffle: bool) -> list:
+                         do_partner_upgrade_shuffle: bool,
+                         random) -> list:
     """
     Modifies and returns a given item pool after placing trap items.
     This swaps out consumable items with trap items, which do not actually give

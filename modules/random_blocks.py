@@ -4,8 +4,6 @@
 This module can modify the placement of different block types within the world.
 """
 
-import random
-
 from ..data.enum_types import BlockType
 from ..data.LocationsList import location_groups
 from ..Locations import PMLocation
@@ -18,7 +16,8 @@ def get_block_key(block_name):
 
 def get_block_placement(
     shuffle_blocks: bool,
-    supers_are_yellow: bool
+    supers_are_yellow: bool,
+    random
 ):
     block_placement = []
     block_names = []

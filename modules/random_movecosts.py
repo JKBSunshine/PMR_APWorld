@@ -4,7 +4,6 @@
 This module is used for modifying BP costs of badges, FP costs of both badge
 and partner moves and SP costs for star power moves.
 """
-import random
 
 from ..data.enum_options import RandomMoveCosts
 from ..data.MoveList import move_table
@@ -21,7 +20,7 @@ def get_key(data):
     return (0xA6 << 24) | (data[4] << 16) | (data[5] << 8) | data[6]
 
 
-def _get_shuffled_costs(movetype, costtype):
+def _get_shuffled_costs(movetype, costtype, random):
     """
     Returns a list of tuples where the first value holds the dbkey for a move
     cost and the second value holds the shuffled cost depending on which
@@ -44,7 +43,7 @@ def _get_shuffled_costs(movetype, costtype):
     return shuffled_costs
 
 
-def _get_balanced_random_costs(movetype: str, costtype: str) -> list:
+def _get_balanced_random_costs(movetype: str, costtype: str, random) -> list:
     """
     Returns a list of tuples where the first value holds the dbkey for a badge
     BP cost and the second value holds its randomized BP cost.
@@ -83,7 +82,7 @@ def _get_balanced_random_costs(movetype: str, costtype: str) -> list:
     return random_costs
 
 
-def _get_fully_random_costs(movetype: str, costtype: str) -> list:
+def _get_fully_random_costs(movetype: str, costtype: str, random) -> list:
     """
     Returns a list of tuples where the first value holds the dbkey for a cost
     and the second value holds its fully randomized cost value.
@@ -110,7 +109,8 @@ def get_randomized_moves(
     badges_bp_setting: int,
     badges_fp_setting: int,
     partner_fp_setting: int,
-    starpower_setting: int
+    starpower_setting: int,
+    random
 ):
     """
     Returns a list of tuples where the first value holds the dbkey for a move
@@ -125,19 +125,19 @@ def get_randomized_moves(
     move_costs = []
 
     if badges_bp_setting in rnd_cost_functions:
-        new_cost = rnd_cost_functions.get(badges_bp_setting)("BADGE", "BP")
+        new_cost = rnd_cost_functions.get(badges_bp_setting)("BADGE", "BP", random)
         move_costs.extend(new_cost)
 
     if badges_fp_setting in rnd_cost_functions:
-        new_cost = rnd_cost_functions.get(badges_fp_setting)("BADGE", "FP")
+        new_cost = rnd_cost_functions.get(badges_fp_setting)("BADGE", "FP", random)
         move_costs.extend(new_cost)
 
     if partner_fp_setting in rnd_cost_functions:
-        new_cost = rnd_cost_functions.get(partner_fp_setting)("PARTNER", "FP")
+        new_cost = rnd_cost_functions.get(partner_fp_setting)("PARTNER", "FP", random)
         move_costs.extend(new_cost)
 
     if starpower_setting in rnd_cost_functions:
-        new_cost = rnd_cost_functions.get(starpower_setting)("STARPOWER", "FP")
+        new_cost = rnd_cost_functions.get(starpower_setting)("STARPOWER", "FP", random)
         move_costs.extend(new_cost)
 
     return move_costs

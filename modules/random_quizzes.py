@@ -3,10 +3,9 @@
 This module is used for modifying the questions asked by Chuck Quizmo in
 various areas of the game.
 """
-import random
 
 
-def get_randomized_quizzes() -> list:
+def get_randomized_quizzes(random) -> list:
     """
     Returns a list of tuples where the first value holds the dbkey for a quiz
     question and the second value holds the shuffled quiz question index. Also

@@ -1,12 +1,10 @@
 # from https://github.com/icebound777/PMR-SeedGenerator/blob/main/rando_modules/random_partners.py
 
 """This module handles choosing random partners to start the seed with."""
-import random
-
 from ..data.partners_meta import all_partners as all_partners_imp
 
 
-def get_rnd_starting_partners(partners: int) -> list:
+def get_rnd_starting_partners(partners: int, random) -> list:
     """
     Returns a list of randomly chosen partners.
     """
