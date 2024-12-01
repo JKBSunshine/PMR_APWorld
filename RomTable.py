@@ -30,7 +30,7 @@ class RomTable:
     def generate_pairs(self, options: PaperMarioOptions, placed_items: list[Node], placed_blocks: dict, entrances: list,
                        actor_attributes: list, move_costs: list, palettes: list, quizzes: list, music_list: list,
                        mapmirror_list: list, puzzle_list: list, mystery_opts: MysteryOptions, required_spirits: list,
-                       star_beam_area: int):
+                       battle_list: list, star_beam_area: int):
         table_data = []
 
         # Options
@@ -95,6 +95,12 @@ class RomTable:
 
         # Entrances
         for key, value in entrances:
+            table_data.append({
+                "key": key,
+                "value": value
+            })
+
+        for key, value in battle_list:
             table_data.append({
                 "key": key,
                 "value": value

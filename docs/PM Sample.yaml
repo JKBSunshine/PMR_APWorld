@@ -10,7 +10,7 @@ Paper Mario:
     # Many settings do not affect logic or generation in any way and will only be relevant when an actual file gets created. These will be marked (NLA).
     # Changing these settings is usually fine, just don't be too surprised if they don't work. If you have generation issues or crash issues, leave them as is to ensure they aren't the cause.
     
-    # AP World Version: 0.4.1
+    # AP World Version: 0.4.2
 
     # Items
     keysanity: True                         # Other options: False
@@ -23,17 +23,17 @@ Paper Mario:
     foliage_coins: False                    # Other options: True
     coin_blocks: False                      # Other options: True
     include_shops: True                     # Other options: False
-    dojo: False                             # Other options: True
+    dojo: 0                                 # Other options: 0-5
     partner_upgrades: vanilla               # Other options: super_block_locations, full_shuffle
     letter_rewards: vanilla                 # Other options: vanilla_letter_chain, final_letter_chain_reward, full_shuffle
     super_multi_blocks: False               # Other options: True
-    rowf_items: True                        # Other options: False
+    rowf_items: 5                           # Other options: 0-5
     merlow_items: False                     # Other options: True
     cheato_items: 6                         # Other options: 0 to 11
     local_consumables: 100                  # Other options: 0 to 100 It's recommended you leave this alone, as receiving consumables from others with a full inventory means the item disappears.
 
     # Partner
-    partners: True                          # Other options: False
+    partners: Full_Shuffle                  # Other options: Off, Partner_Locations
     partners_always_usable: False           # Other options: True
     start_random_partners: False            # Other options: True
     start_partners: 1                       # Other options: 1-8; for random, use random-low, random-high, or random-range-#-#
@@ -54,6 +54,7 @@ Paper Mario:
     mystery_shuffle: vanilla                # Other options: random_pick, random_per_use
     formation_shuffle: False                # Other options: True
     random_puzzles: False                   # Other options: True (NYI)
+    boss_shuffle: False                     # Other options: True (NYI)
     blooper_damage_requirements: None       # Other options: Low, Medium, High
 
     # General Difficulty
@@ -113,7 +114,7 @@ Paper Mario:
     ch7_bridge_visible: False               # Other options: True
     mirror_mode: Off                        # Other options: always_on (NLA), random_on_every_load (NLA), static_random (NYI)
     bowser_castle_mode: vanilla             # Other options: shortened, boss_rush
-    shuffle_dungeon_entrances: False        # Other options: True (NYI)
+    shuffle_dungeon_entrances: Off          # Other options: Only_Spirit_Dungeons (NYI), Include_Bowsers_Castle (NYI)
 
     # Quality of Life Settings
     hidden_block_mode: Always_Visible       # Other options: vanilla, watt_out, watt_obtained, always_visible

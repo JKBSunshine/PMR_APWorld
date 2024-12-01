@@ -7,7 +7,7 @@ from itertools import chain
 from .data.chapter_logic import get_bowser_castle_removed_locations, areas_by_chapter, \
     get_locations_beyond_spirit_requirements
 from .data.ItemList import taycet_items, item_table, progression_miscitems, item_groups, item_multiples_base_name
-from .data.LocationsList import location_groups, location_table, missable_locations
+from .data.LocationsList import location_groups, location_table, missable_locations, dojo_location_order
 from .options import *
 from .data.item_exclusion import exclude_due_to_settings, exclude_from_taycet_placement
 from .modules.modify_itempool import get_trapped_itempool, get_randomized_itempool
@@ -161,7 +161,9 @@ def get_pool_core(world: "PaperMarioWorld"):
                 location.show_in_spoiler = False
 
         if location.name in location_groups["DojoReward"]:
-            shuffle_item = world.options.dojo.value
+
+            reward_num = dojo_location_order.index(location.name)
+            shuffle_item = (reward_num < world.options.dojo.value)
             if not shuffle_item:
                 location.disabled = True
 
@@ -171,7 +173,7 @@ def get_pool_core(world: "PaperMarioWorld"):
                 location.disabled = True
 
         if location.name in location_groups["Partner"]:
-            shuffle_item = world.options.partners.value
+            shuffle_item = (world.options.partners.value != ShufflePartners.option_Off)
             if not shuffle_item:
                 location.disabled = True
 
@@ -521,10 +523,10 @@ def get_locations_to_exclude(world: "PaperMarioWorld", bc_removed_locations: lis
         excluded_locations.extend(location_groups["MerlowReward"])
 
     # exclude rowf item locations
-    if not world.options.rowf_items.value:
-        for location in location_groups["RowfShop"]:
-            if location not in excluded_locations:
-                excluded_locations.append(location)
+    for location in location_groups["RowfShop"]:
+        set_number: int = int(location[34])  # Example string: "TT Plaza District Rowf's Shop Set 1 - 1"
+        if location not in excluded_locations and set_number > world.options.rowf_items.value:
+            excluded_locations.append(location)
 
     # exclude rip cheato locations
     for i in range(0, 11):

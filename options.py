@@ -2,7 +2,6 @@
 Option definitions for Paper Mario 64
 """
 
-from typing import Dict
 from Options import Choice, Range, DeathLink, Toggle, DefaultOnToggle, FreeText, PerGameCommonOptions
 from dataclasses import dataclass
 
@@ -24,10 +23,13 @@ class ShuffleHiddenPanels(Toggle):
     display_name = "Include Hidden Panels"
 
 
-class ShuffleDojoRewards(Toggle):
-    """Include Dojo fight rewards in the item pool. The logic can only expect you to do the 2nd fight with 1 star
+class ShuffleDojoRewards(Range):
+    """Number of Dojo fights with randomized rewards. The logic can only expect you to do the 2nd fight with 1 star
     spirit saved. The three Master fights are only in logic after you have 3, 4, and 5 star spirits saved."""
-    display_name = "Include Dojo Rewards"
+    display_name = "Dojo Rewards"
+    range_start = 0
+    range_end = 5
+    default = 0
 
 
 class ShuffleSuperMultiBlocks(Toggle):
@@ -97,11 +99,14 @@ class LogicRipCheatoItems(Range):
     default = 6
 
 
-class LogicRowfItems(DefaultOnToggle):
-    """Determines whether items sold by Rowf can be required for progression.
-    He sells 4 items initially, and 3 more for each Star Spirit saved up to 16 total items.
+class LogicRowfItems(Range):
+    """Determines how many sets of items sold by Rowf are candidates for progression items.
+    He sells 4 items initially, and 3 more for each Star Spirit up to saved 4 Spirits, up to 16 total items.
     Note: You can talk to him and request he change his offerings."""
     display_name = "Rowf Items in Logic"
+    range_start = 0
+    range_end = 5
+    default = 5
 
 
 class LogicMerlowItems(Toggle):
@@ -145,9 +150,12 @@ class LocalConsumables(Range):
 
 
 # Partners
-class ShufflePartners(DefaultOnToggle):
-    """Partners are items in the item pool and you get an item where you would normally get a partner."""
+class ShufflePartners(Choice):
+    """Partners become items in the item pool, and you get an item where you would normally get a partner."""
     display_name = "Shuffle Partners"
+    option_Off = 0
+    option_Partner_Locations = 1
+    option_Full_Shuffle = 2
 
 
 class PartnersAlwaysUsable(Toggle):
@@ -276,6 +284,12 @@ class RandomPuzzles(Toggle):
     """Randomizes most of the game's puzzles.
     Note: This is not yet implemented and will fail to generate if set to True."""
     display_name = "Randomize Puzzles"
+
+
+class BossShuffle(Toggle):
+    """Shuffles end of chapter bosses. While enabled, Mario can run on the first turn of a boss battle.
+    Note: This is not yet implemented and will fail to generate if set to True."""
+    display_name = "Shuffle Bosses"
 
 
 class BlooperDamageRequirements(Choice):
@@ -674,10 +688,13 @@ class BowserCastleMode(Choice):
     option_Boss_Rush = 2
 
 
-class ShuffleDungeonEntrances(Toggle):
-    """Shuffles the main entrance of every chapter dungeon.
+class ShuffleDungeonEntrances(Choice):
+    """Shuffles the main entrance of every chapter dungeon. You can also choose to include Bowser's Castle's entrance.
     Note: This is not yet implemented and will fail to generate if set to True."""
-    display_name = "Shuffle Dungeon Entrances"
+    display_name = "Dungeon Entrance Shuffle"
+    option_Off = 0
+    option_Only_Spirit_Dungeons = 1
+    option_Include_Bowsers_Castle = 2
 
 
 # QoL settings
@@ -1035,6 +1052,7 @@ class PaperMarioOptions(PerGameCommonOptions):
     mystery_shuffle: MysteryShuffle
     formation_shuffle: ShuffleBattleFormations
     random_puzzles: RandomPuzzles
+    boss_shuffle: BossShuffle
     blooper_damage_requirements: BlooperDamageRequirements
 
     # General Difficulty

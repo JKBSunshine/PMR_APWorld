@@ -97,6 +97,7 @@ def write_patch(
         puzzle_list=puzzle_list,
         mystery_opts=mystery_opts,
         required_spirits=world.required_spirits,
+        battle_list=world.battle_list,
         star_beam_area=star_beam_area
     )
 

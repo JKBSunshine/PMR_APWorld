@@ -4,6 +4,7 @@ import os
 import logging
 from typing import Dict, Any
 from BaseClasses import (Tutorial, CollectionState, MultiWorld, ItemClassification as ic, LocationProgressType)
+from .modules.random_battles import get_boss_battles
 from .SettingsString import load_settings_from_site_string
 from worlds.AutoWorld import World, WebWorld
 from . import Locations, options
@@ -30,7 +31,7 @@ from .Rules import set_rules
 from .modules.random_partners import get_rnd_starting_partners
 from .options import (SeedGoal, PaperMarioOptions, ShuffleKootFavors, PartnerUpgradeShuffle, HiddenBlockMode,
                       ShuffleSuperMultiBlocks, GearShuffleMode, StartingMap, BowserCastleMode, ShuffleLetters,
-                      ItemTraps, MirrorMode)
+                      ItemTraps, MirrorMode, ShufflePartners, ShuffleKeys, ShuffleDungeonEntrances, BossShuffle)
 from .data.node import Node
 from .data.starting_maps import starting_maps
 from .Rom import generate_output, PaperMarioDeltaPatch
@@ -125,6 +126,7 @@ class PaperMarioWorld(World):
         self.parser = Rule_AST_Transformer(self, self.player)
 
         self.regions = []
+        self.battle_list = []
 
     @classmethod
     def stage_assert_generate(cls, multiworld: MultiWorld) -> None:
@@ -143,8 +145,10 @@ class PaperMarioWorld(World):
             nyi_warnings += "\n'random_puzzles' must be set to False"
         if self.options.item_traps.value != ItemTraps.option_No_Traps:  # not possible with current base mod
             nyi_warnings += "\n'item_traps' must be set to No_Traps"
-        if self.options.shuffle_dungeon_entrances.value:  # NYI
-            nyi_warnings += "\n'shuffle_dungeon_entrances' must be set to False"
+        if self.options.shuffle_dungeon_entrances.value != ShuffleDungeonEntrances.option_Off:  # NYI
+            nyi_warnings += "\n'shuffle_dungeon_entrances' must be set to Off"
+        if self.options.boss_shuffle.value:  # NYI
+            nyi_warnings += "\n'boss_shuffle' must be set to False"
         if self.options.mirror_mode.value == MirrorMode.option_Static_Random:  # NYI
             nyi_warnings += "\n'mirror_mode' cannot be set to Static_Random"
 
@@ -171,8 +175,8 @@ class PaperMarioWorld(World):
                 lcl_warnings += "\n'gear_shuffle_mode' must be set to full_shuffle"
             if not self.options.keysanity.value:
                 lcl_warnings += "\n'keysanity' must be set to True"
-            if not self.options.partners.value:
-                lcl_warnings += "\n'partners' must be set to True"
+            if self.options.partners.value != ShufflePartners.option_Full_Shuffle:
+                lcl_warnings += "\n'partners' must be set to full_shuffle"
 
             if lcl_warnings:
                 lcl_warnings = (f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) has limit "
@@ -276,6 +280,9 @@ class PaperMarioWorld(World):
                                                      self.options.partner_upgrades.value >=
                                                      PartnerUpgradeShuffle.option_Super_Block_Locations,
                                                      self.random)
+
+        # shuffle bosses - NYI
+        self.battles, self.boss_chapter_map = get_boss_battles(self.options.boss_shuffle.value, self.random)
 
     def create_regions(self) -> None:
         # Create base regions
@@ -522,6 +529,12 @@ class PaperMarioWorld(World):
                 if item.name in item_groups["Gear"]:
                     prefill_item_names.append(item.name)
 
+        # partners if shuffled among partner locations
+        if self.options.partners.value == ShufflePartners.option_Partner_Locations:
+            for item in self.itempool:
+                if item.name in item_groups["Partner"]:
+                    prefill_item_names.append(item.name)
+
         # upgrades shuffled among super blocks, two of each
         if self.options.partner_upgrades.value == PartnerUpgradeShuffle.option_Super_Block_Locations:
             for item in self.itempool:
@@ -545,9 +558,11 @@ class PaperMarioWorld(World):
                     keep_local = (self.options.partner_upgrades.value ==
                                   PartnerUpgradeShuffle.option_Super_Block_Locations)
                 elif item.name in prefill_item_names and item.type == "KEYITEM":
-                    keep_local = (self.options.keysanity.value == self.options.keysanity.option_false)
+                    keep_local = (self.options.keysanity.value == ShuffleKeys.option_false)
                 elif item.name in prefill_item_names and item.type == "GEAR":
-                    keep_local = (self.options.gear_shuffle_mode.value <= self.options.gear_shuffle_mode.option_Full_Shuffle)
+                    keep_local = (self.options.gear_shuffle_mode.value <= GearShuffleMode.option_Full_Shuffle)
+                elif item.name in prefill_item_names and item.type == "PARTNER":
+                    keep_local = (self.options.partners.value <= ShufflePartners.option_Full_Shuffle)
 
                 if keep_local:
                     prefill_items.append(item)
@@ -621,6 +636,18 @@ class PaperMarioWorld(World):
                     self.pre_fill_items.remove(item)
                 self.multiworld.random.shuffle(locations)
                 fill_restrictive(self.multiworld, prefill_state(state), locations, upgrade_items,
+                                 single_player_placement=True, lock=True, allow_excluded=False)
+
+        if self.options.partners.value == ShufflePartners.option_Partner_Locations:
+            partner_items = list(filter(lambda item: pm_is_item_of_type(item, "PARTNER"), self.pre_fill_items))
+            partner_locations = location_groups["Partner"]
+            locations = list(filter(lambda location: location.name in partner_locations,
+                                    self.multiworld.get_unfilled_locations(player=self.player)))
+            if isinstance(locations, list):
+                for item in partner_items:
+                    self.pre_fill_items.remove(item)
+                self.multiworld.random.shuffle(locations)
+                fill_restrictive(self.multiworld, prefill_state(state), locations, partner_items,
                                  single_player_placement=True, lock=True, allow_excluded=False)
 
         # Place dungeon key items in their own dungeon

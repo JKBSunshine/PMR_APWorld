@@ -89,7 +89,8 @@ gameplayMap = [
     SettingModel("p", "partner_fp_shuffle", "number"),
     SettingModel("s", "sp_shuffle", "number"),
     SettingModel("m", "mystery_shuffle", "number"),
-    SettingModel("z", "random_puzzles", "bool")
+    SettingModel("z", "random_puzzles", "bool"),
+    SettingModel("o", "boss_shuffle", "bool")
 ]
 
 itemsMap = [
@@ -97,7 +98,7 @@ itemsMap = [
     SettingModel("e", "coin_blocks", "bool"),
     SettingModel("j", "koot_coins", "bool"),
     SettingModel("n", "foliage_coins", "bool"),
-    SettingModel("d", "dojo", "bool"),
+    SettingModel("d", "dojo", "number"),
     SettingModel("f", "koot_favors", "number"),
     SettingModel("p", "shuffle_hidden_panels", "bool"),
     SettingModel("s", "include_shops", "bool"),
@@ -109,7 +110,7 @@ itemsMap = [
     SettingModel("g", "gear_shuffle_mode", "number"),
     SettingModel("u", "partner_upgrades", "number"),
     SettingModel("a", "cheato_items", "number"),
-    SettingModel("o", "rowf_items", "bool"),
+    SettingModel("o", "rowf_items", "number"),
     SettingModel("m", "merlow_items", "bool")
 ]
 
@@ -138,7 +139,7 @@ openLocationsMap = [
     SettingModel("p", "open_prologue", "bool"),
     SettingModel("m", "magical_seeds", "number"),
     SettingModel("o", "bowser_castle_mode", "number"),
-    SettingModel("d", "shuffle_dungeon_entrances", "bool"),
+    SettingModel("d", "shuffle_dungeon_entrances", "number"),
     SettingModel("z", "mirror_mode", "number"),
 ]
 
@@ -157,7 +158,7 @@ partnersMap = [
     SettingModel("a", "partners_always_usable", "bool"),
     SettingModel("x", "start_partners_min", "number"),
     SettingModel("n", "start_partners_max", "number"),
-    SettingModel("s", "partners", "bool"),
+    SettingModel("s", "partners", "number"),
     SettingModel("(p", "startWithPartners", "formGroup", startWithPartnersMap),
     SettingModel("r", "start_random_partners", "bool"),
 ]

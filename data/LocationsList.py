@@ -771,3 +771,11 @@ missable_locations = [
     "SSS Merluvlee's House Merlow's Badges 14",
     "SSS Merluvlee's House Merlow's Badges 15",
 ]
+
+dojo_location_order = [
+    "TT Gate District Dojo: Chan",
+    "TT Gate District Dojo: Lee",
+    "TT Gate District Dojo: Master 1",
+    "TT Gate District Dojo: Master 2",
+    "TT Gate District Dojo: Master 3"
+]
