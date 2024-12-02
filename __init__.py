@@ -421,7 +421,7 @@ class PaperMarioWorld(World):
         # remove internal event locations that are not going to exist in this seed
         all_state = self.get_state_with_complete_itempool()
         all_locations = self.get_locations()
-        all_state.sweep_for_events(locations=all_locations)
+        all_state.sweep_for_advancements(locations=all_locations)
         reachable = self.multiworld.get_reachable_locations(all_state, self.player)
         unreachable = [loc for loc in all_locations if
                        loc.internal and loc.event and loc.locked and loc not in reachable]
@@ -583,7 +583,7 @@ class PaperMarioWorld(World):
             state = base_state.copy()
             for item in self.get_pre_fill_items():
                 self.collect(state, item)
-            state.sweep_for_events(locations=self.get_locations())
+            state.sweep_for_advancements(locations=self.get_locations())
             return state
 
         # Prefill required replenishable items, local key items depending on settings
@@ -594,7 +594,7 @@ class PaperMarioWorld(World):
         state = CollectionState(self.multiworld)
         for item in self.itempool:
             self.collect(state, item)
-        state.sweep_for_events(locations=self.get_locations())
+        state.sweep_for_advancements(locations=self.get_locations())
 
         # place progression items that are also consumables in locations that are replenishable
         replenish_locations = [name for name, data in location_table.items() if data[0] in replenishing_itemlocations]
