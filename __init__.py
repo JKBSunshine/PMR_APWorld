@@ -2,7 +2,7 @@ import settings
 import typing
 import os
 import logging
-from typing import Dict, Any
+from typing import Dict, Any, TextIO
 from BaseClasses import (Tutorial, CollectionState, MultiWorld, ItemClassification as ic, LocationProgressType)
 from .modules.random_battles import get_boss_battles
 from .SettingsString import load_settings_from_site_string
@@ -35,7 +35,7 @@ from .options import (SeedGoal, PaperMarioOptions, ShuffleKootFavors, PartnerUpg
 from .data.node import Node
 from .data.starting_maps import starting_maps
 from .Rom import generate_output, PaperMarioDeltaPatch
-from Fill import fill_restrictive
+from Fill import fill_restrictive, remaining_fill
 from .modules.random_blocks import get_block_placement
 import pkg_resources
 from .client import PaperMarioClient  # unused but required for generic client to hook onto
@@ -119,6 +119,7 @@ class PaperMarioWorld(World):
         self.itempool = []
         self.pre_fill_items = []
         self.dungeon_restricted_items = {}
+        self.dro_shop_puzzle_items = []
         self.remove_from_start_inventory = []
         self.web_start_inventory = []
 
@@ -127,6 +128,8 @@ class PaperMarioWorld(World):
 
         self.regions = []
         self.battle_list = []
+
+        self.spoilerlog_puzzles = {}
 
     @classmethod
     def stage_assert_generate(cls, multiworld: MultiWorld) -> None:
@@ -141,8 +144,6 @@ class PaperMarioWorld(World):
 
         # fail generation if attempting to use options that are not fully implemented yet
         nyi_warnings = ""
-        if self.options.random_puzzles.value:  # NYI
-            nyi_warnings += "\n'random_puzzles' must be set to False"
         if self.options.item_traps.value != ItemTraps.option_No_Traps:  # not possible with current base mod
             nyi_warnings += "\n'item_traps' must be set to No_Traps"
         if self.options.shuffle_dungeon_entrances.value != ShuffleDungeonEntrances.option_Off:  # NYI
@@ -407,7 +408,7 @@ class PaperMarioWorld(World):
                 self.itempool.append(self.create_item(self.get_filler_item_name()))
 
         # remove prefill items from item pool to be randomized
-        self.itempool, self.pre_fill_items, self.dungeon_restricted_items = self.divide_itempools()
+        self.itempool, self.pre_fill_items, self.dungeon_restricted_items, self.dro_shop_puzzle_items = self.divide_itempools()
 
         self.multiworld.itempool.extend(self.itempool)
         self.remove_from_start_inventory.extend(removed_items)
@@ -510,6 +511,7 @@ class PaperMarioWorld(World):
         main_items = []
         prefill_item_names = []
         dungeon_restricted_items = {}
+        dro_shop_puzzle_items = []
 
         # progression items that need to be in replenishable locations
         for item in progression_miscitems:
@@ -569,7 +571,20 @@ class PaperMarioWorld(World):
                 else:
                     main_items.append(item)
 
-        return main_items, prefill_items, dungeon_restricted_items
+        if self.options.random_puzzles.value and self.options.include_shops.value:
+            # ensure there are at least 3 items that can be used for the Dry Dry Outpost puzzles
+            self.random.shuffle(main_items)
+            for _ in range(3):
+                for i, item in enumerate(main_items):
+                    if ((item_table[item.name][0] == "ITEM"
+                        and item_table[item.name][3] <= 10 and item_table[item.name][2] <= 0xFF)
+                            or item_table[item.name][0] == "COIN"):
+                        dro_shop_puzzle_items.append(main_items.pop(i))
+                        break
+                else:
+                    raise Exception("Could not find a suitable item for DRO shop puzzle.")
+
+        return main_items, prefill_items, dungeon_restricted_items, dro_shop_puzzle_items
 
     # handle player-specific stuff like cosmetics, audio, enemy stats, etc.
 
@@ -595,6 +610,12 @@ class PaperMarioWorld(World):
         for item in self.itempool:
             self.collect(state, item)
         state.sweep_for_advancements(locations=self.get_locations())
+
+        dro_shop_locations = [self.multiworld.get_location(location, self.player)
+                              for location in self.random.sample([location for location in location_table.keys()
+                                                                  if "DDO Outpost 1 Shop Item" in location], 3)]
+
+        remaining_fill(self.multiworld, dro_shop_locations, self.dro_shop_puzzle_items)
 
         # place progression items that are also consumables in locations that are replenishable
         replenish_locations = [name for name, data in location_table.items() if data[0] in replenishing_itemlocations]
@@ -707,6 +728,13 @@ class PaperMarioWorld(World):
 
     def generate_output(self, output_directory: str):
         generate_output(self, output_directory)
+
+
+    def write_spoiler(self, spoiler_handle: TextIO) -> None:
+        if self.spoilerlog_puzzles:
+            spoiler_handle.write(f"\n\nPuzzles ({self.multiworld.player_name[self.player]}):\n")
+            for puzzle, solution in self.spoilerlog_puzzles.items():
+                spoiler_handle.write(f"\n{puzzle}: {solution}")
 
     # handle star pieces from quizmo, triple star piece items
     def collect(self, state: CollectionState, item: PMItem) -> bool:
