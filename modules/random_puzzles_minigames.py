@@ -614,8 +614,9 @@ def _lavadam_pushblock_positions(random) -> int:
 
 
 def get_dro_shop_items(world) -> list:
-    dro_shop_items = [world.multiworld.get_location(f"DDO Outpost 1 Shop Item {n}",
-                                                    world.player).item.name for n in range(1, 7)]
+    dro_shop_items = [world.multiworld.get_location(f"DDO Outpost 1 Shop Item {n}", world.player).item.name
+                      if world.multiworld.get_location(f"DDO Outpost 1 Shop Item {n}", world.player).item.player
+                      == world.player else "MultiWorldGeneric" for n in range(1, 7)]
 
     return dro_shop_items
 
