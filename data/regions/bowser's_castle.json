@@ -794,7 +794,7 @@
     "map_id": "48",
     "map_name": "Left Water Puzzle",
     "locations": {
-      "BC Left Water Puzzle Top Left Ledge": "can_use_ability_sushie and 'RF_WaterLevel2'"
+      "BC Left Water Puzzle Top Left Ledge": "can_use_ability_sushie and 'RF_WaterLevel3'"
     },
     "exits": {
       "BC Right Water Puzzle 3F": "True"
