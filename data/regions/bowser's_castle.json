@@ -806,7 +806,7 @@
     "map_id": "48",
     "map_name": "Right Water Puzzle",
     "events": {
-      "RF_WaterLevel2": "Boots"
+      "RF_WaterLevel2": "Ultra_Boots"
     },
     "locations": {
       "BC Right Water Puzzle Hidden Block": "can_see_hidden_blocks and Ultra_Boots"
