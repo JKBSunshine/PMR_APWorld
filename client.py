@@ -31,12 +31,12 @@ class PaperMarioClient(BizHawkClient):
 
         try:
             # Check ROM name/patch version
-            game_names = await bizhawk.read(ctx.bizhawk_ctx, [(0x20, 0x14, "ROM"),
-                                                              (TABLE_ADDRESS, 0x4, "ROM")])
-            if game_names[0].decode("ascii") != "PAPER MARIO         ":
+            game_name = await bizhawk.read(ctx.bizhawk_ctx, [(0x20, 0x14, "ROM")])
+            if game_name[0].decode("ascii") != "PAPER MARIO         ":
                 return False
 
-            if game_names[1] != MAGIC_VALUE:
+            pmr_magic_value = await bizhawk.read(ctx.bizhawk_ctx, [(TABLE_ADDRESS, 0x4, "ROM")])
+            if pmr_magic_value[0] != MAGIC_VALUE:
                 logger.info("This Paper Mario ROM is invalid.")
                 return False
 
