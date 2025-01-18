@@ -4,6 +4,7 @@ This module is used for modifying the puzzles and minigames in various areas of
 the game.
 """
 from ..data.puzzle_data import puzzle_data
+from ..data.ItemList import item_table
 
 
 # TODO set up fill to handle DRO Shop puzzles
@@ -18,6 +19,8 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
     shopcode_redjar = {}
 
     spoilerlog_additions = {}
+
+    random = world.random
 
     for name, data in puzzle_data.items():
         # Fuzzy Tree Minigame Round 1 hops
@@ -61,7 +64,8 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
                     max_x=6,
                     min_z=0,
                     max_z=5,
-                    disallowed_positions=[]
+                    disallowed_positions=[],
+                    random=random
                 )
             puzzle_minigame_list.append((get_puzzle_key(data[0]), position_encoded))
 
@@ -101,7 +105,8 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
                     max_x=4,
                     min_z=0,
                     max_z=4,
-                    disallowed_positions=[]
+                    disallowed_positions=[],
+                    random=random
                 )
             puzzle_minigame_list.append((get_puzzle_key(data[0]), positions_encoded))
 
@@ -114,22 +119,22 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
                 )
             else:
                 dro_shop_nonuniques = set([
-                    x for x in get_dro_shop_items(world)
-                    if    (x.item_type == "ITEM" and x.base_price <= 10 and x.value <= 0xFF)
-                    #      consumable                affordable             not the berry keys
-                       or x.item_type == "COIN"
+                    item for item in get_dro_shop_items(world)
+                    if ((item_table[item][0] == "ITEM"
+                        and item_table[item][3] <= 10 and item_table[item][2] <= 0xFF)
+                            or item_table[item][0] == "COIN")
                 ])
                 dro_shop_nonuniques = sorted(list(dict.fromkeys(dro_shop_nonuniques)))
                 world.random.shuffle(dro_shop_nonuniques)
                 code_item_1 = dro_shop_nonuniques.pop()
                 code_item_2 = dro_shop_nonuniques.pop()
-                pulsestone_item_order_str = f"{code_item_1.item_name}{code_item_2.item_name}"
+                pulsestone_item_order_str = f"{code_item_1}{code_item_2}"
                 pulsestone_buy_order = (
-                    (code_item_1.value << 16)
-                  + code_item_2.value
+                    (item_table[code_item_1][2] << 16)
+                    + item_table[code_item_2][2]
                 )
                 spoilerlog_additions["ShopCodePulseStone"] = (
-                    f"{code_item_1.item_name}, {code_item_2.item_name}"
+                    f"{code_item_1}, {code_item_2}"
                 )
             puzzle_minigame_list.append((
                 get_puzzle_key(data[0]),
@@ -149,10 +154,10 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
                     # two puzzle dbkeys
                     shopcode_redjar = {1: "", 2: "", 3: "", 4: ""}
                     dro_shop_nonuniques = set([
-                        x for x in get_dro_shop_items(world)
-                        if    (x.item_type == "ITEM" and x.base_price <= 10 and x.value <= 0xFF)
-                        #      consumable                affordable             not the berry keys
-                           or x.item_type == "COIN"
+                        item for item in get_dro_shop_items(world)
+                        if ((item_table[item][0] == "ITEM"
+                             and item_table[item][3] <= 10 and item_table[item][2] <= 0xFF)
+                            or item_table[item][0] == "COIN")
                     ])
                     dro_shop_nonuniques = sorted(list(dict.fromkeys(dro_shop_nonuniques)))
                     if len(dro_shop_nonuniques) < 4:
@@ -164,7 +169,7 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
                         code_item_3 = dro_shop_nonuniques.pop()
                         code_item_4 = dro_shop_nonuniques.pop()
 
-                        item_order_str = f"{code_item_1.item_name}{code_item_2.item_name}{code_item_3.item_name}{code_item_4.item_name}"
+                        item_order_str = f"{code_item_1}{code_item_2}{code_item_3}{code_item_4}"
 
                         # repeat generating a red jar code until the pulse stone
                         # code is no longer found inside of the red jar code
@@ -180,12 +185,12 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
                             dro_shop_nonuniques.append(code_item_3)
                             dro_shop_nonuniques.append(code_item_4)
                 if name == "ShopCodeRedJar1":
-                    buy_order = (shopcode_redjar[1].value << 16) + shopcode_redjar[2].value
+                    buy_order = (item_table[shopcode_redjar[1]][2] << 16) + item_table[shopcode_redjar[2]][2]
                 else:
-                    buy_order = (shopcode_redjar[3].value << 16) + shopcode_redjar[4].value
+                    buy_order = (item_table[shopcode_redjar[3]][2] << 16) + item_table[shopcode_redjar[4]][2]
                 spoilerlog_additions["ShopCodeRedJar"] = (
-                    f"{shopcode_redjar[1].item_name}, {shopcode_redjar[2].item_name}, "
-                    f"{shopcode_redjar[3].item_name}, {shopcode_redjar[4].item_name}"
+                    f"{shopcode_redjar[1]}, {shopcode_redjar[2]}, "
+                    f"{shopcode_redjar[3]}, {shopcode_redjar[4]}"
                 )
             puzzle_minigame_list.append((
                 get_puzzle_key(data[0]),
@@ -276,7 +281,8 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
             else:
                 positions_encoded, deepjungle_blocked_positions = _deepjungle_pushblock_positions(
                     name,
-                    deepjungle_blocked_positions
+                    deepjungle_blocked_positions,
+                    random
                 )
             puzzle_minigame_list.append((get_puzzle_key(data[0]), positions_encoded))
 
@@ -291,7 +297,8 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
                     max_x=14,
                     min_z=0,
                     max_z=4,
-                    disallowed_positions=[(14, 1)]
+                    disallowed_positions=[(14, 1)],
+                    random=random
                 )
             puzzle_minigame_list.append((get_puzzle_key(data[0]), positions_encoded))
 
@@ -300,7 +307,7 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
             if not random_puzzles:
                 positions_encoded = data[1]
             else:
-                positions_encoded = _lavadam_pushblock_positions()
+                positions_encoded = _lavadam_pushblock_positions(random)
             puzzle_minigame_list.append((get_puzzle_key(data[0]), positions_encoded))
 
         # Flower Fields Three Tree: Correct hit sequence
@@ -385,7 +392,7 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
             if not random_puzzles:
                 positions_encoded = data[1]
             else:
-                positions_encoded = _albino_dino_puzzle()
+                positions_encoded = _albino_dino_puzzle(random)
             puzzle_minigame_list.append((get_puzzle_key(data[0]), positions_encoded))
 
         # Bowser's Castle Up/Down Maze room: Solution
@@ -606,15 +613,10 @@ def _lavadam_pushblock_positions(random) -> int:
     return positions_encoded
 
 
-def get_dro_shop_items(world_graph) -> list:
-    dro_shop_items = []
-
-    dro_shop_items.append(world_graph["DRO_01/ShopItemA"]["node"].current_item)
-    dro_shop_items.append(world_graph["DRO_01/ShopItemB"]["node"].current_item)
-    dro_shop_items.append(world_graph["DRO_01/ShopItemC"]["node"].current_item)
-    dro_shop_items.append(world_graph["DRO_01/ShopItemD"]["node"].current_item)
-    dro_shop_items.append(world_graph["DRO_01/ShopItemE"]["node"].current_item)
-    dro_shop_items.append(world_graph["DRO_01/ShopItemF"]["node"].current_item)
+def get_dro_shop_items(world) -> list:
+    dro_shop_items = [world.multiworld.get_location(f"DDO Outpost 1 Shop Item {n}", world.player).item.name
+                      if world.multiworld.get_location(f"DDO Outpost 1 Shop Item {n}", world.player).item.player
+                      == world.player else "MultiWorldGeneric" for n in range(1, 7)]
 
     return dro_shop_items
 
