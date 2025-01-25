@@ -115,7 +115,7 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
             if not random_puzzles:
                 pulsestone_buy_order = data[1]
                 spoilerlog_additions["ShopCodePulseStone"] = (
-                    "DriedShroom, DustyHammer"
+                    "Dried Shroom, Dusty Hammer"
                 )
             else:
                 dro_shop_nonuniques = set([
@@ -146,7 +146,7 @@ def get_puzzles_minigames(random_puzzles: bool, world) -> (list, list):
             if not random_puzzles:
                 buy_order = data[1]
                 spoilerlog_additions["ShopCodeRedJar"] = (
-                    "DustyHammer, DriedPasta, DustyHammer, DriedShroom"
+                    "Dusty Hammer, Dried Pasta, Dusty Hammer, Dried Shroom"
                 )
             else:
                 if not shopcode_redjar:
@@ -614,9 +614,12 @@ def _lavadam_pushblock_positions(random) -> int:
 
 
 def get_dro_shop_items(world) -> list:
-    dro_shop_items = [world.multiworld.get_location(f"DDO Outpost 1 Shop Item {n}", world.player).item.name
-                      if world.multiworld.get_location(f"DDO Outpost 1 Shop Item {n}", world.player).item.player
-                      == world.player else "MultiWorldGeneric" for n in range(1, 7)]
+    if 2 in world.excluded_spirits and world.options.limit_chapter_logic.value:
+        dro_shop_items = ["Dried Shroom", "Dusty Hammer", "Dried Pasta"]
+    else:
+        dro_shop_items = [world.multiworld.get_location(f"DDO Outpost 1 Shop Item {n}", world.player).item.name
+                          if world.multiworld.get_location(f"DDO Outpost 1 Shop Item {n}", world.player).item.player
+                          == world.player else "MultiWorldGeneric" for n in range(1, 7)]
 
     return dro_shop_items
 

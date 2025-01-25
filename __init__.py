@@ -511,7 +511,7 @@ class PaperMarioWorld(World):
         main_items = []
         prefill_item_names = []
         dungeon_restricted_items = {}
-        dro_shop_puzzle_items = []
+        dro_shop_puzzle_item_names = []
 
         # progression items that need to be in replenishable locations
         for item in progression_miscitems:
@@ -543,12 +543,24 @@ class PaperMarioWorld(World):
                 if item.name in item_groups["PartnerUpgrade"]:
                     prefill_item_names.append(item.name)
 
+        # ensure DDO shop has 3 cheap consumables for puzzle purposes if needed
+        if self.options.random_puzzles.value and self.options.include_shops.value and not (
+                self.options.limit_chapter_logic.value and 2 in self.excluded_spirits):
+            for item in self.itempool:
+                if (item_table[item.name][0] == "ITEM"
+                        and item_table[item.name][3] <= 10 and item_table[item.name][2] <= 0xFF
+                        and len(dro_shop_puzzle_item_names) < 3 and item.name not in dro_shop_puzzle_item_names):
+                    dro_shop_puzzle_item_names.append(item.name)
+
         prefill_items = []
+        dro_shop_puzzle_items = []
         local_consumable_chance = self.options.local_consumables.value
         for item in self.itempool:
 
             if item.name in prefill_item_names and item not in prefill_items:
                 prefill_items.append(item)
+            elif item.name in dro_shop_puzzle_item_names and item not in dro_shop_puzzle_items:
+                dro_shop_puzzle_items.append(item)
             else:
                 # check if this item gets kept local or not
                 # sets extra copies of consumable progression items to be filler so that they aren't considered in logic
@@ -570,19 +582,6 @@ class PaperMarioWorld(World):
                     prefill_items.append(item)
                 else:
                     main_items.append(item)
-
-        if self.options.random_puzzles.value and self.options.include_shops.value:
-            # ensure there are at least 3 items that can be used for the Dry Dry Outpost puzzles
-            self.random.shuffle(main_items)
-            for _ in range(3):
-                for i, item in enumerate(main_items):
-                    if ((item_table[item.name][0] == "ITEM"
-                        and item_table[item.name][3] <= 10 and item_table[item.name][2] <= 0xFF)
-                            or item_table[item.name][0] == "COIN"):
-                        dro_shop_puzzle_items.append(main_items.pop(i))
-                        break
-                else:
-                    raise Exception("Could not find a suitable item for DRO shop puzzle.")
 
         return main_items, prefill_items, dungeon_restricted_items, dro_shop_puzzle_items
 
@@ -611,11 +610,13 @@ class PaperMarioWorld(World):
             self.collect(state, item)
         state.sweep_for_advancements(locations=self.get_locations())
 
-        dro_shop_locations = [self.multiworld.get_location(location, self.player)
-                              for location in self.random.sample([location for location in location_table.keys()
-                                                                  if "DDO Outpost 1 Shop Item" in location], 3)]
+        if self.options.random_puzzles.value and self.options.include_shops.value and not (
+                self.options.limit_chapter_logic.value and 2 in self.excluded_spirits):
+            dro_shop_locations = [self.multiworld.get_location(location, self.player)
+                                  for location in self.random.sample([location for location in location_table.keys()
+                                                                      if "DDO Outpost 1 Shop Item" in location], 3)]
 
-        remaining_fill(self.multiworld, dro_shop_locations, self.dro_shop_puzzle_items)
+            remaining_fill(self.multiworld, dro_shop_locations, self.dro_shop_puzzle_items)
 
         # place progression items that are also consumables in locations that are replenishable
         replenish_locations = [name for name, data in location_table.items() if data[0] in replenishing_itemlocations]

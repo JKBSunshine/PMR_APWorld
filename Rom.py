@@ -210,7 +210,7 @@ def generate_output(world, output_dir: str) -> None:
     # Quizzes are always randomized
     quiz_data = get_randomized_quizzes(world.random)
 
-    # No randomizing puzzles for now
+    # randomized puzzles
     puzzle_list, world.spoilerlog_puzzles = get_puzzles_minigames(world.options.random_puzzles.value, world)
 
     # Default mystery options for now

@@ -108,7 +108,8 @@ def get_pool_core(world: "PaperMarioWorld"):
         if location.name in location_groups["ShopItem"]:
 
             if location.identifier in ["DRO_01/ShopItemB", "DRO_01/ShopItemD", "DRO_01/ShopItemE"]:
-                shuffle_item = world.options.random_puzzles.value and world.options.include_shops.value
+                shuffle_item = (world.options.random_puzzles.value and world.options.include_shops.value
+                                and not (world.options.limit_chapter_logic.value and 2 in world.excluded_spirits))
             else:
                 shuffle_item = world.options.include_shops.value
 
