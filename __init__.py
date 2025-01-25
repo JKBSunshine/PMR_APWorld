@@ -159,11 +159,6 @@ class PaperMarioWorld(World):
                              "Please check for a newer release and/or adjust the settings below : ") + nyi_warnings)
             raise ValueError(nyi_warnings)
 
-        # Unclear which type of game is desired, raise error and have the player choose
-        if self.options.require_specific_spirits.value and self.options.power_star_hunt.value:
-            raise ValueError(f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) has power star "
-                             "hunt and require specific spirits enabled. One or both options must be disabled.")
-
         # LCL is not compatible with several options
         # Rather than generate with drastically different settings, compile list of incompatible settings
         if self.options.require_specific_spirits.value and self.options.limit_chapter_logic.value:
