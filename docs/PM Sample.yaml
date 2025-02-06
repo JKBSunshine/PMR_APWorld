@@ -100,7 +100,7 @@ Paper Mario:
     unused_badge_dupes: False               # Other options: True
     beta_items: False                       # Other options: True
     progressive_badges: False               # Other options: True
-    badge_pool_limit: 79                    # Other options: 0-128
+    badge_pool_limit: 128                   # Other options: 0-128
 
     # World Settings
     starting_map: Toad_Town                 # Other options: goomba_village, dry_dry_outpost, yoshi_village
