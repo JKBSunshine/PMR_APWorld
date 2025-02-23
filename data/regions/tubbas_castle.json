@@ -239,7 +239,7 @@
     "map_id": "14",
     "map_name": "Stairs to Third Floor",
     "locations": {
-      "TC Stairs to Third Floor Yellow Block": "True"
+      "TC Stairs to Third Floor Yellow Block": "can_hit_floating_blocks"
     },
     "exits": {
       "TC Table/Clock Room (1/2F) 2F": "True",
