@@ -314,6 +314,7 @@ def get_filled_node_list(world):
                                                               cur_node.current_item,
                                                               world.options.include_shops.value,
                                                               world.options.merlow_rewards_pricing.value,
+                                                              world.options.total_power_stars.value,
                                                               world.random)
 
         placed_items.append(cur_node)

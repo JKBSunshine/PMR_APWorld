@@ -10,6 +10,7 @@ def get_shop_price(node: PMLocation,
                    item: PMItem,
                    do_randomize_shops: bool,
                    merlow_cost_setting: int,
+                   total_power_stars: int,
                    random) -> int:
     """
     Return the price for an item for offer within a shop (regular or Merlow's).
@@ -81,8 +82,16 @@ def get_shop_price(node: PMLocation,
                 if (buy_price - (buy_price % 5)) != 0:
                     buy_price = round(buy_price / 5) * 5
 
-            elif item_type in ["BADGE", "KEYITEM", "PARTNER", "GEAR", "POWERSTAR", "PARTNERUPGRADE", "OTHER"]:
+            elif item_type in ["BADGE", "KEYITEM", "PARTNER", "GEAR", "PARTNERUPGRADE", "OTHER"]:
                 buy_price = random.choice([10, 15, 20, 25, 30])
+
+            elif item_type == "POWERSTAR":
+                if total_power_stars <= 40:
+                    buy_price = random.choice([10, 15, 20, 25, 30])
+                elif total_power_stars <= 80:
+                    buy_price = random.choice([5, 10, 15, 20])
+                else:
+                    buy_price = random.choice([5, 10])
 
             elif item_type == "COIN":
                 buy_price = 1
