@@ -42,8 +42,8 @@
       "JJ Beach In Palm Tree 3": "can_shake_trees",
       "JJ Beach In Palm Tree 4": "can_shake_trees",
       "JJ Beach In Palm Tree 5": "can_shake_trees",
-      "JJ Beach In Palm Tree 6": "can_shake_trees",
-      "JJ Beach In Palm Tree 6 2": "can_shake_trees"
+      "JJ Beach In Palm Tree 6 One-Off": "can_shake_trees",
+      "JJ Beach In Palm Tree 6 Replenishing": "can_shake_trees"
     },
     "exits": {
       "JJ Whale Cove": "True",
