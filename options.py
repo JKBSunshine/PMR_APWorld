@@ -490,8 +490,29 @@ class StartingCoins(Range):
     default = 150
 
 
+class StartingHP(Range):
+    """Amount of Health Points Mario will start the game with
+    Note: Mario must have at least one starting stat raised past its initial value (5 for HP and FP, 3 for BP)"""
+    display_name = "Starting HP"
+    range_start = 5
+    range_end = 50
+    default = 10
+    increment = 5
+
+
+class StartingFP(Range):
+    """Amount of Flower Points Mario will start the game with
+    Note: Mario must have at least one starting stat raised past its initial value (5 for HP and FP, 3 for BP)"""
+    display_name = "Starting FP"
+    range_start = 5
+    range_end = 50
+    default = 5
+    increment = 5
+
+
 class StartingBP(Range):
-    """Amount of Badge Points Mario will start the game with"""
+    """Amount of Badge Points Mario will start the game with
+    Note: Mario must have at least one starting stat raised past its initial value (5 for HP and FP, 3 for BP)"""
     display_name = "Starting BP"
     range_start = 3
     range_end = 30
@@ -499,22 +520,20 @@ class StartingBP(Range):
     increment = 3
 
 
-class StartingHP(Range):
-    """Amount of Health Points Mario will start the game with"""
-    display_name = "Starting HP"
-    range_start = 10
-    range_end = 50
-    default = 10
-    increment = 5
+class RandomStartingStats(Toggle):
+    """Instead of choosing starting stats, you can have them randomized based on a chosen starting level.
+    Setting this to true will overwrite the starting BP, HP, and FP stat settings
+    Base stats are 5 HP, 5 FP, and 3 BP, with each level raising one of these at random"""
+    display_name = "Random Starting Stats"
 
 
-class StartingFP(Range):
-    """Amount of Flower Points Mario will start the game with"""
-    display_name = "Starting FP"
-    range_start = 5
-    range_end = 50
-    default = 5
-    increment = 5
+class RandomStartingStatsLevel(Range):
+    """When random starting stats is true, this changes what level (1-27) Mario starts at.
+    Starting stats will be randomly distributed and will overwrite the starting HP, FP, and BP stat settings"""
+    display_name = "Random Starting Stats Level"
+    range_start = 1
+    range_end = 27
+    default = 1
 
 
 class StartingSP(Range):
@@ -1089,6 +1108,8 @@ class PaperMarioOptions(PerGameCommonOptions):
     starting_fp: StartingFP
     starting_sp: StartingSP
     random_start_items: RandomStartItems
+    random_start_stats: RandomStartingStats
+    random_start_stats_level: RandomStartingStatsLevel
 
     # Item Pool
     consumable_item_pool: ConsumableItemPool

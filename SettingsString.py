@@ -120,6 +120,8 @@ marioStatsMap = [
     SettingModel("i", "StartingItems", "items"),
     SettingModel("f", "starting_fp", "number"),
     SettingModel("h", "starting_hp", "number"),
+    SettingModel("w", "random_start_stats", "bool"),
+    SettingModel("l", "random_start_stats_level", "number"),
     SettingModel("s", "starting_sp", "number"),
     SettingModel("j", "starting_boots", "number"),
     SettingModel("a", "starting_hammer", "number"),

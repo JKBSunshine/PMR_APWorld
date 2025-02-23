@@ -86,9 +86,11 @@ Paper Mario:
     starting_boots: Normal                  # Other options: jumpless, super, ultra
     starting_hammer: Normal                 # Other options: hammerless, super, ultra
     starting_coins: 100                     # Other options: 0-999; remember to keep 50 to access Pleasant Path at start
-    starting_hp: 10                         # Other options: 10-50
+    starting_hp: 10                         # Other options: 5-50
     starting_bp: 3                          # Other options: 3-30
     starting_fp: 5                          # Other options: 5-50
+    random_start_stats: False               # Other options: True
+    random_start_stats_level: 1             # Other options: 1-27
     starting_sp: 0                          # Other options: 0-7
     random_start_items: 0                   # Other options: 0-16
 
