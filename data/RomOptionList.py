@@ -102,7 +102,7 @@ rom_option_table = {
     "Box5ColorA":               (97,     6,      5,      1,     3957749759),
     "Box5ColorB":               (98,     6,      5,      2,     2388272639),
     "CoinColor":                (99,     6,      5,      3,     0),
-    "RomanNumerals":            (100,     6,      5,      4,     0),
+    "RomanNumerals":            (100,    6,      5,      4,     0),
     "RandomText":               (101,    6,      5,      5,     0),
     "Widescreen":               (102,    6,      5,      6,     0),
     "RandomPitch":              (103,    7,      0,      0,     0),
