@@ -260,14 +260,15 @@ class PaperMarioWorld(World):
             self.options.star_beam_power_stars.value = 0
             self.options.total_power_stars.value = 0
         else:
-            if self.options.total_power_stars < self.options.star_way_power_stars:
-                raise ValueError(
-                    f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]})'s total_power_stars must "
-                    f"be set to more than star_way_power_stars.")
-            if self.options.total_power_stars < self.options.star_beam_power_stars:
-                raise ValueError(
-                    f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]})'s total_power_stars must "
-                    f"be set to more than star_way_power_stars.")
+            # ensure there are at least as many power stars as there are required for star way and star beam
+            # if total power stars is less than either, then put it 10% higher than the bigger requirement, max 120
+            if (self.options.total_power_stars.value < self.options.star_way_power_stars.value or
+               self.options.total_power_stars.value < self.options.star_beam_power_stars.value):
+                self.options.total_power_stars.value = min(120, int(1.15 * max(self.options.star_beam_power_stars.value,
+                                                                              self.options.star_way_power_stars.value)))
+                logger.info(f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) had less total "
+                            f"power stars than the required amount. New total set to 15% more than the larger "
+                            f"requirement, restricted to 120 or fewer.")
 
         # determine what blocks are what, shuffling if needed and setting them up to be used as locations
         if not self.placed_blocks:
