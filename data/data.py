@@ -750,8 +750,8 @@ checks_table = {
     "JJ Beach In Palm Tree 3":                                   ("MF",   0x106D),
     "JJ Beach In Palm Tree 4":                                   ("MF",   0x106E),
     "JJ Beach In Palm Tree 5":                                   ("MF",   0x106F),
-    "JJ Beach In Palm Tree 6":                                   ("GF",   0x4E4),
-    "JJ Beach In Palm Tree 6 2":                                 ("MF",   0x1070),
+    "JJ Beach In Palm Tree 6 One-Off":                           ("GF",   0x4E4),
+    "JJ Beach In Palm Tree 6 Replenishing":                      ("MF",   0x1070),
 
     "JJ Village Cove Village Leader Reward":                     ("MF",   0x1071),
     "JJ Village Cove Hidden Panel":                              ("GF",   0x4F5),
