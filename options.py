@@ -282,7 +282,7 @@ class ShuffleBattleFormations(Toggle):
 
 class RandomPuzzles(Toggle):
     """Randomizes most of the game's puzzles.
-    Note: This is not yet implemented and will fail to generate if set to True."""
+    See https://github.com/icebound777/PMR-SeedGenerator/wiki/Random-Puzzles for a full list."""
     display_name = "Randomize Puzzles"
 
 
