@@ -368,8 +368,8 @@ class PaperMarioWorld(World):
                 item_to_add = self.create_item(item_name)
                 starting_items.append(item_to_add)
 
-        # Randomly start with up to 16 items
-        elif self.options.random_start_items.value:
+        # Start with up to 16 random items on top of anything else already included
+        if self.options.random_start_items.value:
             self.random.shuffle(self.itempool)
 
             # Mario can only hold 10 consumables, so disallow more than 10 from being sent to his inventory
