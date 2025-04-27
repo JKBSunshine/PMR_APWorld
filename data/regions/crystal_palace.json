@@ -426,7 +426,7 @@
     "map_id": "24",
     "map_name": "Turnstyle Room",
     "exits": {
-      "CP Triple Dip Room North": "True",
+      "CP Triple Dip Room North": "can_use_ability_bombette",
       "CP Turnstyle Room South": "can_use_ability_bombette"
     }
   },
@@ -460,7 +460,7 @@
       "CP Triple Dip Room In Chest": "True"
     },
     "exits": {
-      "CP Turnstyle Room North": "True"
+      "CP Turnstyle Room North": "can_use_ability_bombette"
     }
   },
   {
