@@ -631,6 +631,14 @@ class PaperMarioWorld(World):
         # Place gear items in gear locations
         if self.options.gear_shuffle_mode.value == GearShuffleMode.option_Gear_Location_Shuffle:
             gear_items = list(filter(lambda item: pm_is_item_of_type(item, "GEAR"), self.pre_fill_items))
+            # if starting jumpless, the first set of boots has to go elsewhere as there isn't a gear location for it
+            # not to mention, no gear locations are reachable jumpless
+            if self.options.starting_boots.value == StartingBoots.option_Jumpless:
+                for item in gear_items:
+                    if item.name == "Progressive Boots":
+                        gear_items.remove(item)
+                        break
+
             gear_locations = location_groups["Gear"]
             locations = list(filter(lambda location: location.name in gear_locations,
                                     self.multiworld.get_unfilled_locations(player=self.player)))
