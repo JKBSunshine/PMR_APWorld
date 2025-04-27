@@ -519,10 +519,16 @@ class PaperMarioWorld(World):
                 if item.name in item_groups["Partner"]:
                     prefill_item_names.append(item.name)
 
-        # upgrades shuffled among super blocks, two of each
-        if self.options.partner_upgrades.value == PartnerUpgradeShuffle.option_Super_Block_Locations:
+        # partner upgrades shuffled among super block locations, which may be shuffled
+        if (self.options.partner_upgrades.value == PartnerUpgradeShuffle.option_Super_Block_Locations or
+                self.options.super_multi_blocks.value > ShuffleSuperMultiBlocks.option_Off):
             for item in self.itempool:
                 if item.name in item_groups["PartnerUpgrade"]:
+                    prefill_item_names.append(item.name)
+
+        if self.options.super_multi_blocks.value == ShuffleSuperMultiBlocks.option_Shuffle:
+            for item in self.itempool:
+                if item.name == "Coin Bag":
                     prefill_item_names.append(item.name)
 
         # ensure DDO shop has 3 cheap consumables for puzzle purposes if needed
@@ -550,8 +556,9 @@ class PaperMarioWorld(World):
         local_consumable_chance = self.options.local_consumables.value
         for item in self.itempool:
 
-            if item.name in prefill_item_names and item not in prefill_items:
+            if item.name in prefill_item_names:
                 prefill_items.append(item)
+                prefill_item_names.remove(item.name)
             elif item.name in dro_shop_puzzle_item_names and item not in dro_shop_puzzle_items:
                 dro_shop_puzzle_items.append(item)
             else:
@@ -562,8 +569,8 @@ class PaperMarioWorld(World):
                     item.classification = ic.filler
                     keep_local = self.random.randint(0, 100) <= local_consumable_chance
                 elif item.type == "PARTNERUPGRADE":
-                    keep_local = (self.options.partner_upgrades.value ==
-                                  PartnerUpgradeShuffle.option_Super_Block_Locations)
+                    keep_local = (self.options.partner_upgrades.value !=
+                                  PartnerUpgradeShuffle.option_Full_Shuffle)
                 elif item.name in prefill_item_names and item.type == "KEYITEM":
                     keep_local = (self.options.keysanity.value == ShuffleKeys.option_false)
                 elif item.name in prefill_item_names and item.type == "GEAR":
@@ -649,8 +656,9 @@ class PaperMarioWorld(World):
                 fill_restrictive(self.multiworld, prefill_state(state), locations, gear_items,
                                  single_player_placement=True, lock=True, allow_excluded=False)
 
-        # Place partner upgrade items in super block locations
-        if self.options.partner_upgrades.value == PartnerUpgradeShuffle.option_Super_Block_Locations:
+        # Place partner upgrade items in potential super block locations
+        if (self.options.partner_upgrades.value == PartnerUpgradeShuffle.option_Super_Block_Locations or
+                self.options.super_multi_blocks.value >= ShuffleSuperMultiBlocks.option_Shuffle):
             upgrade_items = list(filter(lambda item: pm_is_item_of_type(item, "PARTNERUPGRADE"), self.pre_fill_items))
             super_block_locations = location_groups["SuperBlock"]
 
@@ -665,6 +673,18 @@ class PaperMarioWorld(World):
                     self.pre_fill_items.remove(item)
                 self.multiworld.random.shuffle(locations)
                 fill_restrictive(self.multiworld, prefill_state(state), locations, upgrade_items,
+                                 single_player_placement=True, lock=True, allow_excluded=False)
+
+        # Place coin bags in super or multi coin block locations
+        if self.options.super_multi_blocks.value == ShuffleSuperMultiBlocks.option_Shuffle:
+            coin_bag_items = list(filter(lambda item: item.name == "Coin Bag", self.pre_fill_items))
+            multicoin_locations = location_groups["RandomBlock"]
+            locations = list(filter(lambda location: location.name in multicoin_locations,
+                                    self.multiworld.get_unfilled_locations(player=self.player)))
+            if isinstance(locations, list):
+                for item in coin_bag_items:
+                    self.pre_fill_items.remove(item)
+                fill_restrictive(self.multiworld, prefill_state(state), locations, coin_bag_items,
                                  single_player_placement=True, lock=True, allow_excluded=False)
 
         if self.options.partners.value == ShufflePartners.option_Partner_Locations:

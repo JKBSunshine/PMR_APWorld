@@ -315,7 +315,6 @@ def get_pool_core(world: "PaperMarioWorld"):
                 else:
                     pool_other_items.append(upgrade)
 
-
     # adjust item pools based on settings
     items_to_remove_from_pools = get_items_to_exclude(world)
 
