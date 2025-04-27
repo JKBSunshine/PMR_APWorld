@@ -10,7 +10,7 @@ Paper Mario:
     # Many settings do not affect logic or generation in any way and will only be relevant when an actual file gets created. These will be marked (NLA).
     # Changing these settings is usually fine, just don't be too surprised if they don't work. If you have generation issues or crash issues, leave them as is to ensure they aren't the cause.
     
-    # AP World Version: 0.4.4
+    # AP World Version: 0.6.0
 
     # Items
     keysanity: True                         # Other options: False
@@ -26,7 +26,7 @@ Paper Mario:
     dojo: 0                                 # Other options: 0-5
     partner_upgrades: vanilla               # Other options: super_block_locations, full_shuffle
     letter_rewards: vanilla                 # Other options: vanilla_letter_chain, final_letter_chain_reward, full_shuffle
-    super_multi_blocks: Anywhere            # Other options: off, shuffle_together
+    super_multi_blocks: Anywhere            # Other options: off, shuffle
     rowf_items: 5                           # Other options: 0-5
     merlow_items: False                     # Other options: True
     cheato_items: 6                         # Other options: 0 to 11
@@ -69,7 +69,7 @@ Paper Mario:
     drop_star_points: False                 # Other options: True
     badge_synergy: False                    # Other options: True
     merlow_rewards_pricing: vanilla         # Other options: cheap
-    chet_rippo: False                       # Other options: True
+    chet_rippo: True                        # Other options: False
     bowser_door_quiz: quiz                  # Other options: anti_guys_unit, skip
     kent_c_koopa: already_paid              # Other options: blocks_pleasant_path, must_defeat, already_defeated
 
