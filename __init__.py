@@ -347,7 +347,7 @@ class PaperMarioWorld(World):
 
         starting_items = []
 
-        # Items from setting string or random starting items, but not both
+        # Items from setting string and/or random starting items
         if self.web_start_inventory:
             for item_name in self.web_start_inventory:
                 item_to_add = self.create_item(item_name)

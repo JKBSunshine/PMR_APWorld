@@ -297,8 +297,8 @@ def decompress_form_group(settings_string: str, cur_map: list, world):
                             start_partners_max = int(value)
                             start_partners_max, start_partners_min = (max(start_partners_max, start_partners_min),
                                                                       min(start_partners_max, start_partners_min))
-                            world.options.random_start_items.value = world.random.randint(start_partners_min,
-                                                                                          start_partners_max)
+                            world.options.start_partners.value = world.random.randint(start_partners_min,
+                                                                                      start_partners_max)
 
                     elif cur_model.key.startswith("start_items_"):
                         if start_items_min == -1:
