@@ -5,7 +5,6 @@
     "map_id": "0",
     "map_name": "Outpost 1",
     "events": {
-      "Dried_Pasta": "'RF_MouserReturned'",
       "RF_CanMeetMoustafa": "'RF_CanUseDROCode' and 'RF_MouserReturned'",
       "RF_MouserLeftShop": "True",
       "StarPiece_DRO_1": "True",

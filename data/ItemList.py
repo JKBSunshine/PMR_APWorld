@@ -169,7 +169,7 @@ item_table = {
     "Honey Syrup":              ("ITEM",           Ic.filler,                     164,    3,      False,  False,  False),
     "Goomnut":                  ("ITEM",           Ic.progression,                165,    2,      False,  False,  False),
     "Koopa Leaf":               ("ITEM",           Ic.progression,                166,    1,      False,  False,  False),
-    "Dried Pasta":              ("ITEM",           Ic.filler,                     167,    4,      False,  False,  False),
+    "Dried Pasta":              ("ITEM",           Ic.progression,                167,    4,      False,  False,  False),
     "Dried Fruit":              ("ITEM",           Ic.filler,                     168,    5,      False,  False,  False),
     "Strange Leaf":             ("ITEM",           Ic.progression,                169,    2,      False,  False,  False),
     "Cake Mix":                 ("ITEM",           Ic.progression,                170,    3,      False,  False,  False),
