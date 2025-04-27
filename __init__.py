@@ -9,7 +9,6 @@ from .SettingsString import load_settings_from_site_string
 from worlds.AutoWorld import World, WebWorld
 from . import Locations, options
 from .data.chapter_logic import areas_by_chapter, get_chapter_excluded_location_names
-from .data.enum_types import BlockType
 from .modules.modify_entrances import get_bowser_rush_pairs, get_bowser_shortened_pairs
 from .modules.random_audio import get_randomized_audio
 from .modules.random_map_mirroring import get_mirrored_map_list
@@ -31,12 +30,12 @@ from .Rules import set_rules
 from .modules.random_partners import get_rnd_starting_partners
 from .options import (SeedGoal, PaperMarioOptions, ShuffleKootFavors, PartnerUpgradeShuffle, HiddenBlockMode,
                       ShuffleSuperMultiBlocks, GearShuffleMode, StartingMap, BowserCastleMode, ShuffleLetters,
-                      ItemTraps, MirrorMode, ShufflePartners, ShuffleKeys, ShuffleDungeonEntrances, BossShuffle)
+                      ItemTraps, MirrorMode, ShufflePartners, ShuffleKeys, ShuffleDungeonEntrances, BossShuffle,
+                      SpiritRequirements, ConsumableItemPool, StartingBoots)
 from .data.node import Node
 from .data.starting_maps import starting_maps
 from .Rom import generate_output, PaperMarioDeltaPatch
 from Fill import fill_restrictive, remaining_fill
-from .modules.random_blocks import get_block_placement
 import pkg_resources
 from .client import PaperMarioClient  # unused but required for generic client to hook onto
 logger = logging.getLogger("Paper Mario")
@@ -107,7 +106,6 @@ class PaperMarioWorld(World):
 
         # For generation
         self.placed_items = []
-        self.placed_blocks = {}
         self.entrance_list = []
 
         self.required_spirits = []
@@ -161,7 +159,7 @@ class PaperMarioWorld(World):
 
         # LCL is not compatible with several options
         # Rather than generate with drastically different settings, compile list of incompatible settings
-        if self.options.require_specific_spirits.value and self.options.limit_chapter_logic.value:
+        if self.options.spirit_requirements.value == SpiritRequirements.option_Specific_And_Limit_Chapter_Logic:
             lcl_warnings = ""
             if self.options.koot_favors.value != ShuffleKootFavors.option_Vanilla:
                 lcl_warnings += "\n'koot_favors' must be set to vanilla"
@@ -179,10 +177,6 @@ class PaperMarioWorld(World):
                                 "chapter logic set to true, but the following settings are incompatible with limiting "
                                 "chapter logic: ") + lcl_warnings
                 raise ValueError(lcl_warnings)
-        elif self.options.limit_chapter_logic.value:
-            raise ValueError(f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) has limit "
-                             "chapter logic set to true. Specific star spirits must also be set to true if you wish to "
-                             "limit chapter logic")
 
         # Make sure it doesn't try to shuffle Koot coins if rewards aren't shuffled
         if self.options.koot_favors.value == ShuffleKootFavors.option_Vanilla:
@@ -230,8 +224,7 @@ class PaperMarioWorld(World):
                     self.options.start_with_lakilester.value = True
 
         # limit chapter logic only applies when using the specific star spirits setting
-        if not self.options.require_specific_spirits.value:
-            self.options.limit_chapter_logic.value = False
+        if self.options.spirit_requirements.value == SpiritRequirements.option_Any:
             self.required_spirits = []
             self.excluded_spirits = []
         else:
@@ -245,7 +238,7 @@ class PaperMarioWorld(World):
 
             self.required_spirits = chosen_spirits
 
-            if self.options.limit_chapter_logic.value:
+            if self.options.spirit_requirements.value == SpiritRequirements.option_Specific_And_Limit_Chapter_Logic:
                 self.excluded_spirits = remaining_spirits
 
                 for chapter in remaining_spirits:
@@ -269,14 +262,6 @@ class PaperMarioWorld(World):
                 logger.info(f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) had less total "
                             f"power stars than the required amount. New total set to 15% more than the larger "
                             f"requirement, restricted to 120 or fewer.")
-
-        # determine what blocks are what, shuffling if needed and setting them up to be used as locations
-        if not self.placed_blocks:
-            self.placed_blocks = get_block_placement(self.options.super_multi_blocks.value ==
-                                                     ShuffleSuperMultiBlocks.option_true,
-                                                     self.options.partner_upgrades.value >=
-                                                     PartnerUpgradeShuffle.option_Super_Block_Locations,
-                                                     self.random)
 
         # shuffle bosses - NYI
         self.battles, self.boss_chapter_map = get_boss_battles(self.options.boss_shuffle.value, self.random)
@@ -404,7 +389,8 @@ class PaperMarioWorld(World):
                 self.itempool.append(self.create_item(self.get_filler_item_name()))
 
         # remove prefill items from item pool to be randomized
-        self.itempool, self.pre_fill_items, self.dungeon_restricted_items, self.dro_shop_puzzle_items = self.divide_itempools()
+        (self.itempool, self.pre_fill_items,
+         self.dungeon_restricted_items, self.dro_shop_puzzle_items) = self.divide_itempools()
 
         self.multiworld.itempool.extend(self.itempool)
         self.remove_from_start_inventory.extend(removed_items)
@@ -541,7 +527,8 @@ class PaperMarioWorld(World):
 
         # ensure DDO shop has 3 cheap consumables for puzzle purposes if needed
         if self.options.random_puzzles.value and self.options.include_shops.value and not (
-                self.options.limit_chapter_logic.value and 2 in self.excluded_spirits):
+                self.options.spirit_requirements.value == SpiritRequirements.option_Specific_And_Limit_Chapter_Logic and
+                2 in self.excluded_spirits):
             for item in self.itempool:
                 if (item_table[item.name][0] == "ITEM"
                         and item_table[item.name][3] <= 10 and item_table[item.name][2] <= 0xFF
@@ -607,7 +594,8 @@ class PaperMarioWorld(World):
         state.sweep_for_advancements(locations=self.get_locations())
 
         if self.options.random_puzzles.value and self.options.include_shops.value and not (
-                self.options.limit_chapter_logic.value and 2 in self.excluded_spirits):
+                self.options.spirit_requirements.value == SpiritRequirements.option_Specific_And_Limit_Chapter_Logic and
+                2 in self.excluded_spirits):
             dro_shop_locations = [self.multiworld.get_location(location, self.player)
                                   for location in self.random.sample([location for location in location_table.keys()
                                                                       if "DDO Outpost 1 Shop Item" in location], 3)]
@@ -643,11 +631,16 @@ class PaperMarioWorld(World):
                 fill_restrictive(self.multiworld, prefill_state(state), locations, gear_items,
                                  single_player_placement=True, lock=True, allow_excluded=False)
 
-        # Place partner upgrade items in super block turned yellow block locations
+        # Place partner upgrade items in super block locations
         if self.options.partner_upgrades.value == PartnerUpgradeShuffle.option_Super_Block_Locations:
             upgrade_items = list(filter(lambda item: pm_is_item_of_type(item, "PARTNERUPGRADE"), self.pre_fill_items))
-            yellow_block_locations = [name for (name, value) in self.placed_blocks.items() if value == BlockType.YELLOW]
-            locations = list(filter(lambda location: location.name in yellow_block_locations,
+            super_block_locations = location_groups["SuperBlock"]
+
+            # multi coin block locations are also candidates if they're shuffled
+            if self.options.super_multi_blocks.value >= ShuffleSuperMultiBlocks.option_Shuffle:
+                super_block_locations.extend(location_groups["MultiCoinBlock"])
+
+            locations = list(filter(lambda location: location.name in super_block_locations,
                                     self.multiworld.get_unfilled_locations(player=self.player)))
             if isinstance(locations, list):
                 for item in upgrade_items:
@@ -695,7 +688,7 @@ class PaperMarioWorld(World):
 
         # Anything remaining in pre fill items is a consumable that got selected randomly to be kept local
         # LCL can really skew the item pool, so fill up the excluded locations to prevent generation errors
-        if self.options.limit_chapter_logic.value:
+        if self.options.spirit_requirements.value == SpiritRequirements.option_Specific_And_Limit_Chapter_Logic:
             locations = list(filter(lambda location: location.progress_type == LocationProgressType.EXCLUDED,
                                     self.multiworld.get_unfilled_locations(player=self.player)))
             if len(locations) <= len(self.pre_fill_items):
@@ -795,7 +788,7 @@ class PaperMarioWorld(World):
             "start_with_sushie": self.options.start_with_sushie.value,
             "start_with_lakilester": self.options.start_with_lakilester.value,
             "enemy_difficulty": self.options.enemy_difficulty.value,
-            "require_specific_spirits": self.options.require_specific_spirits.value,
+            "spirit_requirements": self.options.spirit_requirements.value,
             "starting_boots": self.options.starting_boots.value,
             "starting_hammer": self.options.starting_hammer.value,
             "starting_map": self.options.starting_map.value,
@@ -820,7 +813,6 @@ class PaperMarioWorld(World):
             "hidden_block_mode": self.options.hidden_block_mode.value,
             "cook_without_frying_pan": self.options.cook_without_frying_pan.value,
             "merlow_rewards_pricing": self.options.merlow_rewards_pricing.value,
-            "placed_blocks": self.placed_blocks,
             "required_spirits": self.required_spirits
         }
 

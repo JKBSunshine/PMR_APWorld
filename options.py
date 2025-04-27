@@ -32,9 +32,15 @@ class ShuffleDojoRewards(Range):
     default = 0
 
 
-class ShuffleSuperMultiBlocks(Toggle):
-    """Shuffles the locations of the Super Blocks and Multicoin Brick Blocks together."""
+class ShuffleSuperMultiBlocks(Choice):
+    """Off: Super Blocks and Multicoin blocks appear in their usual locations
+    Shuffle: Shuffles the locations of the Super Blocks and Multicoin Brick Blocks together
+    Anywhere: Multi coin blocks can be shuffled into non-block locations, which turns them into 'Coin Bag' items that
+    grant you 10 coins."""
     display_name = "Shuffle Super/Multicoin Blocks"
+    option_Off = 0
+    option_Shuffle = 1
+    option_Anywhere = 2
 
 
 class GearShuffleMode(Choice):
@@ -382,6 +388,33 @@ class MerlowRewardsPricing(Choice):
     option_Vanilla = 1
 
 
+class ChetRippoAvailable(Toggle):
+    """Determines if Chet Rippo, the shady NPC who you can pay to reallocate Mario's stats, appears in Toad Town."""
+    display_name = "Chet Rippo Available"
+
+
+class BowserDoorQuiz(Choice):
+    """Quiz: The second Bowser door in Bowser's castle has a quiz. Pass it or be forced to fight the anti-guy unit.
+    Anti Guys Unit: The second Bowser door in Bowser's castle has no quiz; you must fight the anti guys unit.
+    Skip: The second Bowser door in Bowser's castle is open as though the quiz has already been completed."""
+    display_name = "Bowser Door Quiz"
+    option_Quiz = 0
+    option_Anti_Guys_Unit = 1
+    option_Skip = 2
+
+
+class KentCKoopa(Choice):
+    """Blocks Pleasant Path: You must pay 50 coins or defeat him to get into Pleasant Path.
+    Must Defeat: You must defeat him to get into Pleasant Path. Expects two chapters completed and a way to flip him.
+    Already Paid: Stands on the side of Pleasant Path as if already paid.
+    Already Defeated: Removed from Pleasant Path as if already defeated."""
+    display_name = "Kent C. Koopa"
+    option_Blocks_Pleasant_Path = 0
+    option_Must_Defeat = 1
+    option_Already_Paid = 2
+    option_Already_Defeated = 3
+
+
 class SeedGoal(Choice):
     """Defeat Bowser: The game is complete once you've defeated Bowser to take back the Star Rod.
     Open Star Way: The game is complete once you've fulfilled the requirements to open Star Way"""
@@ -405,10 +438,16 @@ class StarWaySpiritsRequired(Range):
     default = 5
 
 
-class RequireSpecificSpirits(Toggle):
-    """Specific chapters must be completed to open up Chapter 8.
-    You must visit Shooting Star Summit to see which ones."""
-    display_name = "Require Specific Spirits"
+class SpiritRequirements(Choice):
+    """Determines if specific spirits are needed to open star way.
+    Any: Any spirits can open Star Way.
+    Specific: A set of specific spirits open Star Way. You can find which are required by visiting Shooting Star Summit.
+    Specific and Limit Chapter Logic: Progression items will be limited to prologue, common areas, and areas in required
+    chapters."""
+    display_name = "Required Spirits"
+    option_Any = 0
+    option_Specific = 1
+    option_Specific_And_Limit_Chapter_Logic = 2
 
 
 class LimitChapterLogic(Toggle):
@@ -783,6 +822,17 @@ class AlwaysISpy(DefaultOnToggle):
     display_name = "Always I Spy"
 
 
+class ISpyPanelHints(Choice):
+    """Off: Don't show panel hints.
+    Vague: Display a generic item sprite based on the type of item inside the panel (e.g. badge,
+       Shortened: Cutscenes are quicker but preserved with some condensed dialogue.
+       Minimal: Most cutscenes and dialogues are removed."""
+    display_name = "I Spy Panel Hints"
+    option_Off = 0
+    option_Vague = 1
+    option_Concrete = 2
+
+
 class FoliageItemHints(DefaultOnToggle):
     """When enabled, bushes and trees will emit a glow when they are hiding something."""
     display_name = "Foliage Item Hints"
@@ -1086,13 +1136,15 @@ class PaperMarioOptions(PerGameCommonOptions):
     drop_star_points: DropStarPoints
     badge_synergy: BadgeSynergy
     merlow_rewards_pricing: MerlowRewardsPricing
+    chet_rippo: ChetRippoAvailable
+    bowser_door_quiz: BowserDoorQuiz
+    kent_c_koopa: KentCKoopa
 
     # Goals
     seed_goal: SeedGoal
     power_star_hunt: PowerStarHunt
+    spirit_requirements: SpiritRequirements
     star_way_spirits: StarWaySpiritsRequired
-    require_specific_spirits: RequireSpecificSpirits
-    limit_chapter_logic: LimitChapterLogic
     star_way_power_stars: StarWayPowerStarsRequired
     shuffle_star_beam: ShuffleStarBeam
     star_beam_spirits: StarBeamSpiritsRequired
@@ -1144,6 +1196,7 @@ class PaperMarioOptions(PerGameCommonOptions):
     always_speedy_spin: AlwaysSpeedySpin
     always_peekaboo: AlwaysPeekaboo
     always_ispy: AlwaysISpy
+    ispy_panel_hints: ISpyPanelHints
     foliage_item_hints: FoliageItemHints
     cook_without_frying_pan: CookWithoutFryingPan
     cutscene_mode: CutsceneMode

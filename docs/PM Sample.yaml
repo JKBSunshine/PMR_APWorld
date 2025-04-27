@@ -26,7 +26,7 @@ Paper Mario:
     dojo: 0                                 # Other options: 0-5
     partner_upgrades: vanilla               # Other options: super_block_locations, full_shuffle
     letter_rewards: vanilla                 # Other options: vanilla_letter_chain, final_letter_chain_reward, full_shuffle
-    super_multi_blocks: False               # Other options: True
+    super_multi_blocks: Anywhere            # Other options: off, shuffle_together
     rowf_items: 5                           # Other options: 0-5
     merlow_items: False                     # Other options: True
     cheato_items: 6                         # Other options: 0 to 11
@@ -69,12 +69,14 @@ Paper Mario:
     drop_star_points: False                 # Other options: True
     badge_synergy: False                    # Other options: True
     merlow_rewards_pricing: vanilla         # Other options: cheap
+    chet_rippo: False                       # Other options: True
+    bowser_door_quiz: quiz                  # Other options: anti_guys_unit, skip
+    kent_c_koopa: already_paid              # Other options: blocks_pleasant_path, must_defeat, already_defeated
 
     # Goals
     seed_goal: defeat_bowser                # Other options: open_star_way
     star_way_spirits: 7                     # Other options: 0-7
-    require_specific_spirits: False         # Other options: True
-    limit_chapter_logic: False              # Other options: True
+    spirit_requirements: Any                # Other options: specific, specific_and_limit_chapter_logic
     shuffle_star_beam: False                # Other options: True
     star_beam_spirits: 0                    # Other options: 0-7
     power_star_hunt: False                  # Other options: True
@@ -127,6 +129,7 @@ Paper Mario:
     always_speedy_spin: True                # Other options: False
     always_peekaboo: True                   # Other options: False
     always_ispy: True                       # Other options: False
+    ispy_panel_hints: Vague                 # Other options: Off, Concrete
     foliage_item_hints: True                # Other options: False
     cook_without_frying_pan: True           # Other options: False
     cutscene_mode: Minimal                  # Other options: vanilla, shortened

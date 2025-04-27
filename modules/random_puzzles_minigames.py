@@ -5,6 +5,7 @@ the game.
 """
 from ..data.puzzle_data import puzzle_data
 from ..data.ItemList import item_table
+from ..options import SpiritRequirements
 
 
 # TODO set up fill to handle DRO Shop puzzles
@@ -614,7 +615,8 @@ def _lavadam_pushblock_positions(random) -> int:
 
 
 def get_dro_shop_items(world) -> list:
-    if 2 in world.excluded_spirits and world.options.limit_chapter_logic.value:
+    if (2 in world.excluded_spirits and
+            world.options.spirit_requirements.value == SpiritRequirements.option_Specific_And_Limit_Chapter_Logic):
         dro_shop_items = ["Dried Shroom", "Dusty Hammer", "Dried Pasta"]
     else:
         dro_shop_items = [world.multiworld.get_location(f"DDO Outpost 1 Shop Item {n}", world.player).item.name

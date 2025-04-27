@@ -12,7 +12,6 @@ from .options import *
 from .data.item_exclusion import exclude_due_to_settings, exclude_from_taycet_placement
 from .modules.modify_itempool import get_trapped_itempool, get_randomized_itempool
 from BaseClasses import ItemClassification as Ic, LocationProgressType
-from .data.enum_types import BlockType
 from .Locations import location_factory
 from .data.chapter_logic import get_chapter_excluded_item_names, get_chapter_excluded_location_names
 
@@ -57,7 +56,7 @@ def get_pool_core(world: "PaperMarioWorld"):
     ch_excluded_items = []
     placed_items_excluded = {}
 
-    if world.options.limit_chapter_logic.value:
+    if world.options.spirit_requirements.value == SpiritRequirements.option_Specific_And_Limit_Chapter_Logic:
         ch_excluded_locations = get_chapter_excluded_location_names(world.excluded_spirits,
                                                                     world.options.letter_rewards.value)
         ch_excluded_items = get_chapter_excluded_item_names(world.excluded_spirits)
@@ -109,7 +108,9 @@ def get_pool_core(world: "PaperMarioWorld"):
 
             if location.identifier in ["DRO_01/ShopItemB", "DRO_01/ShopItemD", "DRO_01/ShopItemE"]:
                 shuffle_item = (world.options.random_puzzles.value and world.options.include_shops.value
-                                and not (world.options.limit_chapter_logic.value and 2 in world.excluded_spirits))
+                                and not (world.options.spirit_requirements.value ==
+                                         SpiritRequirements.option_Specific_And_Limit_Chapter_Logic and
+                                         2 in world.excluded_spirits))
             else:
                 shuffle_item = world.options.include_shops.value
 
@@ -178,6 +179,13 @@ def get_pool_core(world: "PaperMarioWorld"):
             if not shuffle_item:
                 location.disabled = True
 
+        if location.name in location_groups["MultiCoinBlock"]:
+            shuffle_item = (world.options.super_multi_blocks.value > ShuffleSuperMultiBlocks.option_Off)
+
+        if location.name in location_groups["SuperBlock"]:
+            shuffle_item = (world.options.super_multi_blocks.value > ShuffleSuperMultiBlocks.option_Off or
+                            world.options.partner_upgrades.value > PartnerUpgradeShuffle.option_Vanilla)
+
         if location.name in location_groups["Gear"]:
             # hammer 1 bush is special in that it is made to not be empty even if starting with hammer
             if location.name == "GR Jr. Troopa's Playground In Hammer Bush":
@@ -188,13 +196,6 @@ def get_pool_core(world: "PaperMarioWorld"):
             if not shuffle_item:
                 location.disabled = True
 
-        if location.name in location_groups["RandomBlock"]:
-            shuffle_item = world.placed_blocks[location.name] == BlockType.YELLOW
-
-            if not shuffle_item:
-                location.disabled = True
-                location.show_in_spoiler = False
-
         if location.name == "SSS Star Sanctuary Gift of the Stars":
             shuffle_item = world.options.shuffle_star_beam.value
 
@@ -203,7 +204,8 @@ def get_pool_core(world: "PaperMarioWorld"):
                 location.show_in_spoiler = False
 
         if location.name in ch_excluded_locations and item in ch_excluded_items:
-            shuffle_item = not world.options.limit_chapter_logic.value
+            shuffle_item = not (world.options.spirit_requirements.value ==
+                                SpiritRequirements.option_Specific_And_Limit_Chapter_Logic)
 
         # add it to the proper pool, or place the item
         if shuffle_item:
@@ -303,10 +305,16 @@ def get_pool_core(world: "PaperMarioWorld"):
     if world.options.starting_boots.value == StartingBoots.option_Jumpless:
         pool_progression_items.append("Progressive Boots")
 
-    # add two of each partner upgrade item, taking care not to add unplaceable ones (goompa upgrades)
+    # add two of each partner upgrade item, remove the generic ones
     if world.options.partner_upgrades.value != PartnerUpgradeShuffle.option_Vanilla:
         for i in range(0, 2):
-            pool_other_items.extend(item_groups["PartnerUpgrade"])
+            for upgrade in item_groups["PartnerUpgrade"]:
+                if upgrade == "Partner Upgrade":
+                    for _ in range (0, 8):
+                        pool_other_items.remove(upgrade)
+                else:
+                    pool_other_items.append(upgrade)
+
 
     # adjust item pools based on settings
     items_to_remove_from_pools = get_items_to_exclude(world)
@@ -376,7 +384,7 @@ def get_pool_core(world: "PaperMarioWorld"):
 
     # before adding traps, fill up the out of logic locations with items that aren't progression
     # wouldn't want traps to not make it into the multiworld pool, would we?
-    if world.options.limit_chapter_logic.value:
+    if world.options.spirit_requirements.value == SpiritRequirements.option_Specific_And_Limit_Chapter_Logic:
         world.random.shuffle(ch_excluded_locations)
 
         # shuffle items but then sort to put useful items in the front so that filler items go to out of logic locations first

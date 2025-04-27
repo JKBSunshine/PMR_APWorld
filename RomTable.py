@@ -2,9 +2,8 @@
 
 from .data.RomOptionList import rom_option_table, ap_to_rom_option_table
 from .data.palettes_meta import MENU_COLORS
-from .modules.random_blocks import get_block_key
 from .options import (EnemyDamage, PaperMarioOptions, PartnerUpgradeShuffle, ShuffleKootFavors, ShuffleLetters,
-                      BowserCastleMode, StatusMenuColorPalette, EnemyDifficulty)
+                      BowserCastleMode, StatusMenuColorPalette, EnemyDifficulty, ShuffleSuperMultiBlocks)
 from .data.MysteryOptions import MysteryOptions
 from .data.starting_maps import starting_maps
 from .data.node import Node
@@ -27,7 +26,7 @@ class RomTable:
     def __getitem__(self, key):
         return self.db[key]
 
-    def generate_pairs(self, options: PaperMarioOptions, placed_items: list[Node], placed_blocks: dict, entrances: list,
+    def generate_pairs(self, options: PaperMarioOptions, placed_items: list[Node], entrances: list,
                        actor_attributes: list, move_costs: list, palettes: list, quizzes: list, music_list: list,
                        mapmirror_list: list, puzzle_list: list, mystery_opts: MysteryOptions, required_spirits: list,
                        battle_list: list, star_beam_area: int):
@@ -86,12 +85,6 @@ class RomTable:
                     "key": node.get_price_key(),
                     "value": node.current_item.base_price
                 })
-
-        for name, value in placed_blocks.items():
-            table_data.append({
-                "key": get_block_key(name),
-                "value": value
-            })
 
         # Entrances
         for key, value in entrances:
@@ -216,8 +209,7 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions, requi
         map_tracker_bits += 0x2000
     if options.bowser_castle_mode.value <= BowserCastleMode.option_Shortened:
         map_tracker_bits += 0x4000
-    if (options.partner_upgrades.value >= PartnerUpgradeShuffle.option_Super_Block_Locations
-            and options.super_multi_blocks.value):
+    if options.super_multi_blocks.value == ShuffleSuperMultiBlocks.option_Anywhere:
         map_tracker_bits += 0x8000
 
     map_tracker_check_bits = map_tracker_bits

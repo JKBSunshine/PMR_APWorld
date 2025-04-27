@@ -93,6 +93,9 @@ def get_shop_price(node: PMLocation,
                 else:
                     buy_price = random.choice([5, 10])
 
+            elif item.name == "Coin Bag":
+                buy_price = 10
+
             elif item_type == "COIN":
                 buy_price = 1
 

@@ -512,7 +512,7 @@
     "map_name": "Guard Door 2",
     "exits": {
       "BC Room with Hidden Door 2": "True",
-      "BC Castle Battlement Lower Door": "True"
+      "BC Castle Battlement Lower Door": "can_reach_star_way or bowser_door_quiz != 1"
     }
   },
   {

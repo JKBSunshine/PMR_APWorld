@@ -56,12 +56,14 @@ difficultyMap = [
     SettingModel("p", "merlow_rewards_pricing", "number"),
     SettingModel("b", "badge_synergy", "bool"),
     SettingModel("v", "drop_star_points", "bool"),
+    SettingModel("o", "chet_rippo", "bool"),
+    SettingModel("!", "bowser_door_quiz", "number"),
+    SettingModel("@", "kent_c_koopa", "number"),
 ]
 
 goalsMap = [
     SettingModel("w", "star_way_spirits", "number"),
-    SettingModel("e", "require_specific_spirits", "bool"),
-    SettingModel("f", "limit_chapter_logic", "bool"),
+    SettingModel("r", "spirit_requirements", "number"),
     SettingModel("@", "star_beam_spirits", "number"),
     SettingModel("#", "star_beam_power_stars", "number"),
     SettingModel("s", "shuffle_star_beam", "bool"),
@@ -106,7 +108,7 @@ itemsMap = [
     SettingModel("i", "shuffleItems", "bool"),
     SettingModel("l", "letter_rewards", "number"),
     SettingModel("r", "trading_events", "bool"),
-    SettingModel("b", "super_multi_blocks", "bool"),
+    SettingModel("!", "super_multi_blocks", "number"),
     SettingModel("g", "gear_shuffle_mode", "number"),
     SettingModel("u", "partner_upgrades", "number"),
     SettingModel("a", "cheato_items", "number"),
@@ -283,7 +285,11 @@ def decompress_form_group(settings_string: str, cur_map: list, world):
                                     option = world.random.randint(0, 7)
                                 world.options.__dict__[cur_model.key].value = option
                             case _:
-                                world.options.__dict__[cur_model.key].value = int(value)
+                                try:
+                                    world.options.__dict__[cur_model.key].value = int(value)
+                                except ValueError:
+                                    raise ValueError(f'Invalid Paper Mario Settings String: invalid value for '
+                                                     f'{cur_model.key}.')
                     elif cur_model.key.startswith("start_partners_"):
                         if start_partners_min == -1:
                             start_partners_min = int(value)

@@ -147,7 +147,17 @@
     }
   },
   {
-    "region_name": "KR Pleasant Path Entry",
+    "region_name": "KR Pleasant Path Entry West",
+    "area_id": "6",
+    "map_id": "4",
+    "map_name": "Pleasant Path Entry",
+    "exits": {
+      "TT Plaza District": "True",
+      "KR Pleasant Path Entry East": "kent_c_koopa != 1 or (('STARSPIRIT', 2) and (Boots or Goombario))"
+    }
+  },
+  {
+    "region_name": "KR Pleasant Path Entry East",
     "area_id": "6",
     "map_id": "4",
     "map_name": "Pleasant Path Entry",
@@ -157,7 +167,7 @@
       "KR Pleasant Path Entry Yellow Block Right": "can_hit_floating_blocks"
     },
     "exits": {
-      "TT Plaza District": "True",
+      "KR Pleasant Path Entry West": "kent_c_koopa != 1 or (('STARSPIRIT', 2) and (Boots or Goombario))",
       "KR Pleasant Path Bridge West": "True"
     }
   },
@@ -173,7 +183,7 @@
       "KR Pleasant Path Bridge Yellow Block": "can_hit_floating_blocks"
     },
     "exits": {
-      "KR Pleasant Path Entry": "True",
+      "KR Pleasant Path Entry East": "True",
       "KR Pleasant Path Bridge East": "'MF_NOK12_BuiltBridge'"
     }
   },

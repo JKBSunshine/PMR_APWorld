@@ -57,7 +57,6 @@ def write_patch(
     output_directory: str,
     world,
     placed_items: list,
-    placed_blocks: dict,
     entrance_list: list,
     enemy_stats: list,
     battle_formations: list,
@@ -86,7 +85,6 @@ def write_patch(
     table_data = rom_table.generate_pairs(
         options=world.options,
         placed_items=placed_items,
-        placed_blocks=placed_blocks,
         entrances=entrance_list,
         actor_attributes=enemy_stats,
         move_costs=move_costs,
@@ -247,7 +245,6 @@ def generate_output(world, output_dir: str) -> None:
     write_patch(output_directory=output_dir,
                 world=world,
                 placed_items=placed_items,
-                placed_blocks=world.placed_blocks,
                 entrance_list=world.entrance_list,
                 enemy_stats=enemy_stats,
                 battle_formations=battle_formations,
