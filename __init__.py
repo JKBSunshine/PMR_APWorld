@@ -532,8 +532,18 @@ class PaperMarioWorld(World):
             for item in self.itempool:
                 if (item_table[item.name][0] == "ITEM"
                         and item_table[item.name][3] <= 10 and item_table[item.name][2] <= 0xFF
-                        and len(dro_shop_puzzle_item_names) < 3 and item.name not in dro_shop_puzzle_item_names):
+                        and len(dro_shop_puzzle_item_names) < 3 and item.name not in dro_shop_puzzle_item_names
+                        and item.classification == ic.filler):
                     dro_shop_puzzle_item_names.append(item.name)
+
+            # sometimes the item pool is restricted, such as when the item pool is set to be mystery only
+            # account for that by putting in consumables that need to be in replenishable locations anyways
+            if len(dro_shop_puzzle_item_names) < 3:
+                while len(dro_shop_puzzle_item_names) < 3:
+                    consumable = self.random.choice(progression_miscitems)
+                    if consumable not in dro_shop_puzzle_item_names:
+                        dro_shop_puzzle_item_names.append(consumable)
+                        prefill_item_names.remove(consumable)
 
         prefill_items = []
         dro_shop_puzzle_items = []
@@ -823,4 +833,7 @@ class PaperMarioWorld(World):
             self.multiworld.player_name[self.player]]
 
     def get_filler_item_name(self) -> str:
-        return "Super Shroom"
+        if self.options.consumable_item_pool.value == ConsumableItemPool.option_Mystery_Only:
+            return "Mystery"
+        else:
+            return "Super Shroom"
