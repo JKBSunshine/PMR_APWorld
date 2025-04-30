@@ -41,7 +41,7 @@
     "map_name": "Koopa Village 2",
     "events": {
       "FAVOR_1_01_done": "Koot_Koopa_Legends and 'RF_Ch1_Fuzzies_Banished'",
-      "FAVOR_1_02_done": "'FAVOR_1_01_done' and Sleepy_Sheep or 'AF_CanMakeSleepySheep'",
+      "FAVOR_1_02_done": "'FAVOR_1_01_done' and (Sleepy_Sheep or 'AF_CanMakeSleepySheep')",
       "FAVOR_2_01_done": "'FAVOR_1_02_done' and Koot_Tape and ('STARSPIRIT', 1)",
       "FAVOR_2_02_done": "'FAVOR_2_01_done' and 'AF_CanMakeKoopaTea'",
       "FAVOR_2_03_done": "'FAVOR_2_02_done' and Luigi_Autograph",
