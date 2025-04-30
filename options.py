@@ -824,9 +824,8 @@ class AlwaysISpy(DefaultOnToggle):
 
 class ISpyPanelHints(Choice):
     """Off: Don't show panel hints.
-    Vague: Display a generic item sprite based on the type of item inside the panel (e.g. badge,
-       Shortened: Cutscenes are quicker but preserved with some condensed dialogue.
-       Minimal: Most cutscenes and dialogues are removed."""
+    Vague: Display a generic item sprite based on the type of item inside the panel (e.g. badge, star piece, key item).
+    Concrete: Display the exact sprite of the item inside the panel."""
     display_name = "I Spy Panel Hints"
     option_Off = 0
     option_Vague = 1
