@@ -1,6 +1,6 @@
 from typing import TYPE_CHECKING
 
-from data.LocationsList import exclude_from_trap_placement
+from .data.LocationsList import exclude_from_trap_placement
 from worlds.generic.Rules import set_rule, add_rule, add_item_rule
 from .data.ItemList import item_multiples_ids
 from .items import ap_id_to_pm_data
