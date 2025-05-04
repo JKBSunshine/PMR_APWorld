@@ -30,7 +30,7 @@ Paper Mario:
     rowf_items: 5                           # Other options: 0-5
     merlow_items: False                     # Other options: True
     cheato_items: 6                         # Other options: 0 to 11
-    local_consumables: 100                  # Other options: 0 to 100 It's recommended you leave this alone, as receiving consumables from others with a full inventory means the item disappears.
+    local_consumables: 100                  # Other options: 0 to 100, percentage of consumables forced to your world
 
     # Partner
     partners: Full_Shuffle                  # Other options: Off, Partner_Locations

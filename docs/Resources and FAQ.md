@@ -28,10 +28,11 @@ If you don't want to read through everything, here are a few highlights:
 - The base mod has built-in trackers in the Maps and Key Item Tracker sections in the pause menu. External trackers can 
 still be quite helpful, but these can be handy for checking what items you have and if any checks remain in an area.
 - It's recommended to use `cutscene_mode: shortened` instead of `minimal` if you don't know puzzle solutions.
-- You need coins to buy items from shops and 50 coins to get past Kent C Koopa  at the start of the game, 
-east of Toad Town. It's _highly_ recommended that you pay him off earlier rather than later, and that you don't waste 
-all your early coins on shop items.  You could potentially softlock yourself at the very beginning by not having the 
-coins to pay him off. If you do use up your coins prior, it's best to restart your file and pay him off first.
+- You need coins to buy items from shops, and given how many shops are available at the start, you might be expected to
+buy several things. It's not a bad idea to start yourself off with 200-300 coins just to be safe.
+- If you decide to allow very many consumables to be off-world, you may want to be careful with your inventory, 
+particularly in an async game. Make sure to sell or store items as your inventory fills up, and maybe head to a shop 
+before you connect to a game where you might be receiving a bunch of consumables.
 
 ### I can't remember... how does that one thing work?
 - Panels can be flipped using Super Boots or Ultra Hammer.
@@ -39,7 +40,6 @@ coins to pay him off. If you do use up your coins prior, it's best to restart yo
 - Trees can also be shaken using Bombette.
 - Floating blocks can be hit by using Kooper's ability.
 - Rowf's shop gets more items with every Star Spirit found up to the fifth. You can talk to him to change his inventory.
-
 
 - Koopa Koot has three new requests with every Star Spirit found up to the sixth. You have to do them in order.
 

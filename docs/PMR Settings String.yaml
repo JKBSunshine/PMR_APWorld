@@ -19,8 +19,9 @@ Paper Mario:
     # The below option(s) are AP only and do not exist on the PMR site.
 
     local_consumables: 100
-    # It's recommended to leave this at 100. The base mod does not support receiving consumables with a full inventory.
-    # Change at your own risk.
+    # The given percentage of consumables will be forced into your world. This can be helpful for ensuring you don't
+    # have to rely on off-world consumables too terribly much. If you receive a lot of consumables at once, you may need
+    # to swing by a shop to store or sell items.
 
     blooper_damage_requirements: None
     # Other options: Low, Medium, High

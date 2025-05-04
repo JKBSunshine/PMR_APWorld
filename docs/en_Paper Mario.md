@@ -15,8 +15,8 @@ partner upgrades, and more.
 
 ## Which items can be in another player's world?
 
-All non-consumable items can be placed in another player's world. Consumable items may be able to be shuffled in other 
-worlds at a later date, but for now they will only be shuffled into the Paper Mario player's world.
+All items, minus a few consumables which need to be in replenishable locations in your game so you can access them if 
+you lose them.
 
 ## What does another world's item look like in Paper Mario?
 
@@ -24,6 +24,7 @@ Items belonging to other worlds are represented by the Present item.
 
 ## When the player receives an item, what happens?
 
-Currently, you will not receive any sort of notifications the item will just appear in your inventory. This happens 
-only while in the overworld and unpaused. You receive one item per second or so, so it may take a bit for items to show 
-up in your inventory if receiving several items at once.
+For consumables, you will get the item as if you'd found it in the field, and have the opportunity to manage your 
+inventory if necessary. For other items, you will not receive any sort of notifications; the item will just appear in 
+your inventory. You only receive items while in the overworld and unpaused. You receive one item per second or so, so it 
+may take a bit for items to show up in your inventory if receiving several items at once. 
