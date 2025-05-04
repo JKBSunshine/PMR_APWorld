@@ -5,7 +5,7 @@
   Generator. You will not be able to generate games with Paper Mario on the Archipelago site, only locally.
 - [The Paper Mario AP World](https://github.com/JKBSunshine/PMR_APWorld/tree/main). To download it, go to the [latest release](https://github.com/JKBSunshine/PMR_APWorld/releases) and download the papermario.apworld file.
 - A legally obtained US 1.0 Paper Mario ROM.
-- [BizHawk](https://tasvideos.org/BizHawk/ReleaseHistory) 2.7 to 2.9.1; 2.10 does not work.
+- [BizHawk](https://tasvideos.org/BizHawk/ReleaseHistory) 2.7 to 2.9.1; **2.10's release does not work**, although dev builds of 2.10 have fixed the issue.
 
 ## Add the Paper Mario AP World to your Archipelago install
 As of Archipelago v0.5.0, you can double click .apworld files to add apworlds to your Archipelago installation.
