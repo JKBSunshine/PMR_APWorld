@@ -33,6 +33,10 @@ class Node:
 
     identifier: str = None
 
+    # used for in game strings like shop descriptions
+    shop_string_location: int = -1
+    shop_string: list[int] = None
+
     def __str__(self):
         """Return string representation of current node"""
         entrance = ("[" + format(self.entrance_id) + "] ") if self.entrance_id else ''

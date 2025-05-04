@@ -26,6 +26,7 @@ from .data.node import Node
 from .Locations import PMLocation
 from .modules.random_shop_prices import get_shop_price
 from .modules.random_stat_distribution import generate_random_stats
+from .modules.modify_game_strings import multiworld_item_info_to_pmString
 from worlds.Files import APDeltaPatch
 from settings import get_settings
 
@@ -177,6 +178,12 @@ def write_patch(
                 for palette_byte in coin_palette_data:
                     out_file.write(palette_byte.to_bytes(4, byteorder="big"))
 
+        # Write shop descriptions
+        for node in placed_items:
+            if node.shop_string_location != -1:
+                out_file.seek(node.shop_string_location)
+                out_file.write(bytes(node.shop_string))
+
     if changed_coin_palette:
         recalculate_crcs(output_path, coin_palette_crcs)
 
@@ -290,6 +297,9 @@ def get_filled_node_list(world):
         cur_node.item_index = pm_loc.index
         cur_node.price_index = pm_loc.price_index
         cur_node.identifier = pm_loc.identifier
+        cur_node.item_classification = pm_loc.item.classification
+        cur_node.item_player_name = world.multiworld.get_player_name(pm_loc.item.player)
+        cur_node.item_name = pm_loc.item.name
 
         if pm_loc.price_keyname != "None":
             cur_node.key_name_price = pm_loc.price_keyname
@@ -307,8 +317,14 @@ def get_filled_node_list(world):
             else:
                 cur_node.current_item = PMItem("MultiWorldItem", world.player, item_table["MultiWorldGeneric"], False)
 
-        # set prices for items in shops
+        # set prices, descriptions for items in shops
         if "Shop" in cur_node.identifier:
+            if pm_loc.item.player != world.player:
+                cur_node.shop_string_location, cur_node.shop_string = (multiworld_item_info_to_pmString(
+                                                     world.multiworld.get_player_name(pm_loc.item.player),
+                                                     pm_loc.item.name,
+                                                     pm_loc.item.classification,
+                                                     cur_node.identifier))
             cur_node.current_item.base_price = get_shop_price(pm_loc,
                                                               cur_node.current_item,
                                                               world.options.include_shops.value,
