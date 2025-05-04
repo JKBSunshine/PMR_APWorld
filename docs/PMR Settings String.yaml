@@ -12,8 +12,8 @@ Paper Mario:
 
     # Unavailable options:
     # Shuffle dungeon entrances (must be turned off)
+    # Shuffle bosses (must be turned off)
     # Mirror mode (cannot be static random)
-    # Item traps (must be set to No Traps)
     pmr_settings_string: SettingsString
 
     # The below option(s) are AP only and do not exist on the PMR site.

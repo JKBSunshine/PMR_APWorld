@@ -99,7 +99,7 @@ Paper Mario:
     # Item Pool
     consumable_item_pool: vanilla           # Other options: fully_random, balanced_random, mystery_only
     consumable_item_quality: 100            # Other options: 25-125
-    item_traps: No_Traps                    # Other options: sparse (NYI), moderate (NYI), plenty (NYI)
+    item_traps: No_Traps                    # Other options: sparse, moderate, plenty
     item_pouches: False                     # Other options: True
     unused_badge_dupes: False               # Other options: True
     beta_items: False                       # Other options: True
