@@ -22,9 +22,9 @@ This is not necessarily a strict roadmap, nor is it exhaustive of everything tha
 ### Mid-Late Alpha
 - ~~Enemy difficulty~~
 - ~~Consumable item pool randomization~~
-- Item traps
+- ~~Item traps~~
 - ~~Start with random items~~
-- Random puzzles
+- ~~Random puzzles~~
 - ~~Mystery shuffle~~
 - ~~Formation shuffle~~
 
@@ -32,7 +32,7 @@ This is not necessarily a strict roadmap, nor is it exhaustive of everything tha
 ### Late Alpha - Early Beta
 - ~~Prevent Chapter 8 locations from holding too many progression items (OoT does similar with Ganon's Castle)~~
 - ~~Create yaml file using PMR settings string~~
-- Offworld consumables
-- Item get animations
+- ~~Offworld consumables~~
+- ~~Item get animations~~
 - Offworld item sprite
-- Offworld item names and descriptions
+- ~~Offworld item names and descriptions~~
