@@ -10,7 +10,7 @@ from .data.ItemList import taycet_items, item_table, progression_miscitems, item
 from .data.LocationsList import location_groups, location_table, missable_locations, dojo_location_order
 from .options import *
 from .data.item_exclusion import exclude_due_to_settings, exclude_from_taycet_placement
-from .modules.modify_itempool import get_trapped_itempool, get_randomized_itempool
+from .modules.modify_itempool import get_randomized_itempool
 from BaseClasses import ItemClassification as Ic, LocationProgressType
 from .Locations import location_factory
 from .data.chapter_logic import get_chapter_excluded_item_names, get_chapter_excluded_location_names
@@ -315,6 +315,22 @@ def get_pool_core(world: "PaperMarioWorld"):
                 else:
                     pool_other_items.append(upgrade)
 
+    # add traps
+    max_traps = 0
+    match world.options.item_traps.value:
+        case ItemTraps.option_Sparse:
+            max_traps = 15
+        case ItemTraps.option_Moderate:
+            max_traps = 35
+        case ItemTraps.option_Plenty:
+            max_traps = 80
+        case _:
+            max_traps = 0
+
+    pool_other_items.extend(["Damage Trap"] * max_traps)
+
+
+
     # adjust item pools based on settings
     items_to_remove_from_pools = get_items_to_exclude(world)
 
@@ -381,8 +397,6 @@ def get_pool_core(world: "PaperMarioWorld"):
         world.random
     )
 
-    # before adding traps, fill up the out of logic locations with items that aren't progression
-    # wouldn't want traps to not make it into the multiworld pool, would we?
     if world.options.spirit_requirements.value == SpiritRequirements.option_Specific_And_Limit_Chapter_Logic:
         world.random.shuffle(ch_excluded_locations)
 
@@ -396,19 +410,6 @@ def get_pool_core(world: "PaperMarioWorld"):
 
         for loc in ch_excluded_locations:
             placed_items_excluded[loc] = pool_other_items.pop()
-
-    # add traps
-    pool_other_items = get_trapped_itempool(
-        pool_other_items,
-        world.options.item_traps.value,
-        world.options.koot_favors.value,
-        world.options.dojo.value,
-        world.options.keysanity.value,
-        (world.options.power_star_hunt.value and world.options.total_power_stars.value > 0),
-        world.options.beta_items.value,
-        world.options.partner_upgrades.value,
-        world.random
-    )
 
     # now we have the full pool
 

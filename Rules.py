@@ -1,4 +1,6 @@
 from typing import TYPE_CHECKING
+
+from data.LocationsList import exclude_from_trap_placement
 from worlds.generic.Rules import set_rule, add_rule, add_item_rule
 from .data.ItemList import item_multiples_ids
 from .items import ap_id_to_pm_data
@@ -27,3 +29,9 @@ def set_rules(world: "PaperMarioWorld") -> None:
                   lambda item: item.player != world.player or item.id not in item_multiples_ids.keys())
     add_item_rule(world.multiworld.get_location("TT Residental District Storeroom Item 4", world.player),
                   lambda item: item.player != world.player or item.id not in item_multiples_ids.keys())
+
+    # Damage traps cannot be in shops or over spinning flowers
+    untrappable_locations = list(filter(lambda location: location.name in exclude_from_trap_placement,
+                                        world.multiworld.get_locations(player=world.player)))
+    for loc in untrappable_locations:
+        add_item_rule(loc, lambda item: item.player != world.player or item.name != "Damage Trap")

@@ -120,6 +120,7 @@ class PaperMarioWorld(World):
         self.dro_shop_puzzle_items = []
         self.remove_from_start_inventory = []
         self.web_start_inventory = []
+        self.trappable_item_names = []
 
         self._regions_cache = {}
         self.parser = Rule_AST_Transformer(self, self.player)
@@ -142,8 +143,6 @@ class PaperMarioWorld(World):
 
         # fail generation if attempting to use options that are not fully implemented yet
         nyi_warnings = ""
-        if self.options.item_traps.value != ItemTraps.option_No_Traps:  # not possible with current base mod
-            nyi_warnings += "\n'item_traps' must be set to No_Traps"
         if self.options.shuffle_dungeon_entrances.value != ShuffleDungeonEntrances.option_Off:  # NYI
             nyi_warnings += "\n'shuffle_dungeon_entrances' must be set to Off"
         if self.options.boss_shuffle.value:  # NYI
@@ -395,6 +394,17 @@ class PaperMarioWorld(World):
         self.multiworld.itempool.extend(self.itempool)
         self.remove_from_start_inventory.extend(removed_items)
 
+        # get valid trap items from remaining pool if needed
+        if self.options.item_traps.value > ItemTraps.option_No_Traps:
+            trappable_items = list(filter(lambda item: item.type not in ["ITEM", "COIN"], self.itempool))
+            self.trappable_item_names = [item.name for item in trappable_items]
+            # Bias towards placing Ultra Stone or upgrade traps, done in base PMR as well as requested by clover
+            if self.options.partner_upgrades.value == PartnerUpgradeShuffle.option_Vanilla:
+                self.trappable_item_names.extend(["Ultra Stone"] * 9)
+            else:
+                self.trappable_item_names.extend(item_groups["PartnerUpgrade"])
+
+
     def set_rules(self) -> None:
         set_rules(self)
 
@@ -565,7 +575,7 @@ class PaperMarioWorld(World):
                 # check if this item gets kept local or not
                 # sets extra copies of consumable progression items to be filler so that they aren't considered in logic
                 keep_local = False
-                if item.type == "ITEM":
+                if item.type == "ITEM" and item.classification != ic.trap:
                     item.classification = ic.filler
                     keep_local = self.random.randint(0, 100) <= local_consumable_chance
                 elif item.type == "PARTNERUPGRADE":

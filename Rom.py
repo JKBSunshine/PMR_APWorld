@@ -96,7 +96,9 @@ def write_patch(
         mystery_opts=mystery_opts,
         required_spirits=world.required_spirits,
         battle_list=world.battle_list,
-        star_beam_area=star_beam_area
+        star_beam_area=star_beam_area,
+        trappable_item_names=world.trappable_item_names,
+        random=world.random
     )
 
     # Update table info with variable data

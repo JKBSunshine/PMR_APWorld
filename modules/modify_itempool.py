@@ -9,6 +9,7 @@ from ..data.itemlocation_special import kootfavors_reward_locations, kootfavors_
 from BaseClasses import Item
 from ..data.LocationsList import location_table, location_groups
 from ..data.ItemList import item_table, item_groups
+from ..options import ItemTraps, ShuffleKootFavors, ShuffleDojoRewards, PartnerUpgradeShuffle
 
 
 def _get_random_consumables(n: int, available_items: list, random) -> list:
@@ -126,99 +127,4 @@ def get_randomized_itempool(itempool: list, consumable_mode: int, quality: int, 
 
     new_itempool = kept_items + new_items
     assert (len(itempool) == len(new_itempool))
-    return new_itempool
-
-
-def get_trapped_itempool(itempool: list,
-                         trap_mode: int,
-                         randomize_favors_mode: int,
-                         do_randomize_dojo: bool,
-                         keyitems_outside_dungeon: bool,
-                         power_star_hunt: bool,
-                         add_beta_items: bool,
-                         do_partner_upgrade_shuffle: bool,
-                         random) -> list:
-    """
-    Modifies and returns a given item pool after placing trap items.
-    This swaps out consumable items with trap items, which do not actually give
-    the item to Mario, and instead damage him and make him drop coins.
-    The items need not necessarily look like consumables, and can use the
-    sprites of badges, key items and others instead.
-    """
-    # Trap mode:
-    # 0: no traps
-    # 1: sparse
-    # 2: moderate
-    # 3: plenty
-
-    if trap_mode == 0:
-        return itempool
-
-    if trap_mode == 1:
-        max_traps = 15
-    elif trap_mode == 2:
-        max_traps = 35
-    else:
-        max_traps = 80
-
-    koot_items = {"rewards": [], "keyitems": []}
-    for name, data in location_table.items():
-        if data[0] in kootfavors_reward_locations:
-            koot_items["rewards"].append(data[5])
-        if data[0] in kootfavors_keyitem_locations:
-            koot_items["keyitems"].append(data[5])
-
-    trap_flag = 0x2000
-    new_itempool = []
-    fakeable_items = []
-    dungeon_items = []
-    for name, data in item_table.items():
-        if name in ["KEYITEM", "PARTNER", "BADGE", "GEAR"]:
-            if (data[4] and not add_beta_items) or data[6]:
-                continue
-            if (not do_randomize_dojo
-                    and name in exclude_due_to_settings.get("do_randomize_dojo")):
-                continue
-            if (randomize_favors_mode < IncludeFavorsMode.RND_REWARD_VANILLA_KEYITEMS
-                    and name in koot_items["rewards"]):
-                continue
-            if (randomize_favors_mode < IncludeFavorsMode.FULL_SHUFFLE
-                    and name in koot_items["keyitems"]):
-                continue
-            if not keyitems_outside_dungeon:
-                # If no wild keys then don't use them for traps
-                if not dungeon_items:
-                    for area_key_dict in limited_by_item_areas.values():
-                        for key_list in area_key_dict.values():
-                            dungeon_items.extend(key_list)
-                if name in dungeon_items:
-                    continue
-
-            fakeable_items.append(name)
-
-    # Add Power Star traps if necessary
-    if power_star_hunt:
-        fakeable_items.append("PowerStar7F")
-
-    # Bias towards placing UltraStone or upgrade traps, as requested by clover
-    if do_partner_upgrade_shuffle:
-        for item in (item_groups["PartnerUpgrade"]):
-            fakeable_items.append(item)
-    else:
-        for x in range(0, 9):
-            fakeable_items.extend("Ultra Stone")
-
-    cnt_traps = 0
-    shuffled_pool = itempool.copy()
-    random.shuffle(shuffled_pool)
-
-    for item in shuffled_pool:
-        if item.item_type != "ITEM" or cnt_traps >= max_traps:
-            new_itempool.append(item)
-        else:
-            new_trapitem = random.choice(fakeable_items)
-            new_trapitem.value = new_trapitem.value | trap_flag
-            new_itempool.append(new_trapitem)
-            cnt_traps += 1
-
     return new_itempool

@@ -780,3 +780,10 @@ dojo_location_order = [
     "TT Gate District Dojo: Master 2",
     "TT Gate District Dojo: Master 3"
 ]
+
+exclude_from_trap_placement = location_groups["ShopItem"] + [
+    "JJ Beach Over Flower 1",
+    "JJ Beach Over Flower 2",
+    "JJ Whale Cove Over Flower 1",
+    "JJ Whale Cove Over Flower 2"
+]

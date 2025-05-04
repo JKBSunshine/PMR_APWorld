@@ -8,7 +8,7 @@ from .data.MysteryOptions import MysteryOptions
 from .data.starting_maps import starting_maps
 from .data.node import Node
 from .items import PMItem
-from .data.ItemList import item_groups, item_multiples_ids
+from .data.ItemList import item_groups, item_multiples_ids, item_table
 
 
 class RomTable:
@@ -29,7 +29,7 @@ class RomTable:
     def generate_pairs(self, options: PaperMarioOptions, placed_items: list[Node], entrances: list,
                        actor_attributes: list, move_costs: list, palettes: list, quizzes: list, music_list: list,
                        mapmirror_list: list, puzzle_list: list, mystery_opts: MysteryOptions, required_spirits: list,
-                       battle_list: list, star_beam_area: int):
+                       battle_list: list, star_beam_area: int, trappable_item_names: list, random):
         table_data = []
 
         # Options
@@ -71,6 +71,10 @@ class RomTable:
 
                     item_id = item_multiples_ids[item_id][repeat_items[item_id]]
                     repeat_items[node.current_item.id] -= 1
+                elif item_id == item_table["Damage Trap"][2]:
+                    # damage traps are fire flowers by default, but if it's local we can set it to be a different item
+                    trap_item = random.choice(trappable_item_names)
+                    item_id = get_trapped_item_id(item_table[trap_item][2])
 
                 table_data.append({
                     "key": node.get_item_key(),
@@ -301,3 +305,7 @@ def get_dbtuples(options: PaperMarioOptions, mystery_opts: MysteryOptions, requi
 def get_db_key(rom_option):
     data = rom_option_table[rom_option]
     return (0xAF << 24) | (data[1] << 16) | (data[2] << 8) | data[3]
+
+
+def get_trapped_item_id(item_id) -> int:
+    return item_id | 0x2000
