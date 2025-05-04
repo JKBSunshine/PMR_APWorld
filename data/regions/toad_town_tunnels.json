@@ -228,7 +228,7 @@
     "map_id": "7",
     "map_name": "Second Level Entry (B2)",
     "exits": {
-      "JJ Village Buildings Pipe": "can_reenter_pipes",
+      "JJ Village Buildings Pipe": "can_reenter_vertical_pipes",
       "TTT Second Level Entry (B2) East": "True"
     }
   },
