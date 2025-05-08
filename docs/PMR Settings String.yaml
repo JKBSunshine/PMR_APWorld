@@ -2,7 +2,7 @@ Paper Mario:
     progression_balancing: 50
     accessibility: items
 
-    # AP World Version: 0.4.4
+    # AP World Version: 0.6.2
 
     # To get the settings string, go to https://pm64randomizer.com/
     # 1. Choose your settings
@@ -32,4 +32,4 @@ Paper Mario:
 
 description: Paper Mario YAML using PMR Setting String
 game: Paper Mario
-name: JKB 1
+name: PMR

@@ -722,10 +722,10 @@ class Chapter7BridgeVisible(Toggle):
 
 class MirrorMode(Choice):
     """Off: The overworld is never mirrored.
-       Always On: The overworld is always mirrored.
-       Random On Every Load: Whether the overworld is mirrored or not is random with every screen transition.
-       Static Random: Some overworld screens are mirrored, some are not, but they won't change within a playthrough.
-       Note: The Static Random option is not yet implemented and will fail to generate."""
+    Always On: The overworld is always mirrored.
+    Random On Every Load: Whether the overworld is mirrored or not is random with every screen transition.
+    Static Random: Some overworld screens are mirrored, some are not, but they won't change within a playthrough.
+    Note: The Static Random option is not yet implemented and will fail to generate."""
     display_name = "Mirror Mode"
     option_Off = 0
     option_Always_On = 1
@@ -790,8 +790,8 @@ class VisibleHiddenPanels(DefaultOnToggle):
 
 class CutsceneMode(Choice):
     """Vanilla: Cutscenes from the original game are preserved.
-       Shortened: Cutscenes are quicker but preserved with some condensed dialogue.
-       Minimal: Most cutscenes and dialogues are removed."""
+    Shortened: Cutscenes are quicker but preserved with some condensed dialogue.
+    Minimal: Most cutscenes and dialogues are removed."""
     display_name = "Cutscene Mode"
     option_Vanilla = 0
     option_Shortened = 1
