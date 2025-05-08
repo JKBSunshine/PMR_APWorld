@@ -256,11 +256,13 @@ class PaperMarioWorld(World):
             self.options.total_power_stars.value = 0
         else:
             # ensure there are at least as many power stars as there are required for star way and star beam
-            # if total power stars is less than either, then put it 10% higher than the bigger requirement, max 120
-            if (self.options.total_power_stars.value < self.options.star_way_power_stars.value or
-               self.options.total_power_stars.value < self.options.star_beam_power_stars.value):
-                self.options.total_power_stars.value = min(120, int(1.15 * max(self.options.star_beam_power_stars.value,
-                                                                              self.options.star_way_power_stars.value)))
+            # if total power stars is less than either, then put it 15% higher than the bigger requirement, max 120
+            required_power_stars = self.options.star_way_power_stars.value
+            if self.options.seed_goal.value == SeedGoal.option_Open_Star_Way:
+                required_power_stars = max(required_power_stars, self.options.star_beam_power_stars.value)
+
+            if self.options.total_power_stars.value < required_power_stars:
+                self.options.total_power_stars.value = min(120, int(1.15 * required_power_stars))
                 logger.info(f"Paper Mario: {self.player} ({self.multiworld.player_name[self.player]}) had less total "
                             f"power stars than the required amount. New total set to 15% more than the larger "
                             f"requirement, restricted to 120 or fewer.")
