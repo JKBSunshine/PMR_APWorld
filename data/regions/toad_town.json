@@ -298,5 +298,18 @@
       "TT Port District": "True",
       "JJ Whale Cove": "True"
     }
+  },
+  {
+    "region_name": "PCG Ruined Castle Grounds",
+    "area_id": "23",
+    "map_id": "1",
+    "map_name": "Ruined Castle Grounds",
+    "locations": {
+      "PCG Ruined Castle Grounds Muss T. Letter Reward": "can_use_ability_parakarry and Letter_to_Muss_T"
+    },
+    "exits": {
+      "TT Plaza District": "True",
+      "SSS Shooting Star Path": "True"
+    }
   }
 ]

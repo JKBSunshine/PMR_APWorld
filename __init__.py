@@ -24,7 +24,7 @@ from .items import PMItem, pm_is_item_of_type, pm_data_to_ap_id, ap_id_to_pm_dat
 from .data.ItemList import item_table, item_groups, progression_miscitems, item_multiples_ids
 from .data.itemlocation_special import limited_by_item_areas
 from .data.itemlocation_replenish import replenishing_itemlocations
-from .data.LocationsList import location_table, location_groups
+from .data.LocationsList import location_table, location_groups, ch8_locations
 from .modules.random_actor_stats import get_shuffled_chapter_difficulty
 from .Rules import set_rules
 from .modules.random_partners import get_rnd_starting_partners
@@ -246,6 +246,9 @@ class PaperMarioWorld(World):
                 self.ch_excluded_location_names = get_chapter_excluded_location_names(self.excluded_spirits,
                                                                 self.options.letter_rewards.value)
 
+        if self.options.seed_goal.value == SeedGoal.option_Open_Star_Way:
+            self.ch_excluded_location_names.extend(ch8_locations)
+
         # set power star counts to 0 if option is not being used
         if not self.options.power_star_hunt.value:
             self.options.star_way_power_stars.value = 0
@@ -276,12 +279,22 @@ class PaperMarioWorld(World):
         for file in pkg_resources.resource_listdir(__name__, "data/regions"):
             if not pkg_resources.resource_isdir(__name__, "data/regions/" + file):
                 readfile = True
-                if file == "bowser's_castle.json":
-                    readfile = self.options.bowser_castle_mode.value == BowserCastleMode.option_Vanilla
-                elif file == "bowser's_castle_shortened.json":
-                    readfile = self.options.bowser_castle_mode.value == BowserCastleMode.option_Shortened
-                elif file == "bowser's_castle_boss_rush.json":
-                    readfile = self.options.bowser_castle_mode.value == BowserCastleMode.option_Boss_Rush
+                match file:
+                    case "bowser's_castle.json":
+                        readfile = (self.options.bowser_castle_mode.value == BowserCastleMode.option_Vanilla and
+                                    self.options.seed_goal.value != SeedGoal.option_Open_Star_Way)
+                    case "bowser's_castle_shortened.json":
+                        readfile = (self.options.bowser_castle_mode.value == BowserCastleMode.option_Shortened and
+                                    self.options.seed_goal.value != SeedGoal.option_Open_Star_Way)
+                    case "bowser's_castle_boss_rush.json":
+                        readfile = (self.options.bowser_castle_mode.value == BowserCastleMode.option_Boss_Rush and
+                                    self.options.seed_goal.value != SeedGoal.option_Open_Star_Way)
+                    case "shooting_star_summit_no_star_way.json":
+                        readfile = self.options.seed_goal.value == SeedGoal.option_Open_Star_Way
+                    case "shooting_star_summit.json":
+                        readfile = self.options.seed_goal.value != SeedGoal.option_Open_Star_Way
+                    case "peachs_castle.json":
+                        readfile = self.options.seed_goal.value != SeedGoal.option_Open_Star_Way
 
                 if readfile:
                     self.load_regions_from_json("regions/" + file)

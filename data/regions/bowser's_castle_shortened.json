@@ -330,5 +330,18 @@
       "BC Room with Hidden Door 1": "True",
       "BC Bill Blaster Hall Lower": "True"
     }
+  },
+  {
+    "region_name": "PCG Hijacked Castle Entrance",
+    "area_id": "23",
+    "map_id": "2",
+    "map_name": "Hijacked Castle Entrance",
+    "locations": {
+      "PCG Hijacked Castle Entrance Hidden Block": "can_see_hidden_blocks and can_hit_floating_blocks"
+    },
+    "exits": {
+      "BC Exit to Peach's Castle": "True",
+      "PC Entry Hall (1F)": "True"
+    }
   }
 ]

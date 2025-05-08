@@ -7,7 +7,7 @@ from itertools import chain
 from .data.chapter_logic import get_bowser_castle_removed_locations, areas_by_chapter, \
     get_locations_beyond_spirit_requirements
 from .data.ItemList import taycet_items, item_table, progression_miscitems, item_groups, item_multiples_base_name
-from .data.LocationsList import location_groups, location_table, missable_locations, dojo_location_order
+from .data.LocationsList import location_groups, location_table, missable_locations, dojo_location_order, ch8_locations
 from .options import *
 from .data.item_exclusion import exclude_due_to_settings, exclude_from_taycet_placement
 from .modules.modify_itempool import get_randomized_itempool
@@ -49,7 +49,7 @@ def get_pool_core(world: "PaperMarioWorld"):
 
     placed_items = {}
 
-    bc_removed_locations = get_bowser_castle_removed_locations(world.options.bowser_castle_mode.value)
+    bc_removed_locations = []
 
     # items and locations excluded from chapters for LCL get handled differently from normal excluded locations
     ch_excluded_locations = []
@@ -60,6 +60,14 @@ def get_pool_core(world: "PaperMarioWorld"):
         ch_excluded_locations = get_chapter_excluded_location_names(world.excluded_spirits,
                                                                     world.options.letter_rewards.value)
         ch_excluded_items = get_chapter_excluded_item_names(world.excluded_spirits)
+
+    # remove chapter 8 locations if star way is the goal
+    # otherwise remove any bowser castle locations removed by shortened or boss rush modes
+    if world.options.seed_goal.value == SeedGoal.option_Open_Star_Way:
+        ch_excluded_locations.extend(ch8_locations)
+        ch_excluded_items.extend(get_chapter_excluded_item_names([8]))
+    else:
+        bc_removed_locations = get_bowser_castle_removed_locations(world.options.bowser_castle_mode.value)
 
     # Exclude locations that are either missable or are going to be considered not in logic based on settings
     excluded_locations = missable_locations + get_locations_to_exclude(world, bc_removed_locations)
@@ -204,8 +212,7 @@ def get_pool_core(world: "PaperMarioWorld"):
                 location.show_in_spoiler = False
 
         if location.name in ch_excluded_locations and item in ch_excluded_items:
-            shuffle_item = not (world.options.spirit_requirements.value ==
-                                SpiritRequirements.option_Specific_And_Limit_Chapter_Logic)
+            shuffle_item = False
 
         # add it to the proper pool, or place the item
         if shuffle_item:
@@ -310,7 +317,7 @@ def get_pool_core(world: "PaperMarioWorld"):
         for i in range(0, 2):
             for upgrade in item_groups["PartnerUpgrade"]:
                 if upgrade == "Partner Upgrade":
-                    for _ in range (0, 8):
+                    for _ in range(0, 8):
                         pool_other_items.remove(upgrade)
                 else:
                     pool_other_items.append(upgrade)
@@ -328,8 +335,6 @@ def get_pool_core(world: "PaperMarioWorld"):
             max_traps = 0
 
     pool_other_items.extend(["Damage Trap"] * max_traps)
-
-
 
     # adjust item pools based on settings
     items_to_remove_from_pools = get_items_to_exclude(world)
@@ -397,10 +402,10 @@ def get_pool_core(world: "PaperMarioWorld"):
         world.random
     )
 
-    if world.options.spirit_requirements.value == SpiritRequirements.option_Specific_And_Limit_Chapter_Logic:
+    if ch_excluded_locations:
         world.random.shuffle(ch_excluded_locations)
 
-        # shuffle items but then sort to put useful items in the front so that filler items go to out of logic locations first
+        # shuffle items but sort to put useful items in front so that filler items go to out of logic locations first
         world.random.shuffle(pool_other_items)
         pool_other_items.sort(key=lambda item: 1 if item_table[item][1] == Ic.filler else 0)
 
@@ -506,26 +511,19 @@ def get_locations_to_exclude(world: "PaperMarioWorld", bc_removed_locations: lis
         excluded_locations.extend(get_locations_beyond_spirit_requirements(world.options.star_way_spirits.value))
 
     # exclude some amount of chapter 8 locations depending upon access requirements
-    late_game_locations = []
-    for prefix in areas_by_chapter[8]:
-        late_game_locations.extend([name for (name, data) in location_table.items() if name.startswith(prefix)
-                                    and name not in bc_removed_locations])
-    late_game_locations.append("PCG Hijacked Castle Entrance Hidden Block")
-    late_game_locations.append("SSS Star Haven Shop Item 1")
-    late_game_locations.append("SSS Star Haven Shop Item 2")
-    late_game_locations.append("SSS Star Haven Shop Item 3")
-    late_game_locations.append("SSS Star Haven Shop Item 4")
-    late_game_locations.append("SSS Star Haven Shop Item 5")
-    late_game_locations.append("SSS Star Haven Shop Item 6")
+    if world.options.seed_goal.value != SeedGoal.option_Open_Star_Way:
+        late_game_locations = ch8_locations.copy()
+        for bc_loc in bc_removed_locations:
+            late_game_locations.remove(bc_loc)
 
-    if world.options.shuffle_star_beam.value:
-        late_game_locations.append("SSS Star Sanctuary Gift of the Stars")
+        if not world.options.shuffle_star_beam.value:
+            late_game_locations.remove("SSS Star Sanctuary Gift of the Stars")
 
-    late_game_exclude_rate = get_star_haven_access_ratio(world.options) * 100
+        late_game_exclude_rate = get_star_haven_access_ratio(world.options) * 100
 
-    for location in late_game_locations:
-        if world.random.randint(1, 100) <= late_game_exclude_rate:
-            excluded_locations.append(location)
+        for location in late_game_locations:
+            if world.random.randint(1, 100) <= late_game_exclude_rate:
+                excluded_locations.append(location)
 
     # exclude merlow rewards
     if not world.options.merlow_items.value:

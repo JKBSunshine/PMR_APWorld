@@ -24,7 +24,7 @@ prog_items_by_chapter = {
     5: ["Jade Raven", "Letter to Red Yoshi Kid", "Volcano Vase"],
     6: ["Crystal Berry", "Water Stone", "Miracle Water", "Magical Bean", "Fertile Soil"],
     7: ["Red Key", "Blue Key", "Crystal Palace Key", "Star Stone", "Letter to Mayor Penguin", "Letter to Frost T", "Snowman Scarf", "Snowman Bucket", "Warehouse Key"],
-    8: []  # chapter 8 doesn't get excluded
+    8: ["Bowser Castle Key", "Bowser Castle Key", "Bowser Castle Key", "Bowser Castle Key", "Bowser Castle Key", "Prison Key", "Prison Key"]
 }
 
 
