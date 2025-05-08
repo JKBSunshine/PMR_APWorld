@@ -381,12 +381,17 @@ def get_pool_core(world: "PaperMarioWorld"):
     if target_itempool_size < cur_itempool_size:
         world.random.shuffle(pool_illogical_consumables)
         while target_itempool_size < cur_itempool_size:
-            if len(pool_coins_only) > 20:
+            if len(pool_coins_only) > 20 or len(pool_illogical_consumables) == 0:
                 trashable_items = pool_coins_only
             else:
                 trashable_items = pool_illogical_consumables
-            trashable_items.pop()
-            cur_itempool_size -= 1
+            if trashable_items:
+                trashable_items.pop()
+                cur_itempool_size -= 1
+            else:
+                raise ValueError(f"Paper Mario: {world.player} ({world.multiworld.player_name[world.player]}) has too "
+                                 f"large of an item pool for the number of locations; consider increasing the number "
+                                 f"of checks available or reducing the badge or power star pools.")
 
     # Re-join the non-required items into one array
     pool_other_items.extend(pool_coins_only)
