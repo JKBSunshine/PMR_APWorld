@@ -515,20 +515,21 @@ def get_locations_to_exclude(world: "PaperMarioWorld", bc_removed_locations: lis
     if not world.options.power_star_hunt.value:
         excluded_locations.extend(get_locations_beyond_spirit_requirements(world.options.star_way_spirits.value))
 
+    # below lines turned off to see if letting late game locations not be excluded is a problem or not
     # exclude some amount of chapter 8 locations depending upon access requirements
-    if world.options.seed_goal.value != SeedGoal.option_Open_Star_Way:
-        late_game_locations = ch8_locations.copy()
-        for bc_loc in bc_removed_locations:
-            late_game_locations.remove(bc_loc)
-
-        if not world.options.shuffle_star_beam.value:
-            late_game_locations.remove("SSS Star Sanctuary Gift of the Stars")
-
-        late_game_exclude_rate = get_star_haven_access_ratio(world.options) * 100
-
-        for location in late_game_locations:
-            if world.random.randint(1, 100) <= late_game_exclude_rate:
-                excluded_locations.append(location)
+    # if world.options.seed_goal.value != SeedGoal.option_Open_Star_Way:
+    #     late_game_locations = ch8_locations.copy()
+    #     for bc_loc in bc_removed_locations:
+    #         late_game_locations.remove(bc_loc)
+    #
+    #     if not world.options.shuffle_star_beam.value:
+    #         late_game_locations.remove("SSS Star Sanctuary Gift of the Stars")
+    #
+    #     late_game_exclude_rate = get_star_haven_access_ratio(world.options) * 100
+    #
+    #     for location in late_game_locations:
+    #         if world.random.randint(1, 100) <= late_game_exclude_rate:
+    #             excluded_locations.append(location)
 
     # exclude merlow rewards
     if not world.options.merlow_items.value:
