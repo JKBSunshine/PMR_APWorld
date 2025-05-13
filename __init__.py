@@ -682,7 +682,7 @@ class PaperMarioWorld(World):
                                  single_player_placement=True, lock=True, allow_excluded=False)
 
         # Place partner upgrade items in potential super block locations
-        if (self.options.partner_upgrades.value == PartnerUpgradeShuffle.option_Super_Block_Locations or
+        if (self.options.partner_upgrades.value == PartnerUpgradeShuffle.option_Super_Block_Locations and
                 self.options.super_multi_blocks.value >= ShuffleSuperMultiBlocks.option_Shuffle):
             upgrade_items = list(filter(lambda item: pm_is_item_of_type(item, "PARTNERUPGRADE"), self.pre_fill_items))
             super_block_locations = location_groups["SuperBlock"]
