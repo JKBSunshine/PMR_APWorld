@@ -191,8 +191,7 @@ def get_pool_core(world: "PaperMarioWorld"):
             shuffle_item = (world.options.super_multi_blocks.value > ShuffleSuperMultiBlocks.option_Off)
 
         if location.name in location_groups["SuperBlock"]:
-            shuffle_item = (world.options.super_multi_blocks.value > ShuffleSuperMultiBlocks.option_Off or
-                            world.options.partner_upgrades.value > PartnerUpgradeShuffle.option_Vanilla)
+            shuffle_item = world.options.partner_upgrades.value > PartnerUpgradeShuffle.option_Vanilla
 
         if location.name in location_groups["Gear"]:
             # hammer 1 bush is special in that it is made to not be empty even if starting with hammer

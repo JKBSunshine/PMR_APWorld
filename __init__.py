@@ -545,8 +545,7 @@ class PaperMarioWorld(World):
                     prefill_item_names.append(item.name)
 
         # partner upgrades shuffled among super block locations, which may be shuffled
-        if (self.options.partner_upgrades.value == PartnerUpgradeShuffle.option_Super_Block_Locations or
-                self.options.super_multi_blocks.value > ShuffleSuperMultiBlocks.option_Off):
+        if self.options.partner_upgrades.value == PartnerUpgradeShuffle.option_Super_Block_Locations:
             for item in self.itempool:
                 if item.name in item_groups["PartnerUpgrade"]:
                     prefill_item_names.append(item.name)
@@ -682,8 +681,7 @@ class PaperMarioWorld(World):
                                  single_player_placement=True, lock=True, allow_excluded=False)
 
         # Place partner upgrade items in potential super block locations
-        if (self.options.partner_upgrades.value == PartnerUpgradeShuffle.option_Super_Block_Locations and
-                self.options.super_multi_blocks.value >= ShuffleSuperMultiBlocks.option_Shuffle):
+        if self.options.partner_upgrades.value == PartnerUpgradeShuffle.option_Super_Block_Locations:
             upgrade_items = list(filter(lambda item: pm_is_item_of_type(item, "PARTNERUPGRADE"), self.pre_fill_items))
             super_block_locations = location_groups["SuperBlock"]
 
