@@ -10,7 +10,7 @@ Paper Mario:
     # Many settings do not affect logic or generation in any way and will only be relevant when an actual file gets created. These will be marked (NLA).
     # Changing these settings is usually fine, just don't be too surprised if they don't work. If you have generation issues or crash issues, leave them as is to ensure they aren't the cause.
     
-    # AP World Version: 0.6.2
+    # AP World Version: 0.6.3
 
     # Items
     keysanity: True                         # Other options: False
