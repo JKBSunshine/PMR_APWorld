@@ -139,7 +139,7 @@ ap_to_rom_option_table = {
     "PeachCastleReturnPipe": "",
     "FoliageItemHints": "foliage_item_hints",
     "HiddenPanelVisibility": "visible_hidden_panels",
-    "ISpyPanelHints": "visible_hidden_panels",
+    "ISpyPanelHints": "ispy_panel_hints",
     "MuteDangerBeeps": "mute_danger_beeps",
 
     # Difficulty and enemies
