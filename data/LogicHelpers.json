@@ -21,6 +21,7 @@
     "has_strong_aerial_partner": "Bow or Watt or Sushie or Lakilester",
     "has_weak_aerial_partner": "Goombario or Parakarry",
 
+    "can_pass_kent": "(not kent_c_koopa == 1) or (('STARSPIRIT', 2) and (Boots or Goombario))",
     "can_beat_all_bloopers": "(can_beat_blooper and can_beat_electro_blooper and can_beat_super_blooper)",
     "can_beat_blooper": "(Super_Boots or (Boots and has_weak_aerial_partner) or has_strong_aerial_partner) or blooper_damage_requirements < 1",
     "can_beat_electro_blooper": "(Ultra_Boots or (Super_Boots and (has_strong_aerial_partner or has_weak_aerial_partner))) or blooper_damage_requirements < 2",

@@ -153,7 +153,7 @@
     "map_name": "Pleasant Path Entry",
     "exits": {
       "TT Plaza District": "True",
-      "KR Pleasant Path Entry East": "kent_c_koopa != 1 or (('STARSPIRIT', 2) and (Boots or Goombario))"
+      "KR Pleasant Path Entry East": "can_pass_kent"
     }
   },
   {
@@ -167,7 +167,7 @@
       "KR Pleasant Path Entry Yellow Block Right": "can_hit_floating_blocks"
     },
     "exits": {
-      "KR Pleasant Path Entry West": "kent_c_koopa != 1 or (('STARSPIRIT', 2) and (Boots or Goombario))",
+      "KR Pleasant Path Entry West": "can_pass_kent",
       "KR Pleasant Path Bridge West": "True"
     }
   },
